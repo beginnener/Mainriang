@@ -29,11 +29,11 @@
 
 .orange-border {
     border-radius: 6.875rem;
-    border: 1px solid var(--ung, #FF984E);
+    border: 2px solid var(--ung, #FF984E);
     background: var(--ungu, #6e11b0);
 }
 
-.text--login {
+.text-login {
     background: var(--gradiasi, linear-gradient(270deg, #FF984E 0%, #FFD557 100%));
     background-clip: text;
     -webkit-background-clip: text;
