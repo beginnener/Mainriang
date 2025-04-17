@@ -4,7 +4,7 @@
 <body>
     @include('component.navbar')
     <div class="w-full h-72 relative bg-gray-700">
-        <img src="images\Banner.png" class="absolute inset-0 w-full h-full opacity-80"/>
+        <img src="/images/Banner.png" class="absolute inset-0 w-full h-full opacity-80"/>
         <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">Pendaftaran</h1>
     </div>
     <div class="w-[1440px] h-[1216px] relative overflow-hidden">
@@ -26,7 +26,7 @@
                     <li>Pengisian form lanjutan.</li>
                     <li>Asesmen dan wawancara oleh psikolog.</li>
                     <li>Konfirmasi data.</li>
-                    <li>Pembayaran pendidikan.</span>
+                    <li>Pembayaran pendidikan.</li>
                 </ul>
             </a>
             <div class="mt-6 flex justify-center items-center">

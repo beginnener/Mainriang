@@ -7,7 +7,7 @@
         <div class="w-[1440px] h-[700px] left-0 top-[15rem] absolute overflow-hidden">
             <div class="w-[599px] h-24 left-0 top-[63px] absolute bg-gradient-to-l from-orange-400 to-amber-300 rounded-tr-[55px] rounded-br-[55px]"></div>
             <div class="w-52 left-[184px] top-[89px] absolute justify-start text-ungu-2 text-3xl font-bold font-['Poppins']">Data Anak</div>
-            <form action="pendaftaran/data-ortu" method="post">
+            <form action="/data-ortu" method="post">
                 <div class="w-[1072px] left-[184px] top-[219px] absolute inline-flex flex-col justify-start items-start gap-6">
                     <div class="self-stretch inline-flex justify-end items-center gap-5">
                         <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
