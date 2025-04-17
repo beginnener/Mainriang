@@ -2,9 +2,9 @@
 <html lang="en">
 @include('component.head')
 <body>
-    {{-- navbar --}}
-    <div class="container h-[4632px] relative bg-white overflow-hidden">
-        <img class="container h-[608px] left-0 top-[112px] absolute" src="https://placehold.co/1928x608" />
+    @include('component.navbar')
+    <div class="w-full h-[4632px] relative bg-white overflow-hidden">
+        <img class="w-full h-[608px] absolute" src="https://placehold.co/1928x608" />
         <div class="w-[1418px] h-[577px] left-[-146px] top-[1391px] absolute">
             <div class="w-[844px] h-24 left-[146px] top-[1px] absolute orange-gradient rounded-tr-[48px] rounded-br-[48px]"></div>
             <div class="w-[1116px] h-[472px] left-[216px] top-[105px] absolute bg-purple-500 rounded-[48px]"></div>
@@ -264,67 +264,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-[1446px] left-[-3px] top-[4182px] absolute inline-flex flex-col justify-center items-center">
-            <div class="self-stretch h-96 relative bg-indigo-950">
-                <div class="w-[486px] left-[187px] top-[87px] absolute inline-flex flex-col justify-start items-start gap-2.5">
-                    <div class="self-stretch h-11 justify-center text-slate-50 text-3xl font-semibold font-['Poppins'] leading-10">Mainriang</div>
-                    <div class="self-stretch h-40 justify-center text-slate-50 text-base font-normal font-['Poppins'] leading-normal">Lembaga pendidikan Islam di bawah naungan<br/>Yayasan Teman Ilmu Indonesia berdasarkan Akta<br/>Notaris Mohamad Juania, SH., M.Kn. Nomor 19<br/>Tanggal 18 Februari 2021 Dan dengan No Izin<br/>Operasional: 0005/IPSPNFI/VI/2024/DPMPTSP yang<br/>berfokus pada pengelolaan daycare, playgroup, dan<br/>Taman Kanak-Kanak (TK).</div>
-                </div>
-                <div class="w-96 left-[901px] top-[86px] absolute inline-flex flex-col justify-start items-start gap-2.5">
-                    <div class="self-stretch h-9 justify-center text-slate-50 text-3xl font-semibold font-['Poppins'] leading-loose">Alamat Kami</div>
-                    <div class="self-stretch h-6 justify-center text-slate-50 text-base font-normal font-['Poppins'] leading-normal">Jl. Babakan Radio No. 25 Kota Bandung</div>
-                    <div class="inline-flex justify-start items-start gap-2.5">
-                        <div class="w-6 h-7 relative">
-                            <div class="w-6 h-6 left-0 top-[2.56px] absolute">
-                                <div class="w-6 h-6 left-0 top-0 absolute overflow-hidden">
-                                    <div class="w-6 h-6 left-0 top-0 absolute"></div>
-                                    <div class="w-5 h-5 left-[2px] top-[2px] absolute bg-slate-50"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-6 h-7 relative">
-                            <div class="w-6 h-6 left-0 top-[2.56px] absolute">
-                                <div class="w-6 h-6 left-0 top-0 absolute overflow-hidden">
-                                    <div class="w-6 h-6 left-0 top-0 absolute"></div>
-                                    <div class="w-5 h-5 left-[2px] top-[2px] absolute bg-slate-50"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="self-stretch h-14 relative bg-slate-900">
-                <div class="w-72 h-5 left-[578.61px] top-[17px] absolute text-center justify-center text-slate-50 text-base font-normal font-['Noto_Sans'] leading-normal">Copyright © 2025 - All Rights Reserved</div>
-            </div>
-        </div>
-        <div class="container h-28 left-0 top-0 absolute overflow-hidden">
-            <div class="container h-36 left-0 top-0 absolute bg-purple-800"></div>
-            <div class="px-5 left-[704px] top-[36px] absolute inline-flex justify-center items-center gap-5">
-                <div class="w-24 h-9 relative">
-                    <div class="left-[16px] top-[6px] absolute text-center justify-center text-white text-base font-medium font-['Poppins']">Tentang</div>
-                </div>
-                <div class="w-24 h-9 relative">
-                    <div class="left-[16px] top-[6px] absolute text-center justify-center text-white text-base font-medium font-['Poppins']">Fasilitas</div>
-                </div>
-                <div class="w-44 h-10 relative">
-                    <div class="w-44 h-10 left-0 top-0 absolute orange-gradient rounded-[55px]"></div>
-                    <div class="left-[42px] top-[8px] absolute text-center justify-center text-purple-950 text-base font-medium font-['Poppins']">Pendaftaran</div>
-                </div>
-                <div class="w-32 h-10 relative">
-                    <div class="w-32 h-10 left-0 top-0 absolute orange-border"></div>
-                    <div class="w-20 left-[31px] top-[8px] absolute text-center justify-center text--login">Login</div>
-                </div>
-                <div class="w-5 h-4 inline-flex flex-col justify-start items-start gap-2">
-                    <div class="w-5 h-0 outline outline-offset-[-1.50px] outline-white"></div>
-                    <div class="w-5 h-0 outline outline-offset-[-1.50px] outline-white"></div>
-                    <div class="w-5 h-0 outline outline-offset-[-1.50px] outline-white"></div>
-                </div>
-            </div>
-            <div class="w-72 h-24 left-[74px] top-[11px] absolute">
-                <img class="w-20 h-20 left-[7px] top-[7px] absolute" src="https://placehold.co/77x77" />
-                <div class="left-[112px] top-[24px] absolute text-center justify-center text-white text-3xl font-bold font-['Poppins']">Main Riang</div>
-            </div>
-        </div>
     </div>
+    @include('component.footer')
 </body>
 </html>
