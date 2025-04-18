@@ -115,14 +115,11 @@
               Dashboard
           </a>
       @else
-          <div class="w-28 h-10 flex items-center justify-center rounded-full bg-purple-900 border border-orange-400  transition duration-500 hover:border-none hover:bg-gradient-to-l hover:from-orange-400 hover:to-amber-300 group">
-            <a
-                href="{{ route('login') }}"
-                class="text-orange-400 font-medium font-['Poppins'] group-hover:text-purple-900"
-            >
-                Log in
-            </a>
+        <a href="{{ route('login') }}">
+          <div class="w-28 h-10 flex items-center justify-center rounded-full bg-purple-900 text-orange-400 font-medium font-['Poppins'] border border-orange-400  transition duration-500 hover:text-purple-900 hover:border-none hover:bg-gradient-to-l hover:from-orange-400 hover:to-amber-300 group">
+            Log in
           </div>
+        </a>
         @endauth
       @endif
       <div id="toggleAllMenu" class="flex items-center">
