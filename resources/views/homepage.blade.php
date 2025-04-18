@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-@include('component.head')
-<body>
-    @include('component.navbar')
+@extends('layout.app')
+
+@section('content')
     <div class="w-full h-[4632px] relative bg-white overflow-hidden">
         <img class="w-full h-[608px] absolute" src="https://placehold.co/1928x608" />
         <div class="w-[1418px] h-[577px] left-[-146px] top-[1391px] absolute">
@@ -56,31 +54,20 @@
             <div class="w-60 h-14 bg-ungu rounded-[55px]"></div>
             <div class="justify-center text-white text-2xl font-medium font-['Poppins'] leading-9">Selengkapnya</div>
         </div>
+        
         {{-- svg bunga --}}
         <div class="w-[610.66px] top-[2110px] relative">
-            <svg viewBox="0 0 512 512" width="100%" height="100%">
-              <path d="M266,256 
-                       C266,200 312,144 368,160 
-                       C424,176 440,240 400,272 
-                       C368,296 312,312 266,256 
-                       
-                       M266,256 
-                       C266,312 312,368 368,352 
-                       C424,336 440,272 400,240 
-                       C368,216 312,200 266,256 
-                       
-                       M266,256 
-                       C266,200 216,144 160,160 
-                       C104,176 88,240 128,272 
-                       C160,296 216,312 266,256 
-                       
-                       M266,256 
-                       C266,312 216,368 160,352 
-                       C104,336 88,272 128,240 
-                       C160,216 216,200 266,256 
-                       Z" fill="#FFA14D"/>
+            <svg width="643" height="639" viewBox="0 0 643 639" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g transform="rotate(48, 321.5, 319.5) translate(-200, 230)">
+                    <path d="M421.747 104.196C421.747 161.741 322.761 279.183 322.761 279.183C322.761 279.183 223.776 161.741 223.776 104.196C223.776 46.65 268.093 0 322.761 0C377.43 0 421.747 46.65 421.747 104.196Z" fill="#FF984E"/>
+                    <path d="M154.007 168.354C209.352 183.979 295.403 311.143 295.403 311.143C295.403 311.143 155.555 374.53 100.21 358.905C44.8656 343.28 12.0429 287.957 26.8986 235.338C41.7543 182.718 98.6629 152.729 154.007 168.354Z" fill="#FF984E"/>
+                    <path d="M488.07 168.292C432.725 183.917 346.674 311.081 346.674 311.081C346.674 311.081 486.522 374.468 541.867 358.843C597.212 343.218 630.034 287.895 615.179 235.276C600.323 182.656 543.414 152.667 488.07 168.292Z" fill="#FF984E"/>
+                    <path d="M121.962 431.382C156.256 385.172 305.733 349.854 305.733 349.854C305.733 349.854 315.232 503.153 280.938 549.363C246.643 595.574 183.254 606.624 139.354 574.044C95.4544 541.464 87.6675 477.593 121.962 431.382Z" fill="#FF984E"/>
+                    <path d="M352.333 550.013C321.953 501.14 344.022 349.141 344.022 349.141C344.022 349.141 490.09 396.627 520.469 445.5C550.849 494.373 537.837 557.389 491.408 586.249C444.978 615.11 382.712 598.886 352.333 550.013Z" fill="#FF984E"/>
+                </g>
             </svg>
-          </div>
+        </div>
+
         <div class="w-[1350px] h-96 left-[45px] top-[2821px] absolute">
             <div class="w-36 h-9 left-[602.16px] top-[-3.21px] absolute text-center justify-center text-slate-900 text-3xl font-bold font-['Poppins'] leading-loose">Testimoni</div>
             <div class="w-80 h-6 left-[522.16px] top-[37.79px] absolute text-center justify-center text-slate-900 text-base font-normal font-['Poppins'] leading-normal">Apa Kata Mereka tentang Main Riang?</div>
@@ -265,6 +252,4 @@
             </div>
         </div>
     </div>
-    @include('component.footer')
-</body>
-</html>
+@endsection

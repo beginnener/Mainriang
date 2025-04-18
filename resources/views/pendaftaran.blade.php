@@ -17,7 +17,7 @@
                 . Informasi mengenai program, kegiatan, serta ketentuan yang berlaku dapat membantu Anda dalam memilih 
                 dan mengikuti aktivitas yang sesuai dengan minat dan kebutuhan Anda. Dengan memahami program yang tersedia, 
                 Anda dapat memaksimalkan pengalaman Anda bersama Main Riang.<br/>
-                <br/>Berikut adalah tahapan pendaftaran Main riang:<br/>
+                <br/>Berikut adalah tahapan pendaftaran Main riang:<br/></a>
                 <ul style="list-style-type:disc">
                     <li>Pengisian data anak.</li>
                     <li>Pengisian data orang tua.</li>
@@ -28,7 +28,6 @@
                     <li>Konfirmasi data.</li>
                     <li>Pembayaran pendidikan.</li>
                 </ul>
-            </a>
             <div class="mt-6 flex justify-center items-center">
                 <a href="/pendaftaran/data-anak" class="inline-flex items-center justify-center w-80 h-20 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,1.00)] text-black text-xl font-bold text-center hover:opacity-90 transition">
                   Saya Ingin Mendaftar
