@@ -1,8 +1,35 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="w-full h-[4632px] relative bg-white overflow-hidden">
-        <img class="w-full h-[608px] absolute" src="https://placehold.co/1928x608" />
+<section class="w-full overflow-hidden bg-white">
+    {{-- banner --}}
+    <div class="w-full">
+        <img src="https://placehold.co/1928x608" alt="Banner" class="w-full h-auto object-cover" />
+    </div>
+    <div class="max-w-screen-xl mx-auto px-4 mt-12 mb-12 flex flex-col items-center gap-8">
+        <!-- Heading -->
+        <div class="w-full">
+            <div class="w-full h-16 bg-gradient-to-l from-orange-400 to-amber-300 rounded-full flex justify-center items-center">
+                <h2 class="font-['Poppins'] font-semibold text-white text-5xl text-center">PROGRAM</h2>
+            </div>
+        </div>
+        <div class="w-full flex flex-wrap justify-center gap-8">
+            <a href="#" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
+                <span class="text-purple-950 font-['Fredoka'] font-extrabold text-4xl mt-2">Day Care</span>
+                <img src="/icon/daycare - icon.svg" alt="Day Care" class="mt-auto" />
+            </a>
+            <a href="#" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
+                <span class="text-purple-950 font-['Fredoka'] font-extrabold text-4xl mt-2">Play Group</span>
+                <img src="/icon/playgroup - icon.svg" alt="Play Group" class="mt-auto" />
+            </a>
+            <a href="#" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
+                <span class="text-purple-950 font-['Fredoka'] font-extrabold text-4xl mt-2">TK</span>
+                <img src="/icon/tk - icon.svg" alt="TK" class="mt-auto" />
+            </a>
+        </div>
+    </div>
+</section>
+    <div class="w-full h-auto relative bg-white overflow-hidden">
         <div class="w-[1418px] h-[577px] left-[-146px] top-[1391px] absolute">
             <div class="w-[844px] h-24 left-[146px] top-[1px] absolute orange-gradient rounded-tr-[48px] rounded-br-[48px]"></div>
             <div class="w-[1116px] h-[472px] left-[216px] top-[105px] absolute bg-purple-500 rounded-[48px]"></div>
@@ -10,31 +37,12 @@
                 Mengapa MainRiang?
             </div>
             <img class="w-[452px] h-[480px] left-[1043px] top-[48px] absolute rounded-tl-[226px] rounded-tr-[226px] rounded-br-[226px] shadow-[15px_4px_4px_0px_rgba(255,152,78,1.00)]" src="https://placehold.co/452x480" />
-            <div class="w-[646px] h-96 left-[330px] top-[133px] absolute justify-center text-white text-2xl font-medium font-Poppins leading-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum felis leo, ac venenatis mauris accumsan at. Nunc non faucibus mauris. Sed ipsum elit, fringilla id sodales eget, dictum et mauris. Morbi congue finibus mi, at euismod tortor semper non. Vestibulum tincidunt nisi eget lorem ullamcorper tincidunt.</div>
+            <div class="w-[646px] h-96 left-[330px] top-[133px] absolute justify-center text-white text-2xl font-medium font-Poppins leading-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum felis leo, ac venenatis mauris 
+                accumsan at. Nunc non faucibus mauris. Sed ipsum elit, fringilla id sodales eget, dictum et mauris. 
+                Morbi congue finibus mi, at euismod tortor semper non. Vestibulum tincidunt nisi eget lorem ullamcorper 
+                tincidunt.</div>
             <div class="left-[330px] top-[474px] absolute justify-center text-white text-2xl font-medium font-['Poppins'] underline leading-9">Selengkapnya →</div>
-        </div>
-        <div class="w-[964px] left-[237px] top-[771px] absolute inline-flex flex-col justify-start items-center gap-14">
-            <div class="w-[946px] h-20 orange-gradient rounded-[48px]">
-                <div class="text-center justify-center text-ungu-2 text-5xl heading-1 leading-[105px]">PROGRAM</div>
-            </div>
-            <div class="self-stretch inline-flex justify-start items-center gap-5">
-                <div class="w-80 h-80 relative">
-                    <div class="w-80 h-80 left-0 top-0 absolute bg-putih rounded-[48px] border-4 border-ungu"></div>
-                    <div class="left-[78px] top-[42px] absolute text-center justify-center text-ungu-2 text-3xl font-bold font-['Poppins'] leading-9">Day Care</div>
-                    <img class="w-52 h-52 left-[51px] top-[94px] absolute blur-[0px]" src="https://placehold.co/205x205" />
-                </div>
-                <div class="w-80 h-80 relative">
-                    <div class="w-80 h-80 left-0 top-0 absolute bg-putih rounded-[48px] border-4 border-ungu"></div>
-                    <div class="left-[64px] top-[42px] absolute text-center justify-center text-ungu-2 text-3xl font-bold font-['Poppins'] leading-9">Play Group</div>
-                    <img class="w-52 h-52 left-[51px] top-[94px] absolute blur-[0px]" src="https://placehold.co/205x205" />
-                </div>
-                <div class="w-80 h-80 relative">
-                    <div class="w-80 h-80 left-0 top-0 absolute bg-putih rounded-[48px] border-4 border-ungu"></div>
-                    <div class="left-[133px] top-[42px] absolute text-center justify-center text-ungu-2 text-3xl font-bold font-['Poppins'] leading-9">TK</div>
-                    <img class="w-52 h-52 left-[51px] top-[94px] absolute blur-[0px]" src="https://placehold.co/205x205" />
-                </div>
-            </div>
-        </div>
+        </div>  
         <div class="w-[781px] left-[475px] top-[2117px] absolute inline-flex flex-col justify-center items-end gap-14">
             <div class="text-right justify-center text-ungu-2 text-6xl font-bold font-['Fredoka']">Trilogi<br/>MainRiang</div>
             <div class="w-[781px] inline-flex justify-start items-center gap-28">
