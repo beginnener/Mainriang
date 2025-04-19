@@ -1,38 +1,47 @@
 <footer>
-    <div class="w-full h-96">
-        d
-    </div>
-    <div class="w-full absolute inline-flex flex-col justify-center items-center">
-        <div class="self-stretch h-96 relative bg-indigo-950">
-            <div class="w-full left-[187px] top-[87px] absolute inline-flex flex-col justify-start items-start gap-2.5">
-                <div class="self-stretch h-11 justify-center text-slate-50 text-3xl font-semibold font-['Poppins'] leading-10">Mainriang</div>
-                <div class="self-stretch h-40 justify-center text-slate-50 text-base font-normal font-['Poppins'] leading-normal">Lembaga pendidikan Islam di bawah naungan<br/>Yayasan Teman Ilmu Indonesia berdasarkan Akta<br/>Notaris Mohamad Juania, SH., M.Kn. Nomor 19<br/>Tanggal 18 Februari 2021 Dan dengan No Izin<br/>Operasional: 0005/IPSPNFI/VI/2024/DPMPTSP yang<br/>berfokus pada pengelolaan daycare, playgroup, dan<br/>Taman Kanak-Kanak (TK).</div>
-            </div>
-            <div class="w-96 left-[901px] top-[86px] absolute inline-flex flex-col justify-start items-start gap-2.5">
-                <div class="self-stretch h-9 justify-center text-slate-50 text-3xl font-semibold font-['Poppins'] leading-loose">Alamat Kami</div>
-                <div class="self-stretch h-6 justify-center text-slate-50 text-base font-normal font-['Poppins'] leading-normal">Jl. Babakan Radio No. 25 Kota Bandung</div>
-                <div class="inline-flex justify-start items-start gap-2.5">
-                    <div class="w-6 h-7 relative">
-                        <div class="w-6 h-6 left-0 top-[2.56px] absolute">
-                            <div class="w-6 h-6 left-0 top-0 absolute overflow-hidden">
-                                <div class="w-6 h-6 left-0 top-0 absolute"></div>
-                                <div class="w-5 h-5 left-[2px] top-[2px] absolute bg-slate-50"></div>
-                            </div>
+    <div class="w-full flex flex-col h-96">
+        <div class="h-5/6 bg-indigo-950">
+            <div class="w-full h-full flex items-center justify-center">
+                <div class="flex flex-row gap-80">
+                    <div class="w-96 flex flex-col ">
+                        <div class="mb-4">
+                            <a class="font-['Poppins'] text-3xl font-semibold text-white">Mainriang<br></a>
+                        </div>
+                        <div>
+                            <a class="font-['Poppins'] text-sm font-light text-slate-50">
+                                Lembaga pendidikan Islam di bawah naungan<br />
+                                Yayasan Teman Ilmu Indonesia berdasarkan Akta<br />
+                                Notaris Mohamad Juania, SH., M.Kn. Nomor 19<br />
+                                Tanggal 18 Februari 2021 Dan dengan No Izin<br />
+                                Operasional: 0005/IPSPNFI/VI/2024/DPMPTSP yang<br />
+                                berfokus pada pengelolaan daycare, playgroup, dan<br />
+                                Taman Kanak-Kanak (TK).
+                            </a>
                         </div>
                     </div>
-                    <div class="w-6 h-7 relative">
-                        <div class="w-6 h-6 left-0 top-[2.56px] absolute">
-                            <div class="w-6 h-6 left-0 top-0 absolute overflow-hidden">
-                                <div class="w-6 h-6 left-0 top-0 absolute"></div>
-                                <div class="w-5 h-5 left-[2px] top-[2px] absolute bg-slate-50"></div>
-                            </div>
+                    <div class="w-96 flex flex-col ">
+                        <div class="mb-4">
+                            <a class="font-['Poppins'] text-2xl font-semibold text-white">Alamat Kami<br></a>
+                        </div>
+                        <div>
+                            <a class="font-['Poppins'] text-sm font-light text-slate-50">
+                                Jl. Babakan Radio No. 25 Kota Bandung<br />
+                            </a>
+                        </div>
+                        <div class="mt-4 flex flex-row gap-3">
+                            <a href="#">
+                                <img src="/icon/Link - instagram.svg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/icon/Link - whatsapp.svg" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="self-stretch h-14 relative bg-slate-900">
-            <div class="w-72 h-5 left-[578.61px] top-[17px] absolute text-center justify-center text-slate-50 text-base font-normal font-['Noto_Sans'] leading-normal">Copyright © 2025 - All Rights Reserved</div>
+        <div class="h-1/6 bg-slate-900 text-center flex items-center justify-center">
+            <a class="block font-['Poppins'] font-medium text-m text-white">Copyright © 2025 - All Rights Reserved</a>
         </div>
     </div>
 </footer>
