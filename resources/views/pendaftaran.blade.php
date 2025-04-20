@@ -11,7 +11,7 @@
         <div class="w-[1072px] left-[184px] top-[216px] absolute justify-start">
             <a class="text-ungu-2 text-2xl font-medium font-['Poppins']">
                 Sebelum mendaftar, pastikan Anda telah memiliki akun Main Riang. Jika Anda belum memiliki akun, silakan daftar terlebih dahulu dengan memencet tombol login kanan atas.<br/>
-                <br/>Pastikan juga Anda telah membaca dan memahami program-program yang ditawarkan oleh Main Riang yang tersedia di website atau cek di </a>
+                <br/>Pastikan juga Anda telah membaca dan memahami program-program yang ditawarkan oleh Main Riang yang tersedia di website atau cek di
                 <a class="text-2xl font-['Poppins'] underline" href="#">link ini</a>
                 <a class="text-ungu-2 text-2xl font-medium font-['Poppins']">
                 . Informasi mengenai program, kegiatan, serta ketentuan yang berlaku dapat membantu Anda dalam memilih 
@@ -28,6 +28,7 @@
                     <li>Konfirmasi data.</li>
                     <li>Pembayaran pendidikan.</li>
                 </ul>
+            </a>
             <div class="mt-6 flex justify-center items-center">
                 <a href="/pendaftaran/data-anak" class="inline-flex items-center justify-center w-80 h-20 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,1.00)] text-black text-xl font-bold text-center hover:opacity-90 transition">
                   Saya Ingin Mendaftar
