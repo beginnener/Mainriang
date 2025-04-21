@@ -108,12 +108,9 @@
       </a>
       @if (Route::has('login'))
         @auth
-          <a
-              href="{{ url('/dashboard') }}"
-              class="px-2 text-white text-base font-medium font-['Poppins'] hover:text-yellow-400 transition"
-          >
-              Dashboard
-          </a>
+          <div id="toggleAllMenu" class="flex items-center">
+            <img src="/icon/All.svg">
+          </div>
       @else
         <a href="{{ route('login') }}">
           <div class="w-28 h-10 flex items-center justify-center rounded-full bg-purple-900 text-orange-400 font-medium font-['Poppins'] border border-orange-400 transition duration-500 hover:text-purple-900 hover:border-none hover:bg-gradient-to-l hover:from-orange-400 hover:to-amber-300 group active:bg-amber-400 active:text-white">
@@ -122,9 +119,6 @@
         </a>
         @endauth
       @endif
-      <div id="toggleAllMenu" class="flex items-center">
-        <img src="/icon/All.svg">
-      </div>
     </div>
   </nav>
 </header>
