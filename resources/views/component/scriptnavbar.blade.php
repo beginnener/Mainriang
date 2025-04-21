@@ -41,5 +41,41 @@
         }
     });
 
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+    let index = 0;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    document.getElementById('next').onclick = () => {
+      nextSlide();
+      resetAutoplay();
+    };
+
+    document.getElementById('prev').onclick = () => {
+      prevSlide();
+      resetAutoplay();
+    };
+
+    // Autoplay
+    let autoplayInterval = setInterval(nextSlide, 3000); // Ganti slide tiap 3 detik
+
+    function resetAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(nextSlide, 3000);
+    }
+
     @stack('scripts')
 </script>
