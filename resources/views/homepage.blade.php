@@ -31,8 +31,8 @@
 </section>
 <section class="w-full pb-6 bg-white flex justify-start">
     <div class="w-full h-auto flex flex-col gap-0">
-        <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-center items-center">
-            <span class="font-['Fredoka'] font-semibold text-purple-950 text-3xl text-center" style="-webkit-text-stroke: 1px #3b0764;">Mengapa Main Riang?</span>
+        <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-left items-center">
+            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" style="-webkit-text-stroke: 1px #3b0764;">Mengapa Main Riang?</span>
         </div>
         <div class="w-full h-auto relative bg-white flex flex-col">
             <div class="w-3/5 ml-20 rounded-3xl bg-purple-900">
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="w-[400px] h-[400px] mr-20 absolute -top-16 left-[60%] z-0 bg-slate-300 rounded-tr-full rounded-tl-full rounded-br-full shadow-[15px_4px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden">
-                <img src="https://placehold.co/1028x1028" alt="" class="w-full h-full object-cover" />
+                <img src="\images\WhatsApp Image 2025-03-11 at 09.42.05_0948c5ad.jpg" alt="" class="w-full h-full object-cover" />
             </div>
         </div>    
     </div>
@@ -84,7 +84,7 @@
             </a>
             <a href="#" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
                 <div class="p-4 flex flex-col" aria-label="card-1">
-                    <span class="font-['Poppins'] font-bold text-2xl text-purple-950 text-left">5 Basic <br>Areas</span>
+                    <span class="font-['Poppins'] font-bold text-2xl text-purple-950 text-left">5 Basic Areas</span>
                     <span class="mt-4 font-['Poppins'] font-normal text-xl text-black text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum felis leo.</span>
                 </div>
             </a>
@@ -93,6 +93,38 @@
             <a href="#" class="w-60 h-14 bg-gradient-to-l from-orange-400 to-amber-300 rounded-full flex justify-center items-center transition duration-500 hover:bg-purple-900 hover:bg-none hover:outline hover:outline-orange-400 hover:outline-1 active:bg-purple-950 focus:text-yellow-400 group">
                 <span class="text-purple-950 font-medium font-['Poppins'] group-hover:text-orange-400">Selengkapnya</span>
             </a>
+        </div>
+    </div>
+</section>
+<section class="w-full h-auto py-11 bg-white flex flex-col">
+    <div class="flex flex-col">
+        <h2 class="text-center font-['Poppins'] font-extrabold text-xl text-slate-800">Testimoni</h2>
+        <span class="text-center font-['Poppins'] font-medium text-slate-600">Apa kata mereka tentang Main Riang?</span>
+    </div>
+    <div class="mt-10 flex flex-row justify-center items-center gap-8">
+        <div class="flex flex-col items-center gap-4 border boreder-slate-200 rounded-3xl p-5 shadow-lg">
+            <img src="" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
+            <div class="w-96 h-auto rounded-3xl p-5 border border-slate-100">
+                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
+                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">Ibu Siti</span>
+                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Mom Andi</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-4 border boreder-slate-200 rounded-3xl p-5 shadow-lg">
+            <img src="" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
+            <div class="w-96 h-auto rounded-3xl p-5 border border-slate-100">
+                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
+                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">Ibu Siti</span>
+                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Mom Andi</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-4 border boreder-slate-200 rounded-3xl p-5 shadow-lg">
+            <img src="" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
+            <div class="w-96 h-auto rounded-3xl p-5 border border-slate-100">
+                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
+                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">Ibu Siti</span>
+                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Mom Andi</span>
+            </div>
         </div>
     </div>
 </section>
