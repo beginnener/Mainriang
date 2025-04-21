@@ -10,6 +10,10 @@ Route::get('/pendaftaran/konfirmasi-bayar1', function () {
     return view('pendaftaran-konfirmasiBayar1');
 });
 
+route::get('/pendaftaran', function() {
+    return view('pendaftaran');
+})->name('pendaftaran');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
