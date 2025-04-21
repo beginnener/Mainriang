@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('content')
+
+@endsection
+{{-- <!DOCTYPE html>
 <html lang="en">
 @include('component.head')
 <body>
@@ -58,4 +62,4 @@
     </div>    
     @include('component.footer')
 </body>
-</html>
+</html> --}}
