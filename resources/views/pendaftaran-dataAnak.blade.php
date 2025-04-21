@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.pendaftaran')
 @section('content')
+    <div class="w-full relative">
 
+    </div>
 @endsection
 {{-- <!DOCTYPE html>
 <html lang="en">

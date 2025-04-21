@@ -1,47 +1,77 @@
-<div class="w-[1440px] h-60 left-0 absolute">
-    <div class="w-[1478px] h-14 left-[-19px] top-[56px] absolute inline-flex justify-center items-center gap-2.5">
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">1</div>
+<div class="w-full py-8 bg-white">
+    <div class="flex flex-col">
+      <!-- STEP CIRCLES + LINES -->
+      <div class="grid grid-cols-8 items-center overflow-hidden">
+        <!-- Repeat this pattern 8x -->
+        <div class="flex gap-2 items-center">   
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">1</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">2</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">2</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full"vv>
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">3</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">3</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">4</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">4</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">5</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">5</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">6</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">6</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">7</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">7</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline outline-purple-950"></div>
-        <div class="w-7 h-7 bg-purple-950 rounded-full">
-            <div class="w-3.5 h-6 px-2 text-center justify-center text-white text-xl font-bold font-['Poppins']">8</div>
+        <div class="flex gap-2 items-center">
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-r-full"></div>
+          <div class="w-8 h-8 bg-purple-950 rounded-full grid place-items-center mx-auto">
+            <span class="text-white text-xs font-bold font-['Poppins'] text-center">8</span>
+          </div>
+          <div class="hidden md:block h-1.5 flex-grow bg-purple-950 rounded-l-full"></div>
         </div>
-        <div class="w-28 h-0 outline"></div>
+      </div>
+  
+      <!-- LABELS -->
+      <div class="grid grid-cols-8 gap-1 mt-4">
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Input Data Anak</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Input Orang Tua</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Pembayaran</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Pemilihan Program</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Form Lanjutan</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Wawancara</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Konfirmasi</span>
+        <span class="w-24 mx-auto text-center text-[12px] font-semibold font-['Poppins'] text-purple-950 text-wrap">Pembayaran Pendidikan</span>      
+      </div>
     </div>
-    <div class="left-[81px] top-[112px] absolute inline-flex justify-center items-start gap-8">
-        <div class="w-32 text-center justify-center text-black text-base font-bold font-['Poppins']">Input data diri anak</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Input data diri Orangtua/Wali</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Konfirmasi Pembayaran Pendaftaran</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Pemilihan Program</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Pengisian Form Lanjutan</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Asesmen & Wawancara Oraangtua</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Konfirmasi Data</div>
-        <div class="w-32 text-center justify-center text-ungu-Loading text-base font-bold font-['Poppins']">Pembayaran Pendidikan</div>
-    </div>
-</div>
+  </div>
+  

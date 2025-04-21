@@ -13,6 +13,9 @@ Route::get('/pendaftaran/konfirmasi-bayar1', function () {
 route::get('/pendaftaran', function() {
     return view('pendaftaran');
 })->name('pendaftaran');
+route::get('/pendaftaran/data-anak', function() {
+    return view('pendaftaran-dataAnak');
+})->name('pendaftaran');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

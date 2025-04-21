@@ -32,7 +32,7 @@
             </ul>
         </div>
         <div class="mt-8 mx-auto flex justify-center items-center">
-            <a href="/data-anak" class="inline-flex items-center justify-center w-80 h-20 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
+            <a href="/data-anak" class="inline-flex items-center justify-center w-80 h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
               Saya Ingin Mendaftar
             </a>
         </div>
