@@ -1,80 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-@include('component.head')
-<body>
-    @include('component.navbar')
-    <div class="w-[1440px] h-[1440px] relative bg-white overflow-hidden">
-        <div class="w-[1440px] h-full left-0 top-[15rem] absolute overflow-hidden">
-            <div class="w-[599px] h-24 left-0 top-[63px] absolute bg-gradient-to-l from-orange-400 to-amber-300 rounded-tr-[55px] rounded-br-[55px]"></div>
-            <div class="w-80 left-[184px] top-[89px] absolute justify-start text-ungu-2 text-3xl font-bold font-['Poppins']">Data Orang Tua</div>
-            <form action="pendaftaran/data-ortu" method="get">
-                <div class="w-[1072px] left-[184px] top-[219px] absolute inline-flex flex-col justify-start items-start gap-6">
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="nama_lengkap_ibu">Nama Lengkap Ibu</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="nama_lengkap_ibu" name="nama_lengkap_ibu" placeholder="Isi nama lengkap ibu">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" placeholder="Isi pekerjaan ibu">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="no_telp_ibu">No Telepon Ibu</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="no_telepon_ibu" name="no_telepon_ibu" placeholder="+62">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="alamat_ibu">Alamat Ibu</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="alamat_ibu" name="alamat_ibu" placeholder="Jl. ">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-l font-medium font-['Poppins']">
-                            <label for="nama_lengkap_ayah">Nama Lengkap Ayah</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="nama_lengkap_ayah" name="nama_lengkap_ayah" placeholder="Isi nama lengkap ayah">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" placeholder="Isi pekerjaan ayah">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="no_telp_ayah">No Telepon Ayah</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="no_telepon_ayah" name="no_telepon_ayah" placeholder="+62">
-                    </div>
-                    <div class="self-stretch inline-flex justify-end items-center gap-5">
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">
-                            <label for="alamat_ayah">Alamat Ayah</label>
-                        </div>
-                        <div class="text-right justify-start text-black text-xl font-medium font-['Poppins']">:</div>
-                        <input class="w-[841px] h-16 px-12 bg-zinc-300 rounded-[55px]" type="text" id="alamat_ayah" name="alamat_ayah" placeholder="Jl. ">
-                    </div>
-                    <div class="self-stretch inline-flex justify-center items-center gap-5">
-                        <div class="w-64 h-14 bg-gradient-to-l from-orange-400 to-amber-300 rounded-[50px] shadow-[0px_7px_4px_0px_rgba(33,0,58,1.00)]">
-                            <input class="px-16 py-3.5 text-center justify-center text-xl font-semibold text-white" type="submit" value="Selanjutnya">
-                        </div>
+@extends('layouts.pendaftaran')
+{{-- judul --}}
+@yield('title','Input Data Orang Tua')
+@section('content')
+<div class="w-full flex flex-col pt-6 pb-10 gap-6">
+    <!-- Form -->
+    <div class="w-4/5 mx-auto">
+        <form action="" class="flex flex-col gap-4">
+            <!-- Nama Lengkap -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="nama_lengkap_ibu" class="font-['Poppins'] text-right px-2">Nama Lengkap Ibu</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="text" id="nama_lengkap_ibu" name="nama_lengkap_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap">
+                </div>
+            </div>
+            <!-- no telp -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="no_telp_ibu" class="font-['Poppins'] text-right px-2">No Telepon Ibu</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="tel" id="no_telp_ibu" name="no_telp_ibu" pattern="^\+[0-9]{1,2}-[0-9]{10,11}" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="+62xxxxxxxxxx">
+                </div>
+            </div>
+            <!-- Pekerjaan ibu -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="pekerjaan_ibu" class="font-['Poppins'] text-right px-2">Pekerjaan Ibu</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <select type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="w-1/2 h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama panggilan anak">
+                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                        <option value="PNS">PNS</option>
+                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                        <option value="Wiraswasta">Wiraswasta</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                    <div class="pl-2 flex-grow flex">
+                        <input type="text" id="pekerjaan_ibu_lainnya" name="pekerjaan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
                     </div>
                 </div>
-            </form>
-        </div>
-        @include('component.walkthrough')
+            </div>
+            <!-- Alamat -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="alamat_ibu" class="font-['Poppins'] text-right px-2">Alamat Ibu</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="text" id="alamat_ibu" name="alamat_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat">
+                </div>
+            </div>
+            <!-- Nama Lengkap -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="nama_lengkap_ayah" class="font-['Poppins'] text-right px-2">Nama Lengkap Ayah</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="text" id="nama_lengkap_ayah" name="nama_lengkap_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap">
+                </div>
+            </div>
+            <!-- no telp -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="no_telp_ayah" class="font-['Poppins'] text-right px-2">No Telepon Ayah</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="tel" id="no_telp_ayah" name="no_telp_ayah" pattern="^\+[0-9]{1,2}-[0-9]{10,11}" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="+62xxxxxxxxxx">
+                </div>
+            </div>
+            <!-- Pekerjaan Ayah -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="pekerjaan_ayah" class="font-['Poppins'] text-right px-2">Pekerjaan Ayah</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <select type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" class="w-1/2 h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama panggilan anak">
+                        <option value="Ayah Rumah Tangga">Ayah Rumah Tangga</option>
+                        <option value="PNS">PNS</option>
+                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                        <option value="Wiraswasta">Wiraswasta</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                    <div class="pl-2 flex-grow flex">
+                        <input type="text" id="pekerjaan_ayah_lainnya" name="pekerjaan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
+                    </div>
+                </div>
+            </div>
+            <!-- Alamat -->
+            <div class="flex flex-row items-center">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="alamat_ayah" class="font-['Poppins'] text-right px-2">Alamat Ayah</label>
+                </div>
+                <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="text" id="alamat_ayah" name="alamat_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat">
+                </div>
+            </div>
+            <div class="mt-1 mx-auto flex justify-center items-center">
+                <input type="submit" value="Selanjutnya" class="inline-flex items-center justify-center w-80 h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
+            </div>
+        </form>
     </div>
-    @include('component.footer')    
-</body>
-</html>
+</div>
+@endsection
