@@ -28,6 +28,9 @@ route::get('/pendaftaran/data-ortu', function() {
 route::get('/pendaftaran/data-ortu', function() {
     return view('pendaftaran-dataOrtu');
 })->name('pendaftaran');
+route::get('/pendaftaran/status', function() {
+    return view('pendaftaran-status');
+})->name('pendaftaran');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
