@@ -30,10 +30,10 @@
                         </div>
                         <div class="mt-4 flex flex-row gap-3">
                             <a href="#">
-                                <img src="/icon/Link - instagram.svg" alt="">
+                                <img src="{{ asset('icon/Link - instagram.svg') }}" alt="">
                             </a>
                             <a href="#">
-                                <img src="/icon/Link - whatsapp.svg" alt="">
+                                <img src="{{ asset('icon/Link - whatsapp.svg') }}" alt="">
                             </a>
                         </div>
                     </div>
