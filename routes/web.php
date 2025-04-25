@@ -9,6 +9,15 @@ Route::get('/', function () {
 Route::get('/program', function () {
     return view('program-template');
 });
+Route::get('/profil', function () {
+    return view('profil-mainriang');
+});
+Route::get('/fasilitas', function () {
+    return view('fasilitas');
+});
+Route::get('/mengapa', function () {
+    return view('mengapa');
+});
 
 route::get('/pendaftaran', function() {
     return view('pendaftaran');
