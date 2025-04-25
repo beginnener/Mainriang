@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('homepage');
 });
+Route::get('/program', function () {
+    return view('program-template');
+});
 
 route::get('/pendaftaran', function() {
     return view('pendaftaran');

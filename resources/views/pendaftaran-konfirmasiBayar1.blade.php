@@ -19,7 +19,7 @@
                 </div>
             </div>
             <span class="px-6 transform scale-125">
-                <img src="/icon/karakter 1.svg" alt="" class="">
+                <img src="{{ asset('icon/karakter 1.svg') }}" alt="" class="">
             </span>
         </div>
     </div>

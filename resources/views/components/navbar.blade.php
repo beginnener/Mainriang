@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-10">
   <nav class="w-full h-16 bg-purple-900 py-4 px-6 flex justify-between items-center relative">
     <div class="flex items-center gap-4">
-      <img src="/icon/logo main riang.svg" class="w-12 h-12" />
+      <img src="{{ asset('icon/logo main riang.svg') }}" class="w-12 h-12" />
       <a class="text-3xl font-bold font-['Fredoka'] text-white " href="/">Main Riang</a>
     </div>
     <div class="flex gap-5 items-center">
@@ -109,7 +109,7 @@
       @if (Route::has('login'))
         @auth
           <div id="toggleAllMenu" class="flex items-center">
-            <img src="/icon/All.svg">
+            <img src="{{ asset('icon/All.svg') }}">
           </div>
       @else
         <a href="{{ route('login') }}">
