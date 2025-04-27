@@ -1,6 +1,6 @@
 @extends('layouts.pendaftaran')
 {{-- judul --}}
-@yield('title','Input Data Orang Tua')
+@section('title','Input Data Orang Tua')
 @section('content')
 <div class="w-full flex flex-col pt-6 pb-10 gap-6">
     <!-- Form -->
