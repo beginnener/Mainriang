@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="w-full h-72 relative bg-gray-700">
-    <img src="{{ asset('images/Banner.png') }}" class="absolute inset-0 w-full h-full opacity-80"/>
+    <img src="{{ asset('images/Banner.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-80"/>
     <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">Fasilitas</h1>
 </div>
 <div class="relative my-20 flex flex-wrap justify-center gap-12">
