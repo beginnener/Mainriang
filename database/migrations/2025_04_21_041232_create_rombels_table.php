@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('rombels', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_loc');
-            $table->unsignedBigInteger('id_prog');
+            $table->unsignedBigInteger('location_id');
+            $table->unsignedBigInteger('program_id');
             $table->timestamps();
 
-            $table->foreign('id_loc')->references('id')->on('locations');
-            $table->foreign('id_prog')->references('id')->on('programs');
+            $table->foreign('location_id')->references('id')->on('locations');
+            $table->foreign('program_id')->references('id')->on('programs');
 
         });
     }

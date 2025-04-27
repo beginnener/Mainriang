@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('guardians', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->String('NIK');
-            $table->String('tempat lahir');
+            $table->String('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->String('phone_number');
             $table->String('email');
