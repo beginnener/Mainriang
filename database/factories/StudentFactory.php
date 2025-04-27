@@ -20,7 +20,6 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'phone_number' => $this->faker->phoneNumber,
             'student_id' => Child::factory(), // pastikan ada StudentFactory
             'rombel_id' => Rombel::factory(),   // pastikan ada RombelFactory
             'user_id' => User::factory(),
