@@ -44,7 +44,7 @@
                         sesuai dengan nilai islam. Kesuksesan tumbuh kembang anak memerlukan kerjasama yang 
                         baik antara orang tua dan sekolah, bahkan orang tua adalah tulang punggung utama dalam kesuksesan ini. 
                     </p>
-                    <a href="#" class="mb-5 font-['Poppins'] font-normal text-white text-left transition hover:text-blue-600 hover:underline">Selengkapnya →</a>
+                    <a href="/mengapa" class="mb-5 font-['Poppins'] font-normal text-white text-left transition hover:text-blue-600 hover:underline">Selengkapnya →</a>
                 </div>
             </div>
             <div class="w-[400px] h-[400px] mr-20 absolute -top-16 left-[60%] z-0 bg-slate-300 rounded-tr-full rounded-tl-full rounded-br-full shadow-[15px_4px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden">

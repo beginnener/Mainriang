@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-10">
+<header class="sticky top-0 z-30">
   <nav class="w-full h-16 bg-purple-900 py-4 px-6 flex justify-between items-center relative">
     <div class="flex items-center gap-4">
       <img src="{{ asset('icon/logo main riang.svg') }}" class="w-12 h-12" />
@@ -8,7 +8,7 @@
       <div class="relative">
         <button id="toggleAbout" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">Tentang</button>
         {{-- dropdown menu untuk tentang --}}
-        <div id= "aboutMenu" class="hidden absolute top-full left-0 z-10 mt-2 w-[300px] bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
+        <div id= "aboutMenu"   class="hidden absolute top-full left-0 z-10 mt-2 w-[300px] bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
           <div class="p-4">
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
               <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
