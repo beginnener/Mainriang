@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-30">
+<header class="fixed top-0 z-30 shadow-lg">
   <nav class="w-full h-16 bg-purple-900 py-4 px-6 flex justify-between items-center relative">
     <div class="flex items-center gap-4">
       <img src="{{ asset('icon/logo main riang.svg') }}" class="w-12 h-12" />
