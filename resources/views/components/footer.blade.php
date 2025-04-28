@@ -1,4 +1,4 @@
-<footer class="justify-end flex-shrink-0">
+<footer class="relative z-30 justify-end flex-shrink-0">
     <div class="w-full flex flex-col h-96">
         <div class="h-5/6 bg-indigo-950">
             <div class="w-full h-full flex items-center justify-center">
