@@ -18,6 +18,9 @@ Route::get('/fasilitas', function () {
 Route::get('/mengapa', function () {
     return view('mengapa');
 });
+Route::get('/trilogi', function () {
+    return view('trilogi');
+});
 
 route::get('/pendaftaran', function() {
     return view('pendaftaran');
