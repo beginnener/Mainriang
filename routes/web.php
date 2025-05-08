@@ -21,6 +21,9 @@ Route::get('/mengapa', function () {
 Route::get('/trilogi', function () {
     return view('trilogi');
 });
+Route::get('/galeri', function () {
+    return view('galeri-kegiatan');
+});
 
 route::get('/pendaftaran', function() {
     return view('pendaftaran');

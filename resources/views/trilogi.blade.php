@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="relative w-full overflow-hidden">
-    <div class="w-full h-[400px] relative bg-gray-700 overflow-hidden">
+<div class="relative w-full overflow-clip">
+    <div class="w-full h-[400px] relative bg-gray-700 overflow-clip">
         <img src="{{ asset('images/Banner.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-80"/>
         <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-purple-900 via-transparent to-transparent z-10"></div>
         <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold z-20">Trilogi Main Riang</h1>
