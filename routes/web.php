@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrantController;
+use App\Models\Registrant;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,37 +20,12 @@ Route::get('/fasilitas', function () {
 Route::get('/mengapa', function () {
     return view('mengapa');
 });
-Route::get('/trilogi', function () {
-    return view('trilogi');
-});
-Route::get('/galeri', function () {
-    return view('galeri-kegiatan');
-});
-
-route::get('/pendaftaran', function() {
+route::get('/petunjuk-pendaftaran', function() {
+    session(['status_pendaftaran' => 0]);
     return view('pendaftaran');
-})->name('pendaftaran');
-route::get('/pendaftaran/data-anak', function() {
-    return view('pendaftaran-dataAnak');
-})->name('pendaftaran');
-route::get('/pendaftaran/data-ortu', function() {
-    return view('pendaftaran-dataOrtu');
-})->name('pendaftaran');
-route::get('/pendaftaran/input-kontak', function() {
-    return view('pendaftaran-inputKontak');
-})->name('pendaftaran');
-Route::get('/pendaftaran/konfirmasi-bayar1', function () {
-    return view('pendaftaran-konfirmasiBayar1');
-});
-route::get('/pendaftaran/data-ortu', function() {
-    return view('pendaftaran-dataOrtu');
-})->name('pendaftaran');
-route::get('/pendaftaran/data-ortu', function() {
-    return view('pendaftaran-dataOrtu');
-})->name('pendaftaran');
-route::get('/pendaftaran/status', function() {
-    return view('pendaftaran-status');
-})->name('pendaftaran');
+})->name('petunjuk-pendaftaran');
+
+route::post('/pendaftaran', [RegistrantController::class, 'daftar'])->name('daftar');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -9,6 +9,44 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Child extends Model
 {
+    protected $fillable = [
+        'nama',
+        'nama_panggilan',
+        'jk',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'NIK',
+        'agama',
+        'alamat',
+        'RT',
+        'RW',
+        'dusun',
+        'kelurahan',
+        'kecamatan',
+        'kode_pos',
+        'jenis_tinggal',
+        'alat_transportasi',
+        'lintang',
+        'bujur',
+        'berat_badan',
+        'tinggi_badan',
+        'lingkar_kepala',
+        'jumlah_saudara',
+        'anak_keberapa',
+        'jarak_ke_sekolah',
+        'akta_kelahiran',
+        'kartu_keluarga',
+        'mom_id',
+        'dad_id',
+        'guardian_id',
+    ];
+    protected $hidden = [
+        'NIK',
+        'alamat',
+        'akta_kelahiran',
+        'kartu_keluarga'
+    ];
+    
     use HasFactory;
     public function Mom(): BelongsTo{
         return $this->belongsTo(Mom::class);

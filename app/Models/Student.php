@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Student extends Model
 {
+    protected $fillable = ['student_id', 'rombel_id', 'user_id'];
     use HasFactory;
     public function Child(): BelongsTo{
         return $this->belongsTo(Child::class);

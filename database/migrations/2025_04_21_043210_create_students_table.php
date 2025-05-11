@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('rombel_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('rombel_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('children');

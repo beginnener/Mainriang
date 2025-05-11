@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('registrants', function (Blueprint $table) {
             $table->id();
+            $table->string('unique_id');
             $table->string('phone_number');
             $table->string('email');
             $table->string('status');
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('rombel_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('rombel_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('children');

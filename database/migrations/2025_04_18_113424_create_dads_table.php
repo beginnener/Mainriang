@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('dads', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->String('NIK');
-            $table->String('tempat_lahir');
-            $table->date('tanggal_lahir');
+            $table->String('NIK')->nullable();
+            $table->String('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->String('phone_number');
             $table->String('email');
-            $table->String('jenjang_pendidikan');
-            $table->String('penghasilan');
-            $table->String('pekerjaan');
+            $table->String('jenjang_pendidikan')->nullable();
+            $table->String('penghasilan')->nullable();
+            $table->String('pekerjaan')->nullable();
             $table->timestamp('updated_at')->nullable('current_timestamp()');
             $table->timestamp('created_at')->nullable('current_timestamp()');
         });
