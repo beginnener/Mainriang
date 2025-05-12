@@ -70,19 +70,19 @@
             <h2 class="font-['Fredoka'] font-bold text-5xl text-black text-right">Trilogi <br>Main Riang</h2>
         </div>
         <div class="mt-10 flex flex-row justify-start gap-20">
-            <a href="#" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
+            <a href="/trilogi#gembira-beraksi" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
                 <div class="p-4 flex flex-col" aria-label="card-1">
                     <span class="font-['Poppins'] font-bold text-2xl text-purple-950">Gembira Beraksi</span>
                     <span class="mt-4 font-['Poppins'] font-normal text-xl text-black text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum felis leo.</span>
                 </div>
             </a>
-            <a href="#" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
+            <a href="/triilogi#islamic-behaviour" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
                 <div class="p-4 flex flex-col" aria-label="card-1">
                     <span class="font-['Poppins'] font-bold text-2xl text-purple-950 text-left">Islamic Behaviour</span>
                     <span class="mt-4 font-['Poppins'] font-normal text-xl text-black text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum felis leo.</span>
                 </div>
             </a>
-            <a href="#" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
+            <a href="/trilogi#5-area" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
                 <div class="p-4 flex flex-col" aria-label="card-1">
                     <span class="font-['Poppins'] font-bold text-2xl text-purple-950 text-left">5 Basic Areas</span>
                     <span class="mt-4 font-['Poppins'] font-normal text-xl text-black text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum felis leo.</span>
@@ -90,7 +90,7 @@
             </a>
         </div>
         <div class="w-1/3 ml-auto flex justify-end mt-10">
-            <a href="#" class="w-60 h-14 bg-gradient-to-l from-orange-400 to-amber-300 rounded-full flex justify-center items-center transition duration-500 hover:bg-purple-900 hover:bg-none hover:outline hover:outline-orange-400 hover:outline-1 active:bg-purple-950 focus:text-yellow-400 group">
+            <a href="/trilogi" class="w-60 h-14 bg-gradient-to-l from-orange-400 to-amber-300 rounded-full flex justify-center items-center transition duration-500 hover:bg-purple-900 hover:bg-none hover:outline hover:outline-orange-400 hover:outline-1 active:bg-purple-950 focus:text-yellow-400 group">
                 <span class="text-purple-950 font-medium font-['Poppins'] group-hover:text-orange-400">Selengkapnya</span>
             </a>
         </div>
