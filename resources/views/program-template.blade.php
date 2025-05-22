@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full h-72 relative bg-gray-700">
         <img src="{{ asset('images/Banner.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-80"/>
-        <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">Pendaftaran</h1>
+        <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">Program</h1>
     </div>
     <div class="relative w-full">
         <!-- Section Putih -->
@@ -68,19 +68,55 @@
         </div>
 
         <!-- Section Putih -->
-        <div class="relative -top-10 z-10 flex flex-row px-40 py-32 gap-12 bg-white rounded-tr-[3rem] rounded-tl-[3rem] overflow-hidden">
-           <div class="flex flex-row gap-8">
-                <div class="bg-white flex items-center mr-10">
-                    <span class="font-['Poppins'] text-3xl font-bold text-purple-950 ml-auto block text-right">Galeri Kegiatan</span>
-                </div>
-                <img src="{{ asset('images/belajar montessori 2.jpg') }}" alt="" class="w-[320px] h-[400px] rounded-[3rem] object-cover">
-                <img src="{{ asset('images/belajar montessori 2.jpg') }}" alt="" class="w-[320px] h-[400px] rounded-[3rem] object-cover">
-                <img src="{{ asset('images/belajar montessori 2.jpg') }}" alt="" class="w-[320px] h-[400px] rounded-[3rem] object-cover">
-           </div>
-        </div>
+        <div class="flex flex-row">
+            <div class="mb-8 flex justify-center items-center w-[800px]">
+                <span class="font-['Poppins'] text-3xl font-bold text-purple-950 block text-right">Galeri Kegiatan</span>
+            </div>
+            <div x-data="multiItemCarousel()" x-init="init()" class="relative w-full py-8 bg-white rounded-t-[3rem] overflow-hidden">
+                <!-- Carousel Container -->
+                <div class="relative overflow-hidden">
+                    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out"
+                        :style="`transform: translateX(-${currentIndex * itemWidth}px)`">
+                        <template x-for="(img, i) in images" :key="i">
+                            <img :src="img"
+                                class="w-[320px] h-[400px] mx-2 rounded-[3rem] object-cover flex-shrink-0">
+                        </template>
+                    </div>
     
+                    <!-- Buttons -->
+                    <button @click="prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-purple-800 text-white px-4 py-2 rounded-full z-10">&#10094;</button>
+                   <!-- Tombol Next (Panah) -->
+                    <button 
+                        x-show="currentIndex < images.length - visibleItems" 
+                        @click="next"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 translate-x-2"
+                        x-transition:enter-end="opacity-100 translate-x-0"
+                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave-start="opacity-100 translate-x-0"
+                        x-transition:leave-end="opacity-0 translate-x-2"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 bg-purple-800 text-white px-4 py-2 rounded-full z-10">
+                        &#10095;
+                    </button>
+
+                    <!-- Tombol Lihat Selengkapnya -->
+                    <button 
+                        x-show="currentIndex >= images.length - visibleItems" 
+                        @click="lihatSelengkapnya()"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 translate-x-2"
+                        x-transition:enter-end="opacity-100 translate-x-0"
+                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave-start="opacity-100 translate-x-0"
+                        x-transition:leave-end="opacity-0 translate-x-2"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 bg-zinc-200 text-black px-4 py-2 rounded-full z-10">
+                        Lihat selengkapnya &#8594;
+                    </button>
+                </div>
+            </div>
+        </div>
         <!-- Tombol -->
-        <div class="mb-20 relative -top-10 z-10 flex justify-center">
+        <div class="mb-20 relative z-10 flex justify-center">
             <a href="/data-anak" class="inline-flex items-center justify-center w-80 h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
                 Daftar Sekarang
             </a>
