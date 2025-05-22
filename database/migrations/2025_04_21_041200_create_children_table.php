@@ -45,7 +45,7 @@ return new class extends Migration
                 $table->timestamp('updated_at')->nullable('current_timestamp()');
                 $table->timestamp('created_at')->nullable('current_timestamp()');
     
-                $table->foreign('Mom_id')->references('id')->on('Moms');
+                $table->foreign('mom_id')->references('id')->on('moms');
                 $table->foreign('dad_id')->references('id')->on('dads');
                 $table->foreign('guardian_id')->references('id')->on('guardians');
         });

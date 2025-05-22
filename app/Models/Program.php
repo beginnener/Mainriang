@@ -12,4 +12,10 @@ class Program extends Model
     public function Rombel(): HasMany{
         return $this->hasMany(Rombel::class);
     }
+    public function Price(): HasMany{
+        return $this->hasMany(Price::class);
+    }
+    public function Description(): HasMany{
+        return $this->hasMany(Description::class);
+    }
 }

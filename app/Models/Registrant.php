@@ -12,7 +12,7 @@ class Registrant extends Model
     protected $hidden = ['student_id'];
     use HasFactory;
     public function Child(): BelongsTo{
-        return $this->belongsTo(Child::class);
+        return $this->belongsTo(Child::class, 'student_id', 'id');
     }
     public function Rombel(): BelongsTo{
         return $this->belongsTo(Rombel::class);

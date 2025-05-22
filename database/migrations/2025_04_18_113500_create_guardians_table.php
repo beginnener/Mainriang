@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->String('NIK')->nullable();
+            $table->String('alamat')->nullable();
             $table->String('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->String('phone_number');
-            $table->String('email');
+            $table->String('email')->nullable();
             $table->String('jenjang_pendidikan')->nullable();
             $table->String('penghasilan')->nullable();
             $table->String('pekerjaan')->nullable();
