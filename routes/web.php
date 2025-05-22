@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegistrantController;
 use App\Models\Registrant;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\RegistrantController;
 
 Route::get('/', function () {
     return view('homepage');
@@ -26,6 +27,9 @@ route::get('/petunjuk-pendaftaran', function() {
 })->name('petunjuk-pendaftaran');
 
 route::post('/pendaftaran', [RegistrantController::class, 'daftar'])->name('daftar');
+route::get('/pendaftaran/{id?}', [RegistrantController::class, 'showform'])->name('form');
+Route::get('/get-harga/{programId}', [ProgramController::class, 'getHarga']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
