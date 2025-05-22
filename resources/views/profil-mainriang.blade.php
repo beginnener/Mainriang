@@ -8,13 +8,19 @@
     <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-left items-center">
         <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" style="-webkit-text-stroke: 1px #3b0764;">Tentang Main Riang</span>
     </div>
-    <div class="w-4/5 h-auto bg-white mt-8 pl-48">
+    <div class="w-fit h-auto bg-white mt-8 mx-48">
         <p class="text-slate-900 text-xl font-medium font-['Poppins']">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio veniam porro temporibus totam, 
-            aspernatur laboriosam dignissimos nobis facere fugiat delectus qui voluptate. Soluta ex deserunt 
-            accusamus suscipit dolorem qui sit, fugit doloremque harum laboriosam culpa iusto. Reprehenderit, 
-            magni! Dicta porro id mollitia, possimus iusto consequatur soluta corporis accusamus, velit officiis 
-            magnam laudantium similique veniam de lectus.</a>
+            Main Riang adalah lembaga pendidikan Islam di bawah naungan Yayasan teman Ilmu Indonesia berdasarkan 
+            Akta Notaris Mohamad Juania, SH., M.Kn Nomor 19 Tanggal 18 februari 2021 dengan Nomor Induk berusaha 
+            (NIB) 121000240293 yang berfokus pada pengelolaan Day Care, Play Group, dan Taman Kanak-Kanak (TK) 
+            dengan No Ijin Operasional 0005/IPSPNFI/VI/2024/DPMPTSP.
+        </p>
+        <p class="text-slate-900 text-xl font-medium font-['Poppins'] mt-4">
+            Main Riang kini hadir <strong class="text-purple-950">Jl. Cicukang 37A Arcamanik Kota Bandung</strong> 
+            pada Tahun 2025  dengan lingkungan pendidikan yang aman, nyaman dan menyenangkan, dimana kami tidak hanya berkomitmen terhadap pendidikan anak, tetapi kami 
+            sangat peduli terhadap optimal tumbuh kembang anak serta pembentukan karakter seorang muslim sejak usia dini. 
+            Dengan Tagline “Bermain Penuh Makna” Kami berkomitmen menjadi mitra terpercaya bagi orang tua untuk 
+            mengoptimalkan masa golden age anak dengan pendekatan Islamic Montessori Khas Main Riang.
         </p>
     </div>
     <div class="w-[960px] my-16 mb-24 p-8 mx-auto flex flex-wrap flex-row gap-6 justify-center overflow-hidden">

@@ -8,7 +8,7 @@
     <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-left items-center">
         <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" style="-webkit-text-stroke: 1px #3b0764;">Tentang Main Riang</span>
     </div>
-    <div class="w-4/5 h-auto bg-white mt-8 pl-48">
+    <div class="w-fit h-auto bg-white mt-8 mx-48">
         <p class="text-slate-900 text-xl font-medium font-['Poppins']">
             Orang tua yang menyekolahkan anaknya sejak dini adalah orangtua yang memiliki
             pola pikir bahwa kehidupan berkelompok akan membangun interaksi sosial anak 
@@ -24,7 +24,7 @@
             bahwa selain dirinya, ada juga orang lain, yang bisa dia ajak bermain, berbicara, dan 
             lain sebagainya. Kepercayaan orangtua kepada sekolah dan keyakinan bahwa segala hal yang 
             terjadi pada anak mereka adalah proses pendidikan anak untuk menjadi anak yang tangguh 
-            dan memiliki kecerdasan sosial.</a>
+            dan memiliki kecerdasan sosial.
         </p>
     </div>
     {{-- <div class="my-8 mx-auto flex justify-center items-center">
