@@ -1,99 +1,161 @@
-// fungsi untuk buat carousel gambar
+// Fungsi untuk membuat carousel gambar
 
-export default function carousel(images = []) { // fungsi nerima parameter array images
-    console.log("Carousel initialized");
+export default function carousel(images = []) {
     return {
         active: 0,
         scrollCooldown: false,
+        scrollDeltaX: 0,
         autoSlideTimer: null,
-        userInteracted: false,
-        interactionTimeout: null,   
-        isHovered: false,
+        interactionTimeout: null,
+        pointerStartX: 0,
+        pointerEndX: 0,
+        isPointerDown: false,
         images,
-        
+
+        // Inisialisasi carousel
         init() {
+            this.$el.setAttribute('tabindex', '0'); // Tambahkan tabindex untuk fokus
             console.log("Carousel init");
-            this.startAutoSlide(); // Mulai auto slide saat inisialisasi
-            this.addKeyboardListener(); // Tambahkan listener keyboard saat inisialisasi
+            this.enableAutoFocusOnView();
+            this.startAutoSlide();
+            this.addKeyboardListener();
+            this.addSwipeAndWheelListener();
         },
-        
-        // fungsi unruk geser ke gambar selanjutnya
+
+        // Geser ke gambar selanjutnya
         next() {
             this.active = (this.active + 1) % this.images.length;
             console.log("Active index after next():", this.active);
         },
 
-        // fungsi untuk geser ke gambar sebelumnya
+        // Geser ke gambar sebelumnya
         prev() {
             this.active = (this.active - 1 + this.images.length) % this.images.length;
             console.log("Active index after prev():", this.active);
         },
 
-        // fungsi untuk geser ke gambar tertentu berdasarkan index (kalau dot dipencet)
+        // Geser ke gambar tertentu berdasarkan index
         goTo(index) {
             this.active = index;
         },
 
-        onScroll(event) {
-            const isHorizontalScroll = Math.abs(event.deltaX) > Math.abs(event.deltaY);
-            
-            if (isHorizontalScroll) {
-                event.preventDefault(); // selalu cegah scroll horizontal dari browser (back/forward gesture)
+        // Fokus otomatis saat muncul di layar
+        enableAutoFocusOnView() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => { 
+                            console.log("Focusing on element");
+                            this.$el.focus({ preventSroll: true });
+                            this.$el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100); // 100ms
+                    }
+                });
+            }, {
+                threshold: 0.5, // 50% elemen terlihat
+            });
 
-                if (!this.scrollCooldown) {
-                    this.scrollCooldown = true;
-
-                    if (event.deltaX > 0) this.next();
-                    else if (event.deltaX < 0) this.prev();
-
-                    setTimeout(() => { this.scrollCooldown = false; }, 1000); // 1 detik cooldown
-                }
-            }
-            // kalau scroll vertikal, biarkan default 
+            observer.observe(this.$el);
         },
 
+        addSwipeAndWheelListener() {
+            this.$el.addEventListener('pointerdown', (e) => {
+                this.isPointerDown = true;
+                this.pointerStartX = e.clientX;
+            });
+
+            this.$el.addEventListener('pointermove', (e) => {
+                if (!this.isPointerDown) return;
+                this.pointerEndX = e.clientX;
+            });
+
+            this.$el.addEventListener('pointerup', () => {
+                if (!this.isPointerDown) return;
+
+                const delta = this.pointerEndX - this.pointerStartX;
+                if (Math.abs(delta) > 50) {
+                    delta < 0 ? this.next() : this.prev();
+                    this.handleInteraction();
+                }
+
+                this.isPointerDown = false;
+            });
+
+            this.$el.addEventListener('wheel', (e) => {
+                const isHorizontalScroll = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+
+                if (isHorizontalScroll) {
+                    console.log("Horizontal scroll detected");
+                    e.preventDefault();
+
+                    this.scrollDeltaX += e.deltaX;
+
+                    if (Math.abs(this.scrollDeltaX) > 50 && !this.scrollCooldown) {
+                        this.scrollCooldown = true;
+
+                        if (this.scrollDeltaX > 0) this.next();
+                        else this.prev();
+
+                        this.handleInteraction();
+
+                        // Reset delta dan cooldown
+                        this.scrollDeltaX = 0;
+                        setTimeout(() => {
+                            this.scrollCooldown = false;
+                        }, 500);
+                    }
+                }
+            });
+        },
+
+        // Event listener keyboard untuk geser gambar pakai arrow key
         addKeyboardListener() {
             let keyboardCooldown = false;
-            
-             window.addEventListener('keydown', (event) => {
+
+            this.$el.addEventListener('keydown', (e) => {
                 if (keyboardCooldown) return;
-                if (event.key === 'ArrowRight') this.next();
-                if (event.key === 'ArrowLeft') this.prev();
+
+                if (e.key === 'ArrowRight') this.next();
+                else if (e.key === 'ArrowLeft') this.prev();
+
+                this.handleInteraction();
                 keyboardCooldown = true;
 
-                setTimeout(() => keyboardCooldown = false, 500);
+                setTimeout(() => {
+                    keyboardCooldown = false;
+                }, 500);
             });
         },
 
-        startAutoSlide() {
-            const resetAutoSlide = () => {
-                this.userInteracted = true;
-                clearTimeout(this.interactionTimeout);
-                clearTimeout(this.autoSlideTimer); // stop dulu auto slide saat user interaksi
-
-                this.interactionTimeout = setTimeout(() => {
-                    this.userInteracted = false;
-                    this.autoSlide(); // mulai lagi setelah 5 detik tidak interaksi
-                }, 5000); // tunda 5 detik setelah interaksi terakhir
-            };
-
-            ['click', 'mousemove', 'keydown', 'touchstart', 'wheel'].forEach(eventType => {
-                window.addEventListener(eventType, resetAutoSlide);
-            });
-
-            // autoSlide pertama kali
-            this.autoSlide();
-        },
-
+        // Fungsi auto slide
         autoSlide() {
-            if (this.userInteracted) {
-                console.log("User is interacting, auto slide paused.");
-                return;
-            } // jangan lanjut kalau user masih aktif
             this.autoSlideTimer = setTimeout(() => {
                 this.next();
                 this.autoSlide();
-            }, 8000); // auto-slide tiap 8 detik
+            }, 5000);
+        },
+
+        // Memulai auto slide dan event listener untuk interaksi user
+        startAutoSlide() {
+            const interactionEvents = ['click', 'touchstart', 'wheel'];
+
+            interactionEvents.forEach(eventType => {
+                this.$el.addEventListener(eventType, () => {
+                    this.handleInteraction();
+                });
+            });
+
+            this.autoSlide();
+        },
+
+        // Memulai dan menghentikan auto slide sementara jika ada interaksi user
+        handleInteraction() {
+            clearTimeout(this.interactionTimeout);
+            clearTimeout(this.autoSlideTimer);
+
+            this.interactionTimeout = setTimeout(() => {
+                this.autoSlide();
+            }, 8000);
         }
     };
 }
