@@ -15,11 +15,29 @@ Route::get('/program', function () {
 Route::get('/profil', function () {
     return view('profil-mainriang');
 });
+Route::get('/daycare', function () {
+    return view('daycare');
+});
+Route::get('/playgroup', function () {
+    return view('playgroup');
+});
+Route::get('/tk', function () {
+    return view('tk');
+});
 Route::get('/fasilitas', function () {
     return view('fasilitas');
 });
+Route::get('/trilogi', function () {
+    return view('trilogi');
+});
+Route::get('/galeri', function () {
+    return view('galeri-kegiatan');
+});
 Route::get('/mengapa', function () {
     return view('mengapa');
+});
+Route::get('/admin-pendaftaran', function () {
+    return view('admin-pendaftaran');
 });
 route::get('/petunjuk-pendaftaran', function() {
     session(['status_pendaftaran' => 0]);
