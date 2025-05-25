@@ -8,4 +8,7 @@
         @yield('content')
     </div>
 </body>
+<script>
+    // Add any additional scripts here if needed
+</script>
 </html>
