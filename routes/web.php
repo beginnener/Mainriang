@@ -38,7 +38,7 @@ Route::get('/mengapa', function () {
 });
 Route::get('/admin-pendaftaran', function () {
     return view('admin-pendaftaran');
-});
+})->name('admin-pendaftaran');
 route::get('/petunjuk-pendaftaran', function() {
     session(['status_pendaftaran' => 0]);
     return view('pendaftaran');
