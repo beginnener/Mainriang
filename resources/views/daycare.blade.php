@@ -57,13 +57,23 @@
             </div>
         </div>
 
+        @php
+        $images = [
+            '/images/belajar montessori 2.jpg',
+            '/images/belajar montessori 2.jpg',
+            '/images/belajar montessori 2.jpg',
+            '/images/belajar montessori 2.jpg',
+            '/images/belajar montessori 2.jpg',
+        ];
+        @endphp
+
         <!-- Section Putih -->
         <div class="relative z-10 -mt-10 bg-white rounded-t-[3rem]">
             <div class="py-10 flex flex-row">
                 <div class="mb-8 flex justify-center items-center w-[800px]">
                     <span class="font-['Poppins'] text-3xl font-bold text-purple-950 block text-right">Galeri Kegiatan</span>
                 </div>
-                <div x-data="multiItemCarousel()" x-init="init()" class="relative w-full py-8 bg-white rounded-t-[3rem] overflow-hidden">
+                <div x-data="multiItemCarousel({{ Js::from($images) }})" x-init="init()" class="relative w-full py-8 bg-white rounded-t-[3rem] overflow-hidden">
                     <!-- Carousel Container -->
                     <div class="relative overflow-hidden">
                         <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out"

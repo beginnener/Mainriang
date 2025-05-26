@@ -1,12 +1,11 @@
-export default function multiItemCarousel() {
+export default function multiItemCarousel(images = []) {
+  // // Append a plain box (kotak polos) to the images array
+  // const kotakPolos1 = { type: 'box', id: 'placeholder' };
+  // const kotakPolos2 = { type: 'box', id: 'placeholder' };
+  images = [...images];
+
   return {
-    images: [
-      '/images/belajar montessori 2.jpg',
-      '/images/belajar montessori 2.jpg',
-      '/images/belajar montessori 2.jpg',
-      '/images/belajar montessori 2.jpg',
-      '/images/belajar montessori 2.jpg',
-    ],
+    images,
     currentIndex: 0,
     itemWidth: 0,
     visibleItems: 3,
