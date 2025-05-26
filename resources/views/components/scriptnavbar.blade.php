@@ -7,20 +7,18 @@
     let isAboutMenuPinned = false;
     let isAllMenuPinned = false;
 
-    // Hover: tampilkan menu jika tidak dalam keadaan pinned
+    // === ABOUT MENU ===
+
     aboutBtn.addEventListener('mouseenter', () => {
-        if (!isAboutMenuPinned) {
-            aboutMenu.classList.remove('hidden');
-        }
+        if (!isAboutMenuPinned) aboutMenu.classList.remove('hidden');
     });
 
-    // Hover out dari tombol dan menu: sembunyikan jika tidak pinned
     aboutBtn.addEventListener('mouseleave', () => {
         setTimeout(() => {
             if (!isAboutMenuPinned && !aboutMenu.matches(':hover')) {
                 aboutMenu.classList.add('hidden');
             }
-        }, 100); // delay supaya sempat deteksi hover ke menu
+        }, 100);
     });
 
     aboutMenu.addEventListener('mouseleave', () => {
@@ -29,36 +27,31 @@
         }
     });
 
-    // Klik tombol: toggle pinned mode
     aboutBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+
+        // Jika about menu sedang tidak aktif, matikan all menu
+        if (!isAboutMenuPinned) {
+            isAllMenuPinned = false;
+            allMenu.classList.add('hidden');
+        }
+
         isAboutMenuPinned = !isAboutMenuPinned;
         aboutMenu.classList.toggle('hidden', !isAboutMenuPinned);
     });
 
-    // Klik di luar: reset pinned & sembunyikan menu
-    document.addEventListener('click', (e) => {
-        if (!aboutBtn.contains(e.target) && !aboutMenu.contains(e.target)) {
-            isAboutMenuPinned = false;
-            aboutMenu.classList.add('hidden');
-        }
-    });
+    // === ALL MENU ===
 
-    // untuk tombol all menu
-    // Hover: tampilkan menu jika tidak dalam keadaan pinned
     allBtn.addEventListener('mouseenter', () => {
-        if (!isAllMenuPinned) {
-            allMenu.classList.remove('hidden');
-        }
+        if (!isAllMenuPinned) allMenu.classList.remove('hidden');
     });
 
-    // Hover out dari tombol dan menu: sembunyikan jika tidak pinned
     allBtn.addEventListener('mouseleave', () => {
         setTimeout(() => {
             if (!isAllMenuPinned && !allMenu.matches(':hover')) {
                 allMenu.classList.add('hidden');
             }
-        }, 100); // delay supaya sempat deteksi hover ke menu
+        }, 100);
     });
 
     allMenu.addEventListener('mouseleave', () => {
@@ -67,15 +60,26 @@
         }
     });
 
-    // Klik tombol: toggle pinned mode
     allBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+
+        // Jika all menu sedang tidak aktif, matikan about menu
+        if (!isAllMenuPinned) {
+            isAboutMenuPinned = false;
+            aboutMenu.classList.add('hidden');
+        }
+
         isAllMenuPinned = !isAllMenuPinned;
         allMenu.classList.toggle('hidden', !isAllMenuPinned);
     });
 
-    // Klik di luar: reset pinned & sembunyikan menu
+    // === KLIK DI LUAR SEMUA MENU ===
     document.addEventListener('click', (e) => {
+        if (!aboutBtn.contains(e.target) && !aboutMenu.contains(e.target)) {
+            isAboutMenuPinned = false;
+            aboutMenu.classList.add('hidden');
+        }
+
         if (!allBtn.contains(e.target) && !allMenu.contains(e.target)) {
             isAllMenuPinned = false;
             allMenu.classList.add('hidden');

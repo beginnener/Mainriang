@@ -20,7 +20,7 @@
             </div>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
               <div class="flex-auto">
-                <a href="program" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+                <a href="daycare" class="block font-semibold text-gray-900 group-hover:text-orange-400">
                   Day Care
                   <span class="absolute inset-0"></span>
                 </a>
