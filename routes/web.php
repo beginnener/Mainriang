@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Registrant;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
@@ -36,11 +37,7 @@ Route::get('/galeri', function () {
 Route::get('/mengapa', function () {
     return view('mengapa');
 });
-Route::get('/admin-pendaftaran', function () {
-    return view('admin-pendaftaran');
-})->name('admin-pendaftaran');
 route::get('/petunjuk-pendaftaran', function() {
-    session(['status_pendaftaran' => 0]);
     return view('pendaftaran');
 })->name('petunjuk-pendaftaran');
 
@@ -50,8 +47,21 @@ Route::get('/get-harga/{programId}', [ProgramController::class, 'getHarga']);
 
 
 Route::get('/dashboard', function () {
+    $user = Auth::user();
+
+    if ($user->usertype === 'admin') {
+        return redirect()->route('admin-pendaftaran');
+    }
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', [RegistrantController::class, 'takeAll'])->name('admin-pendaftaran');
+});
+
+Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
+Route::patch('/pendaftar/{id}/tolak', [RegistrantController::class, 'tolak'])->name('pendaftar.tolak');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

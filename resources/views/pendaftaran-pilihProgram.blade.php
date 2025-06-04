@@ -17,11 +17,8 @@
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
                     <select id="lokasi" name="lokasi" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']">
-                        <option value="Ayah Rumah Tangga">Ayah Rumah Tangga</option>
-                        <option value="PNS">PNS</option>
-                        <option value="Karyawan Swasta">Karyawan Swasta</option>
-                        <option value="Wiraswasta">Wiraswasta</option>
-                        <option value="Lainnya">Lainnya</option>
+                        <option value="Ayah Rumah Tangga">gn. batu</option>
+                        <option value="Ayah Rumah Tangga">Arcamanik</option>
                     </select>
                 </div>
             </div>
