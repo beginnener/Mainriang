@@ -17,4 +17,20 @@ class Registrant extends Model
     public function Rombel(): BelongsTo{
         return $this->belongsTo(Rombel::class);
     }
+    public function getStatusLabelAttribute(){
+        return match ($this->status) {
+            1 => 'Mengisi Data Orang Tua',
+            2 => 'Menunggu Konfirmasi Pembayaran',
+            20 => 'Ditolak Saat Pembayaran',
+            3 => 'Memilih Program',
+            4 => 'Form Lanjutan',
+            5 => 'Sedang Asesmen',
+            6 => 'Konfirmasi Data',
+            60 => 'Ditolak Akhir',
+            7 => 'Diterima',
+            default => 'Status Tidak Diketahui',
+        };
+    }
 }
+
+

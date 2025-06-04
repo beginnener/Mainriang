@@ -17,13 +17,53 @@ class ProgramSeed extends Seeder
     {
         $programs = [
             [
-                'name' => 'TK A',
+                'name' => 'Baby Class Tahun Full Day 1 - 2 Tahun (Bulanan)',
                 'desc' => 'a'
+            ],
+            [
+                'name' => 'Baby Class Tahun Full Day 1 - 2 Tahun (Harian)',
+                'desc' => 'a'
+            ],
+            [
+                'name' => 'Kids Class Full Day 3 - 6 Tahun (Bulanan)',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'Kids Class Full Day 3 - 6 Tahun (Harian)',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'Baby Class 5 Hours 1 - 3 Tahun (Bulanan)',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'Baby Class 5 Hours 1 - 3 Tahun (Harian)',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'Kids Class 5 Hours 3 - 6 Tahun (Bulanan)',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'Kids Class 5 Hours 3 - 6 Tahun (Harian)',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'PG Main A',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'PG Main B',
+                'desc' => 'b'
+            ],
+            [
+                'name' => 'TK A',
+                'desc' => 'b'
             ],
             [
                 'name' => 'TK B',
                 'desc' => 'b'
-            ]
+            ],
         ];
         foreach ($programs as $program){
             Program::create($program);
@@ -52,52 +92,142 @@ class ProgramSeed extends Seeder
             [
                 'desc' => '08.00 - 11.00',
                 'program_id' => 2
-            ]
+            ],
         ];
         foreach ($descriptions as $description){
             Description::create($description);
         }
         $prices = [
             [
-                'desc' => 'Uang Pengembangan',
+                'desc' => 'Biaya Tahunan',
+                'price' => 1000000,
+                'program_id' => 1
+            ],
+            [
+                'desc' => 'Biaya Bulanan',
+                'price' => 2500000,
+                'program_id' => 1
+            ],
+            [
+                'desc' => 'Biaya bulanan',
+                'price' => 250000,
+                'program_id' => 2
+            ],
+            [
+                'desc' => 'Biaya Tahunan',
+                'price' => 1000000,
+                'program_id' => 3
+            ],
+            [
+                'desc' => 'Biaya Bulanan',
+                'price' => 2000000,
+                'program_id' => 3
+            ],
+            [
+                'desc' => 'Biaya bulanan',
+                'price' => 200000,
+                'program_id' => 4
+            ],
+            [
+                'desc' => 'Biaya Tahunan',
+                'price' => 1000000,
+                'program_id' => 5
+            ],
+            [
+                'desc' => 'Biaya Bulanan',
+                'price' => 1500000,
+                'program_id' => 5
+            ],
+            [
+                'desc' => 'Biaya bulanan',
+                'price' => 175000,
+                'program_id' => 6
+            ],
+            [
+                'desc' => 'Biaya Tahunan',
+                'price' => 1000000,
+                'program_id' => 7
+            ],
+            [
+                'desc' => 'Biaya Bulanan',
+                'price' => 1350000,
+                'program_id' => 7
+            ],
+            [
+                'desc' => 'Biaya bulanan',
+                'price' => 150000,
+                'program_id' => 8
+            ],
+            [
+                'desc' => 'Biaya Pengembangan',
+                'price' => 1500000,
+                'program_id' => 9
+            ],
+            [
+                'desc' => 'Biaya Bulanan',
+                'price' => 250000,
+                'program_id' => 9
+            ],
+            [
+                'desc' => '1 Stel Seragam',
+                'price' => 250000,
+                'program_id' => 9
+            ],
+            [
+                'desc' => 'Biaya Pengembangan',
+                'price' => 2500000,
+                'program_id' => 10
+            ],
+            [
+                'desc' => 'Biaya Bulanan',
+                'price' => 400000,
+                'program_id' => 10
+            ],
+            [
+                'desc' => '1 Stel Seragam',
+                'price' => 250000,
+                'program_id' => 10
+            ],
+            [
+                'desc' => 'Biaya Pengembangan',
                 'price' => 5000000,
-                'program_id' => 1
+                'program_id' => 11
             ],
             [
-                'desc' => 'Uang tahunan',
+                'desc' => 'Biaya Tahunan',
                 'price' => 1500000,
-                'program_id' => 1
+                'program_id' => 11
             ],
             [
-                'desc' => 'Uang bulanan',
+                'desc' => 'Biaya Bulanan',
                 'price' => 685000,
-                'program_id' => 1
+                'program_id' => 11
             ],
             [
-                'desc' => '4 Setel Seragam',
+                'desc' => '4 Stel Seragam',
                 'price' => 1000000,
-                'program_id' => 1
+                'program_id' => 11
             ],
             [
-                'desc' => 'Uang Pengembangan',
+                'desc' => 'Biaya Pengembangan',
                 'price' => 3500000,
-                'program_id' => 2
+                'program_id' => 12
             ],
             [
-                'desc' => 'Uang tahunan',
+                'desc' => 'Biaya Tahunan',
                 'price' => 1500000,
-                'program_id' => 2
+                'program_id' => 12
             ],
             [
-                'desc' => 'Uang bulanan',
+                'desc' => 'Biaya Bulanan',
                 'price' => 685000,
-                'program_id' => 2
+                'program_id' => 12
             ],
             [
-                'desc' => '4 Setel Seragam',
+                'desc' => '4 Stel Seragam',
                 'price' => 1000000,
-                'program_id' => 2
-            ],
+                'program_id' => 12
+            ]
         ];
         foreach ($prices as $price){
             Price::create($price);

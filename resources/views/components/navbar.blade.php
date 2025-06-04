@@ -46,7 +46,7 @@
         </div>
       </div>
       <a href="/fasilitas">
-        <span id="toggleFasilitas" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400"">Fasilitas</span>
+        <span id="toggleFasilitas" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">Fasilitas</span>
       </a>
       <a href="{{ route('petunjuk-pendaftaran') }}">
         <div class="w-36 h-10 flex items-center justify-center rounded-full bg-gradient-to-l from-orange-400 to-amber-300 transition duration-500 hover:bg-purple-900 hover:bg-none hover:outline hover:outline-orange-400 hover:outline-1 active:bg-purple-950 focus:text-yellow-400 group ">
@@ -72,10 +72,12 @@
               </div>
               <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
                 <div class="flex-auto">
-                  <a href="program" class="block font-semibold text-gray-900 group-hover:text-orange-400">
-                    Logout
-                    <span class="absolute inset-0"></span>
-                  </a>
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="block font-semibold text-gray-900 hover:text-orange-400">
+                        Logout
+                    </button>
+                </form>
                 </div>
               </div>
             </div>

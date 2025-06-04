@@ -158,4 +158,28 @@ class RegistrantController extends Controller
         shuffle($huruf); // acak huruf
         return implode('', array_slice($huruf, 0, $jumlah)); // ambil sejumlah huruf
     }
+
+    public function takeAll (){
+        $pendaftar = Registrant::all();
+        return view('admin-pendaftaran')->with('pendaftar', $pendaftar);
+    }
+
+    public function terima($id)
+    {
+        $pendaftar = Registrant::findOrFail($id);
+        $pendaftar->status += 1;
+        $pendaftar->save();
+
+        return redirect()->back()->with('success', 'Pendaftar diterima.');
+    }
+
+    public function tolak($id)
+    {
+        $pendaftar = Registrant::findOrFail($id);
+        $pendaftar->status *= 10;
+        $pendaftar->save();
+
+        return redirect()->back()->with('success', 'Pendaftar ditolak.');
+    }
+
 }
