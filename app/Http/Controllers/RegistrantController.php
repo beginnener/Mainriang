@@ -7,6 +7,7 @@ use App\Models\Mom;
 use App\Models\Child;
 use App\Models\Program;
 use App\Models\Guardian;
+use App\Models\Location;
 use App\Models\Registrant;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -128,6 +129,13 @@ class RegistrantController extends Controller
                         $registrant->update(['status' => 2]);
                         return redirect()->route('form', $registrant->unique_id);
                     }
+                    if ($registrant->status == 3){
+                        $registrant->update([
+                            'rombel_id' => $request->lokasi . $request->program
+                        ]);
+                        $registrant->update(['status' => 4]);
+                        return redirect()->route('form', $registrant->unique_id);
+                    }
                 } return back();
             }
         }   
@@ -147,7 +155,11 @@ class RegistrantController extends Controller
                         return view ('pendaftaran-konfirmasiBayar1', ['id' => $id]);
                     case 3:
                         $programs = Program::all();
-                        return view ('pendaftaran-pilihProgram', compact('programs', 'id'));
+                        $locations = Location::all();
+                        return view ('pendaftaran-pilihProgram', compact('programs', 'id', 'locations'));
+                    case 4:
+                        return view ('pendaftaran-formLanjutan', compact('registrant'));
+                    
                 }
             }
         }return redirect('login');
