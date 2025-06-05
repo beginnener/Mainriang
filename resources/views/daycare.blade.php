@@ -30,27 +30,75 @@
             <div class="px-48">
                 <div class="my-4">
                     <h2 class="font-['Poppins']text-slate-950 text-3xl font-bold text-center">Daily Activity</h2>
+                    <p class="mt-2 font-['Poppins'] text-slate-950 text-sm text-center mb-4">
+                        Kegiatan di Daycare dirancang untuk membangun kemandirian anak melalui berbagai aktivitas yang menyenangkan dan edukatif. Jadwal lengkap kegiatan dapat dilihat pada tabel di bawah ini.
+                    </p>
                 </div>
-                <div class="overflow-hidden rounded-lg border border-slate-900 w-full">
-                    <table class="w-full table-fixed">
+                <div class="overflow-hidden rounded-lg w-full border">
+                    <table class="w-full table-fixed divide-y divide-gray-200 font-['Poppins'] text-sm text-gray-900">
                         <thead>
-                            <tr class="">
-                                <th class="w-32 px-3 text-center border">Mulai</th>
-                                <th class="w-32 px-3 text-center border border-slate-900">Selesai</th>
-                                <th class="px-3 text-center border border-slate-900">Kegiatan</th>
+                            <tr class="divide-y divide-gray-200 bg-gray-100">
+                                <th class="w-32 px-3 py-2 text-center ">Mulai</th>
+                                <th class="w-32 px-3 py-2 text-center">Selesai</th>
+                                <th class="px-3 py-2 text-center">Kegiatan</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="w-32 px-3 text-center ">07.30</td>
-                                <td class="w-32 px-3 text-center border border-slate-900">08.00</td>
-                                <td class="px-3 text-center border border-slate-900">Arrival</td>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">07.30</td>
+                                <td class="w-32 px-3 py-2 text-center">08.00</td>
+                                <td class="px-3 py-2 text-center">Arrival</td>
                             </tr>
-                            <tr>
-                                <td class="w-32 px-3 text-center ">07.00</td>
-                                <td class="w-32 px-3 text-center border border-slate-900">08.00</td>
-                                <td class="px-3 text-center border border-slate-900">Arrival</td>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">08.00</td>
+                                <td class="w-32 px-3 py-2 text-center">09.30</td>
+                                <td class="px-3 py-2 text-center">Playgroup Class</td>
                             </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">09.30</td>
+                                <td class="w-32 px-3 py-2 text-center">09.45</td>
+                                <td class="px-3 py-2 text-center">Toilet Training</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">09.45</td>
+                                <td class="w-32 px-3 py-2 text-center">10.00</td>
+                                <td class="px-3 py-2 text-center">Snack Time</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">10.00</td>
+                                <td class="w-32 px-3 py-2 text-center">11.00</td>
+                                <td class="px-3 py-2 text-center">5 Basic Area Montessori</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">11.00</td>
+                                <td class="w-32 px-3 py-2 text-center">12.30</td>
+                                <td class="px-3 py-2 text-center">Lunch Time + Sholat</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">12.30</td>
+                                <td class="w-32 px-3 py-2 text-center">12.45</td>
+                                <td class="px-3 py-2 text-center">Toilet Training & Brushing Teeth</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">12.45</td>
+                                <td class="w-32 px-3 py-2 text-center">14.30</td>
+                                <td class="px-3 py-2 text-center">Nap Time</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">14.30</td>
+                                <td class="w-32 px-3 py-2 text-center">15.00</td>
+                                <td class="px-3 py-2 text-center">Toilet Training + Shower Time</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">15.00</td>
+                                <td class="w-32 px-3 py-2 text-center">15.30</td>
+                                <td class="px-3 py-2 text-center">Sholat + Mengaji</td>
+                            </tr>
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">15.30</td>
+                                <td class="w-32 px-3 py-2 text-center">16.00</td>
+                                <td class="px-3 py-2 text-center">Free Time/Go Home</td>
+                            </tr>   
                         </tbody>
                     </table>
                 </div>
