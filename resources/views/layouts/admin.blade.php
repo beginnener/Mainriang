@@ -9,6 +9,19 @@
     </div>
 </body>
 <script>
-    // Add any additional scripts here if needed
+    document.addEventListener('DOMContentLoaded', function () {
+        const profileToggle = document.getElementById('profileToggle');
+        const profileMenu = document.getElementById('profileMenu');
+
+        profileToggle.addEventListener('click', function () {
+            profileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!profileToggle.contains(event.target) && !profileMenu.contains(event.target)) {
+                profileMenu.classList.add('hidden');
+            }
+        });
+    });
 </script>
 </html>

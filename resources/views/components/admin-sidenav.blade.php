@@ -1,10 +1,5 @@
 <div class="flex w-[250px] min-h-screen flex-col bg-purple-900 bg-clip-border text-gray-700 shadow-xl shadow-blue-gray-900/5">
-  <div class="p-8 mb-2">
-    <h5 class="block font-['Poppins'] text-xl antialiased font-semibold leading-snug tracking-normal text-white">
-      Halo, admin Main Riang
-    </h5>
-  </div>
-  <nav class="flex min-w-[240px] flex-col gap-1 font-sans text-base font-normal text-white">
+  <nav class="flex min-w-[240px] flex-col gap-1 py-4 font-sans text-base font-normal text-white">
       <a href="{{ route('dashboard') }}"
         class="sidebar-button flex items-center w-full py-3 px-8 leading-tight bg-purple-900 font-['Poppins'] text-white transition-all outline-none text-start hover:bg-purple-950 hover:text-amber-400 active:bg-purple-950 active:text-amber-400 focus:bg-purple-950 focus:text-amber-400 cursor-pointer
         {{ request()->routeIs('dashboard') ? 'bg-purple-950 text-amber-400' : '' }}">
