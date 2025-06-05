@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Price;
 use App\Models\Program;
+use App\Models\Location;
 use App\Models\Description;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProgramSeed extends Seeder
@@ -67,6 +69,36 @@ class ProgramSeed extends Seeder
         ];
         foreach ($programs as $program){
             Program::create($program);
+        }
+        $locations = [
+            [
+                'name' => 'gunung batu, Jl. Babakan Radio No. 25 Kota Bandung',
+                'desc' => 'a'
+            ],
+            [
+                'name' => 'Arcamanik',
+                'desc' => 'a'
+            ]
+        ];
+        foreach ($locations as $location){
+            Location::create($location);
+        }
+
+        $locations = Location::all();
+        $programs = Program::all();
+
+        foreach ($locations as $location) {
+            foreach ($programs as $program) {
+                $id = $location->id . $program->id;
+
+                DB::table('rombels')->insert([
+                    'id' => $id,
+                    'program_id' => $program->id,
+                    'location_id' => $location->id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
         }
         $descriptions = [
             [
