@@ -25,7 +25,7 @@ class Registrant extends Model
             3 => 'Memilih Program',
             4 => 'Form Lanjutan',
             5 => 'Sedang Asesmen',
-            6 => 'Konfirmasi Data',
+            6 => 'Tahap Seleksi',
             60 => 'Ditolak Akhir',
             7 => 'Diterima',
             default => 'Status Tidak Diketahui',

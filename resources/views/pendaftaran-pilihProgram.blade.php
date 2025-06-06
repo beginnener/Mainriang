@@ -8,7 +8,7 @@
     <div class="w-4/5 mx-auto">
         <form action="{{ route('daftar') }}" class="flex flex-col gap-4" method="POST">
             @csrf
-
+            <input type="hidden" name="id" value="{{ $id }}">
             <!-- Lokasi -->
             <div class="flex flex-row items-center">
                 <div class="w-1/6 flex justify-end items-center">
@@ -17,8 +17,9 @@
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
                     <select id="lokasi" name="lokasi" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']">
-                        <option value="Ayah Rumah Tangga">gn. batu</option>
-                        <option value="Ayah Rumah Tangga">Arcamanik</option>
+                        @foreach ($locations as $location)
+                            <option value="{{ $location->id }}">{{ $location->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
