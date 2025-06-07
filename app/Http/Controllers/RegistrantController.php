@@ -14,14 +14,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Validation\Rules\Unique;
+use Illuminate\Support\Facades\Log;
 
 class RegistrantController extends Controller
 {
+    // fungsi untuk menangani alur pendaftaran
     public function daftar(Request $request){
-        if (Auth::id()){
+        if (Auth::id()){ // cek apakah user sudah login
             $id_user = Auth::id();
-            if (!$request->id){
-                $validate = $request->validate([
+            if (!$request->id){ // jika tidak ada id registrant, berarti ini adalah pendaftaran baru, dengan step = 0 atau 'data daftar'
+                $validate = $request->validate([ 
                     'email'           => 'required|email|max:255',
                     'phone_number'    => 'required|digits_between:10,15',
                     'nama'            => 'required|string|max:100',
@@ -52,15 +54,16 @@ class RegistrantController extends Controller
                     'unique_id' => $kode,
                     'email' => $validate['email'],  
                     'phone_number' => $validate['phone_number'],  
-                    'status' => 1,  
+                    'status' => 1, // ubah status menjadi 1 untuk pindah ke step berikutnya 
                     'user_id' => $id_user, 
                     'student_id' => $child->id, 
                 ]);
                 return redirect()->route('form', $registrant->unique_id);  
-            }else{
-                $registrant = Registrant::where('unique_id', $request->id)->first();
-                if ($id_user == $registrant->user_id){
-                    if ($registrant->status == 1){
+            }else{ // jika sudah ada id registrant, berarti ini adalah pendaftaran lanjutan
+                $registrant = Registrant::where('unique_id', $request->id)->first(); // mencari data registrant berdasarkan unique_id
+                if ($id_user == $registrant->user_id){ // cek apakah user yang login adalah pemilik registrant
+                    if ($registrant->status == 1){ // jika status registrant adalah 1, maka masuk ke step 'isi data orang tua'
+                        // validasi data orang tua
                         $rules = [
                             'nama_lengkap_ibu' => 'required|string|max:255',
                             'NIK_ibu' => 'required|digits:16|numeric',
@@ -78,7 +81,7 @@ class RegistrantController extends Controller
 
                             'punya_wali' => 'required|in:ya,tidak',
                         ];
-
+                        // jika user tick opsi punya wali, maka tambahkan validasi untuk data wali
                         if ($request->punya_wali === 'ya') {
                             $rules = array_merge($rules, [
                                 'nama_lengkap_wali' => 'required|string|max:255',
@@ -89,6 +92,7 @@ class RegistrantController extends Controller
                                 'alamat_wali' => 'required|string|max:255',
                             ]);
                         }
+                        // memanggil model child 
                         $student = $registrant->Child;
                         // Simpan data ibu
                         $ibu = Mom::firstOrCreate(['NIK' => $request->NIK_ibu], 
@@ -99,8 +103,6 @@ class RegistrantController extends Controller
                             'pekerjaan' => $request->pekerjaan_ibu === 'Lainnya' ? $request->pekerjaan_ibu_lainnya : $request->pekerjaan_ibu,
                             'alamat' => $request->alamat_ibu,
                         ]);
-
-                        
                         // Simpan data ayah
                         $ayah = Dad::firstOrCreate(['NIK' => $request->NIK_ayah],
                         [
@@ -110,6 +112,7 @@ class RegistrantController extends Controller
                             'pekerjaan' => $request->pekerjaan_ayah === 'Lainnya' ? $request->pekerjaan_ayah_lainnya : $request->pekerjaan_ayah,
                             'alamat' => $request->alamat_ayah,
                         ]);
+                        // Update data student dengan id ibu dan ayah
                         $student->update([
                             'mom_id' => $ibu->id,
                             'dad_id' => $ayah->id
@@ -124,12 +127,12 @@ class RegistrantController extends Controller
                                 'pekerjaan' => $request->pekerjaan_wali === 'Lainnya' ? $request->pekerjaan_wali_lainnya : $request->pekerjaan_wali,
                                 'alamat' => $request->alamat_wali,
                             ]);
-                            $student->update(['guardian_id' => $wali->id,]);
+                            $student->update(['guardian_id' => $wali->id,]); // update data student dengan id wali
                         }
-                        $registrant->update(['status' => 2]);
-                        return redirect()->route('form', $registrant->unique_id);
+                        $registrant->update(['status' => 2]); // ubah status registrant menjadi 2 untuk melanjutkan ke step 'konfirmasi bayar 1'
+                        return redirect()->route('form', $registrant->unique_id); // redirect ke form dengan unique_id registrant
                     }
-                    if ($registrant->status == 3){
+                    if ($registrant->status == 3){ // jika status registrant adalah 3, masuk ke step 'pilih program'
                         $registrant->update([
                             'rombel_id' => $request->lokasi . $request->program
                         ]);
@@ -264,7 +267,6 @@ class RegistrantController extends Controller
 
                         $registrant->update(['status' => 5]);
                         return redirect()->route('form', $registrant->unique_id);
-
                     }
                 } return back();
             }
@@ -274,34 +276,35 @@ class RegistrantController extends Controller
     public function showform ($id = null){
         if(Auth::id()){
             $id_user = Auth::id();
-            if(!$id) return view('pendaftaran-dataDaftar');
+            if(!$id) return view('pendaftaran-dataDaftar', ['currentStep' => 1]);
             $registrant = Registrant::where('unique_id', $id)->first();
             if($id_user == $registrant->user_id){
                 $step = $registrant->status;
                 switch ($step){
-                    case 1:
-                        return view ('pendaftaran-dataOrtu', ['id' => $id]);
-                    case 2:
-                        return view ('pendaftaran-status', compact('registrant'));
-                    case 20:
-                        return view ('pendaftaran-statusTolak', compact('registrant'));
-                    case 3:
+                    case 1: // step 'data ortu'
+                        return view ('pendaftaran-dataOrtu', ['id' => $id], ['currentStep' => $step]);
+                    case 2: // step 'konfirmasi bayar 1'
+                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                    case 20: // step 'konfirmasi bayar 1 ditolak'
+                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                    case 3: // step 'pilih program'
                         $programs = Program::all();
                         $locations = Location::all();
-                        return view ('pendaftaran-pilihProgram', compact('programs', 'id', 'locations'));
-                    case 4:
-                        return view ('pendaftaran-formLanjutan', compact('registrant'));
-                    case 5:
-                        return view ('pendaftaran-status', compact('registrant'));
-                    case 50:
-                        return view ('pendaftaran-statusTolak', compact('registrant'));
-                    case 6:
-                        return view ('pendaftaran-status', compact('registrant'));
-                    case 7:
-                        return view ('pendaftaran-statusTerima', compact('registrant'));
-                    case 60:
-                        return view ('pendaftaran-statusTolak', compact('registrant'));
-                    
+                        return view ('pendaftaran-pilihProgram', compact('programs', 'id', 'locations'), ['currentStep' => $step]);
+                    case 4: // step 'form lanjutan'
+                        return view ('pendaftaran-formLanjutan', compact('registrant'), ['currentStep' => $step]);
+                    case 5: // step 'wawancara & asesmen'
+                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                    case 50: // step 'konfirmasi wawancara & asesmen ditolak'
+                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                    case 6: // step 'konfirmasi data pendaftaran'
+                        return view ('pendaftaran-konfirmasiData', compact('registrant'), ['currentStep' => $step]);
+                    case 7: // step 'status diterima' (setelah wawancara dan aseesmen)
+                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                    case 70: // step 'pembayaran ditolak'
+                        return view('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                    case 8: // step 'pembayaran'
+                        return view('pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
                 }
             }
         }return redirect('login');
