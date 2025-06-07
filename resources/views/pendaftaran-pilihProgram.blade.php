@@ -40,7 +40,7 @@
             </div>
 
             <!-- Rincian Harga -->
-            <div id="rincianHarga" class="px-6 py-4 bg-white rounded-xl shadow-md font-['Poppins'] text-zinc-800 mx-6">
+            <div id="hargaList" class="px-6 py-4 bg-white rounded-xl shadow-md font-['Poppins'] text-zinc-800 mx-6">
                 <p class="font-semibold mb-2">Rincian Harga:</p>
                 <ul class="list-disc list-inside text-sm space-y-1" id="hargaList">
                     <li>Silakan pilih program terlebih dahulu.</li>
