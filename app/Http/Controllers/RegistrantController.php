@@ -299,7 +299,7 @@ class RegistrantController extends Controller
                         return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
                     case 6: // step 'konfirmasi data pendaftaran'
                         return view ('pendaftaran-konfirmasiData', compact('registrant'), ['currentStep' => $step]);
-                    case 7: // step 'status diterima' (setelah wawancara dan aseesmen)
+                    case 7: // step 'pembayaran'
                         return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                     case 70: // step 'pembayaran ditolak'
                         return view('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
