@@ -268,6 +268,20 @@ class RegistrantController extends Controller
                         $registrant->update(['status' => 5]);
                         return redirect()->route('form', $registrant->unique_id);
                     }
+                    if($registrant->status == 6){
+                        $registrant->update(['status' => 7]);
+                        return redirect()->route('form', $registrant->unique_id);
+                    }
+                    if($registrant->status == 7){
+                        // $validate = $request->validate([
+                        //     'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                        // ]);
+                        // $file = $request->file('bukti_pembayaran'); // ambil file bukti pembayaran
+                        // $filename = time() . '.' . $file->getClientOriginalExtension(); // buat nama file unik dengan timestamp dan nama file dari user
+                        // $file->move(public_path('pubilc/uploads/bukti_pembayaran'), $filename); // simpan file ke folder public/uploads/bukti_pembayaran
+                        // $registrant->update(['bukti_pembayaran' => $filename); // update tabel registrant dengan mengisi kolom bukti_pembayaran
+                        return redirect()->route('form', $registrant->unique_id); // redirect ke form dengan unique_id registrant
+                    }
                 } return back();
             }
         }   
@@ -276,7 +290,7 @@ class RegistrantController extends Controller
     public function showform ($id = null){
         if(Auth::id()){
             $id_user = Auth::id();
-            if(!$id) return view('pendaftaran-dataDaftar', ['currentStep' => 1]);
+            if(!$id) return view('pendaftaran-dataDaftar', ['currentStep' => 0]);
             $registrant = Registrant::where('unique_id', $id)->first();
             if($id_user == $registrant->user_id){
                 $step = $registrant->status;
