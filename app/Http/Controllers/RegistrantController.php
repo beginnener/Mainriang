@@ -276,7 +276,7 @@ class RegistrantController extends Controller
     public function showform ($id = null){
         if(Auth::id()){
             $id_user = Auth::id();
-            if(!$id) return view('pendaftaran-dataDaftar', ['currentStep' => 1]);
+            if(!$id) return view('pendaftaran-dataDaftar', ['currentStep' => 0]);
             $registrant = Registrant::where('unique_id', $id)->first();
             if($id_user == $registrant->user_id){
                 $step = $registrant->status;
