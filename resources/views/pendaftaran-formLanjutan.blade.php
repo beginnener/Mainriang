@@ -304,124 +304,128 @@
                     <input type="text" id="jenjang_pendidikan_ayah" name="jenjang_pendidikan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Sarjana">
                 </div>
             </div>
+            @if ($registrant->child->guardian)
+            
+                <!-- <div class="flex flex-row items-center">
+                    <div class="w-1/6 flex justify-end items-center">
+                        <label class="font-['Poppins'] text-right px-2">Memiliki Wali</label>
+                    </div>
+                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                    <div class="flex-grow flex gap-4 items-center px-2">
+                        <label class="font-['Poppins']">
+                            <input type="radio" name="punya_wali" value="ya" id="wali_ya" class="mr-1"> Ya
+                        </label>
+                        <label class="font-['Poppins']">
+                            <input type="radio" name="punya_wali" value="tidak" id="wali_tidak" class="mr-1"> Tidak
+                        </label>
+                    </div>
+                </div> -->
 
-            <div class="flex flex-row items-center">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label class="font-['Poppins'] text-right px-2">Memiliki Wali</label>
-                </div>
-                <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                <div class="flex-grow flex gap-4 items-center px-2">
-                    <label class="font-['Poppins']">
-                        <input type="radio" name="punya_wali" value="ya" id="wali_ya" class="mr-1"> Ya
-                    </label>
-                    <label class="font-['Poppins']">
-                        <input type="radio" name="punya_wali" value="tidak" id="wali_tidak" class="mr-1"> Tidak
-                    </label>
-                </div>
-            </div>
+
         </div>
         <!-- Data Wali - Tersembunyi -->
-        <div id="form_wali" class="hidden flex-col gap-4 mt-4">
-                <div class="w-full flex pt-4">
-                    <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-                        <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" style="-webkit-text-stroke: 1px #3b0764;">
-                            Data Wali
-                        </span>
+            <div id="form_wali" class="flex-col gap-4 mt-4">
+                    <div class="w-full flex pt-4">
+                        <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
+                            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" style="-webkit-text-stroke: 1px #3b0764;">
+                                Data Wali
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="w-4/5 mx-auto flex flex-col gap-4">
-                
-                <!-- Nama Wali -->
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="nama_lengkap_wali" class="font-['Poppins'] text-right px-2">Nama Lengkap Wali</label>
+                    <div class="w-4/5 mx-auto flex flex-col gap-4">
+                    
+                    <!-- Nama Wali -->
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="nama_lengkap_wali" class="font-['Poppins'] text-right px-2">Nama Lengkap Wali</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->name }}" readonly>
+                        </div>
                     </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->name }}" readonly>
+                    {{-- NIK --}}
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="NIK_wali" class="font-['Poppins'] text-right px-2">NIK Wali</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="text" id="NIK_wali" name="NIK_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->NIK }}" readonly>
+                        </div>
                     </div>
-                </div>
-                {{-- NIK --}}
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="NIK_wali" class="font-['Poppins'] text-right px-2">NIK Wali</label>
+                    {{-- tanggal lahir --}}
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="tanggal_lahir_wali" class="font-['Poppins'] text-right px-2">Tanggal Lahir</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="date" id="tanggal_lahir_wali" name="tanggal_lahir_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tanggal lahir">
+                        </div>
                     </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="NIK_wali" name="NIK_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->NIK }}" readonly>
+                    <!-- no telp -->
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="no_telp_wali" class="font-['Poppins'] text-right px-2">No Telepon Wali</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="tel" id="no_telp_wali" name="no_telp_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value="{{ $registrant->Child->guardian?->phone_number }}">
+                        </div>
                     </div>
-                </div>
-                {{-- tanggal lahir --}}
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="tanggal_lahir_wali" class="font-['Poppins'] text-right px-2">Tanggal Lahir</label>
+                    <!-- Pekerjaan wali -->
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="pekerjaan_wali" class="font-['Poppins'] text-right px-2">Pekerjaan Wali</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <select id="pekerjaan_wali" name="pekerjaan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out">
+                                <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                                <option value="PNS">PNS</option>
+                                <option value="Karyawan Swasta">Karyawan Swasta</option>
+                                <option value="Wiraswasta">Wiraswasta</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            <div class="hidden pl-2 flex-grow transition-all duration-300 ease-in-out" id="div_wali">
+                                <input type="text" id="pekerjaan_wali_lainnya" name="pekerjaan_wali_lainnya" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
+                            </div>
+                        </div>
                     </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="date" id="tanggal_lahir_wali" name="tanggal_lahir_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tanggal lahir">
+                    <!-- Alamat -->
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="alamat_wali" class="font-['Poppins'] text-right px-2">Alamat Wali</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="text" id="alamat_wali" name="alamat_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value="{{ $registrant->Child->guardian?->alamat }}">
+                        </div>
                     </div>
-                </div>
-                <!-- no telp -->
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="no_telp_wali" class="font-['Poppins'] text-right px-2">No Telepon Wali</label>
+                    <!-- penghasilan -->
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="penghasilan_wali" class="font-['Poppins'] text-right px-2">Penghasilan</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="num" id="penghasilan_wali" name="penghasilan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp">
+                        </div>
                     </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="tel" id="no_telp_wali" name="no_telp_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value="{{ $registrant->Child->guardian?->phone_number }}">
-                    </div>
-                </div>
-                <!-- Pekerjaan wali -->
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="pekerjaan_wali" class="font-['Poppins'] text-right px-2">Pekerjaan Wali</label>
-                    </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <select id="pekerjaan_wali" name="pekerjaan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out">
-                            <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-                            <option value="PNS">PNS</option>
-                            <option value="Karyawan Swasta">Karyawan Swasta</option>
-                            <option value="Wiraswasta">Wiraswasta</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                        <div class="hidden pl-2 flex-grow transition-all duration-300 ease-in-out" id="div_wali">
-                            <input type="text" id="pekerjaan_wali_lainnya" name="pekerjaan_wali_lainnya" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
+                    <!-- jenjang pendidikan -->
+                    <div class="flex flex-row items-center">
+                        <div class="w-1/6 flex justify-end items-center">
+                            <label for="Jenjang_pendidikan_wali" class="font-['Poppins'] text-right px-2">Jenjang Pendidikan Wali</label>
+                        </div>
+                        <span class="px-1 font-['Poppins'] flex items-center">:</span>
+                        <div class="flex-grow flex items-center px-2">
+                            <input type="text" id="Jenjang_pendidikan_wali" name="Jenjang_pendidikan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana">
                         </div>
                     </div>
                 </div>
-                <!-- Alamat -->
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="alamat_wali" class="font-['Poppins'] text-right px-2">Alamat Wali</label>
-                    </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="alamat_wali" name="alamat_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value="{{ $registrant->Child->guardian?->alamat }}">
-                    </div>
-                </div>
-                <!-- penghasilan -->
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="penghasilan_wali" class="font-['Poppins'] text-right px-2">Penghasilan</label>
-                    </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="num" id="penghasilan_wali" name="penghasilan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp">
-                    </div>
-                </div>
-                <!-- jenjang pendidikan -->
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="Jenjang_pendidikan_wali" class="font-['Poppins'] text-right px-2">Jenjang Pendidikan Wali</label>
-                    </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="Jenjang_pendidikan_wali" name="Jenjang_pendidikan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana">
-                    </div>
-                </div>
             </div>
-            </div>
+        @endif
             <div class="w-full flex pt-4">
                 <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
                     <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" style="-webkit-text-stroke: 1px #3b0764;">
