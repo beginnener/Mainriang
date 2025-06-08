@@ -35,7 +35,7 @@
                     <span class="font-semibold text-left text-xl">
                         Admin akan menghubungi anda melalui whatsapp untuk detail {{ strtolower($registrant->status_label) }}, mohon ditunggu..<br>
                     </span>
-                    <span class="mt-2 font-semibold text-left text-lg text-zinc-400">">
+                    <span class="mt-2 font-semibold text-left text-lg text-zinc-400">
                         *Halaman akan otomatis berubah setelah sesi {{ strtolower($registrant->status_label) }} selesai
                     </span>
                 @endif
