@@ -305,25 +305,6 @@
                 </div>
             </div>
             @if ($registrant->child->guardian)
-            
-                <!-- <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label class="font-['Poppins'] text-right px-2">Memiliki Wali</label>
-                    </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex gap-4 items-center px-2">
-                        <label class="font-['Poppins']">
-                            <input type="radio" name="punya_wali" value="ya" id="wali_ya" class="mr-1"> Ya
-                        </label>
-                        <label class="font-['Poppins']">
-                            <input type="radio" name="punya_wali" value="tidak" id="wali_tidak" class="mr-1"> Tidak
-                        </label>
-                    </div>
-                </div> -->
-
-
-        </div>
-        <!-- Data Wali - Tersembunyi -->
             <div id="form_wali" class="flex-col gap-4 mt-4">
                     <div class="w-full flex pt-4">
                         <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
