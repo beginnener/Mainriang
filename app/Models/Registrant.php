@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Registrant extends Model
 {
-    protected $fillable = ['unique_id', 'phone_number', 'email', 'status', 'student_id', 'rombel_id', 'user_id'];
+    protected $fillable = ['unique_id', 'phone_number', 'email', 'status', 'student_id', 'rombel_id', 'user_id', 'bukti_pembayaran'];
     protected $hidden = ['student_id'];
     use HasFactory;
     public function Child(): BelongsTo{
@@ -27,8 +27,9 @@ class Registrant extends Model
             5 => 'Wawancara',
             6 => 'Seleksi',
             7 => 'Pembayaran Pendidikan',
-            70 => 'Ditolak', // pendaftaran ditolak
-            8 => 'Diterima', // pendaftaran diterima
+            8 => 'Konfirmasi Pembayaran Pendidikan', // pendaftaran diterima
+            80 => 'Ditolak', // pendaftaran ditolak
+            9 => 'Diterima', // pendaftaran ditolak
             default => 'Status Tidak Diketahui',
         };
     }

@@ -36,7 +36,7 @@
               </td>
               <td class="px-8 py-2">
                 <div class="flex flex-col gap-1">
-                    @if (in_array($daftar->status, [2, 5, 6, 7]))
+                    @if (in_array($daftar->status, [2, 5, 6, 8]))
                         {{-- Tombol Terima --}}
                         <form action="{{ route('pendaftar.terima', $daftar->id) }}" method="POST">
                             @csrf
