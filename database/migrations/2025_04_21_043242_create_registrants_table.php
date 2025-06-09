@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('unique_id');
             $table->string('phone_number');
             $table->string('email');
-            $table->string('bukti_pembayaran');
+            $table->string('bukti_pembayaran')->nullable();
             $table->integer('status');
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('rombel_id')->nullable();
