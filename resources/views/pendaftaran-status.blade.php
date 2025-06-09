@@ -14,7 +14,7 @@
                         <br>
                     </span>
                     <div class="my-6">
-                        <form method="post" action="{{ route('daftar') }}" class="flex flex-row items-center">
+                        <form method="post" action="{{ route('daftar') }}" enctype="multipart/form-data" class="flex flex-row items-center">
                             @csrf
                             <input type="hidden" name="id" value="{{ $registrant->unique_id }}">
                             <div class="flex flex-col">

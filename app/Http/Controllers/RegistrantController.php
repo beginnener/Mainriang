@@ -273,15 +273,20 @@ class RegistrantController extends Controller
                         return redirect()->route('form', $registrant->unique_id);
                     }
                     if($registrant->status == 7){
-                        $registrant->update(['status' => 8]);
                         $validate = $request->validate([
                             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                         ]);
-                        $file = $request->file('bukti_pembayaran'); // ambil file bukti pembayaran
-                        $filename = time() . '.' . $file->getClientOriginalExtension(); // buat nama file unik dengan timestamp dan nama file dari user
-                        $file->move(public_path('pubilc/uploads/bukti_pembayaran'), $filename); // simpan file ke folder public/uploads/bukti_pembayaran
-                        $registrant->update(['bukti_pembayaran' => $filename]); // update tabel registrant dengan mengisi kolom bukti_pembayaran
-                        return redirect()->route('form', $registrant->unique_id); // redirect ke form dengan unique_id registrant
+
+                        $file = $request->file('bukti_pembayaran');
+                        $filename = $registrant->unique_id . '_bukti_pembayaran.' . $file->getClientOriginalExtension();
+                        $file->move(public_path('uploads/bukti_pembayaran'), $filename); // sudah diperbaiki
+
+                        $registrant->update([
+                            'status' => 8,
+                            'bukti_pembayaran' => $filename
+                        ]);
+
+                        return redirect()->route('form', $registrant->unique_id);
                     }
                 } return back();
             }
@@ -316,9 +321,11 @@ class RegistrantController extends Controller
                         return view ('pendaftaran-konfirmasiData', compact('registrant'), ['currentStep' => $step]);
                     case 7: // step 'pembayaran'
                         return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
-                    case 70: // step 'pembayaran ditolak'
+                    case 80: // step 'pembayaran ditolak'
                         return view('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
                     case 8: // step 'pembayaran'
+                        return view('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                    case 9: // step 'pembayaran'
                         return view('pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
                 }
             }
