@@ -5,8 +5,8 @@
     'Pembayaran Pendaftaran',
     'Pemilihan Program',
     'Form Lanjutan',
-    'Wawancara',
-    'Seleksi',
+    'Wawancara dan Seleksi',
+    'Konfirmasi',
     'Pembayaran Pendidikan',
   ];
 @endphp
