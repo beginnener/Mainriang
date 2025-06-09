@@ -39,7 +39,7 @@
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
                     <input type="date" id="tanggal_lahir" name="tanggal_lahir" value="{{ $registrant->child->tanggal_lahir }}" readonly
-                    class="w-1/3 h-16 px-6 font-['Poppins'] text-left text-gray-700 bg-zinc-200 border-none rounded-full">
+                    class="w-full h-16 px-6 font-['Poppins'] text-left text-gray-700 bg-zinc-200 border-none rounded-full">
                 </div>
             </div>
             <div class="h-16 flex flex-row items-center">
@@ -47,15 +47,9 @@
                     <label for="jk" class="font-['Poppins'] text-right px-2">Jenis Kelamin</label>
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                <div class="flex-grow flex items-center px-6 gap-6">
-                    <label class="font-['Poppins'] flex items-center gap-2">
-                        <input type="radio" id="laki-laki" name="jk" value="L" {{ $registrant->child->jk == 'L' ? 'checked' : '' }}>
-                        Laki-laki
-                    </label>
-                    <label class="font-['Poppins'] flex items-center gap-2">
-                        <input type="radio" id="perempuan" name="jk" value="P" {{ $registrant->child->jk == 'P' ? 'checked' : '' }}>
-                        Perempuan
-                    </label>
+                <div class="flex-grow flex items-center px-2">
+                    <input type="text" id="jenis_kelamin" name="jenis_kelamin" value="{{ $registrant->child->jk == 'L' ? 'Laki-laki' : 'Perempuan' }}" readonly
+                    class="w-full h-16 px-6 font-['Poppins'] text-left text-gray-700 bg-zinc-200 border-none rounded-full">
                 </div>
             </div>
             <!-- Nama Ibu -->
