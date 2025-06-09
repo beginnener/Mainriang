@@ -27,7 +27,7 @@ class Registrant extends Model
             5 => 'Wawancara dan Seleksi',
             6 => 'Konfirmasi',
             7 => 'Pembayaran Pendidikan',
-            8 => 'Konfirmasi Pembayaran Pendidikan', // pendaftaran diterima
+            8 => 'Konfirmasi Pembayaran', // pendaftaran diterima
             80 => 'Ditolak', // pendaftaran ditolak
             9 => 'Diterima', // pendaftaran ditolak
             default => 'Status Tidak Diketahui',
