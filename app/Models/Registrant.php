@@ -24,8 +24,8 @@ class Registrant extends Model
             20 => 'Ditolak Saat Pembayaran',
             3 => 'Memilih Program',
             4 => 'Form Lanjutan',
-            5 => 'Wawancara & Asesmen',
-            6 => 'Konfirmasi Data',
+            5 => 'Wawancara',
+            6 => 'Seleksi',
             7 => 'Pembayaran Pendidikan',
             70 => 'Ditolak', // pendaftaran ditolak
             8 => 'Diterima', // pendaftaran diterima

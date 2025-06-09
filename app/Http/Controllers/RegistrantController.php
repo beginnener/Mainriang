@@ -273,6 +273,7 @@ class RegistrantController extends Controller
                         return redirect()->route('form', $registrant->unique_id);
                     }
                     if($registrant->status == 7){
+                        $registrant->update(['status' => 8]);
                         $validate = $request->validate([
                             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                         ]);

@@ -6,7 +6,7 @@
     'Pemilihan Program',
     'Form Lanjutan',
     'Wawancara',
-    'Konfirmasi',
+    'Seleksi',
     'Pembayaran Pendidikan',
   ];
 @endphp
