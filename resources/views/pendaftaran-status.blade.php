@@ -8,8 +8,16 @@
         <div class="mx-48 flex flex-row gap-6 items-center">
             <div class="flex flex-col h-fit w-[1200px]">
                 @if ($registrant->status == 7)
+
+                     @php
+                        $harga_pendaftaran = 0
+                    @endphp
+                    @foreach ($registrant->Rombel->program->Price as $harga)
+                       @php $harga_pendaftaran += $harga->price @endphp
+                    @endforeach
+
                     <span class="font-semibold text-left text-xl">
-                        Silahkan lakukan pembayaran sebesar Rp. {{ number_format($registrant->rombel->program->prices, 0, ',', '.') }} 
+                        Silahkan lakukan pembayaran sebesar Rp. {{ number_format($harga_pendaftaran, 0, ',', '.') }}
                         ke rekening xxxxxxx (a.n admin main riang) untuk melanjutkan proses pendaftaran.
                         <br>
                     </span>
