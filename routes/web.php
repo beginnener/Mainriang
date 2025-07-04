@@ -37,6 +37,12 @@ Route::get('/galeri', function () {
 Route::get('/mengapa', function () {
     return view('mengapa');
 });
+Route::get('/status', function () {
+    return view('pendaftaran-status');
+});
+Route::get('/detail-pendaftaran', function () {
+    return view('admin-detailPendaftaran');
+});
 route::get('/petunjuk-pendaftaran', function() {
     return view('pendaftaran');
 })->name('petunjuk-pendaftaran');

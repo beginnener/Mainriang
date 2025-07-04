@@ -30,9 +30,12 @@
                 </div>
               </td>
               <td class="px-8 py-2">
-                <div class="px-4 py-2 bg-white text-center border-2 border-gray-200 rounded-lg transition duration-200 hover:underline hover:text-blue-500 cursor-pointer">
+                {{-- ke halaman detail pendaftaran --}}
+                <a href="/detail-pendaftaran"> 
+                  <div class="px-4 py-2 bg-white text-center border-2 border-gray-200 rounded-lg transition duration-200 hover:underline hover:text-blue-500 cursor-pointer">
                     Lihat Detail
-                </div>
+                  </div>
+                </a>
               </td>
               <td class="px-8 py-2">
                 <div class="flex flex-col gap-1">
