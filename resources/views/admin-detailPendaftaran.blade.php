@@ -225,7 +225,7 @@
                         Tolak
                     </button>
                 {{-- </form> --}}
-                    <a href="{{ url()->previous() }}" class="px-4 py-2 bg-gray-500 text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-gray-700 cursor-pointer">
+                    <a href="{{ route('admin-pendaftaran') }}" class="px-4 py-2 bg-gray-500 text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-gray-700 cursor-pointer">
                         Kembali
                     </a>
             </div>
