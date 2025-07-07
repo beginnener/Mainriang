@@ -18,7 +18,7 @@
                     <input type="text" id="nama_lengkap" name="nama_lengkap"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
                         placeholder="Masukkan nama lengkap"
-                        value=" {{ $registrant->child->nama }}" readonly>
+                        value=" {{ $registrant->child->nama }}" readonly required>
                 </div>
             </div>
             <!-- Jenis Kelamin -->
@@ -29,10 +29,10 @@
                 <span class="px-1 font-['Poppins']">:</span>
                 <div class="flex-grow px-2 flex items-center space-x-6">
                     <label class="inline-flex items-center font-['Poppins']">
-                        <input type="radio" name="jenis_kelamin" value="L" class="mr-2"> Laki-laki
+                        <input type="radio" name="jenis_kelamin" value="L" class="mr-2" required> Laki-laki
                     </label>
                     <label class="inline-flex items-center font-['Poppins']">
-                        <input type="radio" name="jenis_kelamin" value="P" class="mr-2"> Perempuan
+                        <input type="radio" name="jenis_kelamin" value="P" class="mr-2" required> Perempuan
                     </label>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <div class="flex-grow px-2">
                     <input type="text" id="tempat_lahir" name="tempat_lahir"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan tempat lahir">
+                        placeholder="Masukkan tempat lahir" required>
                 </div>
             </div>
             <!-- Tanggal Lahir -->
@@ -56,7 +56,7 @@
                 <span class="px-1 font-['Poppins']">:</span>
                 <div class="flex-grow px-2">
                     <input type="date" id="tanggal_lahir" name="tanggal_lahir"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left">
+                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" required>
                 </div>
             </div>
             <!--FORM LAINNYA -->
@@ -83,7 +83,7 @@
                     <div class="flex-grow px-2">
                         <input type="text" id="{{ $name }}" name="{{ $name }}"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan {{ strtolower($label) }}">
+                        placeholder="Masukkan {{ strtolower($label) }}" required>
                     </div>
                 </div>
             @endforeach
@@ -94,7 +94,7 @@
                 <span class="px-1 font-['Poppins']">:</span>
                 <div class="flex-grow px-2">
                     <select id="jenis_tinggal_anak" name="jenis_tinggal_anak"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left">
+                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" required>
                         <option value="">Pilih jenis tinggal</option>
                         <option value="dengan_ibu_dan_ayah">Dengan ibu dan ayah</option>
                         <option value="dengan_ibu">Dengan ibu</option>
@@ -111,7 +111,7 @@
                 </div>
                 <span class="px-1 font-['Poppins']">:</span>
                 <div class="flex-grow px-2">
-                    <input type="file" id="kartu_keluarga" name="kartu_keluarga" class="hidden" accept="image/*,application/pdf">
+                    <input type="file" id="kartu_keluarga" name="kartu_keluarga" class="hidden" accept="image/*,application/pdf" required>
                     <label id="label-foto-kk-btn" for="kartu_keluarga"
                         class="cursor-pointer inline-block w-full h-16 px-6 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
                         <span id="label-foto-kk">Pilih file...</span>
@@ -126,7 +126,7 @@
                 </div>
                 <span class="px-1 font-['Poppins']">:</span>
                 <div class="flex-grow px-2">
-                    <input type="file" id="akta_kelahiran" name="akta_kelahiran" class="hidden" accept="image/*,application/pdf">
+                    <input type="file" id="akta_kelahiran" name="akta_kelahiran" class="hidden" accept="image/*,application/pdf" required>
                     <label id="label-foto-akta-btn" for="akta_kelahiran"
                         class="cursor-pointer inline-block w-full h-16 px-6 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
                         <span id="label-foto-akta">Pilih file...</span>
@@ -151,7 +151,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="nama_lengkap_ibu" name="nama_lengkap_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value = "{{ $registrant->Child->mom->name }}" readonly>
+                        <input type="text" id="nama_lengkap_ibu" name="nama_lengkap_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value = "{{ $registrant->Child->mom->name }}" readonly required>
                     </div>
                 </div>
                 {{-- NIK --}}
@@ -161,7 +161,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="NIK_ibu" name="NIK_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value = "{{ $registrant->Child->mom->NIK }}" readonly>
+                        <input type="text" id="NIK_ibu" name="NIK_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value = "{{ $registrant->Child->mom->NIK }}" readonly required>
                     </div>
                 </div>
                 {{-- tahun lahir --}}
@@ -171,7 +171,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="date" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap">
+                        <input type="date" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" required>
                     </div>
                 </div>
                 <!-- no telp -->
@@ -181,7 +181,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="tel" id="no_telp_ibu" name="no_telp_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value = "{{ $registrant->Child->mom->phone_number }}">
+                        <input type="tel" id="no_telp_ibu" name="no_telp_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value = "{{ $registrant->Child->mom->phone_number }}" required>
                     </div>
                 </div>
                 <!-- Pekerjaan ibu -->
@@ -191,7 +191,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <select type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out" value = "{{ $registrant->Child->mom->pekerjaan }}">
+                        <select type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out" value = "{{ $registrant->Child->mom->pekerjaan }}" required>
                             <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
                             <option value="PNS">PNS</option>
                             <option value="Karyawan Swasta">Karyawan Swasta</option>
@@ -210,7 +210,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="alamat_ibu" name="alamat_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value = "{{ $registrant->Child->mom->alamat }}">
+                        <input type="text" id="alamat_ibu" name="alamat_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value = "{{ $registrant->Child->mom->alamat }}" required>
                     </div>
                 </div>
                 <!-- penghasilan -->
@@ -220,7 +220,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="num" id="penghasilan_ibu" name="penghasilan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp">
+                        <input type="num" id="penghasilan_ibu" name="penghasilan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp" required>
                     </div>
                 </div>
                 <!-- jejang Pendidikan -->
@@ -230,7 +230,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="jenjang_pendidikan_ibu" name="jenjang_pendidikan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana">
+                        <input type="text" id="jenjang_pendidikan_ibu" name="jenjang_pendidikan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana" required>
                     </div>
                 </div>
             </div>
@@ -248,7 +248,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="nama_lengkap_ayah" name="nama_lengkap_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->dad->name }}" readonly>
+                        <input type="text" id="nama_lengkap_ayah" name="nama_lengkap_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->dad->name }}" readonly required>
                     </div>
                 </div>
                 {{-- NIK --}}
@@ -258,7 +258,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="NIK_ayah" name="NIK_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan NIK" value="{{ $registrant->Child->dad->NIK }}" readonly>
+                        <input type="text" id="NIK_ayah" name="NIK_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan NIK" value="{{ $registrant->Child->dad->NIK }}" readonly required>
                     </div>
                 </div>
                 {{-- tanggal lahir --}}
@@ -268,7 +268,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="date" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tanggal lahir">
+                        <input type="date" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tanggal lahir" required>
                     </div>
                 </div>
                 <!-- no telp -->
@@ -278,7 +278,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="tel" id="no_telp_ayah" name="no_telp_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value="{{ $registrant->Child->dad->phone_number }}">
+                        <input type="tel" id="no_telp_ayah" name="no_telp_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value="{{ $registrant->Child->dad->phone_number }}" required>
                     </div>
                 </div>
                 <!-- Pekerjaan Ayah -->
@@ -288,7 +288,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <select id="pekerjaan_ayah" name="pekerjaan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out" value="{{ $registrant->Child->dad->pekerjaan }}">
+                        <select id="pekerjaan_ayah" name="pekerjaan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out" value="{{ $registrant->Child->dad->pekerjaan }}" required>
                             <option value="PNS">PNS</option>
                             <option value="Karyawan Swasta">Karyawan Swasta</option>
                             <option value="Wiraswasta">Wiraswasta</option>
@@ -308,7 +308,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="alamat_ayah" name="alamat_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value="{{ $registrant->Child->dad->alamat }}">
+                        <input type="text" id="alamat_ayah" name="alamat_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value="{{ $registrant->Child->dad->alamat }}" required>
                     </div>
                 </div>
                 <!-- penghasilan -->
@@ -318,7 +318,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="num" id="penghasilan_ayah" name="penghasilan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp">
+                        <input type="num" id="penghasilan_ayah" name="penghasilan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp" required>
                     </div>
                 </div>
                 <!-- jenjang Pendidikan -->
@@ -328,7 +328,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="jenjang_pendidikan_ayah" name="jenjang_pendidikan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Sarjana">
+                        <input type="text" id="jenjang_pendidikan_ayah" name="jenjang_pendidikan_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Sarjana" required>
                     </div>
                 </div>
             </div>
@@ -350,7 +350,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->name }}" readonly>
+                                <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->name }}" readonly required>
                             </div>
                         </div>
                         {{-- NIK --}}
@@ -360,7 +360,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="text" id="NIK_wali" name="NIK_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->NIK }}" readonly>
+                                <input type="text" id="NIK_wali" name="NIK_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->Child->guardian?->NIK }}" readonly required>
                             </div>
                         </div>
                         {{-- tanggal lahir --}}
@@ -370,7 +370,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="date" id="tanggal_lahir_wali" name="tanggal_lahir_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tanggal lahir">
+                                <input type="date" id="tanggal_lahir_wali" name="tanggal_lahir_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tanggal lahir" required>
                             </div>
                         </div>
                         <!-- no telp -->
@@ -380,7 +380,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="tel" id="no_telp_wali" name="no_telp_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value="{{ $registrant->Child->guardian?->phone_number }}">
+                                <input type="tel" id="no_telp_wali" name="no_telp_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="08xxxxx" value="{{ $registrant->Child->guardian?->phone_number }}" required>
                             </div>
                         </div>
                         <!-- Pekerjaan wali -->
@@ -390,7 +390,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <select id="pekerjaan_wali" name="pekerjaan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out">
+                                <select id="pekerjaan_wali" name="pekerjaan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left transition-all duration-300 ease-in-out" required>
                                     <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Karyawan Swasta">Karyawan Swasta</option>
@@ -409,7 +409,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="text" id="alamat_wali" name="alamat_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value="{{ $registrant->Child->guardian?->alamat }}">
+                                <input type="text" id="alamat_wali" name="alamat_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat" value="{{ $registrant->Child->guardian?->alamat }}" required>
                             </div>
                         </div>
                         <!-- penghasilan -->
@@ -419,7 +419,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="num" id="penghasilan_wali" name="penghasilan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp">
+                                <input type="num" id="penghasilan_wali" name="penghasilan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Rp" required>
                             </div>
                         </div>
                         <!-- jenjang pendidikan -->
@@ -429,7 +429,7 @@
                             </div>
                             <span class="px-1 font-['Poppins'] flex items-center">:</span>
                             <div class="flex-grow flex items-center px-2">
-                                <input type="text" id="Jenjang_pendidikan_wali" name="Jenjang_pendidikan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana">
+                                <input type="text" id="Jenjang_pendidikan_wali" name="Jenjang_pendidikan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana" required>
                             </div>
                         </div>
                     </div>
@@ -453,7 +453,7 @@
                     <div class="flex-grow px-2">
                         <input type="text" id="lintang_anak" name="lintang_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan lintang">
+                        placeholder="Masukkan lintang" required>
                     </div>
                 </div>
 
@@ -466,7 +466,7 @@
                     <div class="flex-grow px-2">
                         <input type="text" id="bujur_anak" name="bujur_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan bujur">
+                        placeholder="Masukkan bujur" required>
                     </div>
                 </div>
 
@@ -479,7 +479,7 @@
                     <div class="flex-grow px-2">
                         <input type="number" step="0.01" id="jarak_rumah_anak" name="jarak_rumah_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Contoh: 1.5">
+                        placeholder="Contoh: 1.5" required>
                     </div>
                 </div>
 
@@ -492,7 +492,7 @@
                     <div class="flex-grow px-2">
                         <input type="number" id="berat_badan_anak" name="berat_badan_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Dalam KG">
+                        placeholder="Dalam KG" required>
                     </div>
                 </div>
 
@@ -505,7 +505,7 @@
                     <div class="flex-grow px-2">
                         <input type="number" id="tinggi_badan_anak" name="tinggi_badan_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Dalam CM">
+                        placeholder="Dalam CM" required>
                     </div>
                 </div>
 
@@ -518,7 +518,7 @@
                     <div class="flex-grow px-2">
                         <input type="number" id="lingkar_kepala_anak" name="lingkar_kepala_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Dalam CM">
+                        placeholder="Dalam CM" required>
                     </div>
                 </div>
 
@@ -531,7 +531,7 @@
                     <div class="flex-grow px-2">
                         <input type="number" id="anak_keberapa" name="anak_keberapa"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan jumlah">
+                        placeholder="Masukkan jumlah" required>
                     </div>
                 </div>
                 
@@ -543,7 +543,7 @@
                     <div class="flex-grow px-2">
                         <input type="number" id="jumlah_saudara_kandung_anak" name="jumlah_saudara_kandung_anak"
                         class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan jumlah">
+                        placeholder="Masukkan jumlah" required>
                     </div>
                 </div>
 
