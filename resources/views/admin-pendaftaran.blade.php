@@ -31,12 +31,7 @@
               </td>
               <td class="px-4 lg:px-8 py-2">
                 <div class="flex flex-col gap-2">
-                    {{-- ke halaman detail pendaftaran --}}
-                    <a href="/detail-pendaftaran/{{ $daftar->unique_id }}"> 
-                      <div class="px-2 lg:px-4 py-2 bg-white text-center border-2 border-gray-200 rounded-lg transition duration-200 hover:underline hover:text-blue-500 cursor-pointer text-xs lg:text-sm">
-                        Lihat Detail
-                      </div>
-                    </a>
+                    
                     
                     @if (in_array($daftar->status, [2, 5, 6, 8]))
                         <div class="flex flex-col lg:flex-row gap-1">
@@ -59,6 +54,13 @@
                             </form>
                         </div>
                     @endif
+
+                    {{-- ke halaman detail pendaftaran --}}
+                    <a href="/detail-pendaftaran/{{ $daftar->unique_id }}"> 
+                      <div class="px-2 lg:px-4 py-2 bg-white text-center border-2 border-gray-200 rounded-lg transition duration-200 hover:underline hover:text-blue-500 cursor-pointer text-xs lg:text-sm">
+                        Lihat Detail
+                      </div>
+                    </a>
                 </div>
             </td>
             </tr>
