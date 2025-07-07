@@ -263,7 +263,7 @@
                 </div>
             </div>
             <div class="buttons flex flex-row gap-3 mt-4 justify-end">
-                @if(auth()->user() && auth()->user()->usertype === 'admin' && in_array($pendaftar->status, [2, 5, 6, 8]))
+                @if(auth()->user() && auth()->user()->usertype === 'admin' && in_array($pendaftar->status, [2, 5, 8]))
                     {{-- Tombol Terima --}}
                     <form action="{{ route('pendaftar.terima', $pendaftar->id) }}" method="POST">
                         @csrf

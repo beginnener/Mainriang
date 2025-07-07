@@ -6,9 +6,6 @@
                     <img src="{{ asset('icon/logo main riang.svg') }}" alt="" class="w-12 h-12">
                     <a href="" class="text-xl font-bold font-['Fredoka'] text-white ml-2 text-wrap">Halo, admin</a>
                 </div>
-                <div class="flex items-center">
-                    <input type="text" placeholder="Search..." class="px-4 py-2 w-[400px] rounded-full bg-zinc-50 text-black placeholder:text-gray-600 focus:outline-none active:bg-white">
-                </div>
                 <div id="profileToggle" class="flex flex-row w-fit gap-4 items-center ml-auto rounded-full overflow-hidden hover:shadow-gray-950/25 hover:shadow-lg">
                     <img src="{{ asset('icon/profile.png') }}" alt="Placeholder" class="w-12 h-12">
                 </div>

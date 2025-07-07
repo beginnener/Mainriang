@@ -368,9 +368,31 @@ class RegistrantController extends Controller
         return implode('', array_slice($huruf, 0, $jumlah)); // ambil sejumlah huruf
     }
 
-    public function takeAll (){
-        $pendaftar = Registrant::all();
-        return view('admin-pendaftaran')->with('pendaftar', $pendaftar);
+    public function takeAll (Request $request)
+    {
+        $query = Registrant::query();
+
+        // Search
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->whereHas('child', function($q) use ($search) {
+                $q->where('nama', 'like', "%$search%");
+            })->orWhere('unique_id', 'like', "%$search%");
+        }
+
+        // Filter status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        // Sorting
+        $sort = $request->get('sort', 'created_at');
+        $dir = $request->get('dir', 'desc');
+        $query->orderBy($sort, $dir);
+
+        $pendaftar = $query->with('child')->get();
+
+        return view('admin-pendaftaran', compact('pendaftar'));
     }
 
     public function takeOne ($id){
