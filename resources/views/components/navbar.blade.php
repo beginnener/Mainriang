@@ -64,8 +64,8 @@
             <div class="p-4">
               <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
                 <div class="flex-auto">
-                  <a href="/profil" class="block font-semibold text-gray-900 group-hover:text-orange-400">
-                    Kelola Profil
+                  <a href="{{ route('dashboard') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+                    Dashboard
                     <span class="absolute inset-0"></span>
                   </a>
                 </div>
