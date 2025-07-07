@@ -20,6 +20,7 @@
             <option value="3" @selected(request('status')=='3')>Memilih Program</option>
             <option value="4" @selected(request('status')=='4')>Form Lanjutan</option>
             <option value="5" @selected(request('status')=='5')>Wawancara dan Seleksi</option>
+            <option value="50" @selected(request('status')=='50')>Ditolak Saat Wawancara</option>
             <option value="6" @selected(request('status')=='6')>Konfirmasi</option>
             <option value="7" @selected(request('status')=='7')>Pembayaran Pendidikan</option>
             <option value="8" @selected(request('status')=='8')>Konfirmasi Pembayaran</option>
