@@ -5,7 +5,7 @@
 <div class="w-full flex flex-col pt-6 pb-10 gap-6">
     <!-- Form -->
     <div class="w-4/5 mx-auto">
-        <form action="{{ route('daftar') }}" method="POST" class="flex flex-col gap-4">
+        <form action="{{ route('daftar') }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
             @csrf
             {{-- FORM ANAK --}}
             <input type="hidden" name="id" value="{{ $registrant->unique_id }}">
@@ -103,6 +103,37 @@
                     </select>
                 </div>
             </div>
+            <!-- Setelah form anak, sebelum FORM ORTU -->
+            <!-- Upload Foto Kartu Keluarga -->
+            <div class="flex flex-row items-center mt-4">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="kartu_keluarga" class="font-['Poppins'] text-right px-2">Foto Kartu Keluarga</label>
+                </div>
+                <span class="px-1 font-['Poppins']">:</span>
+                <div class="flex-grow px-2">
+                    <input type="file" id="kartu_keluarga" name="kartu_keluarga" class="hidden" accept="image/*,application/pdf">
+                    <label id="label-foto-kk-btn" for="kartu_keluarga"
+                        class="cursor-pointer inline-block w-full h-16 px-6 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
+                        <span id="label-foto-kk">Pilih file...</span>
+                        <svg class="w-6 h-6 text-purple-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"></path></svg>
+                    </label>
+                </div>
+            </div>
+            <!-- Upload Foto Akta Kelahiran -->
+            <div class="flex flex-row items-center mt-4">
+                <div class="w-1/6 flex justify-end items-center">
+                    <label for="akta_kelahiran" class="font-['Poppins'] text-right px-2">Foto Akta Kelahiran</label>
+                </div>
+                <span class="px-1 font-['Poppins']">:</span>
+                <div class="flex-grow px-2">
+                    <input type="file" id="akta_kelahiran" name="akta_kelahiran" class="hidden" accept="image/*,application/pdf">
+                    <label id="label-foto-akta-btn" for="akta_kelahiran"
+                        class="cursor-pointer inline-block w-full h-16 px-6 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
+                        <span id="label-foto-akta">Pilih file...</span>
+                        <svg class="w-6 h-6 text-purple-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"></path></svg>
+                    </label>
+                </div>
+            </div>
     </div> {{-- tutup section anak, section form lanjut --}}
             {{-- FORM ORTU --}}
             <div class="w-full flex pt-4">
@@ -195,11 +226,11 @@
                 <!-- jejang Pendidikan -->
                 <div class="flex flex-row items-center">
                     <div class="w-1/6 flex justify-end items-center">
-                        <label for="Jenjang_pendidikan_ibu" class="font-['Poppins'] text-right px-2">Jenjang pendidikan ibu</label>
+                        <label for="jenjang_pendidikan_ibu" class="font-['Poppins'] text-right px-2">Jenjang pendidikan ibu</label>
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="Jenjang_pendidikan_ibu" name="Jenjang_pendidikan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana">
+                        <input type="text" id="jenjang_pendidikan_ibu" name="jenjang_pendidikan_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="sarjana">
                     </div>
                 </div>
             </div>
@@ -494,6 +525,18 @@
                 <!-- Jumlah Saudara Kandung -->
                 <div class="flex flex-row items-center mt-4">
                     <div class="w-1/6 flex justify-end items-center">
+                        <label for="anak_keberapa" class="font-['Poppins'] text-right px-2">Jml. Saudara Kandung</label>
+                    </div>
+                    <span class="px-1 font-['Poppins']">:</span>
+                    <div class="flex-grow px-2">
+                        <input type="number" id="anak_keberapa" name="anak_keberapa"
+                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
+                        placeholder="Masukkan jumlah">
+                    </div>
+                </div>
+                
+                <div class="flex flex-row items-center mt-4">
+                    <div class="w-1/6 flex justify-end items-center">
                         <label for="jumlah_saudara_kandung_anak" class="font-['Poppins'] text-right px-2">Jml. Saudara Kandung</label>
                     </div>
                     <span class="px-1 font-['Poppins']">:</span>
@@ -560,6 +603,34 @@
     handleSelectChange('pekerjaan_wali', 'pekerjaan_wali_lainnya', 'div_wali');
     handleSelectChange('pekerjaan_ayah', 'pekerjaan_ayah_lainnya', 'div_ayah');
     handleSelectChange('pekerjaan_ibu', 'pekerjaan_ibu_lainnya', 'div_ibu');
+});
+</script>
+<script>
+document.getElementById('kartu_keluarga').addEventListener('change', function(e) {
+    const label = document.getElementById('label-foto-kk');
+    const btn = document.getElementById('label-foto-kk-btn');
+    if (e.target.files.length) {
+        label.textContent = e.target.files[0].name;
+        btn.classList.remove('bg-zinc-300');
+        btn.classList.add('bg-gradient-to-l', 'from-orange-400', 'to-amber-300');
+    } else {
+        label.textContent = 'Pilih file...';
+        btn.classList.add('bg-zinc-300');
+        btn.classList.remove('bg-gradient-to-l', 'from-orange-400', 'to-amber-300');
+    }
+});
+document.getElementById('akta_kelahiran').addEventListener('change', function(e) {
+    const label = document.getElementById('label-foto-akta');
+    const btn = document.getElementById('label-foto-akta-btn');
+    if (e.target.files.length) {
+        label.textContent = e.target.files[0].name;
+        btn.classList.remove('bg-zinc-300');
+        btn.classList.add('bg-gradient-to-l', 'from-orange-400', 'to-amber-300');
+    } else {
+        label.textContent = 'Pilih file...';
+        btn.classList.add('bg-zinc-300');
+        btn.classList.remove('bg-gradient-to-l', 'from-orange-400', 'to-amber-300');
+    }
 });
 </script>
 

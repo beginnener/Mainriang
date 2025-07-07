@@ -20,6 +20,7 @@ class RegistrantFactory extends Factory
     public function definition(): array
     {
         return [
+            'unique_id' => $this->faker->unique()->uuid,
             'phone_number' => $this->faker->phoneNumber,
             'email' => $this->faker->unique()->safeEmail,
             'status' => $this->faker->randomElement(['aktif', 'non-aktif']),

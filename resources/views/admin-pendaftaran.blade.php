@@ -12,6 +12,7 @@
       <table class="max-w-full divide-y divide-gray-200 text-sm font-['Poppins']">
         <thead class="">
           <tr>
+            <th class="px-8 py-4 w-72 whitespace-normal break-words text-left font-semibold capitalize">ID</th>
             <th class="px-8 py-4 w-72 whitespace-normal break-words text-left font-semibold capitalize">Nama</th>
             <th class="px-8 py-4 w-72 whitespace-normal break-words text-left font-semibold capitalize">Tanggal Daftar</th>
             <th class="px-8 py-4 w-72 whitespace-normal break-words text-left font-semibold capitalize">Status Pendaftaran</th>
@@ -22,6 +23,7 @@
         <tbody class="bg-white divide-y divide-gray-300">
           @foreach ($pendaftar as $daftar)
             <tr class="hover:bg-gray-100">
+              <td class="px-8 py-2">{{ $daftar->unique_id }}</td>
               <td class="px-8 py-2">{{ $daftar->child->nama }}</td>
               <td class="px-8 py-2">{{ $daftar->child->created_at }}</td>
               <td class="px-8 py-2">
@@ -31,7 +33,7 @@
               </td>
               <td class="px-8 py-2">
                 {{-- ke halaman detail pendaftaran --}}
-                <a href="/detail-pendaftaran"> 
+                <a href="/detail-pendaftaran/{{ $daftar->unique_id }}"> 
                   <div class="px-4 py-2 bg-white text-center border-2 border-gray-200 rounded-lg transition duration-200 hover:underline hover:text-blue-500 cursor-pointer">
                     Lihat Detail
                   </div>

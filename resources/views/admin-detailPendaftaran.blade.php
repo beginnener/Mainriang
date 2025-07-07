@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+@php use Carbon\Carbon; @endphp
 <div class="flex flex-row font-['Poppins']">
     @include('components.admin-sidenav')
     <div class="p-8 w-full">
@@ -11,13 +12,13 @@
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Daftar</td>
-                            <td class="px-4 py-2 border border-gray-600">00/00/0000</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->created_at ? \Carbon\Carbon::parse($pendaftar->created_at)->format('d/m/Y') : '-' }}</td>
                         </tr>
                         <tr class="items-center">
                             <td class="px-4 py-2 font-semibold border border-gray-600">Status Pendaftaran</td>
                             <td class="w-full px-4 py-2 border border-gray-600"> 
                                 <div class="px-4 py-2 text-center bg-blue-200 rounded-lg">
-                                    ongoing
+                                    {{ $pendaftar->status_label ?? '-' }}
                                 </div>
                             </td>
                         </tr>
@@ -28,79 +29,83 @@
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="flex-1 px-4 py-2 font-semibold border border-gray-600">Nama Anak</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">Ahmad Firdaus</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->nama }}</td>
                         </tr>
                         <tr>
                             <td class="flex-1 px-4 py-2 font-semibold border border-gray-600">Nama Panggilan</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">Firdaus</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->nama_panggilan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenis Kelamin</td>
-                            <td class="px-4 py-2 border border-gray-600">Laki-laki</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->jk == 'P' ? 'Perempuan' : ($pendaftar->Child->jk == 'L' ? 'Laki-laki' : '-') }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">Jakarta</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->tempat_lahir }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">15/03/2020</td>
+                            <td class="px-4 py-2 border border-gray-600">
+                                {{ \Carbon\Carbon::parse($pendaftar->Child->tanggal_lahir)->format('d/m/Y') }}
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Agama</td>
-                            <td class="px-4 py-2 border border-gray-600">Islam</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->agama }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">RT/RW</td>
-                            <td class="px-4 py-2 border border-gray-600">03/05</td>
+                            <td class="px-4 py-2 border border-gray-600">
+                                {{ str_pad($pendaftar->Child->RT, 3, '0', STR_PAD_LEFT) }}/{{ str_pad($pendaftar->Child->RW, 3, '0', STR_PAD_LEFT) }}
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Dusun</td>
-                            <td class="px-4 py-2 border border-gray-600">Mawar</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->dusun }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Kelurahan</td>
-                            <td class="px-4 py-2 border border-gray-600">Cempaka Putih</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->kelurahan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Kecamatan</td>
-                            <td class="px-4 py-2 border border-gray-600">Cempaka Putih</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->kecamatan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Kode Pos</td>
-                            <td class="px-4 py-2 border border-gray-600">10570</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->kode_pos }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenis Tinggal</td>
-                            <td class="px-4 py-2 border border-gray-600">Bersama Orang Tua</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ str_replace('_', ' ', $pendaftar->Child->jenis_tinggal) }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Alat Transportasi</td>
-                            <td class="px-4 py-2 border border-gray-600">Kendaraan Pribadi</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->alat_transportasi }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Berat Badan</td>
-                            <td class="px-4 py-2 border border-gray-600">18 kg</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->berat_badan }} kg</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tinggi Badan</td>
-                            <td class="px-4 py-2 border border-gray-600">105 cm</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->tinggi_badan }} cm</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Lingkar Kepala</td>
-                            <td class="px-4 py-2 border border-gray-600">50 cm</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->lingkar_kepala }} cm</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jumlah Saudara</td>
-                            <td class="px-4 py-2 border border-gray-600">2</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->jumlah_saudara }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Anak Keberapa</td>
-                            <td class="px-4 py-2 border border-gray-600">2</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->anak_keberapa }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jarak ke Sekolah</td>
-                            <td class="px-4 py-2 border border-gray-600">2.5 km</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->jarak_ke_sekolah }} km</td>
                         </tr>
                     </table>
 
@@ -109,27 +114,23 @@
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Nama Ibu</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">Siti Nurhaliza</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">Bandung</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->name }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">12/05/1990</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ \Carbon\Carbon::parse($pendaftar->Child->Mom->tanggal_lahir)->format('d/m/Y') }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenjang Pendidikan</td>
-                            <td class="px-4 py-2 border border-gray-600">S1 - Sarjana</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->jenjang_pendidikan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Pekerjaan</td>
-                            <td class="px-4 py-2 border border-gray-600">Guru</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->pekerjaan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Penghasilan</td>
-                            <td class="px-4 py-2 border border-gray-600">Rp 5.000.000</td>
+                            <td class="px-4 py-2 border border-gray-600">Rp{{ number_format($pendaftar->Child->Mom->penghasilan, 0, ',', '.') }}</td>
                         </tr>
                     </table>
 
@@ -137,97 +138,153 @@
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Nama Ayah</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">Ahmad Subagja</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">Jakarta</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->name }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">08/11/1988</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ \Carbon\Carbon::parse($pendaftar->Child->Dad->tanggal_lahir)->format('d/m/Y') }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenjang Pendidikan</td>
-                            <td class="px-4 py-2 border border-gray-600">S1 - Sarjana</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->jenjang_pendidikan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Pekerjaan</td>
-                            <td class="px-4 py-2 border border-gray-600">Karyawan Swasta</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->pekerjaan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Penghasilan</td>
-                            <td class="px-4 py-2 border border-gray-600">Rp 8.000.000</td>
+                            <td class="px-4 py-2 border border-gray-600">Rp{{ number_format($pendaftar->Child->Dad->penghasilan, 0, ',', '.') }}</td>
                         </tr>
                     </table>
 
                     {{-- informasi data wali (jika ada) --}}
+                    @if($pendaftar->Child->Wali)
                     <h3 class="mt-6 mb-2 text-xl font-semibold text-purple-950">Data Wali</h3>
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Nama Wali</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">Budi Santoso</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">Surabaya</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->name }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">15/07/1985</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ \Carbon\Carbon::parse($pendaftar->Child->Wali->tanggal_lahir)->format('d/m/Y') }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenjang Pendidikan</td>
-                            <td class="px-4 py-2 border border-gray-600">SMA</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->jenjang_pendidikan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Pekerjaan</td>
-                            <td class="px-4 py-2 border border-gray-600">Wiraswasta</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->pekerjaan }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Penghasilan</td>
-                            <td class="px-4 py-2 border border-gray-600">Rp 6.500.000</td>
+                            <td class="px-4 py-2 border border-gray-600">Rp{{ number_format($pendaftar->Child->Wali->penghasilan, 0, ',', '.') }}</td>
                         </tr>
                     </table>
+                    @endif
                 </div>
 
                 {{-- menampilkan foto foto bukti pembayaran --}}
                 <div class="ml-8 w-1/2">
+                    @php
+                        $bukti = 'storage/' . $pendaftar->bukti_pembayaran;
+                        $kk = 'storage/' . $pendaftar->Child->kartu_keluarga;
+                        $akta = 'storage/' . $pendaftar->Child->akta_kelahiran;
+                    @endphp
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-purple-950">Bukti Pembayaran</h3>
-                        <img src="{{ asset('uploads/bukti_pembayaran/NON890010203NF_bukti_pembayaran.png') }}" alt="">
+                        @if(Str::endsWith(strtolower($bukti), ['.pdf']))
+                            <!-- PDF: hanya tombol download -->
+                            <a href="{{ asset($bukti) }}" download
+                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                </svg>
+                                Download Bukti Pembayaran
+                            </a>
+                        @else
+                            <!-- Gambar: preview + tombol download -->
+                            <img src="{{ asset($bukti) }}" alt="Kartu Keluarga" class="max-w-xs rounded shadow mb-2">
+                            <a href="{{ asset($bukti) }}" download
+                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                </svg>
+                                Download Bukti Pembayaran
+                            </a>
+                        @endif
                     </div>
+
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-purple-950">Kartu Keluarga</h3>
-                        <img src="{{ asset('uploads/bukti_pembayaran/NON890010203NF_bukti_pembayaran.png') }}" alt="">
+                        @if(Str::endsWith(strtolower($kk), ['.pdf']))
+                            <!-- PDF: hanya tombol download -->
+                            <a href="{{ asset($kk) }}" download
+                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                </svg>
+                                Download Kartu Keluarga
+                            </a>
+                        @else
+                            <!-- Gambar: preview + tombol download -->
+                            <img src="{{ asset($kk) }}" alt="Kartu Keluarga" class="max-w-xs rounded shadow mb-2">
+                            <a href="{{ asset($kk) }}" download
+                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                </svg>
+                                Download Kartu Keluarga
+                            </a>
+                        @endif
                     </div>
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-purple-950">Akta Kelahiran</h3>
-                        <img src="{{ asset('uploads/bukti_pembayaran/NON890010203NF_bukti_pembayaran.png') }}" alt="">
+                        @if(Str::endsWith(strtolower($akta), ['.pdf']))
+                            <a href="{{ asset($akta) }}" download
+                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                </svg>
+                                Download Akta Kelahiran
+                            </a>
+                        @else
+                            <img src="{{ asset($akta) }}" alt="Akta Kelahiran" class="max-w-xs rounded shadow mb-2">
+                            <a href="{{ asset($akta) }}" download
+                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                </svg>
+                                Download Akta Kelahiran
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="buttons flex flex-row gap-3 mt-4 justify-end">
-                {{-- Tombol Terima dan Tolak --}}
-                {{-- Hanya tampil jika status pendaftaran adalah 2, 5, 6, atau 8 --}}
-                {{-- <form action="{{ route('pendaftar.terima', $pendaftar->id) }}" method="POST"> --}}
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="px-4 py-2 bg-[#00BD03] text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-green-700 cursor-pointer">
-                        Terima
-                    </button>
-                {{-- </form> --}}
-
-                {{-- <form action="{{ route('pendaftar.tolak', $pendaftar->id) }}" method="POST"> --}}
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="px-4 py-2 bg-[#FF0000] text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-red-700 cursor-pointer">
-                        Tolak
-                    </button>
-                {{-- </form> --}}
-                    <a href="{{ route('admin-pendaftaran') }}" class="px-4 py-2 bg-gray-500 text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-gray-700 cursor-pointer">
-                        Kembali
-                    </a>
+                @if(auth()->user() && auth()->user()->usertype === 'admin' && in_array($pendaftar->status, [2, 5, 6, 8]))
+                    {{-- Tombol Terima --}}
+                    <form action="{{ route('pendaftar.terima', $pendaftar->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="px-4 py-2 bg-[#00BD03] text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-green-700 cursor-pointer">
+                            Terima
+                        </button>
+                    </form>
+                    {{-- Tombol Tolak --}}
+                    <form action="{{ route('pendaftar.tolak', $pendaftar->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="px-4 py-2 bg-[#FF0000] text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-red-700 cursor-pointer">
+                            Tolak
+                        </button>
+                    </form>
+                @endif
+                <a href="{{ route('admin-pendaftaran') }}" class="px-4 py-2 bg-gray-500 text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-gray-700 cursor-pointer">
+                    Kembali
+                </a>
             </div>
         </div>
     </div>

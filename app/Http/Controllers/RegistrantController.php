@@ -147,13 +147,16 @@ class RegistrantController extends Controller
                             'pekerjaan_ibu' => 'required|string|max:255',
                             'pekerjaan_ibu_lainnya' => 'nullable|required_if:pekerjaan_ibu,Lainnya|string|max:255',
                             'alamat_ibu' => 'required|string|max:255',
-
+                            
                             'nama_lengkap_ayah' => 'required|string|max:255',
                             'NIK_ayah' => 'required|digits:16|numeric',
                             'no_telp_ayah' => 'required|string|regex:/^08[0-9]{8,11}$/',
                             'pekerjaan_ayah' => 'required|string|max:255',
                             'pekerjaan_ayah_lainnya' => 'nullable|required_if:pekerjaan_ayah,Lainnya|string|max:255',
                             'alamat_ayah' => 'required|string|max:255',
+
+                            'kartu_keluarga' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+                            'akta_kelahiran' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
 
                             'punya_wali' => 'required|in:ya,tidak',
                             
@@ -182,8 +185,25 @@ class RegistrantController extends Controller
                             'tinggi_badan_anak' => 'required|numeric|min:0',
                             'lingkar_kepala_anak' => 'required|numeric|min:0',
                             'jumlah_saudara_kandung_anak' => 'required|integer|min:0',
+                            'anak_keberapa' => 'required|integer|min:1',
                             'jenis_tinggal_anak' => 'required|in:dengan_ibu_dan_ayah,dengan_ibu,dengan_ayah,dengan_wali',
                         ];
+
+                        if ($request->hasFile('kartu_keluarga')) {
+                            $kkFile = $request->file('kartu_keluarga');
+                            $kkName = $registrant->unique_id . '_kartu_keluarga.' . $kkFile->getClientOriginalExtension();
+                            $kkPath = $kkFile->storeAs('uploads/kartu_keluarga', $kkName, 'public');
+                        } else {
+                            $kkPath = $child->kartu_keluarga ?? null;
+                        }
+
+                        if ($request->hasFile('akta_kelahiran')) {
+                            $aktaFile = $request->file('akta_kelahiran');
+                            $aktaName = $registrant->unique_id . '_akta_kelahiran.' . $aktaFile->getClientOriginalExtension();
+                            $aktaPath = $aktaFile->storeAs('uploads/akta_kelahiran', $aktaName, 'public');
+                        } else {
+                            $aktaPath = $child->akta_kelahiran ?? null;
+                        }
 
                         // Jika user memilih "ya" untuk punya wali, maka validasi data wali ditambahkan:
                         if ($request->punya_wali === 'ya') {
@@ -204,7 +224,7 @@ class RegistrantController extends Controller
                             'pekerjaan' => $request->pekerjaan_ibu == 'Lainnya' ? $request->pekerjaan_ibu_lainnya : $request->pekerjaan_ibu,
                             'alamat' => $request->alamat_ibu,
                             'penghasilan' => $request->penghasilan_ibu,
-                            'jenjang_pendidikan' => $request->Jenjang_pendidikan_ibu,
+                            'jenjang_pendidikan' => $request->jenjang_pendidikan_ibu,
                             'tempat_lahir' => $request->tempat_lahir_ibu,
                             'tanggal_lahir' => $request->tanggal_lahir_ibu,
                             'email' => $request->email_ibu,
@@ -218,7 +238,7 @@ class RegistrantController extends Controller
                             'pekerjaan' => $request->pekerjaan_ayah == 'Lainnya' ? $request->pekerjaan_ayah_lainnya : $request->pekerjaan_ayah,
                             'alamat' => $request->alamat_ayah,
                             'penghasilan' => $request->penghasilan_ayah,
-                            'jenjang_pendidikan' => $request->Jenjang_pendidikan_ayah,
+                            'jenjang_pendidikan' => $request->jenjang_pendidikan_ayah,
                             'tempat_lahir' => $request->tempat_lahir_ayah,
                             'tanggal_lahir' => $request->tanggal_lahir_ayah,
                             'email' => $request->email_ayah,
@@ -232,7 +252,7 @@ class RegistrantController extends Controller
                             'pekerjaan' => $request->pekerjaan_wali == 'Lainnya' ? $request->pekerjaan_wali_lainnya : $request->pekerjaan_wali,
                             'alamat' => $request->alamat_wali,
                             'penghasilan' => $request->penghasilan_wali,
-                            'jenjang_pendidikan' => $request->Jenjang_pendidikan_wali,
+                            'jenjang_pendidikan' => $request->jenjang_pendidikan_wali,
                             'tempat_lahir' => $request->tempat_lahir_wali,
                             'tanggal_lahir' => $request->tanggal_lahir_wali,
                             'email' => $request->email_wali,
@@ -241,7 +261,7 @@ class RegistrantController extends Controller
                         $child = $registrant->Child;
 
                         $child->update([
-                            'nama_lengkap' => $request->nama_lengkap,
+                            'nama' => $request->nama_lengkap,
                             'nik' => $request->nik,
                             'jk' => $request->jenis_kelamin,
                             'tempat_lahir' => $request->tempat_lahir,
@@ -261,8 +281,11 @@ class RegistrantController extends Controller
                             'tinggi_badan' => $request->tinggi_badan_anak,
                             'lingkar_kepala' => $request->lingkar_kepala_anak,
                             'jumlah_saudara' => $request->jumlah_saudara_kandung_anak,
+                            'anak_keberapa' => $request->anak_keberapa,
                             'jenis_tinggal' => $request->jenis_tinggal_anak,
                             'jarak_ke_sekolah' => $request->jarak_rumah_anak,
+                            'kartu_keluarga' => $kkPath,
+                            'akta_kelahiran' => $aktaPath,
                         ]);
 
                         $registrant->update(['status' => 5]);
@@ -276,14 +299,21 @@ class RegistrantController extends Controller
                         $validate = $request->validate([
                             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                         ]);
+                        if ($request->hasFile('bukti_pembayaran')) {
+                            $buktiFile = $request->file('bukti_pembayaran');
+                            $buktiName = $registrant->unique_id . '_bukti_pembayaran.' . $buktiFile->getClientOriginalExtension();
+                            $buktiPath = $buktiFile->storeAs('uploads/bukti_pembayaran', $buktiName, 'public');
+                        } else {
+                            $buktiPath = $child->bukti_pembayaran ?? null;
+                        }
 
-                        $file = $request->file('bukti_pembayaran');
-                        $filename = $registrant->unique_id . '_bukti_pembayaran.' . $file->getClientOriginalExtension();
-                        $file->move(public_path('uploads/bukti_pembayaran'), $filename); // sudah diperbaiki
+                        // $file = $request->file('bukti_pembayaran');
+                        // $filename = $registrant->unique_id . '_bukti_pembayaran.' . $file->getClientOriginalExtension();
+                        // $file->move(public_path('uploads/bukti_pembayaran'), $filename); // sudah diperbaiki
 
                         $registrant->update([
                             'status' => 8,
-                            'bukti_pembayaran' => $filename
+                            'bukti_pembayaran' => $buktiPath
                         ]);
 
                         return redirect()->route('form', $registrant->unique_id);
@@ -341,6 +371,11 @@ class RegistrantController extends Controller
     public function takeAll (){
         $pendaftar = Registrant::all();
         return view('admin-pendaftaran')->with('pendaftar', $pendaftar);
+    }
+
+    public function takeOne ($id){
+        $pendaftar = Registrant::where('unique_id', $id)->firstOrFail();
+        return view('admin-detailPendaftaran')->with('pendaftar', $pendaftar);
     }
 
     public function terima($id)

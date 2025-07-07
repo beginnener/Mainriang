@@ -7,4 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="icon" href="/icon/favicon.png" sizes="48x48">
+    <style>
+        #map { height: 400px; }
+    </style>
 </head>

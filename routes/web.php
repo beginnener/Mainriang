@@ -40,9 +40,7 @@ Route::get('/mengapa', function () {
 Route::get('/status', function () {
     return view('pendaftaran-status');
 });
-Route::get('/detail-pendaftaran', function () {
-    return view('admin-detailPendaftaran');
-});
+Route::get('/detail-pendaftaran/{unique_id}', [RegistrantController::class, 'takeOne'])->name('detail-pendaftaran');
 route::get('/petunjuk-pendaftaran', function() {
     return view('pendaftaran');
 })->name('petunjuk-pendaftaran');
@@ -58,7 +56,8 @@ Route::get('/dashboard', function () {
     if ($user->usertype === 'admin') {
         return redirect()->route('admin-pendaftaran');
     }
-    return view('dashboard');
+    $pendaftar = Registrant::where('user_id', $user->id)->get();
+    return view('user-dashboard', compact('pendaftar'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
