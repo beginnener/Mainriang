@@ -537,7 +537,7 @@
                 
                 <div class="flex flex-row items-center mt-4">
                     <div class="w-1/6 flex justify-end items-center">
-                        <label for="jumlah_saudara_kandung_anak" class="font-['Poppins'] text-right px-2">Jml. Saudara Kandung</label>
+                        <label for="jumlah_saudara_kandung_anak" class="font-['Poppins'] text-right px-2">Anak Keberapa</label>
                     </div>
                     <span class="px-1 font-['Poppins']">:</span>
                     <div class="flex-grow px-2">
