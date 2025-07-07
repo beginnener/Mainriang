@@ -54,15 +54,15 @@
             </div>
         </div>
         <div class="w-full flex flex-wrap justify-center gap-8">
-            <a href="#" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
+            <a href="/daycare" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
                 <span class="text-purple-950 font-['Fredoka'] font-extrabold text-4xl mt-2">Day Care</span>
                 <img src="/icon/daycare - icon.svg" alt="Day Care" class="mt-auto" />
             </a>
-            <a href="#" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
+            <a href="/daycare" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
                 <span class="text-purple-950 font-['Fredoka'] font-extrabold text-4xl mt-2">Play Group</span>
                 <img src="/icon/playgroup - icon.svg" alt="Play Group" class="mt-auto" />
             </a>
-            <a href="#" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
+            <a href="/daycare" class="w-80 h-80 bg-slate-50 rounded-[48px] flex flex-col items-center p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
                 <span class="text-purple-950 font-['Fredoka'] font-extrabold text-4xl mt-2">TK</span>
                 <img src="/icon/tk - icon.svg" alt="TK" class="mt-auto" />
             </a>

@@ -49,7 +49,6 @@ route::post('/pendaftaran', [RegistrantController::class, 'daftar'])->name('daft
 route::get('/pendaftaran/{id?}', [RegistrantController::class, 'showform'])->name('form');
 Route::get('/get-harga/{programId}', [ProgramController::class, 'getHarga']);
 
-
 Route::get('/dashboard', function () {
     $user = Auth::user();
 

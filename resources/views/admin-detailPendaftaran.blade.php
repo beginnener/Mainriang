@@ -1,13 +1,12 @@
 @extends('layouts.admin')
 @section('content')
 @php use Carbon\Carbon; @endphp
-<div class="flex flex-row font-['Poppins']">
-    @include('components.admin-sidenav')
-    <div class="p-8 w-full">
-        <h2 class="mb-3 text-2xl font-semibold text-purple-950">Detail Pendaftaran</h2>
-        <div class="p-8 border-2 border-purple-950 rounded-xl">
-            <div class="flex flex-row w-full">
-                <div class="w-1/2">
+@include('components.admin-sidenav')
+<div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)] font-['Poppins']">
+    <h2 class="mb-3 text-xl lg:text-2xl font-semibold text-purple-950">Detail Pendaftaran</h2>
+        <div class="p-4 lg:p-8 border-2 border-purple-950 rounded-xl">
+            <div class="flex flex-col lg:flex-row w-full gap-4 lg:gap-0">
+                <div class="w-full lg:w-1/2">
                     {{-- informasi pendaftaran --}}
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
@@ -187,7 +186,7 @@
                 </div>
 
                 {{-- menampilkan foto foto bukti pembayaran --}}
-                <div class="ml-8 w-1/2">
+                <div class="ml-0 lg:ml-8 w-full lg:w-1/2 mt-6 lg:mt-0">
                     @php
                         $bukti = 'storage/' . $pendaftar->bukti_pembayaran;
                         $kk = 'storage/' . $pendaftar->Child->kartu_keluarga;
