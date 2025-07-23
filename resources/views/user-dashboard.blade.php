@@ -20,13 +20,20 @@
                     <div class="text-lg font-bold text-purple-900">{{ $daftar->child->nama }}</div>
                     <div class="text-sm text-gray-500">Tanggal Daftar: {{ $daftar->child->created_at->format('d-m-Y') }}</div>
                 </div>
-                <div class="mt-4 flex justify-end">
+                <div class="mt-4 flex flex-col sm:flex-row gap-2 justify-end items-stretch">
                     <a href="/detail-pendaftaran/{{ $daftar->unique_id }}"
-                       class="inline-flex items-center px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition hover:scale-105">
+                    class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition hover:scale-105 w-full sm:w-auto">
                         <svg class="w-5 h-5 mr-2 text-purple-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m0 0l3-3m-3 3l3 3"/>
                         </svg>
                         Lihat Detail
+                    </a>
+                    <a href="/pendaftaran/{{ $daftar->unique_id }}"
+                    class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition hover:scale-105 w-full sm:w-auto">
+                        <svg class="w-5 h-5 mr-2 text-purple-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m0 0l3-3m-3 3l3 3"/>
+                        </svg>
+                        Lanjutkan Pendaftaran
                     </a>
                 </div>
             </div>
