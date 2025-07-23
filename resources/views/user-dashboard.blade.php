@@ -12,7 +12,7 @@
         </div>
 
         {{-- Card Grid --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
             @forelse ($pendaftar as $daftar)
                 <div class="bg-white w-full max-w-sm rounded-xl shadow-md p-4 flex flex-col gap-4 hover:shadow-lg transition">
                     <div class="flex items-center gap-4">
