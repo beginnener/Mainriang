@@ -8,6 +8,7 @@ use App\Models\Child;
 use App\Models\Program;
 use App\Models\Guardian;
 use App\Models\Location;
+use App\Models\Rombel;
 use App\Models\Registrant;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -195,9 +196,33 @@ class RegistrantController extends Controller
         return implode('', array_slice($huruf, 0, $jumlah)); // ambil sejumlah huruf
     }
 
-    public function takeAll (Request $request)
+    public function takeAll(Request $request)
     {
+        // Ambil semua lokasi yang ada di rombel
+        $listLokasi = Location::whereIn('id', Rombel::pluck('location_id')->unique())->get();
+
+        // Jika lokasi dipilih, ambil program yang tersedia di lokasi itu saja
+        if ($request->filled('lokasi')) {
+            $listProgram = Program::whereIn('id', Rombel::where('location_id', $request->lokasi)->pluck('program_id')->unique())->get();
+        } else {
+            $listProgram = Program::whereIn('id', Rombel::pluck('program_id')->unique())->get();
+        }
+
         $query = Registrant::query();
+
+        // Filter lokasi
+        if ($request->filled('lokasi')) {
+            $query->whereHas('rombel', function($q) use ($request) {
+                $q->where('location_id', $request->lokasi);
+            });
+        }
+
+        // Filter program
+        if ($request->filled('program')) {
+            $query->whereHas('rombel', function($q) use ($request) {
+                $q->where('program_id', $request->program);
+            });
+        }
 
         // Search
         if ($request->filled('search')) {
@@ -209,7 +234,11 @@ class RegistrantController extends Controller
 
         // Filter status
         if ($request->filled('status')) {
-            $query->where('status', $request->status);
+            if ($request->status == '345') {
+                $query->whereIn('status', [3,4,5]);
+            } else {
+                $query->where('status', $request->status);
+            }
         }
 
         // Sorting
@@ -217,9 +246,15 @@ class RegistrantController extends Controller
         $dir = $request->get('dir', 'desc');
         $query->orderBy($sort, $dir);
 
-        $pendaftar = $query->with('child')->get();
+        // Ambil jumlah per halaman dari request, default 10
+        $perPage = $request->get('per_page', 10);
 
-        return view('admin-pendaftaran', compact('pendaftar'));
+        $pendaftar = $query->with(['child', 'rombel.program', 'rombel.location'])
+            ->paginate($perPage)
+            ->appends($request->except('page')); // agar filter tetap saat pindah halaman
+
+        // Kirim $perPage ke view juga jika ingin
+        return view('admin-pendaftaran', compact('pendaftar', 'listLokasi', 'listProgram', 'perPage'));
     }
 
     public function takeOne ($id){
