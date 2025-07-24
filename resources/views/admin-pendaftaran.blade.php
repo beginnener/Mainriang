@@ -9,10 +9,11 @@
 <div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)]">
 
     {{-- Search, Sort, Filter --}}
-    <form method="GET" class="flex flex-col md:flex-row gap-2 mb-4 items-center">
+    <form method="GET" class="flex flex-wrap gap-2 mb-4 items-center">
         <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari Nama/ID"
-            class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300 w-full md:w-64">
-        <select name="status" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-48">
+            class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300 flex-1 min-w-[150px]">
+
+        <select name="status" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[150px]">
             <option value="">Semua Status</option>
             <option value="345" @selected(request('status')=='345')>Butuh Aksi</option>
             <option value="1" @selected(request('status')=='1')>Mengisi Data Orang Tua</option>
@@ -28,7 +29,7 @@
         </select>
 
         {{-- Filter Lokasi --}}
-        <select name="lokasi" id="filter-lokasi" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-48">
+        <select name="lokasi" id="filter-lokasi" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[150px]">
             <option value="">Semua Lokasi</option>
             @foreach($listLokasi as $lokasi)
                 <option value="{{ $lokasi->id }}" @selected(request('lokasi') == $lokasi->id)>{{ $lokasi->name }}</option>
@@ -36,7 +37,7 @@
         </select>
 
         {{-- Filter Program --}}
-        <select name="program" id="filter-program" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-48">
+        <select name="program" id="filter-program" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[150px]">
             <option value="">Semua Program</option>
             @foreach($listProgram as $program)
                 <option value="{{ $program->id }}" data-lokasi="{{ $program->rombel_location_ids ?? '' }}" @selected(request('program') == $program->id)>
@@ -45,21 +46,21 @@
             @endforeach
         </select>
 
-        <select name="sort" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-40">
+        <select name="sort" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[120px]">
             <option value="created_at" @selected(request('sort')=='created_at')>Tanggal Daftar</option>
             <option value="unique_id" @selected(request('sort')=='unique_id')>ID</option>
             <option value="status" @selected(request('sort')=='status')>Status Pendaftaran</option>
         </select>
-        <select name="dir" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-32">
+        <select name="dir" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[100px]">
             <option value="desc" @selected(request('dir')=='desc')>Terbaru</option>
             <option value="asc" @selected(request('dir')=='asc')>Terlama</option>
         </select>
-        <select name="per_page" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-32">
+        <select name="per_page" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[100px]">
             @foreach([5, 10, 20, 50, 100] as $limit)
                 <option value="{{ $limit }}" @selected(request('per_page', 10) == $limit)>Tampil {{ $limit }}</option>
             @endforeach
         </select>
-        <button type="submit" class="px-6 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+        <button type="submit" class="px-6 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition flex-1 min-w-[120px]">
             Cari / Filter
         </button>
     </form>
