@@ -2,19 +2,18 @@
   $steps = [
     'Input Data Anak',
     'Input Data Orang Tua',
-    'Pembayaran Pendaftaran',
     'Pemilihan Program',
-    'Form Lanjutan',
+    'Pembayaran Pendaftaran',
     'Wawancara dan Seleksi',
-    'Konfirmasi',
     'Pembayaran Pendidikan',
+    'pengumuman',
   ];
 @endphp
 
-<div class="w-full py-8 bg-white">
+<div class="w-full py-7 bg-white">
   <div class="flex flex-col">
     <!-- STEP CIRCLES + LINES -->
-    <div class="grid grid-cols-8 items-center overflow-hidden">
+    <div class="grid grid-cols-7 items-center overflow-hidden">
       @foreach ($steps as $index => $label)
         @php
           $stepNumber = $index + 1;
@@ -34,7 +33,7 @@
       @endforeach
     </div>
     <!-- LABELS -->
-    <div class="grid grid-cols-8 gap-1 mt-4">
+    <div class="grid grid-cols-7 gap-1 mt-4">
       @foreach ($steps as $index => $label)
         @php
           $stepNumber = $index + 1;

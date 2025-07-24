@@ -132,190 +132,11 @@ class RegistrantController extends Controller
                         $registrant->update(['status' => 2]); // ubah status registrant menjadi 2 untuk melanjutkan ke step 'konfirmasi bayar 1'
                         return redirect()->route('form', $registrant->unique_id); // redirect ke form dengan unique_id registrant
                     }
-                    if ($registrant->status == 3){ // jika status registrant adalah 3, masuk ke step 'pilih program'
+                    if ($registrant->status == 2){ // jika status registrant adalah 3, masuk ke step 'pilih program'
                         $registrant->update([
                             'rombel_id' => $request->lokasi . $request->program
                         ]);
-                        $registrant->update(['status' => 4]);
-                        return redirect()->route('form', $registrant->unique_id);
-                    }
-                    if ($registrant->status == 4){
-                        $rules = [
-                            'nama_lengkap_ibu' => 'required|string|max:255',
-                            'NIK_ibu' => 'required|digits:16|numeric',
-                            'no_telp_ibu' => 'required|string|regex:/^08[0-9]{8,11}$/',
-                            'pekerjaan_ibu' => 'required|string|max:255',
-                            'pekerjaan_ibu_lainnya' => 'nullable|required_if:pekerjaan_ibu,Lainnya|string|max:255',
-                            'alamat_ibu' => 'required|string|max:255',
-                            
-                            'nama_lengkap_ayah' => 'required|string|max:255',
-                            'NIK_ayah' => 'required|digits:16|numeric',
-                            'no_telp_ayah' => 'required|string|regex:/^08[0-9]{8,11}$/',
-                            'pekerjaan_ayah' => 'required|string|max:255',
-                            'pekerjaan_ayah_lainnya' => 'nullable|required_if:pekerjaan_ayah,Lainnya|string|max:255',
-                            'alamat_ayah' => 'required|string|max:255',
-
-                            'kartu_keluarga' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
-                            'akta_kelahiran' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
-
-                            'punya_wali' => 'required|in:ya,tidak',
-                            
-                            // Identitas Anak
-                            'nama_lengkap' => 'required|string|max:255',
-                            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
-                            'tempat_lahir' => 'required|string|max:255',
-                            'tanggal_lahir' => 'required|date',
-                            
-                            // Data Lainnya
-                            'nik' => 'required|digits:16',
-                            'agama' => 'required|string|max:50',
-                            'alamat' => 'required|string|max:255',
-                            'rt' => 'required|string|max:5',
-                            'rw' => 'required|string|max:5',
-                            'dusun' => 'required|string|max:100',
-                            'kelurahan' => 'required|string|max:100',
-                            'kecamatan' => 'required|string|max:100',
-                            'kode_pos' => 'required|digits_between:4,6',
-                            'alat_transportasi' => 'required|string|max:100',
-
-                            'lintang_anak' => 'required|string|max:255',
-                            'bujur_anak' => 'required|string|max:255',
-                            'jarak_rumah_anak' => 'required|numeric|min:0',
-                            'berat_badan_anak' => 'required|numeric|min:0',
-                            'tinggi_badan_anak' => 'required|numeric|min:0',
-                            'lingkar_kepala_anak' => 'required|numeric|min:0',
-                            'jumlah_saudara_kandung_anak' => 'required|integer|min:0',
-                            'anak_keberapa' => 'required|integer|min:1',
-                            'jenis_tinggal_anak' => 'required|in:dengan_ibu_dan_ayah,dengan_ibu,dengan_ayah,dengan_wali',
-                        ];
-
-                        if ($request->hasFile('kartu_keluarga')) {
-                            $kkFile = $request->file('kartu_keluarga');
-                            $kkName = $registrant->unique_id . '_kartu_keluarga.' . $kkFile->getClientOriginalExtension();
-                            $kkPath = $kkFile->storeAs('uploads/kartu_keluarga', $kkName, 'public');
-                        } else {
-                            $kkPath = $child->kartu_keluarga ?? null;
-                        }
-
-                        if ($request->hasFile('akta_kelahiran')) {
-                            $aktaFile = $request->file('akta_kelahiran');
-                            $aktaName = $registrant->unique_id . '_akta_kelahiran.' . $aktaFile->getClientOriginalExtension();
-                            $aktaPath = $aktaFile->storeAs('uploads/akta_kelahiran', $aktaName, 'public');
-                        } else {
-                            $aktaPath = $child->akta_kelahiran ?? null;
-                        }
-
-                        // Jika user memilih "ya" untuk punya wali, maka validasi data wali ditambahkan:
-                        if ($request->punya_wali === 'ya') {
-                            $rules = array_merge($rules, [
-                                'nama_lengkap_wali' => 'required|string|max:255',
-                                'NIK_wali' => 'required|digits:16|numeric',
-                                'no_telp_wali' => 'required|string|regex:/^08[0-9]{8,11}$/',
-                                'pekerjaan_wali' => 'required|string|max:255',
-                                'pekerjaan_wali_lainnya' => 'nullable|required_if:pekerjaan_wali,Lainnya|string|max:255',
-                                'alamat_wali' => 'required|string|max:255',
-                            ]);
-                        }
-                        $mom = $registrant->child->mom;
-                        $mom->update([
-                            'name' => $request->nama_lengkap_ibu,
-                            'NIK' => $request->NIK_ibu,
-                            'phone_number' => $request->no_telp_ibu,
-                            'pekerjaan' => $request->pekerjaan_ibu == 'Lainnya' ? $request->pekerjaan_ibu_lainnya : $request->pekerjaan_ibu,
-                            'alamat' => $request->alamat_ibu,
-                            'penghasilan' => $request->penghasilan_ibu,
-                            'jenjang_pendidikan' => $request->jenjang_pendidikan_ibu,
-                            'tempat_lahir' => $request->tempat_lahir_ibu,
-                            'tanggal_lahir' => $request->tanggal_lahir_ibu,
-                            'email' => $request->email_ibu,
-                        ]);
-
-                        $dad = $registrant->child->dad;
-                        $dad->update([
-                            'name' => $request->nama_lengkap_ayah,
-                            'NIK' => $request->NIK_ayah,
-                            'phone_number' => $request->no_telp_ayah,
-                            'pekerjaan' => $request->pekerjaan_ayah == 'Lainnya' ? $request->pekerjaan_ayah_lainnya : $request->pekerjaan_ayah,
-                            'alamat' => $request->alamat_ayah,
-                            'penghasilan' => $request->penghasilan_ayah,
-                            'jenjang_pendidikan' => $request->jenjang_pendidikan_ayah,
-                            'tempat_lahir' => $request->tempat_lahir_ayah,
-                            'tanggal_lahir' => $request->tanggal_lahir_ayah,
-                            'email' => $request->email_ayah,
-                        ]);
-
-                        $guardian = $registrant->child->guardian;
-                        $guardian?->update([
-                            'name' => $request->nama_lengkap_wali,
-                            'NIK' => $request->NIK_wali,
-                            'phone_number' => $request->no_telp_wali,
-                            'pekerjaan' => $request->pekerjaan_wali == 'Lainnya' ? $request->pekerjaan_wali_lainnya : $request->pekerjaan_wali,
-                            'alamat' => $request->alamat_wali,
-                            'penghasilan' => $request->penghasilan_wali,
-                            'jenjang_pendidikan' => $request->jenjang_pendidikan_wali,
-                            'tempat_lahir' => $request->tempat_lahir_wali,
-                            'tanggal_lahir' => $request->tanggal_lahir_wali,
-                            'email' => $request->email_wali,
-                        ]);
-
-                        $child = $registrant->Child;
-
-                        $child->update([
-                            'nama' => $request->nama_lengkap,
-                            'nik' => $request->nik,
-                            'jk' => $request->jenis_kelamin,
-                            'tempat_lahir' => $request->tempat_lahir,
-                            'tanggal_lahir' => $request->tanggal_lahir,
-                            'agama' => $request->agama,
-                            'alamat' => $request->alamat,
-                            'rt' => $request->rt,
-                            'rw' => $request->rw,
-                            'dusun' => $request->dusun,
-                            'kelurahan' => $request->kelurahan,
-                            'kecamatan' => $request->kecamatan,
-                            'kode_pos' => $request->kode_pos,
-                            'alat_transportasi' => $request->alat_transportasi,
-                            'lintang' => $request->lintang_anak,
-                            'bujur' => $request->bujur_anak,
-                            'berat_badan' => $request->berat_badan_anak,
-                            'tinggi_badan' => $request->tinggi_badan_anak,
-                            'lingkar_kepala' => $request->lingkar_kepala_anak,
-                            'jumlah_saudara' => $request->jumlah_saudara_kandung_anak,
-                            'anak_keberapa' => $request->anak_keberapa,
-                            'jenis_tinggal' => $request->jenis_tinggal_anak,
-                            'jarak_ke_sekolah' => $request->jarak_rumah_anak,
-                            'kartu_keluarga' => $kkPath,
-                            'akta_kelahiran' => $aktaPath,
-                        ]);
-
-                        $registrant->update(['status' => 5]);
-                        return redirect()->route('form', $registrant->unique_id);
-                    }
-                    if($registrant->status == 6){
-                        $registrant->update(['status' => 7]);
-                        return redirect()->route('form', $registrant->unique_id);
-                    }
-                    if($registrant->status == 7){
-                        $validate = $request->validate([
-                            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                        ]);
-                        if ($request->hasFile('bukti_pembayaran')) {
-                            $buktiFile = $request->file('bukti_pembayaran');
-                            $buktiName = $registrant->unique_id . '_bukti_pembayaran.' . $buktiFile->getClientOriginalExtension();
-                            $buktiPath = $buktiFile->storeAs('uploads/bukti_pembayaran', $buktiName, 'public');
-                        } else {
-                            $buktiPath = $child->bukti_pembayaran ?? null;
-                        }
-
-                        // $file = $request->file('bukti_pembayaran');
-                        // $filename = $registrant->unique_id . '_bukti_pembayaran.' . $file->getClientOriginalExtension();
-                        // $file->move(public_path('uploads/bukti_pembayaran'), $filename); // sudah diperbaiki
-
-                        $registrant->update([
-                            'status' => 8,
-                            'bukti_pembayaran' => $buktiPath
-                        ]);
-
+                        $registrant->update(['status' => 3]);
                         return redirect()->route('form', $registrant->unique_id);
                     }
                 } return back();
@@ -333,33 +154,39 @@ class RegistrantController extends Controller
                 switch ($step){
                     case 1: // step 'data ortu'
                         return view ('pendaftaran-dataOrtu', ['id' => $id], ['currentStep' => $step]);
-                    case 2: // step 'konfirmasi bayar 1'
-                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
-                    case 20: // step 'konfirmasi bayar 1 ditolak'
-                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
-                    case 3: // step 'pilih program'
+                    case 2: // step 'pilih program'
                         $programs = Program::all();
                         $locations = Location::all();
                         return view ('pendaftaran-pilihProgram', compact('programs', 'id', 'locations'), ['currentStep' => $step]);
-                    case 4: // step 'form lanjutan'
-                        return view ('pendaftaran-formLanjutan', compact('registrant'), ['currentStep' => $step]);
-                    case 5: // step 'wawancara & asesmen'
+                    case 3: // step 'konfirmasi bayar 1'
+                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                    case 30: // step 'konfirmasi bayar 1 ditolak'
+                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                    case 4: // step 'wawancara & asesmen'
+                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                    case 40: // step 'konfirmasi wawancara & asesmen ditolak'
+                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                    case 5: // step 'konfirmasi data pendaftaran'
                         return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                     case 50: // step 'konfirmasi wawancara & asesmen ditolak'
                         return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
-                    case 6: // step 'konfirmasi data pendaftaran'
-                        return view ('pendaftaran-konfirmasiData', compact('registrant'), ['currentStep' => $step]);
+                    case 6: // step 'pembayaran'
+                        return view ('pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
                     case 7: // step 'pembayaran'
-                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
-                    case 80: // step 'pembayaran ditolak'
-                        return view('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
-                    case 8: // step 'pembayaran'
                         return view('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
-                    case 9: // step 'pembayaran'
-                        return view('pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
                 }
             }
         }return redirect('login');
+    }
+
+    public function showEdit($id)
+    {
+        $pendaftar = Registrant::where('unique_id', $id)->first();
+        if (Auth::id() == $pendaftar->user_id) {
+            return view('user-edit-detailPendaftaran', compact('pendaftar'));
+        } else {
+            return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki akses ke pendaftaran ini.');
+        }
     }
 
     public function ambilInisialAcak($nama, $jumlah = 3){
@@ -396,8 +223,18 @@ class RegistrantController extends Controller
     }
 
     public function takeOne ($id){
+        $user = Auth::user();
         $pendaftar = Registrant::where('unique_id', $id)->firstOrFail();
-        return view('admin-detailPendaftaran')->with('pendaftar', $pendaftar);
+        if($user->usertype === 'admin'){
+            return view('admin-detailPendaftaran')->with('pendaftar', $pendaftar);
+        } else {
+            if($pendaftar->user_id === $user->id){
+                return view('user-detailPendaftaran')->with('pendaftar', $pendaftar);
+            } else {
+                return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki akses ke pendaftaran ini.');
+            }
+        }
+        
     }
 
     public function terima($id)
@@ -418,4 +255,139 @@ class RegistrantController extends Controller
         return redirect()->back()->with('success', 'Pendaftar ditolak.');
     }
 
+    public function update(Request $request, $id)
+    {
+        $pendaftar = Registrant::where('unique_id', $id)->with(['Child.Mom', 'Child.Dad', 'Child.Guardian'])->firstOrFail();
+
+        // Validasi data
+        $validated = $request->validate([
+            // Data Anak
+            'nik' => 'nullable|string|max:20',
+            'nama_panggilan'      => 'nullable|string|max:100',
+            'tempat_lahir'        => 'nullable|string|max:100',
+            'tanggal_lahir'       => 'nullable|date',
+            'agama'               => 'nullable|string|max:50',
+            'RT'                  => 'nullable|string|max:10',
+            'RW'                  => 'nullable|string|max:10',
+            'dusun'               => 'nullable|string|max:100',
+            'kelurahan'           => 'nullable|string|max:100',
+            'kecamatan'           => 'nullable|string|max:100',
+            'kode_pos'            => 'nullable|string|max:10',
+            'jenis_tinggal'       => 'nullable|string|max:100',
+            'alat_transportasi'   => 'nullable|string|max:100',
+            'lintang'             => 'nullable|numeric',
+            'bujur'               => 'nullable|numeric',
+            'berat_badan'         => 'nullable|numeric',
+            'tinggi_badan'        => 'nullable|numeric',
+            'lingkar_kepala'      => 'nullable|numeric',
+            'jumlah_saudara'      => 'nullable|numeric',
+            'anak_keberapa'       => 'nullable|numeric',
+            'jarak_ke_sekolah'    => 'nullable|numeric',
+
+            // Data Ibu
+            'ibu_tanggal_lahir'        => 'nullable|date',
+            'ibu_jenjang_pendidikan'   => 'nullable|string|max:100',
+            'ibu_pekerjaan'            => 'nullable|string|max:100',
+            'ibu_penghasilan'          => 'nullable|numeric',
+
+            // Data Ayah
+            'ayah_tanggal_lahir'        => 'nullable|date',
+            'ayah_jenjang_pendidikan'   => 'nullable|string|max:100',
+            'ayah_pekerjaan'            => 'nullable|string|max:100',
+            'ayah_penghasilan'          => 'nullable|numeric',
+
+            // Data Wali (jika ada)
+            'wali_tanggal_lahir'        => 'nullable|date',
+            'wali_jenjang_pendidikan'   => 'nullable|string|max:100',
+            'wali_pekerjaan'            => 'nullable|string|max:100',
+            'wali_penghasilan'          => 'nullable|numeric',
+
+            // Dokumen
+            'kartu_keluarga'     => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'akta_kelahiran'     => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        ]);
+
+        // Update data anak
+        $child = $pendaftar->Child;
+        $child->update([
+            'NIK'               => $request->nik,
+            'nama_panggilan'    => $request->nama_panggilan,
+            'tempat_lahir'      => $request->tempat_lahir,
+            'tanggal_lahir'     => $request->tanggal_lahir,
+            'agama'             => $request->agama,
+            'RT'                => $request->RT,
+            'RW'                => $request->RW,
+            'dusun'             => $request->dusun,
+            'kelurahan'         => $request->kelurahan,
+            'kecamatan'         => $request->kecamatan,
+            'kode_pos'          => $request->kode_pos,
+            'jenis_tinggal'     => $request->jenis_tinggal,
+            'alat_transportasi' => $request->alat_transportasi,
+            'lintang'           => $request->lintang,
+            'bujur'             => $request->bujur,
+            'berat_badan'       => $request->berat_badan,
+            'tinggi_badan'      => $request->tinggi_badan,
+            'lingkar_kepala'    => $request->lingkar_kepala,
+            'jumlah_saudara'    => $request->jumlah_saudara,
+            'anak_keberapa'     => $request->anak_keberapa,
+            'jarak_ke_sekolah'  => $request->jarak_ke_sekolah,
+        ]);
+
+        // Update data ibu
+        if ($child->Mom) {
+            $child->Mom->update([
+                'alamat'             => $request->ibu_alamat,
+                'tempat_lahir'       => $request->ibu_tempat_lahir,
+                'tanggal_lahir'      => $request->ibu_tanggal_lahir,
+                'phone_number'       => $request->ibu_no_telp,
+                'email'              => $request->ibu_email,
+                'jenjang_pendidikan' => $request->ibu_jenjang_pendidikan,
+                'pekerjaan'          => $request->ibu_pekerjaan,
+                'penghasilan'        => $request->ibu_penghasilan,
+            ]);
+        }
+
+        // Update data ayah
+        if ($child->Dad) {
+            $child->Dad->update([
+                'alamat'             => $request->ayah_alamat,
+                'tempat_lahir'       => $request->ayah_tempat_lahir,
+                'tanggal_lahir'      => $request->ayah_tanggal_lahir,
+                'phone_number'       => $request->ayah_no_telp,
+                'email'              => $request->ayah_email,
+                'jenjang_pendidikan' => $request->ayah_jenjang_pendidikan,
+                'pekerjaan'          => $request->ayah_pekerjaan,
+                'penghasilan'        => $request->ayah_penghasilan,
+            ]);
+        }
+
+        // Update data wali jika ada
+        if ($child->Guardian) {
+            $child->Guardian->update([
+                'alamat'             => $request->wali_alamat,
+                'tempat_lahir'       => $request->wali_tempat_lahir,
+                'tanggal_lahir'      => $request->wali_tanggal_lahir,
+                'phone_number'       => $request->wali_no_telp,
+                'email'              => $request->wali_email,
+                'jenjang_pendidikan' => $request->wali_jenjang_pendidikan,
+                'pekerjaan'          => $request->wali_pekerjaan,
+                'penghasilan'        => $request->wali_penghasilan,
+            ]);
+        }
+
+        // Upload dokumen jika ada file baru
+        if ($request->hasFile('kartu_keluarga')) {
+            $filename = $pendaftar->unique_id . '_kartu-keluarga.' . $request->file('kartu_keluarga')->getClientOriginalExtension();
+            $kkPath = $request->file('kartu_keluarga')->storeAs('dokumen', $filename, 'public');
+            $child->update(['kartu_keluarga' => $kkPath]);
+        }
+        if ($request->hasFile('akta_kelahiran')) {
+            $filename = $pendaftar->unique_id . '_akta-kelahiran.' . $request->file('akta_kelahiran')->getClientOriginalExtension();
+            $aktaPath = $request->file('akta_kelahiran')->storeAs('dokumen', $filename, 'public');
+            $child->update(['akta_kelahiran' => $aktaPath]);
+        }
+
+        return redirect()->route('detail-pendaftaran', $pendaftar->unique_id)
+            ->with('success', 'Data pendaftaran berhasil diperbarui.');
+    }
 }

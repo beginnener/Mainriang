@@ -15,17 +15,17 @@
         <select name="status" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-48">
             <option value="">Semua Status</option>
             <option value="1" @selected(request('status')=='1')>Mengisi Data Orang Tua</option>
-            <option value="2" @selected(request('status')=='2')>Pembayaran Pendaftaran</option>
-            <option value="20" @selected(request('status')=='20')>Ditolak Saat Pembayaran</option>
-            <option value="3" @selected(request('status')=='3')>Memilih Program</option>
-            <option value="4" @selected(request('status')=='4')>Form Lanjutan</option>
-            <option value="5" @selected(request('status')=='5')>Wawancara dan Seleksi</option>
-            <option value="50" @selected(request('status')=='50')>Ditolak Saat Wawancara</option>
-            <option value="6" @selected(request('status')=='6')>Konfirmasi</option>
+            <option value="2" @selected(request('status')=='2')>Memilih Program</option>
+            <option value="3" @selected(request('status')=='3')>Pembayaran Pendaftaran</option>
+            <option value="4" @selected(request('status')=='4')>Wawancara & Asesmen</option>
+            <option value="5" @selected(request('status')=='5')>Konfirmasi Data Pendaftaran</option>
+            <option value="6" @selected(request('status')=='6')>Pembayaran</option>
             <option value="7" @selected(request('status')=='7')>Pembayaran Pendidikan</option>
             <option value="8" @selected(request('status')=='8')>Konfirmasi Pembayaran</option>
-            <option value="80" @selected(request('status')=='80')>Ditolak</option>
             <option value="9" @selected(request('status')=='9')>Diterima</option>
+            <option value="30" @selected(request('status')=='30')>Ditolak Saat Pembayaran 1</option>
+            <option value="40" @selected(request('status')=='40')>Ditolak Saat Wawancara</option>
+            <option value="70" @selected(request('status')=='70')>Ditolak Saat Pembayaran Pendidikan</option>
         </select>
         <select name="sort" class="px-4 py-2 rounded-full border border-gray-300 w-full md:w-40">
             <option value="created_at" @selected(request('sort')=='created_at')>Tanggal Daftar</option>
@@ -78,7 +78,7 @@
                 <div class="flex flex-col gap-2">
                     
                     
-                    @if (in_array($daftar->status, [2, 5, 8]))
+                    @if (in_array($daftar->status, [3, 4, 5]))
                         <div class="flex flex-col lg:flex-row gap-1">
                             {{-- Tombol Terima --}}
                             <form action="{{ route('pendaftar.terima', $daftar->id) }}" method="POST" class="flex-1">

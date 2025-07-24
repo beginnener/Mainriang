@@ -45,6 +45,9 @@ route::get('/petunjuk-pendaftaran', function() {
     return view('pendaftaran');
 })->name('petunjuk-pendaftaran');
 
+Route::get('/pendaftaran-edit/{unique_id}', [RegistrantController::class, 'showEdit'])->name('pendaftar.edit');
+Route::put('pendaftaran-update/{unique_id}', [RegistrantController::class, 'update'])->name('pendaftar.update');
+
 route::post('/pendaftaran', [RegistrantController::class, 'daftar'])->name('daftar');
 route::get('/pendaftaran/{id?}', [RegistrantController::class, 'showform'])->name('form');
 Route::get('/get-harga/{programId}', [ProgramController::class, 'getHarga']);

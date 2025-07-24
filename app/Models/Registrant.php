@@ -20,17 +20,15 @@ class Registrant extends Model
     public function getStatusLabelAttribute(){
         return match ($this->status) {
             1 => 'Mengisi Data Orang Tua',
-            2 => 'Pembayaran Pendaftaran',
-            20 => 'Ditolak Saat Pembayaran',
-            3 => 'Memilih Program',
-            4 => 'Form Lanjutan',
-            5 => 'Wawancara dan Seleksi',
-            50 => 'Ditolak Saat Wawancara',
-            6 => 'Konfirmasi',
-            7 => 'Pembayaran Pendidikan',
-            8 => 'Konfirmasi Pembayaran', // pendaftaran diterima
-            80 => 'Ditolak Saat Pembayaran', // pendaftaran ditolak
-            9 => 'Diterima', // pendaftaran ditolak
+            2 => 'Memilih Program',
+            3 => 'Pembayaran Pendaftaran',
+            30 => 'Ditolak Saat Pembayaran',
+            4 => 'Wawancara dan Seleksi',
+            40 => 'Ditolak Saat Wawancara',
+            5 => 'Konfirmasi Pembayaran Pendidikan',
+            50 => 'Ditolak saat Pembayaran',
+            6 => 'Diterima',
+            7 => 'Data Sudah Lengkap',
             default => 'Status Tidak Diketahui',
         };
     }

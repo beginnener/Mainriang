@@ -1,8 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 @section('content')
 @php use Carbon\Carbon; @endphp
-@include('components.admin-sidenav')
-<div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)] font-['Poppins']">
+<div class="ml-0 lg p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)] font-['Poppins']">
     <h2 class="mb-3 text-xl lg:text-2xl font-semibold text-purple-950">Detail Pendaftaran</h2>
         <div class="p-4 lg:p-8 border-2 border-purple-950 rounded-xl">
             <div class="flex flex-col lg:flex-row w-full gap-4 lg:gap-0">
@@ -22,6 +21,11 @@
                             </td>
                         </tr>
                     </table>
+                    @if($pendaftar->status == 6)
+                        <div class="my-6 mb-4 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 rounded">
+                            <strong>Catatan:</strong> Silahkan lengkapi data dengan menekan tombol <b>Edit Data</b> yang ada di bawah halaman.
+                        </div>
+                    @endif
 
                     {{-- informasi data anak --}}
                     <h3 class="mt-3 mb-2 text-xl font-semibold text-purple-950">Data Anak</h3>
@@ -248,71 +252,78 @@
                         $akta = 'storage/' . $pendaftar->Child->akta_kelahiran;
                     @endphp
 
+                    {{-- Kartu Keluarga --}}
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-purple-950">Kartu Keluarga</h3>
-                        @if(Str::endsWith(strtolower($kk), ['.pdf']))
-                            <!-- PDF: hanya tombol download -->
-                            <a href="{{ asset($kk) }}" download
-                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
-                                </svg>
-                                Download Kartu Keluarga
-                            </a>
+                        @if($pendaftar->Child->kartu_keluarga)
+                            @php
+                                $kkPath = 'storage/' . $pendaftar->Child->kartu_keluarga;
+                                $kkName = basename($pendaftar->Child->kartu_keluarga);
+                            @endphp
+                            @if(Str::endsWith(strtolower($kkPath), ['.pdf']))
+                                <a href="{{ asset($kkPath) }}" download="{{ $kkName }}"
+                                   class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                    </svg>
+                                    Download Kartu Keluarga
+                                </a>
+                            @else
+                                <img src="{{ asset($kkPath) }}" alt="Kartu Keluarga" class="max-w-xs rounded shadow mb-2">
+                                <a href="{{ asset($kkPath) }}" download="{{ $kkName }}"
+                                   class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                    </svg>
+                                    Download Kartu Keluarga
+                                </a>
+                            @endif
                         @else
-                            <!-- Gambar: preview + tombol download -->
-                            <img src="{{ asset($kk) }}" alt="Kartu Keluarga" class="max-w-xs rounded shadow mb-2">
-                            <a href="{{ asset($kk) }}" download
-                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
-                                </svg>
-                                Download Kartu Keluarga
-                            </a>
+                            <div class="text-gray-400 italic">Belum ada file Kartu Keluarga</div>
                         @endif
                     </div>
+
+                    {{-- Akta Kelahiran --}}
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-purple-950">Akta Kelahiran</h3>
-                        @if(Str::endsWith(strtolower($akta), ['.pdf']))
-                            <a href="{{ asset($akta) }}" download
-                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
-                                </svg>
-                                Download Akta Kelahiran
-                            </a>
+                        @if($pendaftar->Child->akta_kelahiran)
+                            @php
+                                $aktaPath = 'storage/' . $pendaftar->Child->akta_kelahiran;
+                                $aktaName = basename($pendaftar->Child->akta_kelahiran);
+                            @endphp
+                            @if(Str::endsWith(strtolower($aktaPath), ['.pdf']))
+                                <a href="{{ asset($aktaPath) }}" download="{{ $aktaName }}"
+                                   class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                    </svg>
+                                    Download Akta Kelahiran
+                                </a>
+                            @else
+                                <img src="{{ asset($aktaPath) }}" alt="Akta Kelahiran" class="max-w-xs rounded shadow mb-2">
+                                <a href="{{ asset($aktaPath) }}" download="{{ $aktaName }}"
+                                   class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                                    </svg>
+                                    Download Akta Kelahiran
+                                </a>
+                            @endif
                         @else
-                            <img src="{{ asset($akta) }}" alt="Akta Kelahiran" class="max-w-xs rounded shadow mb-2">
-                            <a href="{{ asset($akta) }}" download
-                               class="inline-flex items-center mt-2 px-4 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
-                                </svg>
-                                Download Akta Kelahiran
-                            </a>
+                            <div class="text-gray-400 italic">Belum ada file Akta Kelahiran</div>
                         @endif
                     </div>
                 </div>
             </div>
             <div class="buttons flex flex-row gap-3 mt-4 justify-end">
-                @if(auth()->user() && auth()->user()->usertype === 'admin' && in_array($pendaftar->status, [2, 5, 8]))
-                    {{-- Tombol Terima --}}
-                    <form action="{{ route('pendaftar.terima', $pendaftar->id) }}" method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="px-4 py-2 bg-[#00BD03] text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-green-700 cursor-pointer">
-                            Terima
-                        </button>
-                    </form>
-                    {{-- Tombol Tolak --}}
-                    <form action="{{ route('pendaftar.tolak', $pendaftar->id) }}" method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="px-4 py-2 bg-[#FF0000] text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-red-700 cursor-pointer">
-                            Tolak
-                        </button>
-                    </form>
+                @if($pendaftar->status == 6)
+                    {{-- Tombol Edit --}}
+                    <a href="{{ route('pendaftar.edit', $pendaftar->unique_id) }}"
+                       class="px-4 py-2 bg-blue-500 text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-blue-700 cursor-pointer">
+                        Edit Data
+                    </a>
                 @endif
+
                 <a href="{{ route('dashboard') }}" class="px-4 py-2 bg-gray-500 text-white border-2 border-gray-200 rounded-lg transition duration-200 hover:bg-gray-700 cursor-pointer">
                     Kembali
                 </a>

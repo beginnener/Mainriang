@@ -39,14 +39,6 @@
                 </div>
             </div>
 
-            <!-- Rincian Harga -->
-            <div id="hargaList" class="px-6 py-4 bg-white rounded-xl shadow-md font-['Poppins'] text-zinc-800 mx-6">
-                <p class="font-semibold mb-2">Rincian Harga:</p>
-                <ul class="list-disc list-inside text-sm space-y-1" id="hargaList">
-                    <li>Silakan pilih program terlebih dahulu.</li>
-                </ul>
-            </div>
-
             <!-- Submit -->
             <div class="mt-1 mx-auto flex justify-center items-center">
                 <input type="submit" value="Selanjutnya" class="inline-flex items-center justify-center w-80 h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
@@ -55,30 +47,4 @@
     </div>
 </div>
 
-<script>
-document.getElementById('programSelect').addEventListener('change', function() {
-    const programId = this.value;
-
-    fetch(`/get-harga/${programId}`)
-        .then(response => response.json())
-        .then(data => {
-            const hargaList = document.getElementById('hargaList');
-            hargaList.innerHTML = '';
-
-            if (data.length > 0) {
-                data.forEach(harga => {
-                    const item = document.createElement('li');
-                    item.textContent = `${harga.desc}: Rp${parseInt(harga.price).toLocaleString('id-ID')}`;
-                    hargaList.appendChild(item);
-                });
-            } else {
-                hargaList.innerHTML = '<li>Tidak ada rincian harga tersedia untuk program ini.</li>';
-            }
-        })
-        .catch(error => {
-            document.getElementById('hargaList').innerHTML = '<li>Gagal mengambil data harga.</li>';
-            console.error('Fetch error:', error);
-        });
-});
-</script>
 @endsection
