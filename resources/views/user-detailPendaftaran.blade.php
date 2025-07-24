@@ -20,6 +20,14 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold border border-gray-600">Lokasi</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->rombel->location->name ?? '-' }}</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold border border-gray-600">Program</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->rombel->program->name ?? '-' }}</td>
+                        </tr>
                     </table>
                     @if($pendaftar->status == 6)
                         <div class="my-6 mb-4 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 rounded">

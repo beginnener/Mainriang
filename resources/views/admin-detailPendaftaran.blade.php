@@ -21,6 +21,14 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold border border-gray-600">Lokasi</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->rombel->location->name ?? '-' }}</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold border border-gray-600">Program</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->rombel->program->name ?? '-' }}</td>
+                        </tr>
                     </table>
 
                     {{-- informasi data anak --}}
