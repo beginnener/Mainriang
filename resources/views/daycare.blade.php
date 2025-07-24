@@ -16,11 +16,11 @@
                     <span class="font-['Poppins'] font-bold text-xl">Tentang Day Care</span>
                 </div>
                 <p class="text-slate-900 text-xl font-medium font-['Poppins']">
-                    Di Main Riang Daycare, kami menawarkan program yang dirancang untuk memenuhi kebutuhan anak-anak usia 1-6 tahun. 
-                    Program kami mencakup kegiatan belajar, bermain, dan berkreasi yang dirancang untuk mengambangkan kemampuan kognitif, 
-                    motorik, dan sosial anak-anak. Kami juga percaya bahwa orang tua adalah mitra penting dalam perkembangan anak-anak. 
-                    Oleh karena itu, kami berkomitmen untuk menjaga komunikasi yang baik dengan orang tua dan memastikan bahwa anak-anak 
-                    mendapatkan perawatan yang terbaik.
+                    Di Main Riang Daycare, kami menawarkan program yang dirancang untuk memenuhi kebutuhan anak-anak usia 1-6 tahun.
+                    Program kami mencakup kegiatan belajar, bermain, dan berkreasi yang dirancang untuk mengambangkan kemampuan kognitif, motorik, dan sosial anak-anak.
+                    Kami juga percaya bahwa orang tua adalah mitra penting dalam perkembangan anak-anak. Oleh karena itu,
+                    kami berkomitmen untuk menjaga komunikasi yang baik dengan orang tua dan memastikan bahwa anak-anak mendapatkan perawatan yang terbaik.
+
                 </p>
             </div>
         </div>
@@ -87,16 +87,21 @@
                             <tr class="divide-x divide-gray-200">
                                 <td class="w-32 px-3 py-2 text-center ">14.30</td>
                                 <td class="w-32 px-3 py-2 text-center">15.00</td>
-                                <td class="px-3 py-2 text-center">Toilet Training + Shower Time</td>
+                                <td class="px-3 py-2 text-center">Snack Time</td>
                             </tr>
                             <tr class="divide-x divide-gray-200">
                                 <td class="w-32 px-3 py-2 text-center ">15.00</td>
                                 <td class="w-32 px-3 py-2 text-center">15.30</td>
-                                <td class="px-3 py-2 text-center">Sholat + Mengaji</td>
+                                <td class="px-3 py-2 text-center">Toilet Training + shower Time</td>
                             </tr>
                             <tr class="divide-x divide-gray-200">
                                 <td class="w-32 px-3 py-2 text-center ">15.30</td>
                                 <td class="w-32 px-3 py-2 text-center">16.00</td>
+                                <td class="px-3 py-2 text-center">Sholat + Mengaji</td>
+                            </tr> 
+                            <tr class="divide-x divide-gray-200">
+                                <td class="w-32 px-3 py-2 text-center ">16.00</td>
+                                <td class="w-32 px-3 py-2 text-center">17.00</td>
                                 <td class="px-3 py-2 text-center">Free Time/Go Home</td>
                             </tr>   
                         </tbody>
