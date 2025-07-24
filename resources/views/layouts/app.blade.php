@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.head')
-<body class="min-h-screen flex flex-col">
+<body class="antialiased">
     @include('components.navbar')
 
-    <div class="content flex-grow">
+    <div class="content min-h-screen">
         @yield('content')
     </div>
     @include('components.footer')

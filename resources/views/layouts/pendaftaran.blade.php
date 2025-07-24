@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.head')
-<body class="min-h-screen flex flex-col">
+<body class="antialiased">
     @include('components.navbar')
     @include('components.walkthrough')
     

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.head')
-<body class="h-full flex flex-col">
+<body class="antialiased">
     @include('components.admin-navbar')
 
-    <div class="content flex-grow">
+    <div class="content min-h-screen">
         @yield('content')
     </div>
     @push('scripts')
