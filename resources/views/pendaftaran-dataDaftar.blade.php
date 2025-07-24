@@ -14,7 +14,7 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="phone_number" name="phone_number" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="No Telpon">
+                    <input type="text" id="phone_number" name="phone_number" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="No Telpon" required>
                 </div>
             </div>
             <div class="h-16 flex flex-row items-center">
@@ -23,7 +23,7 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="email" name="email" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Email">
+                    <input type="text" id="email" name="email" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Email" required>
                 </div>
             </div>
     </div>
@@ -41,7 +41,7 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="nama" name="nama" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap anak">
+                    <input type="text" id="nama" name="nama" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap anak" required>
                 </div>
             </div>
             <!-- Nama Panggilan -->
@@ -51,7 +51,7 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="nama_panggilan" name="nama_panggilan" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama panggilan anak">
+                    <input type="text" id="nama_panggilan" name="nama_panggilan" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama panggilan anak" required>
                 </div>
             </div>
             <div class="h-16 flex flex-row items-center">
@@ -60,7 +60,7 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="tempat_lahir" name="tempat_lahir" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tempat lahir">
+                    <input type="text" id="tempat_lahir" name="tempat_lahir" required class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tempat lahir" required>
                 </div>
             </div>
             <!-- Tanggal Lahir -->
@@ -70,7 +70,7 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" required class="w-1/3 h-16 px-6 font-['Poppins'] text-left text-gray-700 bg-zinc-200 border-none rounded-full">
+                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" required class="w-1/3 h-16 px-6 font-['Poppins'] text-left text-gray-700 bg-zinc-200 border-none rounded-full" required>
                 </div>
             </div>
             <!-- Jenis Kelamin -->
