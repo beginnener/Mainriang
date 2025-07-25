@@ -8,7 +8,6 @@
         @yield('content')
     </div>
     @push('scripts')
-    @stack('scripts')
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
