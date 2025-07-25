@@ -37,9 +37,6 @@ Route::get('/galeri', function () {
 Route::get('/mengapa', function () {
     return view('mengapa');
 });
-Route::get('/kemitraan', function () {
-    return view('public.kemitraan');
-});
 Route::get('/status', function () {
     return view('pendaftaran-status');
 });
@@ -59,14 +56,15 @@ Route::get('/dashboard', function () {
     $user = Auth::user();
 
     if ($user->usertype === 'admin') {
-        return redirect()->route('admin-pendaftaran');
+        return redirect()->route('admin-dashboard');
     }
     $pendaftar = Registrant::where('user_id', $user->id)->get();
     return view('user-dashboard', compact('pendaftar'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', [RegistrantController::class, 'takeAll'])->name('admin-pendaftaran');
+    Route::get('/admin/dashboard', [RegistrantController::class, 'statistik'])->name('admin-dashboard');
+    Route::get('/admin/dashboard/pendaftaran', [RegistrantController::class, 'takeAll'])->name('admin-pendaftaran');
 });
 
 Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
