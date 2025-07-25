@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Dad;
 use App\Models\Mom;
 use App\Models\Child;
+use App\Models\Rombel;
 use App\Models\Program;
 use App\Models\Guardian;
 use App\Models\Location;
-use App\Models\Rombel;
 use App\Models\Registrant;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Validation\Rules\Unique;
-use Illuminate\Support\Facades\Log;
 
 class RegistrantController extends Controller
 {
@@ -425,4 +426,56 @@ class RegistrantController extends Controller
         return redirect()->route('detail-pendaftaran', $pendaftar->unique_id)
             ->with('success', 'Data pendaftaran berhasil diperbarui.');
     }
+
+    public function statistik()
+    {
+        $registrants = \App\Models\Registrant::with(['rombel.program', 'rombel.location'])->get();
+
+        $total = $registrants->count();
+
+        $byLokasi = $registrants->groupBy(fn($r) => $r->rombel->location->name ?? 'Tanpa Lokasi')
+            ->map->count();
+
+        $byProgram = [];
+        foreach ($registrants as $r) {
+            $lokasi = $r->rombel->location->name ?? 'Tanpa Lokasi';
+            $program = $r->rombel->program->name ?? 'Tanpa Program';
+            if (!isset($byProgram[$lokasi])) $byProgram[$lokasi] = [];
+            if (!isset($byProgram[$lokasi][$program])) $byProgram[$lokasi][$program] = 0;
+            $byProgram[$lokasi][$program]++;
+        }
+
+        $statusLabels = [
+            1 => 'Mengisi Data Orang Tua',
+            2 => 'Memilih Program',
+            3 => 'Pembayaran Pendaftaran',
+            4 => 'Wawancara & Asesmen',
+            5 => 'Pembayaran Pendidikan',
+            6 => 'Pembayaran',
+            7 => 'Data Sudah Lengkap',
+            30 => 'Ditolak Saat Pembayaran 1',
+            40 => 'Ditolak Saat Wawancara',
+            50 => 'Ditolak Saat Pembayaran Pendidikan',
+        ];
+        $byStatus = $registrants->groupBy('status')->mapWithKeys(function($group, $status) use ($statusLabels) {
+            return [ $statusLabels[$status] ?? $status => $group->count() ];
+        });
+
+        return view('admin-statistik', compact('total', 'byLokasi', 'byProgram', 'byStatus'));
+    }
+
+    public function downloadDokumen($id, $jenis)
+    {
+        $pendaftar = Registrant::where('unique_id', $id)->firstOrFail();
+        $child = $pendaftar->Child;
+
+        if ($jenis === 'kartu_keluarga' && $child->kartu_keluarga) {
+            return response()->download(storage_path('app/public/' . $child->kartu_keluarga));
+        } elseif ($jenis === 'akta_kelahiran' && $child->akta_kelahiran) {
+            return response()->download(storage_path('app/public/' . $child->akta_kelahiran));
+        } else {
+            return redirect()->back()->with('error', 'Dokumen tidak ditemukan.');
+        }
+    }
+
 }
