@@ -44,40 +44,50 @@
         </div>
     </div>
 </div>
-<div class="w-full my-16 flex flex-row ml-auto justify-end items-center">
-    <div class="relative w-[426px] h-[426px] -mr-12 flex justify-center items-center bg-gradient-to-l from-orange-400 to-amber-300 rounded-t-full rounded-bl-full">
-        <div class="mt-14 w-[270px] h-[270px]">
-            <h2 class="py-2 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Our Value</h2>
-            <div class="ml-10 flex items-center">
-                <span class="font-['Poppins'] text-lg text-purple-950 text-left">
-                    <ol class="list-decimal">
-                        <li><strong>Spiritual Awareness</strong> Mengajarkan anak untuk taqwa kepada Allah SWT, berbuat baik, dan menjauhi prilaku buruk</li>
-                        <li><strong>Intellectual Excellence</strong> Mendorong anak untuk belajar, berpikir kritis, dan mengembangkan potensinya</li>
-                        <li><strong>Moral Excellence</strong> Mengembangkan karakter anak dengan nilai sopan santun, empati, dan kejujuran</li>
+<div class="w-full my-16 px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div class="flex flex-col items-center justify-center p-8 gap-6 border rounded-[48px] text-center 
+            group relative overflow-hidden transition-colors duration-300 bg-white shadow-lg h-[450px]">
+            <div class="absolute inset-0 bg-gradient-to-l from-orange-400 to-amber-300 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-[48px]"></div>
+            <div class="flex flex-col items-center justify-center w-full h-full relative z-10 gap-4">
+                <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                    <img src="{{ asset('images\WhatsApp Image 2025-03-17 at 14.09.44_b88173d4.jpg') }}" alt="Our Values" class="w-full h-full object-cover">
+                </div>
+                
+                <h2 class="text-2xl font-bold text-purple-950 font-['Poppins'] group-hover:text-white transition-colors duration-300">
+                    Our Value
+                </h2>
+                
+                <div class="text-left group-hover:text-white transition-colors duration-300 px-4">
+                    <ol class="list-decimal pl-5 space-y-2 text-md text-purple-950 font-['Poppins'] group-hover:text-white transition-colors duration-300">
+                        <li><strong>Spiritual Awareness:</strong> Mengajarkan anak untuk taqwa kepada Allah SWT, berbuat baik, dan menjauhi prilaku buruk</li>
+                        <li><strong>Intellectual Excellence:</strong> Mendorong anak untuk belajar, berpikir kritis, dan mengembangkan potensinya</li>
+                        <li><strong>Moral Excellence:</strong> Mengembangkan karakter anak dengan nilai sopan santun, empati, dan kejujuran</li>
                     </ol>
-                </span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="w-[805px] h-[426px]">
-        <img src="{{ asset('images\WhatsApp Image 2025-03-17 at 14.09.44_b88173d4.jpg') }}" alt="" class="w-full h-full object-cover rounded-tl-[3rem]">
-    </div>
-</div>
-<div class="w-full my-24 flex flex-row ml-auto justify-start items-center">
-    <div class="w-[805px] h-[426px]">
-        <img src="{{ asset('images/foto wudhu.jpg') }}" alt="" class="w-full h-full object-cover rounded-tr-[3rem]">
-    </div>
-    <div class="relative w-[426px] h-[426px] -ml-12 flex justify-center items-center bg-gradient-to-l from-orange-400 to-amber-300 rounded-t-full rounded-br-full">
-        <div class="mt-16 w-[270px] h-[270px]">
-            <h2 class="py-2 px-8 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Konsep Pendidikan</h2>
-            <div class="ml-10 flex items-center">
-                <span class="font-['Poppins'] text-lg text-purple-950 text-left">
-                    <ol class="list-decimal">
-                        <li>Al-Quran dan Sunah.</li>
-                        <li>Metode Montessori.</li>
-                        <li>Kurikulum Khas Main Riang.</li>
+
+        <div class="flex flex-col items-center justify-center p-8 gap-6 border rounded-[48px] text-center 
+            group relative overflow-hidden transition-colors duration-300 bg-white shadow-lg h-[450px]">
+            <div class="absolute inset-0 bg-gradient-to-l from-orange-400 to-amber-300 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-[48px]"></div>
+            
+            <div class="flex flex-col items-center justify-center w-full h-full relative z-10 gap-4">
+                <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                    <img src="{{ asset('images/foto wudhu.jpg') }}" alt="Konsep Pendidikan" class="w-full h-full object-cover">
+                </div>
+                
+                <h2 class="text-2xl font-bold text-purple-950 font-['Poppins'] group-hover:text-white transition-colors duration-300">
+                    Konsep Pendidikan
+                </h2>
+                
+                <div class="text-left group-hover:text-white transition-colors duration-300 px-4">
+                    <ol class="list-decimal pl-5 space-y-2 text-lg text-purple-950 font-['Poppins'] group-hover:text-white transition-colors duration-300">
+                        <li>Al-Quran dan Sunah</li>
+                        <li>Metode Montessori</li>
+                        <li>Kurikulum Khas Main Riang</li>
                     </ol>
-                </span>
+                </div>
             </div>
         </div>
     </div>

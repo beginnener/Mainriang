@@ -11,34 +11,48 @@ use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
     return view('homepage');
-});
+})->name('home');
+
 Route::get('/program', function () {
     return view('program-template');
-});
+})->name('program');
+
 Route::get('/profil', function () {
     return view('profil-mainriang');
-});
+})->name('profil-mainriang');
+
 Route::get('/daycare', function () {
     return view('daycare');
-});
+})->name('daycare');
+
 Route::get('/playgroup', function () {
     return view('playgroup');
-});
+})->name('playgroup');
+
 Route::get('/tk', function () {
     return view('tk');
-});
+})->name('tk');
+
 Route::get('/fasilitas', function () {
     return view('fasilitas');
-});
+})->name('fasilitas');
+
 Route::get('/trilogi', function () {
     return view('trilogi');
-});
+})->name('trilogi');
+
 Route::get('/galeri', function () {
     return view('galeri-kegiatan');
-});
+})->name('galeri-kegiatan');
+
 Route::get('/mengapa', function () {
     return view('mengapa');
-});
+})->name('mengapa');
+
+Route::get('/kemitraan', function () {
+    return view('public.kemitraan');
+})->name('kemitraan');
+
 Route::get('/status', function () {
     return view('pendaftaran-status');
 });

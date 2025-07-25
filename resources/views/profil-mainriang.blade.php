@@ -16,39 +16,30 @@
             untuk menciptakan lingkungan belajar yang menyenangkan.
         </p>
     </div>
-    <div class="w-[960px] my-16 mb-24 p-8 mx-auto flex flex-wrap flex-row gap-6 justify-center overflow-hidden">
-        <div class="w-[400px] h-[400px] rounded-full overflow-hidden bg-white">
-            <img src="{{ asset('images/WhatsApp Image 2025-03-11 at 09.42.05_053b8ce4.jpg') }}" alt="" class="w-full h-full object-cover">
+    <div class="w-full max-w-6xl my-16 mb-24 p-8 mx-auto flex flex-wrap justify-center gap-8">
+        <div class="max-w-md flex flex-col items-center justify-center p-8 gap-4 aspect-square border rounded-[48px] text-center 
+            group relative overflow-hidden transition-colors duration-300 bg-white shadow-lg">
+            <div class="absolute inset-0 bg-gradient-to-l from-orange-400 to-amber-300 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-[48px]"></div>
+            <h2 class="text-2xl font-bold text-purple-950 font-['Poppins'] relative z-10 group-hover:text-white transition-colors duration-300">
+                Visi
+            </h2>
+            <p class="text-lg text-purple-950 font-['Poppins'] text-center relative z-10 group-hover:text-white transition-colors duration-300">
+                "Mengembangkan Potensi Insani Anak Dalam Harmoni Iman, Ilmu, Dan Kebaikan"
+            </p>
         </div>
-        <div class="w-[400px] h-[400px] flex justify-center items-center rounded-tr-full rounded-tl-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 transition hover:shadow-xl hover:scale-105">
-            <div class="mt-10 w-[250px] h-[250px]">
-                <h2 class="py-2 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Visi</h2>
-                <div class="flex items-center">
-                    <span class="font-['Poppins'] text-lg text-purple-950 text-left">
-                        “Mengembangkan Potensi Insani Anak Dalam Harmoni Iman, Ilmu, Dan Kebaikan”
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="w-[400px] h-[400px] flex justify-center items-center rounded-tl-full rounded-bl-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300  transition hover:shadow-xl hover:scale-105">
-            <div class="ml-5 -mt-14 w-[250px] h-[250px]">
-                <h2 class="py-2 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Misi</h2>
-                <div class="ml-6 flex items-center">
-                    <span class="font-['Poppins'] text-base text-purple-950 text-left">
-                        <ol class="list-decimal">
-                            <li>Mengembangkan potensi anak secara holistik melalui pendekatan Montessori dan nilai-nilai Islam.</li>
-                            <li>Menciptakan lingkungan belajar yang menyenangkan, interaktif, dan mendukung kreativitas anak.</li>
-                            <li>Mengembangkan kemampuan anak untuk berpikir kritis, berani berimaginasi, dan memiliki rasa ingin tahu yang tinggi.</li>
-                            <li>Membentuk karakter anak yang berakhlak mulia, peduli dan menghormati perbedaan.</li>
-                            <li>Meningkatkan kesadaran dan kecintaan terhadap Islam.</li>
-                        
-                        </ol>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="w-[400px] h-[400px] rounded-full overflow-hidden bg-white">
-            <img src="{{ asset('images/WhatsApp Image 2025-03-11 at 09.42.05_053b8ce4.jpg') }}" alt="" class="w-full h-full object-cover">
+        <div class="max-w-md flex flex-col items-start justify-start p-8 gap-4 border rounded-[48px] text-left 
+            group relative overflow-hidden transition-colors duration-300 bg-white shadow-lg min-h-[400px]">
+            <div class="absolute inset-0 bg-gradient-to-l from-orange-400 to-amber-300 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-[48px]"></div>
+            <h2 class="text-2xl font-bold text-purple-950 font-['Poppins'] relative z-10 group-hover:text-white transition-colors duration-300 self-center mb-2">
+                Misi
+            </h2>
+            <ol class="list-decimal pl-5 space-y-2 text-base text-purple-950 font-['Poppins'] relative z-10 group-hover:text-white transition-colors duration-300">
+                <li>Mengembangkan potensi anak secara holistik melalui pendekatan Montessori dan nilai-nilai Islam.</li>
+                <li>Menciptakan lingkungan belajar yang menyenangkan, interaktif, dan mendukung kreativitas anak.</li>
+                <li>Mengembangkan kemampuan anak untuk berpikir kritis, berani berimaginasi, dan memiliki rasa ingin tahu yang tinggi.</li>
+                <li>Membentuk karakter anak yang berakhlak mulia, peduli dan menghormati perbedaan.</li>
+                <li>Meningkatkan kesadaran dan kecintaan terhadap Islam.</li>
+            </ol>
         </div>
     </div>
     <div class="my-8 mx-auto flex justify-center items-center">
