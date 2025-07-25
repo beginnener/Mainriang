@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Validation\Rules\Unique;
+use App\Exports\PendaftarExport;
 
 class RegistrantController extends Controller
 {
@@ -477,5 +478,11 @@ class RegistrantController extends Controller
             return redirect()->back()->with('error', 'Dokumen tidak ditemukan.');
         }
     }
+
+    public function export()
+    {
+        return Excel::download(new PendaftarExport, 'data_pendaftar.xlsx');
+    }
+
 
 }

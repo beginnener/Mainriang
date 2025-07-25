@@ -6,6 +6,14 @@
     <div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)]">
         <h2 class="text-2xl font-bold mb-6 text-gray-800">📊 Statistik Pendaftaran</h2>
 
+        {{-- Tombol Export Excel --}}
+        <div class="mb-6">
+            <a href="{{ route('admin.export-pendaftar') }}"
+               class="inline-block px-6 py-2 bg-amber-400 text-white font-semibold rounded-md hover:bg-amber-500 transition">
+                📥 Export Data Excel
+            </a>
+        </div>
+
         {{-- Total Pendaftaran --}}
         <div class="mb-8">
             <div class="text-lg font-semibold text-gray-700 mb-1">Total Pendaftaran</div>
@@ -88,4 +96,3 @@
         </div>
     </div>
 @endsection
-    

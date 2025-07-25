@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RegistrantController;
+use App\Exports\PendaftarExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
     return view('homepage');
@@ -65,6 +67,9 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [RegistrantController::class, 'statistik'])->name('admin-dashboard');
     Route::get('/admin/dashboard/pendaftaran', [RegistrantController::class, 'takeAll'])->name('admin-pendaftaran');
+    Route::get('/admin/dashboard/export-pendaftar', function () {
+        return Excel::download(new PendaftarExport, 'data-pendaftar.xlsx');
+    })->name('admin.export-pendaftar');
 });
 
 Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
