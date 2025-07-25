@@ -19,7 +19,7 @@
             Kota Bandung</strong> pada Tahun 2023 dengan lingkungan pendidikan yang aman, nyaman, dan menyenangkan,
             dimana kami tidak hanya berkomitmen terhadap pendidikan anak, tetapi kami sangat peduli
             terhadap optimal tumbuh kembang anak serta pembentukan karakter seorang muslim sejak usia dini.
-            Dengan Tagline “Bermain Penuh Makna” Kami berkomitmen menjadi mitra terpercaya bagi orang tua
+            Dengan Tagline <strong class="text-purple-950">“Bermain Penuh Makna”</strong> Kami berkomitmen menjadi mitra terpercaya bagi orang tua
             untuk mengoptimalkan masa golden age anak dengan pendekatan Islamic Montessori Khas Main Riang.
         </p>
     </div>
@@ -73,9 +73,9 @@
             <div class="ml-10 flex items-center">
                 <span class="font-['Poppins'] text-lg text-purple-950 text-left">
                     <ol class="list-decimal">
-                        <!-- <li>Al-Quran dan Sunah.</li>
+                        <li>Al-Quran dan Sunah.</li>
                         <li>Metode Montessori.</li>
-                        <li>Kurikulum Khas Main Riang.</li> -->
+                        <li>Kurikulum Khas Main Riang.</li>
                     </ol>
                 </span>
             </div>

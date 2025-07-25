@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full h-72 relative bg-gray-700">
         <img src="{{ asset('images/Banner.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-80"/>
-        <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">Day Care</h1>
+        <h1 class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">TK</h1>
     </div>
     <div class="relative w-full">
         <!-- Section Putih -->
@@ -13,13 +13,18 @@
             </div>
             <div class="flex flex-col flex-grow mx-8 gap-5">
                 <div class="w-2/3 h-14 mx-auto flex justify-center items-center bg-gradient-to-l from-orange-400 to-amber-300 rounded-full">
-                    <span class="font-['Poppins'] font-bold text-xl">Tentang Day Care</span>
+                    <span class="font-['Poppins'] font-bold text-xl">Tentang TK</span>
                 </div>
                 <p class="text-slate-900 text-xl font-medium font-['Poppins']">
-                    Di Main Riang Daycare, kami menawarkan program yang dirancang untuk memenuhi kebutuhan anak-anak usia 1-6 tahun.
-                    Program kami mencakup kegiatan belajar, bermain, dan berkreasi yang dirancang untuk mengambangkan kemampuan kognitif, motorik, dan sosial anak-anak.
-                    Kami juga percaya bahwa orang tua adalah mitra penting dalam perkembangan anak-anak. Oleh karena itu,
-                    kami berkomitmen untuk menjaga komunikasi yang baik dengan orang tua dan memastikan bahwa anak-anak mendapatkan perawatan yang terbaik.
+                    Di TK Main Riang, kami menawarkan program yang dirancang untuk
+                    memenuhi kebutuhan anak-anak usia 4-6 tahun. Program kami mencakup
+                    kegiatan belajar, bermain, dan berkreasi yang dirancang untuk
+                    mengembangkan kemampuan kognitif, motorik, dan sosial anak-anak dengan
+                    metode trilogi Main Riang.
+                    <br><br>
+                    Kami juga percaya bahwa orang tua adalah mitra penting dalam perkembangan anak-anak.
+                    Oleh karena itu, kami berkomitmen untuk menjaga komunikasi yang baik dengan orang tua
+                    dan memastikan bahwa anak-anak mendapatkan pendidikan yang terbaik.
                     <br><br>
                     Fasilitas kami dilengkapi dengan:
                     <ul class="list-disc list-inside text-slate-900 text-xl font-medium font-['Poppins']">
@@ -28,8 +33,8 @@
                         <li>Fasilitas makan dan minum yang sehat</li>
                         <li>Water Heater</li>
                         <li>CCTV</li>
-                        <li>Pengawasan yang ketat dan perawatan yang baik</li>
                     </ul>
+
                 </p>
             </div>
         </div>
@@ -43,78 +48,17 @@
                         Kegiatan di Daycare dirancang untuk membangun kemandirian anak melalui berbagai aktivitas yang menyenangkan dan edukatif. Jadwal lengkap kegiatan dapat dilihat pada tabel di bawah ini.
                     </p>
                 </div>
-                <div class="overflow-hidden rounded-lg w-full border">
-                    <table class="w-full table-fixed divide-y divide-gray-200 font-['Poppins'] text-sm text-gray-900">
-                        <thead>
-                            <tr class="divide-y divide-gray-200 bg-gray-100">
-                                <th class="w-32 px-3 py-2 text-center ">Mulai</th>
-                                <th class="w-32 px-3 py-2 text-center">Selesai</th>
-                                <th class="px-3 py-2 text-center">Kegiatan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">07.30</td>
-                                <td class="w-32 px-3 py-2 text-center">08.00</td>
-                                <td class="px-3 py-2 text-center">Arrival</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">08.00</td>
-                                <td class="w-32 px-3 py-2 text-center">09.30</td>
-                                <td class="px-3 py-2 text-center">Playgroup Class</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">09.30</td>
-                                <td class="w-32 px-3 py-2 text-center">09.45</td>
-                                <td class="px-3 py-2 text-center">Toilet Training</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">09.45</td>
-                                <td class="w-32 px-3 py-2 text-center">10.00</td>
-                                <td class="px-3 py-2 text-center">Snack Time</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">10.00</td>
-                                <td class="w-32 px-3 py-2 text-center">11.00</td>
-                                <td class="px-3 py-2 text-center">5 Basic Area Montessori</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">11.00</td>
-                                <td class="w-32 px-3 py-2 text-center">12.30</td>
-                                <td class="px-3 py-2 text-center">Lunch Time + Sholat</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">12.30</td>
-                                <td class="w-32 px-3 py-2 text-center">12.45</td>
-                                <td class="px-3 py-2 text-center">Toilet Training & Brushing Teeth</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">12.45</td>
-                                <td class="w-32 px-3 py-2 text-center">14.30</td>
-                                <td class="px-3 py-2 text-center">Nap Time</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">14.30</td>
-                                <td class="w-32 px-3 py-2 text-center">15.00</td>
-                                <td class="px-3 py-2 text-center">Snack Time</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">15.00</td>
-                                <td class="w-32 px-3 py-2 text-center">15.30</td>
-                                <td class="px-3 py-2 text-center">Toilet Training + shower Time</td>
-                            </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">15.30</td>
-                                <td class="w-32 px-3 py-2 text-center">16.00</td>
-                                <td class="px-3 py-2 text-center">Sholat + Mengaji</td>
-                            </tr> 
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">16.00</td>
-                                <td class="w-32 px-3 py-2 text-center">17.00</td>
-                                <td class="px-3 py-2 text-center">Free Time/Go Home</td>
-                            </tr>   
-                        </tbody>
-                    </table>
+                <div class="overflow-hidden rounded-lg w-full flex justify-center">
+                    <ul class="list-disc list-inside text-slate-900 text-xl font-medium font-['Poppins']">
+                        <li>Kids Arrival, freeplay</li>
+                        <li>Opening Circle Time</li>
+                        <li>Islamic Behavior</li>
+                        <li>5 Basic Area</li>
+                        <li>Break/Snack Time</li>
+                        <li>Gembira Beraksi</li>
+                        <li>Closed Circle Time</li>
+                        <li>Go Home</li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -45,10 +45,9 @@
                 <div class="relative right-12 w-[760px] h-[300px] bg-white border border-purple-900 rounded-[3.5rem]">
                     <div class="w-[600px] h-[300px] ml-20 flex items-center">
                         <p class="font-['Poppins'] font-medium text-left text-xl select-none">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur qui voluptatibus officia atque, 
-                            inventore adipisci fuga ea, eius commodi ratione non provident id enim repudiandae nostrum saepe. Magnam 
-                            fugiat hic eum, inventore similique molestiae nisi porro officiis laborum dignissimos. Et molestiae aliquid 
-                            impedit labore mollitia ab quia asperiores nam optio!
+                            Bertujuan untuk meningkatkan keimanan & ketakwaan terhadap Allah SWT,
+                            Kecintaan terhadap Rasulullah SAW, dan membina sikap anak dalam rangka
+                            meletakkan dasar agama agar anak menjadi muslim baik.
                         </p>
                     </div>
                 </div>
@@ -146,7 +145,7 @@
                 </span>
                 <span class="h-16 px-10 bg-gradient-to-l from-orange-400 to-amber-200 flex items-center rounded-full shadow-lg transition-transform duration-700 hover:scale-110">
                     <span class="font-['Poppins'] text-lg font-semibold select-none">
-                        Belajar membaca Iqro
+                        Belajar membaca IQRO
                     </span>
                 </span>
                 <span class="h-16 px-10 bg-gradient-to-l from-orange-400 to-amber-200 flex items-center rounded-full shadow-lg transition-transform duration-700 hover:scale-110">
@@ -156,12 +155,7 @@
                 </span>
                 <span class="h-16 px-10 bg-gradient-to-l from-orange-400 to-amber-200 flex items-center rounded-full shadow-lg transition-transform duration-700 hover:scale-110">
                     <span class="font-['Poppins'] text-lg font-semibold select-none">
-                        Hafalan hadis & mahfudzat
-                    </span>
-                </span>
-                <span class="h-16 px-10 bg-gradient-to-l from-orange-400 to-amber-200 flex items-center rounded-full shadow-lg transition-transform duration-700 hover:scale-110">
-                    <span class="font-['Poppins'] text-lg font-semibold select-none">
-                        Cerita Nabi dan Sahabat
+                        Hafalan Hadis & Mahfudzat
                     </span>
                 </span>
                 <span class="h-16 px-10 bg-gradient-to-l from-orange-400 to-amber-200 flex items-center rounded-full shadow-lg transition-transform duration-700 hover:scale-110">
@@ -201,75 +195,68 @@
                         </div>
                         <div>
                             <span class="font-['Poppins'] text-lg">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                Quibusdam delectus provident ad!
+                                Area ini dirancang untuk membantu anak-anak mengembangkan keterampilan hidup sehari-hari,
+                                seperti memasak, membersihkan, dan merawat diri sendiri. Dengan melakukan aktivitas-aktivitas praktis,
+                                anak-anak dapat mengembangkan koordinasi motorik, kemandirian, dan rasa tanggung jawab.
                             </span>
                         </div>
                     </div>
                     <div class="w-[600px] h-fit bg-white">
                         <div class="mb-2">
                             <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                Practical Life Area
+                                Sensorial Area
                             </span>
                         </div>
                         <div>
                             <span class="font-['Poppins'] text-lg">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                Quibusdam delectus provident ad!
+                                Area ini dirancang untuk membantu anak-anak mengembangkan kemampuan indra mereka,
+                                seperti melihat, mendengar, menyentuh, dan merasakan. Dengan menggunakan
+                                bahan-bahan sensorial seperti pasir, air, dan tekstil, anak-anak dapat mengembangkan
+                                kemampuan diskriminasi dan pengenalan.
                             </span>
                         </div>
                     </div>
                     <div class="w-[600px] h-fit bg-white">
                         <div class="mb-2">
                             <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                Practical Life Area
+                                Language Area
                             </span>
                         </div>
                         <div>
                             <span class="font-['Poppins'] text-lg">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                Quibusdam delectus provident ad!
+                                Area ini dirancang untuk membantu anak-anak mengembangkan kemampuan bahasa mereka,
+                                seperti membaca, menulis, dan berbicara. Dengan menggunakan bahan-bahan seperti kartu kata,
+                                buku, dan permainan bahasa, anak-anak dapat  mengembangkan kemampuan komunikasi dan ekspresi.
                             </span>
                         </div>
                     </div>
                     <div class="w-[600px] h-fit bg-white">
                         <div class="mb-2">
                             <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                Practical Life Area
+                                Math Area
                             </span>
                         </div>
                         <div>
                             <span class="font-['Poppins'] text-lg">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                Quibusdam delectus provident ad!
+                                Area ini dirancang untuk membantu anak-anak mengembangkan kemampuan matematika mereka,
+                                seperti menghitung, mengukur, dan memahami konsep-konsep matematika. Dengan menggunakan
+                                bahan-bahan seperti blok, manik-manik, dan permainan matematika, anak-anak dapat mengembangkan
+                                kemampuan logika dan pemecahan masalah.
                             </span>
                         </div>
                     </div>
                     <div class="w-[600px] h-fit bg-white">
                         <div class="mb-2">
                             <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                Practical Life Area
+                                Culture Area
                             </span>
                         </div>
                         <div>
                             <span class="font-['Poppins'] text-lg">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                Quibusdam delectus provident ad!
+                                Area ini dirancang untuk membantu anak-anak mengembangkan kesadaran dan apresiasi
+                                terhadap budaya dan masyarakat yang berbeda-beda. Dengan menggunakan bahan-bahan
+                                seperti peta, globe, dan permainan budaya, anak-anak dapat mengembangkan kemampuan memahami
+                                dan menghargai perbedaan.
                             </span>
                         </div>
                     </div>
@@ -296,80 +283,41 @@
                         <div class="w-[600px] h-fit bg-white">
                             <div class="mb-2">
                                 <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                    Practical Life Area
+                                    GEMBIRA (Gerak, Emosi Cerdas, Makan & minum sehat, beribadah, Istirahat, Rukun dan Aktif Berkarya) 
                                 </span>
                             </div>
                             <div>
                                 <span class="font-['Poppins'] text-lg">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                    ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                    ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                    Quibusdam delectus provident ad!
+                                    <ul class="list-disc list-inside space-y-2 mt-2">
+                                        <li>
+                                            <strong>Fisik Motorik:</strong> pengembangan ini bertujuan memperkenalkan dan melatih gerakan kasar dan halus, meningkatkan kemampuan mengelola, mengontrol gerakan tubuh dan koordinasi, serta meningkatkan keterampilan tubuh dan cara hidup sehat sehingga dapat menunjang pertumbuhan jasmani yang sehat, kuat dan terampil.
+                                        </li>
+                                        <li>
+                                            <strong>Kognitif:</strong> pengembangan ini bertujuan agar anak mampu mengolah perolehan belajarnya, menemukan bermacam-macam alternatif pemecahan masalah, mengembangkan kemampuan logika matematika, pengetahuan ruang dan waktu, kemampuan memilah dan mengelompokkan, dan persiapan pengembangan kemampuan berpikir teliti.
+                                        </li>
+                                        <li>
+                                            <strong>Berbahasa:</strong> bidang ini bertujuan agar anak mampu mengungkapkan pikiran melalui bahasa yang sederhana secara tepat, mampu berkomunikasi secara efektif dan membangkitkan minat anak untuk dapat berbahasa Indonesia dengan baik.
+                                        </li>
+                                    </ul>
                                 </span>
                             </div>
                         </div>
                         <div class="w-[600px] h-fit bg-white">
                             <div class="mb-2">
                                 <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                    Practical Life Area
+                                    BERAKSI (Bersama Anak Berkreasi (Seni, Prakarya, Gerak dan Lagu))
                                 </span>
                             </div>
                             <div>
                                 <span class="font-['Poppins'] text-lg">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                    ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                    ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                    Quibusdam delectus provident ad!
-                                </span>
-                            </div>
-                        </div>
-                        <div class="w-[600px] h-fit bg-white">
-                            <div class="mb-2">
-                                <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                    Practical Life Area
-                                </span>
-                            </div>
-                            <div>
-                                <span class="font-['Poppins'] text-lg">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                    ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                    ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                    Quibusdam delectus provident ad!
-                                </span>
-                            </div>
-                        </div>
-                        <div class="w-[600px] h-fit bg-white">
-                            <div class="mb-2">
-                                <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                    Practical Life Area
-                                </span>
-                            </div>
-                            <div>
-                                <span class="font-['Poppins'] text-lg">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                    ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                    ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                    Quibusdam delectus provident ad!
-                                </span>
-                            </div>
-                        </div>
-                        <div class="w-[600px] h-fit bg-white">
-                            <div class="mb-2">
-                                <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                                    Practical Life Area
-                                </span>
-                            </div>
-                            <div>
-                                <span class="font-['Poppins'] text-lg">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Culpa quibusdam unde hic mollitia voluptas consequatur qui 
-                                    ut eum dolorem facilis itaque iure, quis blanditiis pariatur 
-                                    ea esse nemo repellat dolor doloremque non ad quasi id quae. 
-                                    Quibusdam delectus provident ad!
+                                    Kami menyadari bahwa seni merupakan bagian yang krusial
+                                    dari pendidikan anak. Melalui seni, kamu memberikan anak
+                                    kebebasan dalam berkarya untuk mengasah rasa percaya diri
+                                    untuk berinovasi dan mengekspresikan kreativitasnya.
+                                    Selain itu anak-anak memiliki kebutuhan gerak yang tinggi
+                                    yang dapat membantu kerja otaknya. Maka dari itu,
+                                    dalam rutinitas sekolah, kami selalu menyertakan aktivitas yang melibatkan gerak,
+                                    seperti menari, bermain di playground, dan kegiatan lainnya.
                                 </span>
                             </div>
                         </div>
