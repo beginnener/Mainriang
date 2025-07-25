@@ -6,9 +6,6 @@
         {{-- Header Section --}}
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-3xl font-extrabold text-orange-500">Daftar Pendaftaran Saya</h2>
-            <a href="#" class="px-4 py-2 border border-gray-500 rounded-lg hover:bg-gray-200 transition">
-                Tambah Pendaftaran
-            </a>
         </div>
 
         {{-- Card Grid --}}
