@@ -10,21 +10,17 @@
     </div>
     <div class="w-fit h-auto bg-white mt-8 mx-48">
         <p class="text-slate-900 text-xl font-medium font-['Poppins']">
-            Orang tua yang menyekolahkan anaknya sejak dini adalah orangtua yang memiliki
-            pola pikir bahwa kehidupan berkelompok akan membangun interaksi sosial anak 
-            dengan orang lain. Peran kami adalah <strong class="text-purple-950">mendidik dan mendampingi tumbuh kembang 
-            anak di masa golden age</strong> dan mengajarkan pembiasaan yang baik dalam kehidupan 
-            sehari-hari sesuai dengan nilai islam.
+            Main Riang adalah lembaga pendidikan Islam di bawah naungan Yayasan Teman Ilmu Indonesia
+            berdasarkan Akta Notaris Mohamad Juania, SH., M.Kn. Nomor 19 Tanggal 18 Februari 2021
+            dengan Nomor Induk Berusaha (NIB) 1215000240293 yang berfokus pada pengelolaan Day Care,
+            Play Group, dan Taman Kanak-Kanak (TK) dengan No Ijin Operasional 0005/IPSPNFI/VI/2024/DPMPTSP.
             <br><br>
-            Kesuksesan tumbuh kembang anak memerlukan kerjasama yang baik antara orang tua
-            dan sekolah, bahkan orang tua adalah tulang punggung utama dalam kesuksesan ini. 
-            Dalam hal ini orang tua bisa memahami ketika mendapatkan laporan anaknya yang dipukul 
-            teman, atau anaknya jatuh karena berlarian, atau hal-hal lainnya yang kemungkinan akan 
-            terjadi ketika anak usia dini berkumpul di satu tempat yang sama. Anak menjadi mengerti 
-            bahwa selain dirinya, ada juga orang lain, yang bisa dia ajak bermain, berbicara, dan 
-            lain sebagainya. Kepercayaan orangtua kepada sekolah dan keyakinan bahwa segala hal yang 
-            terjadi pada anak mereka adalah proses pendidikan anak untuk menjadi anak yang tangguh 
-            dan memiliki kecerdasan sosial.
+            Main Riang hadir di <strong class="text-purple-950">Jl. Babakan Radio No. 25 GN.Batu dan Jl. Cicukang 37A Arcamanik
+            Kota Bandung</strong> pada Tahun 2023 dengan lingkungan pendidikan yang aman, nyaman, dan menyenangkan,
+            dimana kami tidak hanya berkomitmen terhadap pendidikan anak, tetapi kami sangat peduli
+            terhadap optimal tumbuh kembang anak serta pembentukan karakter seorang muslim sejak usia dini.
+            Dengan Tagline <strong class="text-purple-950">“Bermain Penuh Makna”</strong> Kami berkomitmen menjadi mitra terpercaya bagi orang tua
+            untuk mengoptimalkan masa golden age anak dengan pendekatan Islamic Montessori Khas Main Riang.
         </p>
     </div>
     {{-- <div class="my-8 mx-auto flex justify-center items-center">
@@ -51,13 +47,13 @@
 <div class="w-full my-16 flex flex-row ml-auto justify-end items-center">
     <div class="relative w-[426px] h-[426px] -mr-12 flex justify-center items-center bg-gradient-to-l from-orange-400 to-amber-300 rounded-t-full rounded-bl-full">
         <div class="mt-14 w-[270px] h-[270px]">
-            <h2 class="py-2 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Core Value</h2>
+            <h2 class="py-2 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Our Value</h2>
             <div class="ml-10 flex items-center">
                 <span class="font-['Poppins'] text-lg text-purple-950 text-left">
                     <ol class="list-decimal">
-                        <li><strong>Imagine</strong> (Mempunyai Imajinasi).</li>
-                        <li><strong>Curiosity</strong> (Rasa Ingin Tahu).</li>
-                        <li><strong>Creative</strong> (Kreatif).</li>
+                        <li><strong>Spiritual Awareness</strong> Mengajarkan anak untuk taqwa kepada Allah SWT, berbuat baik, dan menjauhi prilaku buruk</li>
+                        <li><strong>Intellectual Excellence</strong> Mendorong anak untuk belajar, berpikir kritis, dan mengembangkan potensinya</li>
+                        <li><strong>Moral Excellence</strong> Mengembangkan karakter anak dengan nilai sopan santun, empati, dan kejujuran</li>
                     </ol>
                 </span>
             </div>

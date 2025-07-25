@@ -37,6 +37,9 @@ Route::get('/galeri', function () {
 Route::get('/mengapa', function () {
     return view('mengapa');
 });
+Route::get('/kemitraan', function () {
+    return view('public.kemitraan');
+});
 Route::get('/status', function () {
     return view('pendaftaran-status');
 });

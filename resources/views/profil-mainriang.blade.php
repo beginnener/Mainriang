@@ -10,17 +10,10 @@
     </div>
     <div class="w-fit h-auto bg-white mt-8 mx-48">
         <p class="text-slate-900 text-xl font-medium font-['Poppins']">
-            Main Riang adalah lembaga pendidikan Islam di bawah naungan Yayasan teman Ilmu Indonesia berdasarkan 
-            Akta Notaris Mohamad Juania, SH., M.Kn Nomor 19 Tanggal 18 februari 2021 dengan Nomor Induk berusaha 
-            (NIB) 121000240293 yang berfokus pada pengelolaan Day Care, Play Group, dan Taman Kanak-Kanak (TK) 
-            dengan No Ijin Operasional 0005/IPSPNFI/VI/2024/DPMPTSP.
-        </p>
-        <p class="text-slate-900 text-xl font-medium font-['Poppins'] mt-4">
-            Main Riang kini hadir <strong class="text-purple-950">Jl. Cicukang 37A Arcamanik Kota Bandung</strong> 
-            pada Tahun 2025  dengan lingkungan pendidikan yang aman, nyaman dan menyenangkan, dimana kami tidak hanya berkomitmen terhadap pendidikan anak, tetapi kami 
-            sangat peduli terhadap optimal tumbuh kembang anak serta pembentukan karakter seorang muslim sejak usia dini. 
-            Dengan Tagline “Bermain Penuh Makna” Kami berkomitmen menjadi mitra terpercaya bagi orang tua untuk 
-            mengoptimalkan masa golden age anak dengan pendekatan Islamic Montessori Khas Main Riang.
+            Main Riang Islamic Preschool adalah Lembaga Pendidikan Islam yang berdedikasi
+            pada pengembangan potensi anak usia dini secara holistik.
+            Kami mengintegrasikan pendekatan Montessori dengan nilai-nilai Islam
+            untuk menciptakan lingkungan belajar yang menyenangkan.
         </p>
     </div>
     <div class="w-[960px] my-16 mb-24 p-8 mx-auto flex flex-wrap flex-row gap-6 justify-center overflow-hidden">
@@ -32,7 +25,7 @@
                 <h2 class="py-2 font-['Poppins'] text-2xl font-bold text-purple-950 text-center">Visi</h2>
                 <div class="flex items-center">
                     <span class="font-['Poppins'] text-lg text-purple-950 text-left">
-                        Menjadi Mitra Terbaik Orang Tua Dalam Mendidik, Mengasuh, dan Membantu Tumbuh Kembang Anak Secara Utuh dan Islami
+                        “Mengembangkan Potensi Insani Anak Dalam Harmoni Iman, Ilmu, Dan Kebaikan”
                     </span>
                 </div>
             </div>
@@ -43,9 +36,12 @@
                 <div class="ml-6 flex items-center">
                     <span class="font-['Poppins'] text-base text-purple-950 text-left">
                         <ol class="list-decimal">
-                            <li>Mengoptimalkan tumbuh kembang anak sesuai dengan usianya.</li>
-                            <li>Menyiapkan pribadi anak yang sadar belajar dan berakhlak.</li>
-                            <li>Menciptakan lingkungan pendidikan anak usia dini yang islami dan menyenangkan.</li>
+                            <li>Mengembangkan potensi anak secara holistik melalui pendekatan Montessori dan nilai-nilai Islam.</li>
+                            <li>Menciptakan lingkungan belajar yang menyenangkan, interaktif, dan mendukung kreativitas anak.</li>
+                            <li>Mengembangkan kemampuan anak untuk berpikir kritis, berani berimaginasi, dan memiliki rasa ingin tahu yang tinggi.</li>
+                            <li>Membentuk karakter anak yang berakhlak mulia, peduli dan menghormati perbedaan.</li>
+                            <li>Meningkatkan kesadaran dan kecintaan terhadap Islam.</li>
+                        
                         </ol>
                     </span>
                 </div>
