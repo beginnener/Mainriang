@@ -35,13 +35,9 @@ class DatabaseSeeder extends Seeder
         // Buat 100 child dengan id yang diambil dari data yang sudah ada
         $child = Child::factory(100)->recycle($recycleData)->create();
 
-        $program = Program::factory(10)->create();
-        $location = Location::factory(2)->create();
-
-        $rombel = Rombel::factory(20)->recycle([...$location, ...$program])->create();
+        $rombel = Rombel::all();
 
         Registrant::factory(100)->recycle([...$child, ...$rombel, ...$user])->create();
-        Student::factory(100)->recycle([...$child, ...$rombel, ...$user])->create();
 
     }
 }

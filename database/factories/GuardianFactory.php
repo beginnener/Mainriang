@@ -27,7 +27,11 @@ class GuardianFactory extends Factory
                 'SD', 'SMP', 'SMA', 'D3', 'S1', 'S2', 'S3'
             ]),
             'penghasilan' => $this->faker->randomElement([
-                '< 1 juta', '1-2 juta', '2-5 juta', '5-10 juta', '> 10 juta'
+                500_000,    // "< 1 juta"
+                1_500_000,  // "1-2 juta"
+                3_500_000,  // "2-5 juta"
+                7_500_000,  // "5-10 juta"
+                12_000_000  // "> 10 juta"
             ]),
             'pekerjaan' => $this->faker->jobTitle(),
             'created_at' => now(),

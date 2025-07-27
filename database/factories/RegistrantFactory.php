@@ -23,7 +23,7 @@ class RegistrantFactory extends Factory
             'unique_id' => $this->faker->unique()->uuid,
             'phone_number' => $this->faker->phoneNumber,
             'email' => $this->faker->unique()->safeEmail,
-            'status' => $this->faker->randomElement(['aktif', 'non-aktif']),
+            'status' => 6,
             'student_id' => Child::factory(), // pastikan ada StudentFactory
             'rombel_id' => Rombel::factory(),   // pastikan ada RombelFactory
             'user_id' => User::factory(),
