@@ -129,39 +129,46 @@
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Nama Ibu</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->name }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->name ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Alamat Ibu</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->alamat }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->alamat ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->tempat_lahir }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->tempat_lahir ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ \Carbon\Carbon::parse($pendaftar->Child->Mom->tanggal_lahir)->format('d/m/Y') }}</td>
+                            <td class="px-4 py-2 border border-gray-600">
+                                {{ optional($pendaftar->Child->Mom)->tanggal_lahir ? \Carbon\Carbon::parse($pendaftar->Child->Mom->tanggal_lahir)->format('d/m/Y') : '-' }}
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">No. Telp</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->phone_number }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->phone_number ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Email</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->email }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->email ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenjang Pendidikan</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->jenjang_pendidikan }}</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->jenjang_pendidikan ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Pekerjaan</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->pekerjaan }}</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Mom->pekerjaan ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Penghasilan</td>
-                            <td class="px-4 py-2 border border-gray-600">Rp{{ number_format($pendaftar->Child->Mom->penghasilan, 0, ',', '.') }}</td>
+                            @php
+                                $penghasilan = optional($pendaftar->Child->Mom)->penghasilan;
+                            @endphp
+                            <td class="px-4 py-2 border border-gray-600">
+                            {{ $penghasilan !== null ? 'Rp' . number_format($penghasilan, 0, ',', '.') : '-' }}
+                            </td>
                         </tr>
                     </table>
 
@@ -169,81 +176,95 @@
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Nama Ayah</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->name }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->name ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Alamat Ayah</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->alamat }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->alamat ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->tempat_lahir }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->tempat_lahir ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ \Carbon\Carbon::parse($pendaftar->Child->Dad->tanggal_lahir)->format('d/m/Y') }}</td>
+                            <td class="px-4 py-2 border border-gray-600">
+                                {{ optional($pendaftar->Child->Dad)->tanggal_lahir ? \Carbon\Carbon::parse($pendaftar->Child->Dad->tanggal_lahir)->format('d/m/Y') : '-' }}
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">No. Telp</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->phone_number }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->phone_number ?? '-'  }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Email</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->email }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->email ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenjang Pendidikan</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->jenjang_pendidikan }}</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->jenjang_pendidikan ?? '-'   }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Pekerjaan</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->pekerjaan }}</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Dad->pekerjaan ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Penghasilan</td>
-                            <td class="px-4 py-2 border border-gray-600">Rp{{ number_format($pendaftar->Child->Dad->penghasilan, 0, ',', '.') }}</td>
+                            @php
+                                $penghasilan = optional($pendaftar->Child->Dad)->penghasilan;
+                            @endphp
+                            <td class="px-4 py-2 border border-gray-600">
+                            {{ $penghasilan !== null ? 'Rp' . number_format($penghasilan, 0, ',', '.') : '-' }}
+                            </td>
                         </tr>
                     </table>
 
                     {{-- informasi data wali (jika ada) --}}
-                    @if($pendaftar->Child->Wali)
+                    @if($pendaftar->Child->Guardian)
                     <h3 class="mt-6 mb-2 text-xl font-semibold text-purple-950">Data Wali</h3>
                     <table class="text-sm text-gray-700 border-collapse">
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Nama Wali</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->name }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->name ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Alamat Wali</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->alamat }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->alamat ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tempat Lahir</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->tempat_lahir }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->tempat_lahir ?? '-'}}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Lahir</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ \Carbon\Carbon::parse($pendaftar->Child->Wali->tanggal_lahir)->format('d/m/Y') }}</td>
+                            <td class="px-4 py-2 border border-gray-600">
+                                {{ optional($pendaftar->Child->Guardian)->tanggal_lahir ? \Carbon\Carbon::parse($pendaftar->Child->Guardian->tanggal_lahir)->format('d/m/Y') : '-' }}
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">No. Telp</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->phone_number }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->phone_number ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Email</td>
-                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->email }}</td>
+                            <td class="w-full px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->email ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Jenjang Pendidikan</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->jenjang_pendidikan }}</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->jenjang_pendidikan ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Pekerjaan</td>
-                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Wali->pekerjaan }}</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->Child->Guardian->pekerjaan ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 font-semibold border border-gray-600">Penghasilan</td>
-                            <td class="px-4 py-2 border border-gray-600">Rp{{ number_format($pendaftar->Child->Wali->penghasilan, 0, ',', '.') }}</td>
+                            @php
+                                $penghasilan = optional($pendaftar->Child->guardian)->penghasilan;
+                            @endphp
+                            <td class="px-4 py-2 border border-gray-600">
+                            {{ $penghasilan !== null ? 'Rp' . number_format($penghasilan, 0, ',', '.') : '-' }}
+                            </td>
                         </tr>
                     </table>
                     @endif
