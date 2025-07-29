@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block font-semibold mb-1">NIK Anak</label>
-                    <input type="text" class="w-full rounded border px-3 py-2" value="{{ old('nik', $pendaftar->Child->NIK) }}">
+                    <input type="text" name="nik" class="w-full rounded border px-3 py-2" value="{{ old('nik', $pendaftar->Child->NIK) }}">
                 </div>
                 <div class="mb-4">
                     <label class="block font-semibold mb-1">Nama Panggilan</label>
@@ -121,8 +121,9 @@
                 </div>
                 <div class="mb-4">
                     <label class="block font-semibold mb-1">NIK Ibu</label>
-                    <input type="text" class="w-full rounded border px-3 py-2 bg-gray-100" value="{{ $pendaftar->Child->Mom->NIK }}" disabled>
+                    <input type="text" name="ibu_nik" class="w-full rounded border px-3 py-2" value="{{ old('ibu_nik', $pendaftar->Child->Mom->NIK ?? '') }}">
                 </div>
+
                 <div class="mb-4">
                     <label class="block font-semibold mb-1">Tanggal Lahir</label>
                     <input type="date" name="ibu_tanggal_lahir" class="w-full rounded border px-3 py-2" value="{{ old('ibu_tanggal_lahir', $pendaftar->Child->Mom->tanggal_lahir) }}">
@@ -164,7 +165,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block font-semibold mb-1">NIK Ayah</label>
-                    <input type="text" class="w-full rounded border px-3 py-2 bg-gray-100" value="{{ $pendaftar->Child->Dad->NIK }}" disabled>
+                    <input type="text" name="ayah_nik" class="w-full rounded border px-3 py-2" value="{{ old('ayah_nik', $pendaftar->Child->Dad->NIK ?? '') }}">
                 </div>
                 <div class="mb-4">
                     <label class="block font-semibold mb-1">Tanggal Lahir</label>
@@ -208,7 +209,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-1">NIK Wali</label>
-                        <input type="text" class="w-full rounded border px-3 py-2 bg-gray-100" value="{{ $pendaftar->Child->Guardian->NIK }}" disabled>
+                        <input type="text" name="wali_nik" class="w-full rounded border px-3 py-2" value="{{ old('wali_nik', $pendaftar->Child->Guardian->NIK ?? '') }}">
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-1">Tanggal Lahir</label>

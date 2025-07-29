@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Child extends Model
 {
     protected $fillable = [
+        'NIK',
         'nama',
         'nama_panggilan',
         'jk',

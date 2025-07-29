@@ -18,15 +18,6 @@
                     <input type="text" id="nama_lengkap_ibu" name="nama_lengkap_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" required>
                 </div>
             </div>
-            <div class="flex flex-row items-center">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="NIK_ibu" class="font-['Poppins'] text-right px-2">NIK ibu</label>
-                </div>
-                <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="NIK_ibu" name="NIK_ibu" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" required>
-                </div>
-            </div>
             <!-- no telp -->
             <div class="flex flex-row items-center">
                 <div class="w-1/6 flex justify-end items-center">
@@ -74,15 +65,6 @@
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
                     <input type="text" id="nama_lengkap_ayah" name="nama_lengkap_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" required>
-                </div>
-            </div>
-            <div class="flex flex-row items-center">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="NIK_ayah" class="font-['Poppins'] text-right px-2">NIK Ayah</label>
-                </div>
-                <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                <div class="flex-grow flex items-center px-2">
-                    <input type="text" id="NIK_ayah" name="NIK_ayah" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" required>
                 </div>
             </div>
             <!-- no telp -->
@@ -150,16 +132,6 @@
                         <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" placeholder="Masukkan nama lengkap wali" required>
                     </div>
                 </div>
-                <div class="flex flex-row items-center">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="NIK_wali" class="font-['Poppins'] text-right px-2">NIK Wali</label>
-                    </div>
-                    <span class="px-1 font-['Poppins'] flex items-center">:</span>
-                    <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="NIK_wali" name="NIK_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" placeholder="Masukkan nama lengkap wali" required>
-                    </div>
-                </div>
-
                 <!-- No Telepon Wali -->
                 <div class="flex flex-row items-center">
                     <div class="w-1/6 flex justify-end items-center">

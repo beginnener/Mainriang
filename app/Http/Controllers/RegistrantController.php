@@ -373,6 +373,7 @@ class RegistrantController extends Controller
         // Update data ibu
         if ($child->Mom) {
             $child->Mom->update([
+                'NIK' => $request->ibu_nik,
                 'alamat'             => $request->ibu_alamat,
                 'tempat_lahir'       => $request->ibu_tempat_lahir,
                 'tanggal_lahir'      => $request->ibu_tanggal_lahir,
@@ -387,6 +388,7 @@ class RegistrantController extends Controller
         // Update data ayah
         if ($child->Dad) {
             $child->Dad->update([
+                'NIK' => $request->ayah_nik,
                 'alamat'             => $request->ayah_alamat,
                 'tempat_lahir'       => $request->ayah_tempat_lahir,
                 'tanggal_lahir'      => $request->ayah_tanggal_lahir,
@@ -401,6 +403,7 @@ class RegistrantController extends Controller
         // Update data wali jika ada
         if ($child->Guardian) {
             $child->Guardian->update([
+                'NIK' => $request->wali_nik,
                 'alamat'             => $request->wali_alamat,
                 'tempat_lahir'       => $request->wali_tempat_lahir,
                 'tanggal_lahir'      => $request->wali_tanggal_lahir,
