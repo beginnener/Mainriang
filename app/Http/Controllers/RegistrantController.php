@@ -98,19 +98,16 @@ class RegistrantController extends Controller
                         // memanggil model child 
                         $student = $registrant->Child;
                         // Simpan data ibu
-                        $ibu = Mom::firstOrCreate(['NIK' => $request->NIK_ibu], 
-                        [
+                        $ibu = Mom::create([
                             'name' => $request->nama_lengkap_ibu,
-                            'NIK' => $request->NIK_ibu,
                             'phone_number' => $request->no_telp_ibu,
                             'pekerjaan' => $request->pekerjaan_ibu === 'Lainnya' ? $request->pekerjaan_ibu_lainnya : $request->pekerjaan_ibu,
                             'alamat' => $request->alamat_ibu,
                         ]);
+
                         // Simpan data ayah
-                        $ayah = Dad::firstOrCreate(['NIK' => $request->NIK_ayah],
-                        [
+                        $ayah = Dad::Create([
                             'name' => $request->nama_lengkap_ayah,
-                            'NIK' => $request->NIK_ayah,
                             'phone_number' => $request->no_telp_ayah,
                             'pekerjaan' => $request->pekerjaan_ayah === 'Lainnya' ? $request->pekerjaan_ayah_lainnya : $request->pekerjaan_ayah,
                             'alamat' => $request->alamat_ayah,
@@ -122,10 +119,8 @@ class RegistrantController extends Controller
                         ]);
                         // Jika punya wali, simpan data wali
                         if ($request->punya_wali === 'ya') {
-                            $wali = Guardian::firstOrCreate(['NIK' => $request->NIK_wali],
-                            [
+                            $wali = Guardian::Create([
                                 'name' => $request->nama_lengkap_wali,
-                                'NIK' => $request->NIK_wali,
                                 'phone_number' => $request->no_telp_wali,
                                 'pekerjaan' => $request->pekerjaan_wali === 'Lainnya' ? $request->pekerjaan_wali_lainnya : $request->pekerjaan_wali,
                                 'alamat' => $request->alamat_wali,
