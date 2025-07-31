@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RegistrantController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\TestimoniController;
 use App\Exports\PendaftarExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -86,6 +87,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         return Excel::download(new PendaftarExport, 'data-pendaftar.xlsx');
     })->name('admin.export-pendaftar');
     Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview']);
+    Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('testimoni.preview');
 });
 
 Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');

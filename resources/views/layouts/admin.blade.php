@@ -7,7 +7,7 @@
     <div class="content min-h-screen">
         @yield('content')
     </div>
-    @push('scripts')
+    @stack('scripts')
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -28,12 +28,15 @@
             });
         });
     });
-        function openModal(id) {
-        document.getElementById(`modal-${id}`).classList.remove('hidden');
+   function openModal() {
+        document.getElementById('modal').classList.remove('hidden');
+        document.getElementById('modal').classList.add('flex');
     }
 
-    function closeModal(id) {
-        document.getElementById(`modal-${id}`).classList.add('hidden');
+    function closeModal() {
+        document.getElementById('modal').classList.add('hidden');
+        document.getElementById('modal').classList.remove('flex');
     }
+
 </script>
 </html>
