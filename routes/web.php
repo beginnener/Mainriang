@@ -86,8 +86,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard/export-pendaftar', function () {
         return Excel::download(new PendaftarExport, 'data-pendaftar.xlsx');
     })->name('admin.export-pendaftar');
+    Route::get('/admin/dashboard/program', [ProgramController::class, 'index'])->name('admin-program');
+    Route::post('/admin/dashboard/program/storeLocation', [ProgramController::class, 'storeLocation'])->name('admin-program-storeLocation');
+    Route::post('/admin/dashboard/program/storeProgram', [ProgramController::class, 'storeProgram'])->name('admin-program-storeProgram');
+    Route::delete('/admin/dashboard/program/{id}', [ProgramController::class, 'destroyProgram'])->name('admin-program.destroy');
+    Route::delete('/admin/dashboard/location/{id}', [ProgramController::class, 'destroyLocation'])->name('admin-location.destroy');
     Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview']);
-    Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('testimoni.preview');
+    Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('admin-testimoni');
 });
 
 Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
