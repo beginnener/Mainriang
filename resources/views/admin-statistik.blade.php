@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@php use Illuminate\Support\Str; @endphp
 @section('content')
     @include('components.admin-sidenav')
 
@@ -41,6 +41,8 @@
                     </tbody>
                 </table>
             </div>
+
+            <canvas id="lokasiChart" width="400" height="200"></canvas>
         </div>
 
         {{-- Pendaftaran per Program di Setiap Lokasi --}}
@@ -67,6 +69,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <canvas id="programChart-{{ Str::slug($lokasi) }}" width="400" height="200"></canvas>
                     </div>
                 </div>
             @endforeach
@@ -95,4 +98,87 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const locationLabels = {!! json_encode($byLokasi->keys()->toArray()) !!};
+        const locationData = {!! json_encode($byLokasi->values()->toArray()) !!};
+        const programCharts = {!! json_encode($byProgram) !!};
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('lokasiChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar', // atau 'pie', 'line', dll
+            data: {
+                labels: locationLabels,
+                datasets: [{
+                    label: 'Jumlah per Lokasi',
+                    data: locationData,
+                    backgroundColor: 'rgba(110, 43, 126, 1)',
+                    borderColor: 'rgba(110, 43, 126, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false  // Hilangkan grid vertikal
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false  // Hilangkan grid horizontal
+                        },
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        function slugify(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\-]+/g, '')
+                .replace(/\-\-+/g, '-')
+                .replace(/^-+/, '')
+                .replace(/-+$/, '');
+        }
+
+        for (const [lokasi, programData] of Object.entries(programCharts)) {
+            const ctx = document.getElementById(`programChart-${slugify(lokasi)}`);
+            if (!ctx) continue;
+
+            const labels = Object.keys(programData);
+            const data = Object.values(programData);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: `Jumlah per Program - ${lokasi}`,
+                        data: data,
+                        backgroundColor: 'rgba(110, 43, 126, 1)',
+                        borderColor: 'rgba(110, 43, 126, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { grid: { display: false }, beginAtZero: true, precision: 0 }
+                    }
+                }
+            });
+        }
+        
+    </script>
+
 @endsection
