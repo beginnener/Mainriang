@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="flex">
+<div class="flex ml-0 md:ml-[250px] ">
     {{-- Konten Utama --}}
-    <div class="ml-64 p-6 w-full font-['Poppins']">
+    <div class="p-6 w-full font-['Poppins']">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-gray-900">Testimoni</h2>
             <button onclick="openModal()" class="bg-purple-100 text-purple-900 px-4 py-2 rounded hover:bg-purple-700 hover:text-white transition duration-300">

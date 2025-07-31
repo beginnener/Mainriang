@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex">
     {{-- Konten utama digeser pakai margin kiri --}}
-    <div class="ml-64 p-6 w-full font-['Poppins']">
+    <div class="ml-0 md:ml-[250px]  p-6 w-full font-['Poppins']">
         <h2 class="text-2xl font-bold text-purple-900 mb-6">Manajemen Fasilitas</h2>
 
         {{-- Form Tambah Fasilitas --}}

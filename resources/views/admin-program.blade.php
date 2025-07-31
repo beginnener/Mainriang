@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)]">
+<div class="ml-0 md:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)]">
     <h2 class="text-2xl font-bold mb-6 text-gray-800">Manajemen Program & Lokasi</h2>
 
     {{-- Flash Message --}}
