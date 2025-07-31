@@ -105,18 +105,3 @@
 @endsection
 
 @push('scripts')
-<script>
-    function openModal() {
-        const modal = document.getElementById('modal');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('modal');
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
-    }
-</script>
-@endpush
-
