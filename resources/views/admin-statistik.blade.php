@@ -220,8 +220,8 @@
             data: {
             labels: labels,
             datasets: [{
-                label: `Jumlah per Program - ${lokasi}`,
-                data: data,
+                label: `${lokasi}`,
+                data: data ,
                 backgroundColor: [
                     'rgba(110, 43, 126, 1)',
                     'rgba(147, 51, 234, 1)',
