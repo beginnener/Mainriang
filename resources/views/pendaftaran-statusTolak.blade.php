@@ -33,5 +33,4 @@
     </div>
     @include('components.footer')
 </body>
-    @include('components.scriptnavbar')
 </html>

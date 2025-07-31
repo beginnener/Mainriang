@@ -16,6 +16,5 @@
   </div>
 
   @include('components.footer')
-  @include('components.scriptnavbar')
 </body>
 </html>
