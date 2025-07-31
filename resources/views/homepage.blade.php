@@ -111,7 +111,7 @@
                 <h2 class="font-['Fredoka'] font-bold text-5xl text-black text-right">Trilogi <br>Main Riang</h2>
             </div>
             <div class="mt-10 flex flex-row justify-start gap-20">
-                <a href="/triilogi#islamic-behaviour" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
+                <a href="/trilogi#islamic-behaviour" class="w-1/3 border border-transparent transition-all duration-500 hover:border-purple-950 hover:rounded-xl hover:bg-slate-50">
                     <div class="p-4 flex flex-col" aria-label="card-1">
                         <span class="font-['Poppins'] font-bold text-2xl text-purple-950 text-left">Islamic Behaviour</span>
                         <span class="mt-4 font-['Poppins'] font-normal text-xl text-black text-left">
