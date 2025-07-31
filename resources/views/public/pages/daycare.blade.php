@@ -43,78 +43,79 @@
                         Kegiatan di Daycare dirancang untuk membangun kemandirian anak melalui berbagai aktivitas yang menyenangkan dan edukatif. Jadwal lengkap kegiatan dapat dilihat pada tabel di bawah ini.
                     </p>
                 </div>
-                <div class="overflow-hidden rounded-lg w-full border">
-                    <table class="w-full table-fixed divide-y divide-gray-200 font-['Poppins'] text-sm text-gray-900">
+                <div class="overflow-hidden rounded-xl shadow-lg bg-white border border-gray-200">
+                    <table class="w-full table-fixed divide-y divide-gray-200 font-['Poppins']">
                         <thead>
-                            <tr class="divide-y divide-gray-200 bg-gray-100">
-                                <th class="w-32 px-3 py-2 text-center ">Mulai</th>
-                                <th class="w-32 px-3 py-2 text-center">Selesai</th>
-                                <th class="px-3 py-2 text-center">Kegiatan</th>
+                            <tr class="bg-gradient-to-r from-purple-600 to-purple-700">
+                                <th class="w-32 px-6 py-2 text-center text-white font-semibold text-sm uppercase tracking-wider">Mulai</th>
+                                <th class="w-32 px-6 py-2 text-center text-white font-semibold text-sm uppercase tracking-wider">Selesai</th>
+                                <th class="px-6 py-2 text-center text-white font-semibold text-sm uppercase tracking-wider">Kegiatan</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">07.30</td>
-                                <td class="w-32 px-3 py-2 text-center">08.00</td>
-                                <td class="px-3 py-2 text-center">Arrival</td>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">07.30</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">08.00</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Arrival</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">08.00</td>
-                                <td class="w-32 px-3 py-2 text-center">09.30</td>
-                                <td class="px-3 py-2 text-center">Playgroup Class</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">08.00</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">09.30</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Playgroup Class</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">09.30</td>
-                                <td class="w-32 px-3 py-2 text-center">09.45</td>
-                                <td class="px-3 py-2 text-center">Toilet Training</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">09.30</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">09.45</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Toilet Training</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">09.45</td>
-                                <td class="w-32 px-3 py-2 text-center">10.00</td>
-                                <td class="px-3 py-2 text-center">Snack Time</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">09.45</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">10.00</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Snack Time</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">10.00</td>
-                                <td class="w-32 px-3 py-2 text-center">11.00</td>
-                                <td class="px-3 py-2 text-center">5 Basic Area Montessori</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">10.00</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">11.00</td>
+                                <td class="px-6 py-2 text-center text-gray-700">5 Basic Area Montessori</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">11.00</td>
-                                <td class="w-32 px-3 py-2 text-center">12.30</td>
-                                <td class="px-3 py-2 text-center">Lunch Time + Sholat</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">11.00</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">12.30</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Lunch Time + Sholat</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">12.30</td>
-                                <td class="w-32 px-3 py-2 text-center">12.45</td>
-                                <td class="px-3 py-2 text-center">Toilet Training & Brushing Teeth</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">12.30</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">12.45</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Toilet Training & Brushing Teeth</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">12.45</td>
-                                <td class="w-32 px-3 py-2 text-center">14.30</td>
-                                <td class="px-3 py-2 text-center">Nap Time</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">12.45</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">14.30</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Nap Time</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">14.30</td>
-                                <td class="w-32 px-3 py-2 text-center">15.00</td>
-                                <td class="px-3 py-2 text-center">Snack Time</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">14.30</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">15.00</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Snack Time</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">15.00</td>
-                                <td class="w-32 px-3 py-2 text-center">15.30</td>
-                                <td class="px-3 py-2 text-center">Toilet Training + shower Time</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">15.00</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">15.30</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Toilet Training + shower Time</td>
                             </tr>
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">15.30</td>
-                                <td class="w-32 px-3 py-2 text-center">16.00</td>
-                                <td class="px-3 py-2 text-center">Sholat + Mengaji</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">15.30</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">16.00</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Sholat + Mengaji</td>
                             </tr> 
-                            <tr class="divide-x divide-gray-200">
-                                <td class="w-32 px-3 py-2 text-center ">16.00</td>
-                                <td class="w-32 px-3 py-2 text-center">17.00</td>
-                                <td class="px-3 py-2 text-center">Free Time/Go Home</td>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">16.00</td>
+                                <td class="w-32 px-6 py-2 text-center text-gray-900 font-medium">17.00</td>
+                                <td class="px-6 py-2 text-center text-gray-700">Free Time/Go Home</td>
                             </tr>   
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </div>

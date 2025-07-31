@@ -4,7 +4,7 @@
 <body class="antialiased">
     @include('components.navbar')
 
-    <div class="content min-h-screen">
+    <div class="content min-h-screen mt-[5.5rem]">
         @yield('content')
     </div>
     @include('components.footer')

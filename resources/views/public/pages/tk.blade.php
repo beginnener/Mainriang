@@ -48,17 +48,45 @@
                         Kegiatan di Daycare dirancang untuk membangun kemandirian anak melalui berbagai aktivitas yang menyenangkan dan edukatif. Jadwal lengkap kegiatan dapat dilihat pada tabel di bawah ini.
                     </p>
                 </div>
-                <div class="overflow-hidden rounded-lg w-full flex justify-center">
-                    <ul class="list-disc list-inside text-slate-900 text-xl font-medium font-['Poppins']">
-                        <li>Kids Arrival, freeplay</li>
-                        <li>Opening Circle Time</li>
-                        <li>Islamic Behavior</li>
-                        <li>5 Basic Area</li>
-                        <li>Break/Snack Time</li>
-                        <li>Gembira Beraksi</li>
-                        <li>Closed Circle Time</li>
-                        <li>Go Home</li>
-                    </ul>
+                <div class="bg-white rounded-2xl shadow-lg p-8 mx-auto max-w-4xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                <span class="ml-3 text-slate-800 font-medium">Kids Arrival, freeplay</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                <span class="ml-3 text-slate-800 font-medium">Opening Circle Time</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                <span class="ml-3 text-slate-800 font-medium">Islamic Behavior</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+                                <span class="ml-3 text-slate-800 font-medium">5 Basic Area</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
+                                <span class="ml-3 text-slate-800 font-medium">Break/Snack Time</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">6</div>
+                                <span class="ml-3 text-slate-800 font-medium">Gembira Beraksi</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">7</div>
+                                <span class="ml-3 text-slate-800 font-medium">Closed Circle Time</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-white rounded-lg">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold text-sm">8</div>
+                                <span class="ml-3 text-slate-800 font-medium">Go Home</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<nav class="sticky top-0 z-30 shadow-lg w-full bg-purple-900 py-5 px-6 flex justify-between items-center">
+<nav class="fixed top-0 z-30 shadow-lg w-full bg-purple-900 py-5 px-6 flex justify-between items-center">
   {{-- Logo --}}
   <div class="flex items-center gap-4">
     <a href="{{ route('home') }}" class="flex items-center gap-4">
@@ -15,34 +15,34 @@
       <div id="programMenu" class="hidden absolute top-full left-0 z-10 mt-2 w-[180px] bg-white rounded-3xl shadow-xl ring-1 ring-gray-900/5">
         <div class="p-4">
           <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
-            <a href="" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+            <a href="{{ route('daycare') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
               Day Care
             </a>
           </div>
           <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
-            <a href="" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+            <a href="{{ route('playgroup') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
               Play Group
             </a>
           </div>
           <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
-            <a href="" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+            <a href="{{ route('tk') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
               TK
             </a>
           </div>
         </div>
       </div>
     </div>
-    <a href="/fasilitas">
+    <a href="{{ route('fasilitas') }}">
       <span id="toggleFasilitas" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">
         Fasilitas
       </span>
     </a>
-    <a href="/fasilitas">
+    <a href="{{ route('galeri-kegiatan') }}">
       <span class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">
         Galeri
       </span>
     </a>
-    <a href="/fasilitas">
+    <a href="{{ route('kemitraan') }}">
       <span class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">
         Kemitraan
       </span>
@@ -111,14 +111,14 @@
       <div class="space-y-2">
         <button id="lgProgramToggle" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400 w-full text-left">Program</button>
         <div id="lgProgramMenu" class="hidden pl-4 space-y-2">
-          <a href="" class="block text-white text-sm font-medium font-['Poppins'] py-1 hover:text-yellow-400">Day Care</a>
-          <a href="" class="block text-white text-sm font-medium font-['Poppins'] py-1 hover:text-yellow-400">Play Group</a>
-          <a href="" class="block text-white text-sm font-medium font-['Poppins'] py-1 hover:text-yellow-400">TK</a>
+          <a href="{{ route('daycare') }}" class="block text-white text-sm font-medium font-['Poppins'] py-1 hover:text-yellow-400">Day Care</a>
+          <a href="{{ route('playgroup') }}" class="block text-white text-sm font-medium font-['Poppins'] py-1 hover:text-yellow-400">Play Group</a>
+          <a href="{{ route('tk') }}" class="block text-white text-sm font-medium font-['Poppins'] py-1 hover:text-yellow-400">TK</a>
         </div>
       </div>
-      <a href="/fasilitas" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Fasilitas</a>
-      <a href="/fasilitas" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Galeri</a>
-      <a href="/fasilitas" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Kemitraan</a>
+      <a href="{{ route('fasilitas') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Fasilitas</a>
+      <a href="{{ route('galeri-kegiatan') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Galeri</a>
+      <a href="{{ route('kemitraan') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Kemitraan</a>
       <a href="{{ route('petunjuk-pendaftaran') }}" class="block">
         <div class="w-full h-10 flex items-center justify-center rounded-full bg-gradient-to-l from-orange-400 to-amber-300 transition duration-500">
           <span class="text-purple-950 font-medium font-['Poppins']">Pendaftaran</span>
