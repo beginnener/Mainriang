@@ -11,18 +11,29 @@
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const profileToggle = document.getElementById('profileToggle');
-        const profileMenu = document.getElementById('profileMenu');
-
-        profileToggle.addEventListener('click', function () {
-            profileMenu.classList.toggle('hidden');
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const dropdown = this.nextElementSibling;
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== dropdown) menu.classList.add('hidden');
+                });
+                dropdown.classList.toggle('hidden');
+            });
         });
 
-        document.addEventListener('click', function (event) {
-            if (!profileToggle.contains(event.target) && !profileMenu.contains(event.target)) {
-                profileMenu.classList.add('hidden');
-            }
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.add('hidden');
+            });
         });
     });
+        function openModal(id) {
+        document.getElementById(`modal-${id}`).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+        document.getElementById(`modal-${id}`).classList.add('hidden');
+    }
 </script>
 </html>
