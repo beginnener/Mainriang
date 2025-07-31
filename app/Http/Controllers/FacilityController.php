@@ -9,6 +9,6 @@ class FacilityController extends Controller
 {
     public function preview()
     {
-        return view('admin-fasilitas');
+        return view('admin.admin-fasilitas');
     }
 }

@@ -19,7 +19,7 @@ class ProgramController extends Controller
         $listProgram = Rombel::when($lokasiTerpilih, function ($query) use ($lokasiTerpilih) {
             $query->where('location_id', $lokasiTerpilih);
         })->get();
-        return view('admin-program', compact('listLocation', 'listProgram'));
+        return view('admin.admin-program', compact('listLocation', 'listProgram'));
     }
     public function storeLocation(Request $request)
     {

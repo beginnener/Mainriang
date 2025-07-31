@@ -11,65 +11,31 @@ use App\Http\Controllers\TestimoniController;
 use App\Exports\PendaftarExport;
 use Maatwebsite\Excel\Facades\Excel;
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('home');
+// Public Pages Routes
+Route::get('/', function () { return view('public.homepage'); })->name('home');
+Route::get('/profil', function () { return view('public.pages.profil-mainriang'); })->name('profil-mainriang');
+Route::get('/daycare', function () { return view('public.pages.daycare'); })->name('daycare');
+Route::get('/playgroup', function () { return view('public.pages.playgroup'); })->name('playgroup');
+Route::get('/tk', function () { return view('public.pages.tk'); })->name('tk');
+Route::get('/fasilitas', function () { return view('public.pages.fasilitas'); })->name('fasilitas');
+Route::get('/trilogi', function () { return view('public.pages.trilogi'); })->name('trilogi');
+Route::get('/galeri', function () { return view('public.pages.galeri-kegiatan'); })->name('galeri-kegiatan');
+Route::get('/mengapa', function () { return view('public.pages.mengapa'); })->name('mengapa');
+Route::get('/kemitraan', function () { return view('public.pages.kemitraan'); })->name('kemitraan');
 
-Route::get('/program', function () {
-    return view('program-template');
-})->name('program');
+// Pendaftaran Router
+Route::get('/status', function () { return view('public.pendaftaran.pendaftaran-status'); });
+route::get('/petunjuk-pendaftaran', function() { return view('public.pendaftaran.pendaftaran'); })->name('petunjuk-pendaftaran');
 
-Route::get('/profil', function () {
-    return view('profil-mainriang');
-})->name('profil-mainriang');
-
-Route::get('/daycare', function () {
-    return view('daycare');
-})->name('daycare');
-
-Route::get('/playgroup', function () {
-    return view('playgroup');
-})->name('playgroup');
-
-Route::get('/tk', function () {
-    return view('tk');
-})->name('tk');
-
-Route::get('/fasilitas', function () {
-    return view('fasilitas');
-})->name('fasilitas');
-
-Route::get('/trilogi', function () {
-    return view('trilogi');
-})->name('trilogi');
-
-Route::get('/galeri', function () {
-    return view('galeri-kegiatan');
-})->name('galeri-kegiatan');
-
-Route::get('/mengapa', function () {
-    return view('mengapa');
-})->name('mengapa');
-
-Route::get('/kemitraan', function () {
-    return view('public.kemitraan');
-})->name('kemitraan');
-
-Route::get('/status', function () {
-    return view('pendaftaran-status');
-});
+// Registrant Routes
 Route::get('/detail-pendaftaran/{unique_id}', [RegistrantController::class, 'takeOne'])->name('detail-pendaftaran');
-route::get('/petunjuk-pendaftaran', function() {
-    return view('pendaftaran');
-})->name('petunjuk-pendaftaran');
-
 Route::get('/pendaftaran-edit/{unique_id}', [RegistrantController::class, 'showEdit'])->name('pendaftar.edit');
 Route::put('pendaftaran-update/{unique_id}', [RegistrantController::class, 'update'])->name('pendaftar.update');
-
 route::post('/pendaftaran', [RegistrantController::class, 'daftar'])->name('daftar');
 route::get('/pendaftaran/{id?}', [RegistrantController::class, 'showform'])->name('form');
 Route::get('/get-harga/{programId}', [ProgramController::class, 'getHarga']);
 
+// Dashboard with aut
 Route::get('/dashboard', function () {
     $user = Auth::user();
 
@@ -77,9 +43,10 @@ Route::get('/dashboard', function () {
         return redirect()->route('admin-dashboard');
     }
     $pendaftar = Registrant::where('user_id', $user->id)->get();
-    return view('user-dashboard', compact('pendaftar'));
+    return view('user.user-dashboard', compact('pendaftar'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Admin Dashboard Routes
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [RegistrantController::class, 'statistik'])->name('admin-dashboard');
     Route::get('/admin/dashboard/pendaftaran', [RegistrantController::class, 'takeAll'])->name('admin-pendaftaran');
@@ -95,10 +62,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('admin-testimoni');
 });
 
+// Registrant Actions - only for admin
 Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
 Route::patch('/pendaftar/{id}/tolak', [RegistrantController::class, 'tolak'])->name('pendaftar.tolak');
 
-
+// Profile Routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

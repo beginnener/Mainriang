@@ -145,7 +145,7 @@ class RegistrantController extends Controller
     public function showform ($id = null){
         if(Auth::id()){
             $id_user = Auth::id();
-            if(!$id) return view('pendaftaran-dataDaftar', ['currentStep' => 0]);
+            if(!$id) return view('public.pendaftaran.pendaftaran-dataDaftar', ['currentStep' => 0]);
             $registrant = Registrant::where('unique_id', $id)->first();
             if($id_user == $registrant->user_id){
                 $step = $registrant->status;
@@ -171,7 +171,7 @@ class RegistrantController extends Controller
                     case 6: // step 'pembayaran'
                         return view ('pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
                     case 7: // step 'pembayaran'
-                        return view('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                        return view('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                 }
             }
         }return redirect('login');
@@ -181,7 +181,7 @@ class RegistrantController extends Controller
     {
         $pendaftar = Registrant::where('unique_id', $id)->first();
         if (Auth::id() == $pendaftar->user_id) {
-            return view('user-edit-detailPendaftaran', compact('pendaftar'));
+            return view('user.user-edit-detailPendaftaran', compact('pendaftar'));
         } else {
             return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki akses ke pendaftaran ini.');
         }
@@ -251,17 +251,17 @@ class RegistrantController extends Controller
             ->appends($request->except('page')); // agar filter tetap saat pindah halaman
 
         // Kirim $perPage ke view juga jika ingin
-        return view('admin-pendaftaran', compact('pendaftar', 'listLokasi', 'listProgram', 'perPage'));
+        return view('admin.admin-pendaftaran', compact('pendaftar', 'listLokasi', 'listProgram', 'perPage'));
     }
 
     public function takeOne ($id){
         $user = Auth::user();
         $pendaftar = Registrant::where('unique_id', $id)->firstOrFail();
         if($user->usertype === 'admin'){
-            return view('admin-detailPendaftaran')->with('pendaftar', $pendaftar);
+            return view('admin.admin-detailPendaftaran')->with('pendaftar', $pendaftar);
         } else {
             if($pendaftar->user_id === $user->id){
-                return view('user-detailPendaftaran')->with('pendaftar', $pendaftar);
+                return view('user.user-detailPendaftaran')->with('pendaftar', $pendaftar);
             } else {
                 return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki akses ke pendaftaran ini.');
             }
@@ -460,7 +460,7 @@ class RegistrantController extends Controller
             return [ $statusLabels[$status] ?? $status => $group->count() ];
         });
 
-        return view('admin-statistik', compact('total', 'byLokasi', 'byProgram', 'byStatus'));
+        return view('admin.admin-statistik', compact('total', 'byLokasi', 'byProgram', 'byStatus'));
     }
 
     public function downloadDokumen($id, $jenis)
