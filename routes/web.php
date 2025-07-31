@@ -86,6 +86,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard/export-pendaftar', function () {
         return Excel::download(new PendaftarExport, 'data-pendaftar.xlsx');
     })->name('admin.export-pendaftar');
+    Route::get('/admin/program', [ProgramController::class, 'index'])->name('admin-program');
+    Route::post('/admin/program/storeLocation', [ProgramController::class, 'storeLocation'])->name('admin-program-storeLocation');
+    Route::post('/admin/program/storeProgram', [ProgramController::class, 'storeProgram'])->name('admin-program-storeProgram');
+    Route::delete('/admin/program/{id}', [ProgramController::class, 'destroyProgram'])->name('admin-program.destroy');
+    Route::delete('/admin/location/{id}', [ProgramController::class, 'destroyLocation'])->name('admin-location.destroy');
     Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview']);
     Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('testimoni.preview');
 });

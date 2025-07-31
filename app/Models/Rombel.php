@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Rombel extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['program_id', 'location_id'];
     public function Student(): HasMany{
         return $this->hasMany(Student::class);
     }

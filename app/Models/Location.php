@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Location extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name'];
     public function Rombel(): HasMany{
         return $this->hasMany(Rombel::class);
     }
