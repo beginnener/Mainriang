@@ -43,7 +43,7 @@
                         <option value="Lainnya">Lainnya</option>
                     </select>
                     <div class="hidden pl-2 flex-grow transition-all duration-300 ease-in-out" id="div_ibu">
-                        <input type="text" id="pekerjaan_ibu_lainnya" name="pekerjaan_ibu_lainnya" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya" required>
+                        <input type="text" id="pekerjaan_ibu_lainnya" name="pekerjaan_ibu_lainnya" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                         <option value="Lainnya">Lainnya</option>
                     </select>
                     <div class="hidden pl-2 flex-grow transition-all duration-300 ease-in-out" id="div_ayah">
-                        <input type="text" id="pekerjaan_ayah_lainnya" name="pekerjaan_ayah_lainnya" class="max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya" required>
+                        <input type="text" id="pekerjaan_ayah_lainnya" name="pekerjaan_ayah_lainnya" class="max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
                     </div>
                 </div>
             </div>
@@ -113,10 +113,10 @@
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex gap-4 items-center px-2">
                     <label class="font-['Poppins']">
-                        <input type="radio" name="punya_wali" value="ya" id="wali_ya" class="mr-1" required> Ya
+                        <input type="radio" name="punya_wali" value="ya" id="wali_ya" class="mr-1"> Ya
                     </label>
                     <label class="font-['Poppins']">
-                        <input type="radio" name="punya_wali" value="tidak" id="wali_tidak" class="mr-1" required> Tidak
+                        <input type="radio" name="punya_wali" value="tidak" id="wali_tidak" class="mr-1"> Tidak
                     </label>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" placeholder="Masukkan nama lengkap wali" required>
+                        <input type="text" id="nama_lengkap_wali" name="nama_lengkap_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" placeholder="Masukkan nama lengkap wali">
                     </div>
                 </div>
                 <!-- No Telepon Wali -->
@@ -139,7 +139,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="tel" id="no_telp_wali" name="no_telp_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" placeholder="08xxxxx" required>
+                        <input type="tel" id="no_telp_wali" name="no_telp_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" placeholder="08xxxxx">
                     </div>
                 </div>
 
@@ -150,14 +150,14 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <select id="pekerjaan_wali" name="pekerjaan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] transition-all duration-300 ease-in-out" required>
+                        <select id="pekerjaan_wali" name="pekerjaan_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] transition-all duration-300 ease-in-out">
                             <option value="PNS">PNS</option>
                             <option value="Karyawan Swasta">Karyawan Swasta</option>
                             <option value="Wiraswasta">Wiraswasta</option>
                             <option value="Lainnya">Lainnya</option>
                         </select>
                         <div class="hidden pl-2 flex-grow transition-all duration-300 ease-in-out" id="div_wali">
-                            <input type="text" id="pekerjaan_wali_lainnya" name="pekerjaan_wali_lainnya" class="max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya" required>
+                            <input type="text" id="pekerjaan_wali_lainnya" name="pekerjaan_wali_lainnya" class="max-h-0 opacity-0 overflow-hidden w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Isi kolom ini jika memilih lainnya">
                         </div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
                     </div>
                     <span class="px-1 font-['Poppins'] flex items-center">:</span>
                     <div class="flex-grow flex items-center px-2">
-                        <input type="text" id="alamat_wali" name="alamat_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat Wali" required>
+                        <input type="text" id="alamat_wali" name="alamat_wali" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan Alamat Wali" >
                     </div>
                 </div>
             </div>
@@ -198,12 +198,14 @@
                 div.classList.add('flex');
                 input.classList.remove('max-h-0', 'opacity-0', 'overflow-hidden');
                 input.classList.add('max-h-40', 'opacity-100');
+                input.setAttribute('required', 'required');
             } else {
                 select.style.width = '100%';
                 div.classList.add('hidden');
                 div.classList.remove('flex');
                 input.classList.add('max-h-0', 'opacity-0', 'overflow-hidden');
                 input.classList.remove('max-h-40', 'opacity-100');
+                input.removeAttribute('required');
                 input.value = '';
             }
         });
