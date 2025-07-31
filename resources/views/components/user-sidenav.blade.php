@@ -1,17 +1,22 @@
-<div class="hidden lg:flex fixed w-[250px] min-h-screen flex-col bg-purple-900 bg-clip-border text-white shadow-xl shadow-blue-gray-900/5">
-  <nav class="flex min-w-[240px] flex-col gap-1 py-4 font-sans text-base font-normal">
-
-    <!-- Dashboard -->
+<nav class="hidden lg:flex fixed w-[250px] h-[calc(100vh-80px)] flex-col justify-between bg-purple-900 bg-clip-border text-white shadow-xl shadow-blue-gray-900/5 font-sans text-base font-normal py-4">
+  {{-- MENU UTAMA --}}
+  <div>
     <a href="{{ route('dashboard') }}"
-        class="py-3 px-8 hover:bg-purple-950 hover:text-amber-400 transition
-        {{ request()->routeIs('dashboard') ? 'bg-white text-orange-500 font-semibold' : '' }}">
-        <div class="flex items-center space-x-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-9 2v6m4-6h6m-6 0v6m0-6L5 12m0 0v6" />
-            </svg>
-            <span>Dashboard</span>
-        </div>
-        </a>
+      class="sidebar-button flex items-center w-full py-3 px-8 leading-tight font-['Poppins'] transition-all outline-none text-start hover:bg-purple-950 hover:text-amber-400 focus:bg-purple-950 focus:text-amber-400 active:bg-purple-950 active:text-amber-400
+      {{ request()->routeIs('dashboard') ? 'bg-purple-950 text-amber-400' : '' }}">
+      Dashboard
+    </a>
+  </div>
 
-  </nav>
-</div>
+  {{-- LOGOUT --}}
+  <div class="">
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button type="submit"
+        class="sidebar-button flex items-center w-full py-3 px-8 mb-10 leading-tight font-['Poppins'] transition-all outline-none text-start hover:bg-purple-950 hover:text-amber-400 focus:bg-purple-950 focus:text-amber-400 active:bg-purple-950 active:text-amber-400">
+        Logout
+      </button>
+    </form>
+    <p class="text-xs text-gray-300 px-8 py-2 text-center">User page - © 2025 Mainriang</p>
+  </div>
+</nav>
