@@ -6,7 +6,7 @@
 </div>
 <div class="w-full py-16">
     <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-left items-center">
-        <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" style="-webkit-text-stroke: 1px #3b0764;">Tentang Main Riang</span>
+        <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" >Tentang Main Riang</span>
     </div>
     <div class="w-fit h-auto bg-white mt-8 mx-48">
         <p class="text-slate-900 text-xl font-medium font-['Poppins']">

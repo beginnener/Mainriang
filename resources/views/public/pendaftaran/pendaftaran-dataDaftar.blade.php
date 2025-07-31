@@ -29,7 +29,7 @@
     </div>
     <div class="w-full flex pt-4">
         <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" style="-webkit-text-stroke: 1px #3b0764;">
+            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" >
                 Data Anak
             </span>
         </div>

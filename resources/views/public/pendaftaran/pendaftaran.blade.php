@@ -7,7 +7,7 @@
     </div>
     <div class="w-full py-16">
         <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-left items-center">
-            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" style="-webkit-text-stroke: 1px #3b0764;">Langkah Pendaftaran</span>
+            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl text-left" >Langkah Pendaftaran</span>
         </div>
         <div class="w-4/5 h-auto bg-white mt-8 pl-48">
             <p class="text-slate-900 text-xl font-medium font-['Poppins']">
