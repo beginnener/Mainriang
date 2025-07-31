@@ -2,9 +2,8 @@
 <html lang="en">
 @include('components.head')
 <body class="antialiased">
-    @include('components.admin-navbar')
-
-    <div class="content min-h-screen">
+    <div class="content min-h-screen flex">
+        @include('components.admin-sidenav') 
         @yield('content')
     </div>
     @stack('scripts')

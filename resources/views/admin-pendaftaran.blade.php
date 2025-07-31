@@ -1,69 +1,164 @@
 @extends('layouts.admin')
 @section('content')
 @if (session('success'))
-    <div class="bg-green-200 text-green-800 p-2 rounded">
-        {{ session('success') }}
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4" role="alert">
+        <span class="block sm:inline">{{ session('success') }}</span>
     </div>
 @endif
 @include('components.admin-sidenav')
 <div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)]">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Data Pendaftaran</h2>
 
     {{-- Search, Sort, Filter --}}
-    <form method="GET" class="flex flex-wrap gap-2 mb-4 items-center">
-        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari Nama/ID"
-            class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300 flex-1 min-w-[150px]">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+        <div class="flex items-center mb-4">
+            <h3 class="text-lg font-semibold text-gray-800">Filter & Pencarian Data</h3>
+        </div>
+        
+        <form method="GET" class="space-y-4">
+            {{-- Baris pertama: Pencarian --}}
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Cari Nama atau ID</label>
+                    <input 
+                        type="text" 
+                        id="search"
+                        name="search" 
+                        value="{{ request('search') }}" 
+                        placeholder="Masukkan nama atau ID pendaftar..."
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                        aria-describedby="search-help"
+                    >
+                    <p id="search-help" class="mt-1 text-sm text-gray-500">Pencarian berdasarkan nama anak atau ID pendaftaran</p>
+                </div>
+            </div>
 
-        <select name="status" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[150px]">
-            <option value="">Semua Status</option>
-            <option value="345" @selected(request('status')=='345')>Butuh Aksi</option>
-            <option value="1" @selected(request('status')=='1')>Mengisi Data Orang Tua</option>
-            <option value="2" @selected(request('status')=='2')>Memilih Program</option>
-            <option value="3" @selected(request('status')=='3')>Pembayaran Pendaftaran</option>
-            <option value="4" @selected(request('status')=='4')>Wawancara & Asesmen</option>
-            <option value="5" @selected(request('status')=='5')>Pembayaran Pendidikan</option>
-            <option value="6" @selected(request('status')=='6')>Pembayaran</option>
-            <option value="7" @selected(request('status')=='7')>Data Sudah Lengkap</option>
-            <option value="30" @selected(request('status')=='30')>Ditolak Saat Pembayaran 1</option>
-            <option value="40" @selected(request('status')=='40')>Ditolak Saat Wawancara</option>
-            <option value="50" @selected(request('status')=='50')>Ditolak Saat Pembayaran Pendidikan</option>
-        </select>
+            {{-- Baris kedua: Filter Status dan Lokasi --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status Pendaftaran</label>
+                    <select 
+                        id="status"
+                        name="status" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                        aria-describedby="status-help"
+                    >
+                        <option value="">Semua Status</option>
+                        <option value="345" @selected(request('status')=='345')>Butuh Aksi</option>
+                        <option value="1" @selected(request('status')=='1')>Mengisi Data Orang Tua</option>
+                        <option value="2" @selected(request('status')=='2')>Memilih Program</option>
+                        <option value="3" @selected(request('status')=='3')>Pembayaran Pendaftaran</option>
+                        <option value="4" @selected(request('status')=='4')>Wawancara & Asesmen</option>
+                        <option value="5" @selected(request('status')=='5')>Pembayaran Pendidikan</option>
+                        <option value="6" @selected(request('status')=='6')>Pembayaran</option>
+                        <option value="7" @selected(request('status')=='7')>Data Sudah Lengkap</option>
+                        <option value="30" @selected(request('status')=='30')>Ditolak Saat Pembayaran 1</option>
+                        <option value="40" @selected(request('status')=='40')>Ditolak Saat Wawancara</option>
+                        <option value="50" @selected(request('status')=='50')>Ditolak Saat Pembayaran Pendidikan</option>
+                    </select>
+                    <p id="status-help" class="mt-1 text-sm text-gray-500">Filter berdasarkan status pendaftaran</p>
+                </div>
 
-        {{-- Filter Lokasi --}}
-        <select name="lokasi" id="filter-lokasi" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[150px]">
-            <option value="">Semua Lokasi</option>
-            @foreach($listLokasi as $lokasi)
-                <option value="{{ $lokasi->id }}" @selected(request('lokasi') == $lokasi->id)>{{ $lokasi->name }}</option>
-            @endforeach
-        </select>
+                <div>
+                    <label for="filter-lokasi" class="block text-sm font-medium text-gray-700 mb-2">Lokasi</label>
+                    <select 
+                        id="filter-lokasi"
+                        name="lokasi" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                        aria-describedby="lokasi-help"
+                    >
+                        <option value="">Semua Lokasi</option>
+                        @foreach($listLokasi as $lokasi)
+                            <option value="{{ $lokasi->id }}" @selected(request('lokasi') == $lokasi->id)>{{ $lokasi->name }}</option>
+                        @endforeach
+                    </select>
+                    <p id="lokasi-help" class="mt-1 text-sm text-gray-500">Filter berdasarkan lokasi program</p>
+                </div>
+            </div>
 
-        {{-- Filter Program --}}
-        <select name="program" id="filter-program" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[150px]">
-            <option value="">Semua Program</option>
-            @foreach($listProgram as $program)
-                <option value="{{ $program->id }}" data-lokasi="{{ $program->rombel_location_ids ?? '' }}" @selected(request('program') == $program->id)>
-                    {{ $program->name }}
-                </option>
-            @endforeach
-        </select>
+            {{-- Baris ketiga: Program dan Pengaturan Tampilan --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                    <label for="filter-program" class="block text-sm font-medium text-gray-700 mb-2">Program</label>
+                    <select 
+                        id="filter-program"
+                        name="program" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                        aria-describedby="program-help"
+                    >
+                        <option value="">Semua Program</option>
+                        @foreach($listProgram as $program)
+                            <option value="{{ $program->id }}" data-lokasi="{{ $program->rombel_location_ids ?? '' }}" @selected(request('program') == $program->id)>
+                                {{ $program->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <p id="program-help" class="mt-1 text-sm text-gray-500">Filter berdasarkan program</p>
+                </div>
 
-        <select name="sort" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[120px]">
-            <option value="created_at" @selected(request('sort')=='created_at')>Tanggal Daftar</option>
-            <option value="unique_id" @selected(request('sort')=='unique_id')>ID</option>
-            <option value="status" @selected(request('sort')=='status')>Status Pendaftaran</option>
-        </select>
-        <select name="dir" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[100px]">
-            <option value="desc" @selected(request('dir')=='desc')>Terbaru</option>
-            <option value="asc" @selected(request('dir')=='asc')>Terlama</option>
-        </select>
-        <select name="per_page" class="px-4 py-2 rounded-full border border-gray-300 flex-1 min-w-[100px]">
-            @foreach([5, 10, 20, 50, 100] as $limit)
-                <option value="{{ $limit }}" @selected(request('per_page', 10) == $limit)>Tampil {{ $limit }}</option>
-            @endforeach
-        </select>
-        <button type="submit" class="px-6 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition flex-1 min-w-[120px]">
-            Cari / Filter
-        </button>
-    </form>
+                <div>
+                    <label for="sort" class="block text-sm font-medium text-gray-700 mb-2">Urutkan Berdasarkan</label>
+                    <select 
+                        id="sort"
+                        name="sort" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                    >
+                        <option value="created_at" @selected(request('sort')=='created_at')>Tanggal Daftar</option>
+                        <option value="unique_id" @selected(request('sort')=='unique_id')>ID</option>
+                        <option value="status" @selected(request('sort')=='status')>Status Pendaftaran</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="dir" class="block text-sm font-medium text-gray-700 mb-2">Urutan</label>
+                    <select 
+                        id="dir"
+                        name="dir" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                    >
+                        <option value="desc" @selected(request('dir')=='desc')>Terbaru</option>
+                        <option value="asc" @selected(request('dir')=='asc')>Terlama</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="per_page" class="block text-sm font-medium text-gray-700 mb-2">Data per Halaman</label>
+                    <select 
+                        id="per_page"
+                        name="per_page" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                    >
+                        @foreach([5, 10, 20, 50, 100] as $limit)
+                            <option value="{{ $limit }}" @selected(request('per_page', 10) == $limit)>{{ $limit }} data</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            {{-- Tombol Action --}}
+            <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200">
+                <button 
+                    type="submit" 
+                    class="inline-flex items-center justify-center px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                    </svg>
+                    Terapkan Filter
+                </button>
+                
+                <a 
+                    href="{{ request()->url() }}" 
+                    class="inline-flex items-center justify-center px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm hover:shadow-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                >
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
+                    </svg>
+                    Reset Filter
+                </a>
+            </div>
+        </form>
+    </div>
 
     {{-- Tambah kolom Program & Lokasi di tabel --}}
     <div class="overflow-x-auto overflow-hidden rounded-xl border-2 border-gray-200">
@@ -107,8 +202,6 @@
               </td>
               <td class="px-4 lg:px-8 py-2">
                 <div class="flex flex-col gap-2">
-                    
-                    
                     @if (in_array($daftar->status, [3, 4, 5]))
                         <div class="flex flex-col lg:flex-row gap-1">
                             {{-- Tombol Terima --}}

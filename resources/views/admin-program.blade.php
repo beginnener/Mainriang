@@ -1,161 +1,217 @@
 @extends('layouts.admin')
 @section('content')
-
-@include('components.admin-sidenav')
-
 <div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)]">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Manajemen Program & Lokasi</h2>
 
     {{-- Flash Message --}}
     @if (session('success'))
-        <div class="bg-green-200 text-green-800 p-2 rounded mb-4">
-            {{ session('success') }}
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4" role="alert">
+            <span class="block sm:inline">{{ session('success') }}</span>
         </div>
     @elseif (session('error'))
-        <div class="bg-red-200 text-red-800 p-2 rounded mb-4">
-            {{ session('error') }}
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+            <span class="block sm:inline">{{ session('error') }}</span>
         </div>
     @endif
 
-    {{-- Form Tambah Lokasi --}}
-    <div class="bg-white border border-gray-200 rounded-xl p-6 mb-8 shadow">
-        <h2 class="text-lg font-semibold mb-4">Tambah Lokasi Sekolah</h2>
-        <form method="POST" action="{{ route('admin-program-storeLocation') }}">
-            {{-- Ganti action sesuai kebutuhan --}}
-            @csrf
-            <div class="flex flex-col md:flex-row md:items-end gap-4">
-                <div class="flex-1">
-                    <label for="nama_lokasi" class="block text-sm font-medium mb-1">Nama Lokasi</label>
-                    <input type="text" name="nama_lokasi" id="nama_lokasi" required
-                        class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300">
+    <section id="tambah-lokasi">
+        {{-- Form Tambah Lokasi --}}
+        <div class="bg-white rounded-xl overflow-hidden border border-gray-100 mb-8">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-700 flex items-center">
+                    Tambah Lokasi Sekolah
+                </h3>
+            </div>
+            <div class="p-6">
+                <form method="POST" action="{{ route('admin-program-storeLocation') }}">
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="md:col-span-2">
+                            <label for="nama_lokasi" class="block text-sm font-medium text-gray-700 mb-2">Nama Lokasi</label>
+                            <input type="text" name="nama_lokasi" id="nama_lokasi" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                                placeholder="Masukkan nama lokasi sekolah...">
+                        </div>
+                        <div class="flex items-end">
+                            <button type="submit"
+                            class="w-full px-6 py-2 bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium rounded-lg shadow-sm hover transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                                Tambah Lokasi
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="px-6 py-4 border-y border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-700 flex items-center">
+                    Daftar Lokasi Sekolah
+                </h3>
+            </div>
+            <div class="p-6">
+                <div class="bg-white rounded-xl overflow-hidden border border-gray-100">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">ID</th>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Nama Lokasi</th>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                @foreach($listLocation as $lokasi)
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="px-6 py-3 text-gray-600">{{ $lokasi->id }}</td>
+                                        <td class="px-6 py-3 text-gray-800 font-medium">{{ $lokasi->name }}</td>
+                                        <td class="px-6 py-3">
+                                            <form action="{{ route('admin-location.destroy', $lokasi->id) }}" method="POST" onsubmit="return confirm('Hapus lokasi ini?');" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="inline-flex items-center px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 text-sm font-medium rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                                    Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                @if ($listLocation->isEmpty())
+                                    <tr>
+                                        <td colspan="3" class="px-6 py-8 text-center text-gray-500">
+                                            <div class="flex flex-col items-center">
+                                                Belum ada lokasi yang terdaftar
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <button type="submit"
-                    class="px-6 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition min-w-[150px]">
-                    Tambah Lokasi
-                </button>
             </div>
-        </form>
-    </div>
-
-    {{-- Tabel Lokasi --}}
-    <div class="mb-8">
-        <h2 class="text-lg font-semibold mb-4">Daftar Lokasi Sekolah</h2>
-        <div class="overflow-x-auto rounded-xl border border-gray-200">
-            <table class="w-full text-sm divide-y divide-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
-                        <th class="px-6 py-3 text-left font-semibold">ID</th>
-                        <th class="px-6 py-3 text-left font-semibold">Nama Lokasi</th>
-                        <th class="px-6 py-3 text-left font-semibold">Action</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($listLocation as $lokasi)
-                        <tr>
-                            <td class="px-6 py-3">{{ $lokasi->id }}</td>
-                            <td class="px-6 py-3">{{ $lokasi->name }}</td>
-                            <td class="px-6 py-3">
-                                <form action="{{ route('admin-location.destroy', $lokasi->id) }}" method="POST" onsubmit="return confirm('Hapus lokasi ini?');">
-                                    {{-- Ganti action --}}
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="text-red-600 hover:underline text-sm">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    @if ($listLocation->isEmpty())
-                        <tr><td colspan="3" class="px-6 py-4 text-center text-gray-500">Belum ada lokasi.</td></tr>
-                    @endif
-                </tbody>
-            </table>
         </div>
-    </div>
+        {{-- Tabel Lokasi --}}
+    </section>
 
-    
+    <section id="tambah-program">
+        {{-- Form Tambah Program --}}
+        <div class="bg-white rounded-xl overflow-hidden border border-gray-100 mb-8">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-700 flex items-center">
+                    Tambah Program Sekolah
+                </h3>
+            </div>
+            <div class="p-6">
+                <form method="POST" action="{{ route('admin-program-storeProgram') }}">
+                    @csrf
+        
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {{-- Dropdown Pilih Lokasi --}}
+                        <div>
+                            <label for="lokasi_id" class="block text-sm font-medium text-gray-700 mb-2">Pilih Lokasi</label>
+                            <select name="lokasi_id" id="lokasi_id"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200">
+                                <option value="">-- Pilih Lokasi --</option>
+                                @foreach($listLocation as $lokasi)
+                                    <option value="{{ $lokasi->id }}" @selected(request('lokasi_id') == $lokasi->id)>
+                                        {{ $lokasi->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+        
+                        {{-- Input Nama Program --}}
+                        <div>
+                            <label for="nama_program" class="block text-sm font-medium text-gray-700 mb-2">Nama Program</label>
+                            <input type="text" name="nama_program" id="nama_program" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                                placeholder="Masukkan nama program...">
+                        </div>
 
-    {{-- Form Tambah Lokasi --}}
-    <div class="bg-white border border-gray-200 rounded-xl p-6 mb-8 shadow">
-        <h2 class="text-lg font-semibold mb-4">Tambah Lokasi Sekolah</h2>
-        <form method="POST" action="{{ route('admin-program-storeProgram') }}">
-            @csrf
-
-            {{-- Dropdown Pilih Lokasi --}}
-            <div class="mb-4">
-                <label for="lokasi_id" class="block text-sm font-medium mb-1">Pilih Lokasi:</label>
-                <select name="lokasi_id" id="lokasi_id"
-                    class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300">
-                    <option value="">-- Pilih Lokasi --</option>
-                    @foreach($listLocation as $lokasi)
-                        <option value="{{ $lokasi->id }}" @selected(request('lokasi_id') == $lokasi->id)>
-                            {{ $lokasi->name }}
-                        </option>
-                    @endforeach
-                </select>
+                        {{-- Tombol Submit --}}
+                        <div class="flex items-end">
+                            <button type="submit"
+                                class="w-full px-6 py-2 bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium rounded-lg shadow-sm hover:shadow-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                                Tambah Program
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            {{-- Filter dan Daftar Program --}}
+            <div class="px-6 py-4 border-y border-gray-200 bg-gray-50">
+                <h3 class="text-lg font-semibold text-gray-700 flex items-center mb-4">
+                    Filter Program
+                </h3>
+                
+                <form method="GET" class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1">
+                        <label for="lokasi_program" class="block text-sm font-medium text-gray-700 mb-2">Pilih Lokasi</label>
+                        <select name="lokasi_program" id="lokasi_program"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                            onchange="this.form.submit()">
+                            <option value="">-- Semua Lokasi --</option>
+                            @foreach($listLocation as $lokasi)
+                                <option value="{{ $lokasi->id }}" @selected(request('lokasi_program') == $lokasi->id)>{{ $lokasi->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </form>
             </div>
 
-            {{-- Input Nama Program --}}
-            <div class="mb-4">
-                <label for="nama_program" class="block text-sm font-medium mb-1">Nama program</label>
-                <input type="text" name="nama_program" id="nama_program" required
-                    class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-700 flex items-center">
+                    Daftar Program di {{ request('lokasi_program') ? $listLocation->find(request('lokasi_program'))->name ?? 'Lokasi Terpilih' : 'Semua Lokasi' }}
+                </h3>
             </div>
-
-            {{-- Tombol Submit --}}
-            <div>
-                <button type="submit"
-                    class="w-full md:w-auto px-6 py-2 bg-gradient-to-l from-orange-400 to-amber-300 text-black font-semibold rounded-full shadow hover:shadow-lg transition">
-                    Tambah Program
-                </button>
+            <div class="p-6">
+                <div class="bg-white rounded-xl overflow-hidden border border-gray-100">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">ID</th>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Nama Program</th>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Lokasi</th>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                @php
+                                    $filteredPrograms = request('lokasi_program') 
+                                        ? $listProgram->where('location_id', request('lokasi_program')) 
+                                        : $listProgram;
+                                @endphp
+                                @foreach($filteredPrograms as $program)
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="px-6 py-3 text-gray-600">{{ $program->id }}</td>
+                                        <td class="px-6 py-3 text-gray-800 font-medium">{{ $program->Program->name }}</td>
+                                        <td class="px-6 py-3 text-gray-600">{{ $program->location->name ?? '-' }}</td>
+                                        <td class="px-6 py-3">
+                                            <form action="{{ route('admin-program.destroy', $program->id) }}" method="POST" onsubmit="return confirm('Hapus program ini?');" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="inline-flex items-center px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 text-sm font-medium rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                                    Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                @if ($filteredPrograms->isEmpty())
+                                    <tr>
+                                        <td colspan="4" class="px-6 py-8 text-center text-gray-500">
+                                            <div class="flex flex-col items-center">
+                                                {{ request('lokasi_program') ? 'Belum ada program di lokasi ini' : 'Belum ada program yang terdaftar' }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-
-    {{-- Dropdown Lokasi untuk Filter Program --}}
-    <div class="mb-4">
-        <form method="GET" class="flex flex-wrap items-center gap-4">
-            <label for="lokasi_program" class="font-medium">Pilih Lokasi:</label>
-            <select name="lokasi_program" id="lokasi_program"
-                class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-300 min-w-[200px]"
-                onchange="this.form.submit()">
-                <option value="">-- Pilih Lokasi --</option>
-                @foreach($listLocation as $lokasi)
-                    <option value="{{ $lokasi->id }}" @selected(request('lokasi_program') == $lokasi->id)>{{ $lokasi->name }}</option>
-                @endforeach
-            </select>
-        </form>
-    </div>
-
-    {{-- Tabel Program Berdasarkan Lokasi --}}
-    <div>
-        <h2 class="text-lg font-semibold mb-4">Program di Lokasi Terpilih</h2>
-        <div class="overflow-x-auto rounded-xl border border-gray-200">
-            <table class="w-full text-sm divide-y divide-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
-                        <th class="px-6 py-3 text-left font-semibold">ID</th>
-                        <th class="px-6 py-3 text-left font-semibold">Nama Program</th>
-                        <th class="px-6 py-3 text-left font-semibold">Action</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($listProgram->where('location_id', request('lokasi_program')) as $program)
-                        <tr>
-                            <td class="px-6 py-3">{{ $program->id }}</td>
-                            <td class="px-6 py-3">{{ $program->Program->name }}</td>
-                            <td class="px-6 py-3">
-                                <form action="{{ route('admin-program.destroy', $program->id) }}" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:text-red-800">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
         </div>
-    </div>
-
+    </section>
 </div>
-
 @endsection

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 @php use Carbon\Carbon; @endphp
-@include('components.admin-sidenav')
 <div class="ml-0 lg:ml-[250px] p-4 lg:p-8 w-full lg:w-[calc(100vw-250px)] font-['Poppins']">
     <h2 class="mb-3 text-xl lg:text-2xl font-semibold text-purple-950">Detail Pendaftaran</h2>
         <div class="p-4 lg:p-8 border-2 border-purple-950 rounded-xl">

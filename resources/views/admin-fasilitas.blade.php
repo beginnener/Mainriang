@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="flex">
-    {{-- Sidebar tetap di kiri dengan lebar tetap --}}
-    <div class="w-64 fixed h-screen">
-        @include('components.admin-sidenav')
-    </div>
-
     {{-- Konten utama digeser pakai margin kiri --}}
     <div class="ml-64 p-6 w-full font-['Poppins']">
         <h2 class="text-2xl font-bold text-purple-900 mb-6">Manajemen Fasilitas</h2>
