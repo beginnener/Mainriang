@@ -27,7 +27,6 @@
         </span>
     </a>
     @include('components.footer')
-    @stack('scripts')
 </body>
     @include('components.scriptnavbar')
 </html>

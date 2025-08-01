@@ -17,10 +17,8 @@
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
                     <select id="lokasi" name="lokasi" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']">
-                        <option value="">-- Pilih Lokasi --</option>
-                        <!-- Loop through unique locations -->
-                        @foreach ($rombels->pluck('location')->unique('id') as $lokasi)
-                            <option value="{{ $lokasi->id }}">{{ $lokasi->name }}</option>
+                        @foreach ($locations as $location)
+                            <option value="{{ $location->id }}">{{ $location->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -33,8 +31,10 @@
                 </div>
                 <span class="px-1 font-['Poppins'] flex items-center">:</span>
                 <div class="flex-grow flex items-center px-2">
-                    <select id="program" name="program" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']" disabled>
-                        <option value="">-- Pilih Program --</option>
+                    <select id="programSelect" name="program" class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins']">
+                        @foreach ($programs as $program)
+                            <option value="{{ $program->id }}">{{ $program->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -48,48 +48,3 @@
 </div>
 
 @endsection
-@push('scripts')
-
-<script>
-    let rombels = @json($rombels);
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const lokasiSelect = document.getElementById('lokasi');
-    const programSelect = document.getElementById('program');
-
-    lokasiSelect.addEventListener('change', function () {
-        const selectedLocationId = this.value;
-        programSelect.innerHTML = '<option value="">-- Pilih Program --</option>';
-        
-        if (!selectedLocationId) {
-            programSelect.disabled = true;
-            return;
-        }
-
-        // Ambil semua rombel berdasarkan lokasi
-        const filtered = rombels.filter(item => item.location_id == selectedLocationId);
-        const addedProgramIds = new Set();
-
-        filtered.forEach(item => {
-            const program = item.program;
-
-            // Hindari duplikat program berdasarkan id
-            if (!program || addedProgramIds.has(program.id)) return;
-
-            addedProgramIds.add(program.id);
-
-            const option = document.createElement('option');
-            option.value = item.id; // rombel.id
-            option.textContent = program.name;
-            programSelect.appendChild(option);
-        });
-
-        programSelect.disabled = false;
-    });
-});
-</script>
-
-@endpush
-
