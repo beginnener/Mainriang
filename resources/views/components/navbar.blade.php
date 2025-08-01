@@ -20,14 +20,6 @@
             </div>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
               <div class="flex-auto">
-                <a href="/kemitraan" class="block font-semibold text-gray-900 group-hover:text-orange-400">
-                  Kemitraan
-                  <span class="absolute inset-0"></span>
-                </a>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
-              <div class="flex-auto">
                 <a href="daycare" class="block font-semibold text-gray-900 group-hover:text-orange-400">
                   Day Care
                   <span class="absolute inset-0"></span>
@@ -61,6 +53,12 @@
           <span class="text-purple-950 font-medium font-['Poppins'] group-hover:text-orange-400">Pendaftaran</span>
         </div>
       </a>
+      <a href="/kemitraan">
+        <div class="w-36 h-10 flex items-center justify-center rounded-full bg-purple-800 text-white font-medium font-['Poppins'] border border-orange-300 transition duration-500 hover:text-orange-400 hover:border-orange-400 hover:bg-white group active:bg-orange-100">
+          Kemitraan
+        </div>
+      </a>
+
       @if (Route::has('login'))
         @auth
         <div class="relative">
