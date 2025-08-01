@@ -20,37 +20,45 @@
         {{-- Daftar Testimoni --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {{-- Contoh testimoni --}}
-            @foreach($testimonis as $testimoni)
             <div class="bg-white rounded-lg shadow-md p-4 relative">
                 <div class="flex items-center mb-3">
-                    <img src="{{ $testimoni->foto ? asset('storage/' . $testimoni->foto) : 'https://via.placeholder.com/50' }}" 
-                        class="w-12 h-12 rounded-full mr-3" alt="Foto">
+                    <img src="https://via.placeholder.com/50" class="w-12 h-12 rounded-full mr-3" alt="Foto">
                     <div>
-                        <p class="font-semibold text-purple-900">{{ $testimoni->nama_orang_tua }}</p>
-                        <p class="text-sm text-gray-600">{{ $testimoni->nama_anak ?? 'Orang Tua Murid' }}</p>
+                        <p class="font-semibold text-purple-900">Siti Andini</p>
+                        <p class="text-sm text-gray-600">Orang tua Murid</p>
                     </div>
                 </div>
-                <p class="text-gray-700 mb-3">"{{ $testimoni->isi }}"</p>
-
-                <!-- Tombol Edit -->
-                <button
-                    onclick="editTestimoni(this)"
-                    class="absolute bottom-4 right-12 text-purple-600 hover:text-purple-800"
-                    data-id="{{ $testimoni->id }}">
+                <p class="text-gray-700 mb-3">"Anak saya sangat menikmati kegiatan di sini. Terima kasih!"</p>
+                <button class="absolute bottom-4 right-4 text-purple-600 hover:text-purple-800">
                     <i class="uil uil-edit-alt text-lg"></i>
                 </button>
-
-                <!-- Tombol Hapus -->
-                <form action="{{ route('testimoni.destroy', $testimoni->id) }}" method="POST" class="absolute bottom-4 right-4">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" onclick="return confirm('Yakin ingin menghapus?')" 
-                            class="text-red-600 hover:text-red-800">
-                        <i class="uil uil-trash-alt text-lg"></i>
-                    </button>
-                </form>
             </div>
-            @endforeach
+            <div class="bg-white rounded-lg shadow-md p-4 relative">
+                <div class="flex items-center mb-3">
+                    <img src="https://via.placeholder.com/50" class="w-12 h-12 rounded-full mr-3" alt="Foto">
+                    <div>
+                        <p class="font-semibold text-purple-900">Siti Andini</p>
+                        <p class="text-sm text-gray-600">Orang tua Murid</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-3">"Anak saya sangat menikmati kegiatan di sini. Terima kasih!"</p>
+                <button class="absolute bottom-4 right-4 text-purple-600 hover:text-purple-800">
+                    <i class="uil uil-edit-alt text-lg"></i>
+                </button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4 relative">
+                <div class="flex items-center mb-3">
+                    <img src="https://via.placeholder.com/50" class="w-12 h-12 rounded-full mr-3" alt="Foto">
+                    <div>
+                        <p class="font-semibold text-purple-900">Siti Andini</p>
+                        <p class="text-sm text-gray-600">Orang tua Murid</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-3">"Anak saya sangat menikmati kegiatan di sini. Terima kasih!"</p>
+                <button class="absolute bottom-4 right-4 text-purple-600 hover:text-purple-800">
+                    <i class="uil uil-edit-alt text-lg"></i>
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -59,12 +67,12 @@
 <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
     <div class="bg-white rounded-lg w-full max-w-lg p-6 relative">
         <h3 class="text-xl font-semibold text-purple-900 mb-4">Tambah Testimoni</h3>
-        <form action="{{ route('testimoni.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="#" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="space-y-4">
                 <div>
                     <label class="block font-medium text-purple-800">Nama Orang Tua</label>
-                    <input type="text" name="nama_orang_tua" class="w-full border rounded px-4 py-2" placeholder="Nama orang tua">
+                    <input type="text" name="nama" class="w-full border rounded px-4 py-2" placeholder="Nama orang tua">
                 </div>
                 <div>
                     <label class="block font-medium text-purple-800">Nama Anak</label>
@@ -76,7 +84,7 @@
                 </div>
                 <div>
                     <label class="block font-medium text-purple-800">Foto</label>
-                    <input type="file" name="foto" class="w-full border rounded px-4 py-2 bg-gray-50" accept="image/png, image/jpeg, image/jpg">
+                    <input type="file" name="foto" class="w-full border rounded px-4 py-2 bg-gray-50">
                 </div>
                 <div>
                     <label class="block font-medium text-purple-800">Status</label>
@@ -97,48 +105,3 @@
 @endsection
 
 @push('scripts')
-
-<script>
-function editTestimoni(button) {
-    const id = button.dataset.id;
-
-    fetch(`/testimoni/${id}/edit`)
-        .then(response => {
-            if (!response.ok) throw new Error('Data tidak ditemukan');
-            return response.json();
-        })
-        .then(data => {
-            const form = document.querySelector('#modal form');
-            form.action = `/testimoni/${id}`;
-
-            form.querySelector('input[name="nama_orang_tua"]').value = data.nama_orang_tua;
-            form.querySelector('input[name="nama_anak"]').value = data.nama_anak || '';
-            form.querySelector('textarea[name="isi"]').value = data.isi;
-            form.querySelector('select[name="status"]').value = data.status;
-
-            form.querySelector('input[name="foto"]').value = ''; // reset file
-
-            // Tambahkan method PUT
-            let methodInput = form.querySelector('input[name="_method"]');
-            if (!methodInput) {
-                methodInput = document.createElement('input');
-                methodInput.type = 'hidden';
-                methodInput.name = '_method';
-                methodInput.value = 'PUT';
-                form.appendChild(methodInput);
-            } else {
-                methodInput.value = 'PUT';
-            }
-
-            // Tampilkan modal
-            document.getElementById('modal').classList.remove('hidden');
-        })
-        .catch(error => {
-            alert('Gagal mengambil data testimoni');
-            console.error(error);
-        });
-}
-</script>
-
-
-@endpush
