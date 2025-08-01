@@ -149,32 +149,18 @@
         <h2 class="text-center font-['Poppins'] font-extrabold text-xl text-slate-800">Testimoni</h2>
         <span class="text-center font-['Poppins'] font-medium text-slate-600">Apa kata mereka tentang Main Riang?</span>
     </div>
+    @foreach ($testimonis as $testimoni)
     <div class="mt-10 flex flex-row justify-center items-center gap-8">
         <div class="flex flex-col items-center gap-4 border boreder-slate-200 rounded-3xl p-5 shadow-lg">
-            <img src="" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
+            <img src="{{ $testimoni->foto ? asset('storage/' . $testimoni->foto) : 'https://via.placeholder.com/150' }}" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
             <div class="w-96 h-auto rounded-3xl p-5 border border-slate-100">
-                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
-                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">Ibu Siti</span>
-                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Mom Andi</span>
-            </div>
-        </div>
-        <div class="flex flex-col items-center gap-4 border boreder-slate-200 rounded-3xl p-5 shadow-lg">
-            <img src="" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
-            <div class="w-96 h-auto rounded-3xl p-5 border border-slate-100">
-                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
-                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">Ibu Siti</span>
-                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Mom Andi</span>
-            </div>
-        </div>
-        <div class="flex flex-col items-center gap-4 border boreder-slate-200 rounded-3xl p-5 shadow-lg">
-            <img src="" alt="" class="w-36 h-36 rounded-full bg-slate-300"/>
-            <div class="w-96 h-auto rounded-3xl p-5 border border-slate-100">
-                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
-                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">Ibu Siti</span>
-                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Mom Andi</span>
+                <p class="font-['Poppins'] font-normal text-slate-800 text-center">"{{ $testimoni->isi }}"</p>
+                <span class="font-['Poppins'] font-bold text-slate-800 text-center block">{{ $testimoni->nama_orang_tua }}</span>
+                <span class="font-['Poppins'] font-bold text-purple-800 text-center block">Orang Tua {{ $testimoni->nama_anak ?? 'Orang Tua Murid' }}</span>
             </div>
         </div>
     </div>
+    @endforeach
 </section>
 <section class="w-full h-auto bg-slate-100">
     <div class="w-4/5 mx-auto flex flex-col">

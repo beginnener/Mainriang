@@ -1,18 +1,20 @@
 <?php
 
+use App\Models\Testimoni;
 use App\Models\Registrant;
+use App\Exports\PendaftarExport;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\RegistrantController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\TestimoniController;
-use App\Exports\PendaftarExport;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\RegistrantController;
 
 Route::get('/', function () {
-    return view('homepage');
+    $testimonis = Testimoni::where('status', 'publish')->get();
+    return view('homepage', compact('testimonis'));
 })->name('home');
 
 Route::get('/program', function () {
@@ -92,7 +94,12 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::delete('/admin/dashboard/program/{id}', [ProgramController::class, 'destroyProgram'])->name('admin-program.destroy');
     Route::delete('/admin/dashboard/location/{id}', [ProgramController::class, 'destroyLocation'])->name('admin-location.destroy');
     Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview']);
-    Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('admin-testimoni');
+    Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'index'])->name('admin-testimoni');
+    Route::post('/testimoni/store', [TestimoniController::class, 'store'])->name('testimoni.store');
+    Route::get('/testimoni/{id}/edit', [TestimoniController::class, 'edit'])->name('testimoni.edit');
+    Route::put('/testimoni/{id}', [TestimoniController::class, 'update'])->name('testimoni.update');
+    Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
+
 });
 
 Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
