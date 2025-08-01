@@ -4,7 +4,7 @@
 <body class="min-h-screen flex flex-col">
     @include('components.navbar')
 
-    <div class="w-full content flex-grow flex justify-center items-center">
+    <div class="w-full content flex-grow flex justify-center items-center mt-[5.5rem]">
         <div class="w-[1000px] my-10 flex flex-col justify-center items-center">
             <span class="font-['Poppins'] text-3xl font-bold text-red-600">Pendaftaran Anda Ditolak</span>
             <span class="font-['Poppins'] mt-1 text-lg text-center">

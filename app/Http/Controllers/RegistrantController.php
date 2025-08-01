@@ -151,25 +151,25 @@ class RegistrantController extends Controller
                 $step = $registrant->status;
                 switch ($step){
                     case 1: // step 'data ortu'
-                        return view ('pendaftaran-dataOrtu', ['id' => $id], ['currentStep' => $step]);
+                        return view ('public.pendaftaran.pendaftaran-dataOrtu', ['id' => $id], ['currentStep' => $step]);
                     case 2: // step 'pilih program'
                         $programs = Program::all();
                         $locations = Location::all();
-                        return view ('pendaftaran-pilihProgram', compact('programs', 'id', 'locations'), ['currentStep' => $step]);
+                        return view ('public.pendaftaran.pendaftaran-pilihProgram', compact('programs', 'id', 'locations'), ['currentStep' => $step]);
                     case 3: // step 'konfirmasi bayar 1'
-                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                        return view ('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                     case 30: // step 'konfirmasi bayar 1 ditolak'
-                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                        return view ('public.pendaftaran.pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
                     case 4: // step 'wawancara & asesmen'
-                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                        return view ('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                     case 40: // step 'konfirmasi wawancara & asesmen ditolak'
-                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                        return view ('public.pendaftaran.pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
                     case 5: // step 'konfirmasi data pendaftaran'
-                        return view ('pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
+                        return view ('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                     case 50: // step 'konfirmasi wawancara & asesmen ditolak'
-                        return view ('pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
+                        return view ('public.pendaftaran.pendaftaran-statusTolak', compact('registrant'), ['currentStep' => ($step / 10)]);
                     case 6: // step 'pembayaran'
-                        return view ('pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
+                        return view ('public.pendaftaran.pendaftaran-statusTerima', compact('registrant'), ['currentStep' => $step]);
                     case 7: // step 'pembayaran'
                         return view('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                 }

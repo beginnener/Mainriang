@@ -45,7 +45,7 @@
                     {{-- Card Actions --}}
                     <div class="p-4 sm:p-5 bg-gray-50">
                         <div class="flex flex-col gap-2">
-                            <a href="/detail-pendaftaran/{{ $daftar->unique_id }}"
+                            <a href="{{ route('detail-pendaftaran', ['unique_id' => $daftar->unique_id]) }}"
                             class="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold bg-gradient-to-r from-orange-400 to-amber-400 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -54,13 +54,24 @@
                                 Lihat Detail
                             </a>
 
-                            <a href="/pendaftaran/{{ $daftar->unique_id }}"
-                            class="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+
+                            @if ($daftar->status < 6)
+                            <a href="{{ route('form', ['id' => $daftar->unique_id]) }}"
+                                class="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                 </svg>
                                 Lanjutkan Pendaftaran
                             </a>
+                            @else
+                            <a href="{{ route('pendaftar.edit', ['unique_id' => $daftar->unique_id]) }}"
+                                class="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                </svg>
+                                Lengkapi Data
+                            </a>
+                            @endif
                         </div>
                     </div>
                 </div>

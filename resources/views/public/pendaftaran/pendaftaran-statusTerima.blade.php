@@ -5,7 +5,7 @@
     @include('components.navbar')
     @include('components.walkthrough')
     
-    <div class="content flex-grow flex justify-center items-center">
+    <div class="content flex-grow flex justify-center items-center mt-[5.5rem]">
         <div class="w-full my-10 flex flex-col justify-center items-center">
             <span class="font-['Poppins'] text-3xl font-bold text-green-600">Pendaftaran Telah Dikonfirmasi!</span>
             <span class="font-['Poppins'] text-lg">Selamat bergabung dengan Main Riang</span>
