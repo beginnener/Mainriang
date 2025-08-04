@@ -174,6 +174,7 @@ class RegistrantController extends Controller
                         return view('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                 }
             }
+            
         }return redirect('login');
     }
 
