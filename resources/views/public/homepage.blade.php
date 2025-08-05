@@ -119,30 +119,16 @@
     </div>
     <div class="mt-6 sm:mt-10 overflow-x-auto scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
         <div class="flex flex-row justify-start lg:justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 mb-5 lg:px-8 min-w-max">
+            @foreach ($testimonis as $testimoni)
             <div class="flex flex-col items-center gap-3 sm:gap-4 border border-slate-200 rounded-3xl p-3 sm:p-5 shadow-lg flex-shrink-0">
-                <img src="" alt="" class="w-24 sm:w-32 lg:w-36 h-24 sm:h-32 lg:h-36 rounded-full bg-slate-300"/>
+                <img src="{{ $testimoni->foto ? asset('storage/' . $testimoni->foto) : 'https://via.placeholder.com/150' }}" alt="" class="w-24 sm:w-32 lg:w-36 h-24 sm:h-32 lg:h-36 rounded-full bg-slate-300"/>
                 <div class="w-72 sm:w-80 lg:w-96 h-auto rounded-3xl p-3 sm:p-5 border border-slate-100">
-                    <p class="font-['Poppins'] font-normal text-sm sm:text-base text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
-                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-slate-800 text-center block mt-2">Ibu Siti</span>
-                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-purple-800 text-center block">Mom Andi</span>
+                    <p class="font-['Poppins'] font-normal text-sm sm:text-base text-slate-800 text-center">{{ $testimoni->isi }}</p>
+                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-slate-800 text-center block mt-2">{{ $testimoni->nama }}</span>
+                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-purple-800 text-center block">{{ $testimoni->nama_anak }}</span>
                 </div>
             </div>
-            <div class="flex flex-col items-center gap-3 sm:gap-4 border border-slate-200 rounded-3xl p-3 sm:p-5 shadow-lg flex-shrink-0">
-                <img src="" alt="" class="w-24 sm:w-32 lg:w-36 h-24 sm:h-32 lg:h-36 rounded-full bg-slate-300"/>
-                <div class="w-72 sm:w-80 lg:w-96 h-auto rounded-3xl p-3 sm:p-5 border border-slate-100">
-                    <p class="font-['Poppins'] font-normal text-sm sm:text-base text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
-                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-slate-800 text-center block mt-2">Ibu Siti</span>
-                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-purple-800 text-center block">Mom Andi</span>
-                </div>
-            </div>
-            <div class="flex flex-col items-center gap-3 sm:gap-4 border border-slate-200 rounded-3xl p-3 sm:p-5 shadow-lg flex-shrink-0">
-                <img src="" alt="" class="w-24 sm:w-32 lg:w-36 h-24 sm:h-32 lg:h-36 rounded-full bg-slate-300"/>
-                <div class="w-72 sm:w-80 lg:w-96 h-auto rounded-3xl p-3 sm:p-5 border border-slate-100">
-                    <p class="font-['Poppins'] font-normal text-sm sm:text-base text-slate-800 text-center">"Main Riang adalah tempat yang luar biasa untuk anak-anak. Mereka belajar sambil bermain dan mendapatkan pengalaman berharga."</p>
-                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-slate-800 text-center block mt-2">Ibu Siti</span>
-                    <span class="font-['Poppins'] font-bold text-sm sm:text-base text-purple-800 text-center block">Mom Andi</span>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

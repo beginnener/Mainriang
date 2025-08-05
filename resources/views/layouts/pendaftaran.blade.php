@@ -28,6 +28,7 @@
             </span>
         </a>
         @include('components.footer')
+        @stack('scripts')
     </div>
 </body>
 </html>

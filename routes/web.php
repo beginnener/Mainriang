@@ -1,18 +1,22 @@
 <?php
 
+use App\Models\Testimoni;
 use App\Models\Registrant;
+use App\Exports\PendaftarExport;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\RegistrantController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\TestimoniController;
-use App\Exports\PendaftarExport;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\RegistrantController;
 
 // Public Pages Routes
-Route::get('/', function () { return view('public.homepage'); })->name('home');
+Route::get('/', function () { 
+    $testimonis = Testimoni::latest()->where('status', 'publish')->get();
+    return view('public.homepage', compact('testimonis')); 
+})->name('home');
 Route::get('/profil', function () { return view('public.pages.profil-mainriang'); })->name('profil-mainriang');
 Route::get('/daycare', function () { return view('public.pages.daycare'); })->name('daycare');
 Route::get('/playgroup', function () { return view('public.pages.playgroup'); })->name('playgroup');
@@ -60,11 +64,17 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::delete('/admin/dashboard/location/{id}', [ProgramController::class, 'destroyLocation'])->name('admin-location.destroy');
     Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview']);
     Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('admin-testimoni');
+    Route::get('/admin/dashboard/testimoni/{id}/edit', [TestimoniController::class, 'edit'])->name('testimoni.edit');
+    Route::post('/admin/dashboard/testimoni/store', [TestimoniController::class, 'store'])->name('testimoni.store');
+    Route::delete('/admin/dashboard/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
+    Route::put('/admin/dashboard/testimoni/{id}', [TestimoniController::class, 'update'])->name('testimoni.update');
+
+    // Registrant Actions - only for admin
+    Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
+    Route::patch('/pendaftar/{id}/tolak', [RegistrantController::class, 'tolak'])->name('pendaftar.tolak');
 });
 
-// Registrant Actions - only for admin
-Route::patch('/pendaftar/{id}/terima', [RegistrantController::class, 'terima'])->name('pendaftar.terima');
-Route::patch('/pendaftar/{id}/tolak', [RegistrantController::class, 'tolak'])->name('pendaftar.tolak');
+
 
 // Profile Routes
 Route::middleware('auth')->group(function () {

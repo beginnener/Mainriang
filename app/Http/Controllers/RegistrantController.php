@@ -132,7 +132,7 @@ class RegistrantController extends Controller
                     }
                     if ($registrant->status == 2){ // jika status registrant adalah 3, masuk ke step 'pilih program'
                         $registrant->update([
-                            'rombel_id' => $request->lokasi . $request->program
+                            'rombel_id' => $request->program
                         ]);
                         $registrant->update(['status' => 3]);
                         return redirect()->route('form', $registrant->unique_id);
@@ -153,9 +153,8 @@ class RegistrantController extends Controller
                     case 1: // step 'data ortu'
                         return view ('public.pendaftaran.pendaftaran-dataOrtu', ['id' => $id], ['currentStep' => $step]);
                     case 2: // step 'pilih program'
-                        $programs = Program::all();
-                        $locations = Location::all();
-                        return view ('public.pendaftaran.pendaftaran-pilihProgram', compact('programs', 'id', 'locations'), ['currentStep' => $step]);
+                        $rombels = Rombel::with(['program', 'location'])->get();
+                        return view ('public.pendaftaran.pendaftaran-pilihProgram', compact('rombels', 'id'), ['currentStep' => $step]);
                     case 3: // step 'konfirmasi bayar 1'
                         return view ('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                     case 30: // step 'konfirmasi bayar 1 ditolak'
@@ -174,6 +173,7 @@ class RegistrantController extends Controller
                         return view('public.pendaftaran.pendaftaran-status', compact('registrant'), ['currentStep' => $step]);
                 }
             }
+
         }return redirect('login');
     }
 
