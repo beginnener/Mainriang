@@ -83,7 +83,6 @@
             ['src' => asset('images/galeriKegiatan/IMG_2520.jpg')],
             ['src' => asset('images/galeriKegiatan/IMG_2585.jpg')],
             ['src' => asset('images/galeriKegiatan/IMG_20241025_094357.jpg')],
-            ['src' => asset('images/galeriKegiatan/WhatsApp Image 2025-03-11 at 09.42.05_b48a7e81.jpg')],
             ['src' => asset('images/galeriKegiatan/Wisuda TK B 2024_2025.jpg')],
         ];
     @endphp
