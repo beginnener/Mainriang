@@ -1,4 +1,5 @@
-<div id="carousel" class="relative w-full aspect-[16/9] md:h-[70vh] mx-auto overflow-hidden shadow-lg">
+<div id="carousel" class="relative w-full aspect-[21/9] mx-auto overflow-hidden shadow-lg">
+
     <!-- Images wrapper -->
     <div class="flex transition-transform duration-500 ease-in-out h-full" id="carousel-track">
         @foreach ($images as $image)

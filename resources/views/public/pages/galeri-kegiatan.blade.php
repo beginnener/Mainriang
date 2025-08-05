@@ -18,51 +18,73 @@
 
 <div class="bg-purple-950"> 
     <!-- Card Section -->
-    <div class="w-full h-[400px] inset-0 bg-purple-950 flex items-center justify-center">
-        <div class="py-10 flex flex-row gap-10">
-            @foreach (range(1, 3) as $i)
-            <a href="">
-                <div class="relative z-10 w-[300px] h-[200px] bg-white rounded-3xl overflow-hidden shadow-lg shadow-slate-800/80 transition-transform duration-500 hover:scale-105 group">
-                    <div class="absolute z-10 bottom-0 w-full h-16 bg-gradient-to-l from-orange-400 to-amber-200 flex justify-start items-center transition-all duration-500 ease-in-out group-hover:h-full">
-                        <div class="p-4">
-                            <h3 class="font-['Poppins'] font-bold text-xl select-none transition-transform duration-500 ease-in-out group-hover:ml-0 w-full">Kegiatan Rutin {{ $i }}</h3>
-                            <p class="w-full flex flex-wrap font-['Poppins'] text-base transition-opacity duration-500 ease-in-out group-hover:opacity-100">Kegiatan rutin</p>
-                        </div>
+    <div class="w-full bg-purple-950 py-12 px-4">
+        <div class="max-w-6xl mx-auto bg-white rounded-3xl p-10">
+
+            <h2 class="text-purple-950 text-3xl font-bold font-['Poppins'] text-center mb-12">Kegiatan Reguler</h2>
+
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-white font-['Poppins']">
+                @php
+                    $kegiatanReguler = [
+                        ['no' => 1, 'title' => 'Fieldtrip'],
+                        ['no' => 2, 'title' => 'Berenang'],
+                        ['no' => 3, 'title' => 'Cooking Class'],
+                        ['no' => 4, 'title' => 'Sportclass'],
+                        ['no' => 5, 'title' => 'Kaulinan Sunda'],
+                        ['no' => 6, 'title' => 'English Class'],
+                        ['no' => 7, 'title' => 'Medical Check Up'],
+                        ['no' => 8, 'title' => 'Asesmen DTKA'],
+                        ['no' => 9, 'title' => 'Parenting'],
+                    ];
+                @endphp
+
+                @foreach ($kegiatanReguler as $kegiatan)
+                <div class="flex items-start space-x-4">
+                    <div class="min-w-[32px] min-h-[32px] bg-yellow-400 text-purple-950 font-bold flex items-center justify-center rounded-full">
+                        {{ $kegiatan['no'] }}
                     </div>
-                    <img src="{{ asset('images/anak sholat 2.jpg') }}" alt="" class="absolute opacity-100 z-0 -translate-y-6 translate-x-2 scale-125">
+                    <div>
+                        <h3 class="text-purple-950 text-lg font-semibold">{{ $kegiatan['title'] }}</h3>
+                    </div>
                 </div>
-            </a>
-            @endforeach
+                @endforeach
+            </div>
+            <h2 class="text-purple-950 text-3xl font-bold font-['Poppins'] text-center mt-12 mb-12">Kegiatan Anual</h2>
+            <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-4">
+                @php
+                    $kegiatanAnual = [
+                        'Masa Pengenalan Lingkungan Sekolah',
+                        'Back To School',
+                        'Wonderful Ramadhan',
+                        'Bakti Sosial',
+                        'Read Aloud with Parents',
+                        'Pentas Riang',
+                        'Family Gathering',
+                    ];
+                @endphp
+
+                @foreach ($kegiatanAnual as $item)
+                <div class="px-6 py-3 bg-gradient-to-r from-yellow-300 to-orange-400 text-black rounded-full shadow-md font-semibold font-['Poppins'] text-center">
+                    {{ $item }}
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
-    
+
     @php
         $images = [
-            ['src' => asset('images/anak sholat 2.jpg'), 
-                'heading' => 'Kegiatan Eventual 1', 
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.' ,
-                'textpos' => 'bottom-16 left-16'
-            ],
-            ['src' => asset('images/belajar montessori 4.jpg'), 
-                'heading' => 'Kegiatan Eventual 1', 
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.' ,
-                'textpos' => 'bottom-16 left-16'
-            ],
-            ['src' => asset('images/WhatsApp Image 2025-03-17 at 14.09.44_b88173d4.jpg'), 
-                'heading' => 'Kegiatan Eventual 1', 
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.' ,
-                'textpos' => 'bottom-16 left-16'
-            ],
-            ['src' => asset('images/foto famgath.jpg'), 
-                'heading' => 'Kegiatan Eventual 1', 
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.' ,
-                'textpos' => 'top-16 left-16'
-            ],
-            ['src' => asset('images/foto famgath.jpg'), 
-                'heading' => 'Kegiatan Eventual 1', 
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.' ,
-                'textpos' => 'top-16 left-16'
-            ],
+            ['src' => asset('images/galeriKegiatan/Berenang.jpg')],
+            ['src' => asset('images/galeriKegiatan/Fieldtrip Klinik Gigi.jpg')],
+            ['src' => asset('images/galeriKegiatan/foto famgath.jpg')],
+            ['src' => asset('images/galeriKegiatan/IMG_2439.jpg')],
+            ['src' => asset('images/galeriKegiatan/IMG_2446.jpg')],
+            ['src' => asset('images/galeriKegiatan/IMG_2501.jpg')],
+            ['src' => asset('images/galeriKegiatan/IMG_2520.jpg')],
+            ['src' => asset('images/galeriKegiatan/IMG_2585.jpg')],
+            ['src' => asset('images/galeriKegiatan/IMG_20241025_094357.jpg')],
+            ['src' => asset('images/galeriKegiatan/WhatsApp Image 2025-03-11 at 09.42.05_b48a7e81.jpg')],
+            ['src' => asset('images/galeriKegiatan/Wisuda TK B 2024_2025.jpg')],
         ];
     @endphp
 
