@@ -25,6 +25,11 @@
       {{ request()->routeIs('admin-testimoni') ? 'bg-purple-950 text-amber-400' : '' }}">
       Testimoni
     </a>
+    <a href="{{ route('admin-fasilitas') }}"
+      class="sidebar-button flex items-center w-full py-3 px-8 leading-tight font-['Poppins'] transition-all outline-none text-start hover:bg-purple-950 hover:text-amber-400 focus:bg-purple-950 focus:text-amber-400 active:bg-purple-950 active:text-amber-400
+      {{ request()->routeIs('admin-fasilitas') ? 'bg-purple-950 text-amber-400' : '' }}">
+      Fasilitas
+    </a>
   </div>
 
   {{-- LOGOUT --}}

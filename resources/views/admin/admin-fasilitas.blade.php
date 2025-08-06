@@ -2,27 +2,37 @@
 
 @section('content')
 <div class="flex">
-    {{-- Konten utama digeser pakai margin kiri --}}
-    <div class="ml-0 md:ml-[250px]  p-6 w-full font-['Poppins']">
+    <div class="ml-0 md:ml-[250px] p-6 w-full font-['Poppins']">
         <h2 class="text-2xl font-bold text-purple-900 mb-6">Manajemen Fasilitas</h2>
 
         {{-- Form Tambah Fasilitas --}}
-        <form action="#" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md mb-10 border border-purple-200">
+        <form action="{{ route('admin-fasilitas.store') }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md mb-10 border border-purple-200">
             @csrf
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
                     <label class="block mb-1 font-semibold text-purple-800">Nama Fasilitas</label>
-                    <input type="text" name="nama" class="w-full border rounded px-4 py-2" placeholder="Contoh: Ruang Kelas A">
+                    <input type="text" name="name" class="w-full border rounded px-4 py-2" placeholder="Contoh: Ruang Kelas A">
 
                     <label class="block mt-4 mb-1 font-semibold text-purple-800">Lokasi</label>
-                    <input type="text" name="lokasi" class="w-full border rounded px-4 py-2" placeholder="Contoh: Gedung Utama">
+                    <select name="location_id" id="location_id" class="w-full border rounded px-4 py-2">
+                        <option value="">Pilih Lokasi</option>
+                        @foreach ($locations as $location)
+                            <option value="{{ $location->id }}">{{ $location->name }}</option>
+                        @endforeach
+                    </select>
 
                     <label class="block mt-4 mb-1 font-semibold text-purple-800">Deskripsi</label>
-                    <textarea name="deskripsi" rows="4" class="w-full border rounded px-4 py-2" placeholder="Tuliskan deskripsi singkat..."></textarea>
+                    <textarea name="description" rows="4" class="w-full border rounded px-4 py-2" placeholder="Tuliskan deskripsi singkat..."></textarea>
+
+                    <label for="status" class="block mt-4 mb-1 font-semibold text-purple-800">Status</label>
+                    <select name="status" id="status" class="w-full border rounded px-4 py-2">
+                        <option value="draf">Draf</option>
+                        <option value="publish">Publish</option>
+                    </select>
                 </div>
                 <div>
                     <label class="block mb-1 font-semibold text-purple-800">Foto Fasilitas</label>
-                    <input type="file" name="foto" class="w-full border rounded px-4 py-2 bg-gray-50">
+                    <input type="file" name="image" class="w-full border rounded px-4 py-2 bg-gray-50" accept="image/*">
                 </div>
             </div>
             <div class="mt-6 text-right">
@@ -43,13 +53,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- Contoh baris data --}}
-                        <tr class="border-t">
-                            <td class="px-4 py-2">1</td>
-                            <td class="px-4 py-2">Ruang Musik</td>
-                            <td class="px-4 py-2">Arcamanik</td>
-                            </td>
-                        </tr>
+                        @foreach ($facilities->where('status', 'publish') as $facility)
+                            <tr class="border-t">
+                                <td class="px-4 py-2">{{ $loop->iteration }}</td>
+                                <td class="px-4 py-2">{{ $facility->name }}</td>
+                                <td class="px-4 py-2">{{ $facility->location->name ?? 'Tidak Diketahui' }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -63,6 +73,7 @@
                     <thead class="bg-purple-100 text-purple-900">
                         <tr>
                             <th class="px-4 py-2">#</th>
+                            <th class="px-4 py-2">Foto</th>
                             <th class="px-4 py-2">Nama</th>
                             <th class="px-4 py-2">Lokasi</th>
                             <th class="px-4 py-2">Status</th>
@@ -70,39 +81,104 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-t">
-                            <td class="px-4 py-2">1</td>
-                            <td class="px-4 py-2">Perpustakaan</td>
-                            <td class="px-4 py-2">Lantai 1</td>
-                            <td class="px-4 py-2">Dipublish</td>
-                            <td class="px-4 py-2">
-                                <div class="relative inline-block text-left">
-                                    <button type="button" onclick="openModal('1')" class="text-blue-600 hover:underline focus:outline-none">
-                                        <i class="uil uil-edit-alt text-lg"></i>
-                                    </button>
+                        @foreach ($facilities as $facility)
+                            <tr class="border-t">
+                                <td class="px-4 py-2">{{ $loop->iteration }}</td>
+                                <td class="px-4 py-2">
+                                    @if ($facility->image)
+                                        <img src="{{ asset('storage/' . $facility->image) }}" alt="{{ $facility->name }}" class="w-16 h-16 object-cover rounded">
+                                    @else
+                                        <span class="text-gray-500 italic">Tidak ada</span>
+                                    @endif
+                                </td>
+                                <td class="px-4 py-2">{{ $facility->name }}</td>
+                                <td class="px-4 py-2">{{ $facility->location->name ?? '-' }}</td>
+                                <td class="px-4 py-2">{{ $facility->status}}</td>
+                                <td class="px-4 py-2 space-x-2">
+                                    {{-- Tombol Edit --}}
+                                    <button onclick="openEditModal({{ $facility->id }})" class="text-blue-600 hover:underline">Edit</button>
 
-                                    <div class="dropdown-menu absolute z-10 mt-2 w-40 bg-white rounded-md shadow-lg border hidden">
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Unpublish</a>
-                                        <a href="#" class="block px-4 py-2 hover:bg-red-100 text-red-600">Hapus</a>
-                                    </div>
-                                </div>
-                            </td>`
-                        </tr>
+                                    {{-- Tombol Hapus --}}
+                                    <form action="{{ route('admin-fasilitas.destroy', $facility->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:underline">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-                <!-- Modal Popup Aksi -->
-                <div id="modal-1" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
-                    <div class="bg-white rounded-lg shadow-xl w-80 p-6 relative">
-                        <h3 class="text-lg font-semibold text-purple-900 mb-4">Aksi Fasilitas</h3>
-                        <div class="space-y-3">
-                            <a href="#" class="block w-full text-left px-4 py-2 bg-gray-100 rounded hover:bg-gray-200 text-gray-800">Unpublish</a>
-                            <a href="#" class="block w-full text-left px-4 py-2 bg-red-100 rounded hover:bg-red-200 text-red-600">Hapus</a>
-                        </div>
-                        <button onclick="closeModal('1')" class="absolute top-2 right-3 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+                {{-- Modal Edit (Satu modal, isiannya akan diganti lewat JS) --}}
+                <div id="editModal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+                    <div class="bg-white rounded-lg shadow-xl w-full max-w-xl p-6 relative">
+                        <h3 class="text-lg font-semibold text-purple-900 mb-4">Edit Fasilitas</h3>
+
+                        <form id="editForm" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+
+                            <input type="hidden" name="id" id="edit_id">
+
+                            <label class="block mb-1 font-semibold">Nama</label>
+                            <input type="text" name="name" id="edit_name" class="w-full border rounded px-3 py-2 mb-3">
+
+                            <label class="block mb-1 font-semibold">Lokasi</label>
+                            <select name="location_id" id="edit_location_id" class="w-full border rounded px-3 py-2 mb-3">
+                                @foreach ($locations as $location)
+                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                @endforeach
+                            </select>
+
+                            <label class="block mb-1 font-semibold">Deskripsi</label>
+                            <textarea name="description" id="edit_description" rows="3" class="w-full border rounded px-3 py-2 mb-3"></textarea>
+
+                            <label class="block mb-1 font-semibold">Status</label>
+                            <select name="status" id="edit_status" class="w-full border rounded px-3 py-2 mb-3">
+                                <option value="draf">Draf</option>
+                                <option value="publish">Publish</option>
+                            </select>
+
+                            <label class="block mb-1 font-semibold">Ganti Foto (Opsional)</label>
+                            <input type="file" name="image" class="w-full border rounded px-3 py-2 bg-gray-50 mb-4">
+
+                            <div class="flex justify-end space-x-2">
+                                <button type="button" onclick="closeEditModal()" class="bg-gray-300 px-4 py-2 rounded">Batal</button>
+                                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
+                            </div>
+                        </form>
+
+                        <button onclick="closeEditModal()" class="absolute top-2 right-3 text-gray-600 text-xl">&times;</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    const facilities = @json($facilities);
+
+    function openEditModal(id) {
+        const modal = document.getElementById('editModal');
+        const facility = facilities.find(f => f.id === id);
+
+        if (!facility) return;
+
+        document.getElementById('edit_id').value = facility.id;
+        document.getElementById('edit_name').value = facility.name;
+        document.getElementById('edit_description').value = facility.description ?? '';
+        document.getElementById('edit_status').value = facility.status;
+        document.getElementById('edit_location_id').value = facility.location_id ?? '';
+
+        document.getElementById('editForm').action = `/admin/dashboard/fasilitas/${facility.id}`;
+
+        modal.classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+        document.getElementById('editModal').classList.add('hidden');
+    }
+</script>
+
 @endsection

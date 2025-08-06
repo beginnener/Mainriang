@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Location;
 use App\Models\Testimoni;
 use App\Models\Registrant;
 use App\Exports\PendaftarExport;
@@ -21,7 +22,10 @@ Route::get('/profil', function () { return view('public.pages.profil-mainriang')
 Route::get('/daycare', function () { return view('public.pages.daycare'); })->name('daycare');
 Route::get('/playgroup', function () { return view('public.pages.playgroup'); })->name('playgroup');
 Route::get('/tk', function () { return view('public.pages.tk'); })->name('tk');
-Route::get('/fasilitas', function () { return view('public.pages.fasilitas'); })->name('fasilitas');
+Route::get('/fasilitas', function () { 
+    $locations = Location::with('facilities')->get();
+    return view('public.pages.fasilitas', compact('locations')); 
+})->name('fasilitas');
 Route::get('/trilogi', function () { return view('public.pages.trilogi'); })->name('trilogi');
 Route::get('/galeri', function () { return view('public.pages.galeri-kegiatan'); })->name('galeri-kegiatan');
 Route::get('/mengapa', function () { return view('public.pages.mengapa'); })->name('mengapa');
@@ -62,7 +66,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::post('/admin/dashboard/program/storeProgram', [ProgramController::class, 'storeProgram'])->name('admin-program-storeProgram');
     Route::delete('/admin/dashboard/program/{id}', [ProgramController::class, 'destroyProgram'])->name('admin-program.destroy');
     Route::delete('/admin/dashboard/location/{id}', [ProgramController::class, 'destroyLocation'])->name('admin-location.destroy');
-    Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview']);
+    
+    Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview'])->name('admin-fasilitas');
+    Route::post('/admin/dashboard/fasilitas/store', [FacilityController::class, 'store'])->name('admin-fasilitas.store');
+    Route::get('/admin/dashboard/fasilitas/{id}/edit', [FacilityController::class, 'edit'])->name('admin-fasilitas.edit');
+    Route::put('/admin/dashboard/fasilitas/{id}', [FacilityController::class, 'update'])->name('admin-fasilitas.update');
+    Route::delete('/admin/dashboard/fasilitas/{id}', [FacilityController::class, 'destroy'])->name('admin-fasilitas.destroy');
+
     Route::get('/admin/dashboard/testimoni', [TestimoniController::class, 'preview'])->name('admin-testimoni');
     Route::get('/admin/dashboard/testimoni/{id}/edit', [TestimoniController::class, 'edit'])->name('testimoni.edit');
     Route::post('/admin/dashboard/testimoni/store', [TestimoniController::class, 'store'])->name('testimoni.store');

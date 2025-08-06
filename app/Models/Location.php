@@ -14,4 +14,8 @@ class Location extends Model
     public function Rombel(): HasMany{
         return $this->hasMany(Rombel::class);
     }
+    public function facilities(): HasMany
+    {
+        return $this->hasMany(Facility::class);
+    }
 }
