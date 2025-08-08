@@ -1,65 +1,58 @@
 @extends('layouts.pendaftaran')
 {{-- judul --}}
-@section('title','Data Anak')
 @section('content')
-<div class="w-full flex flex-col pt-6 pb-10 gap-6">
-    <!-- Form -->
-    <div class="w-4/5 mx-auto">
+<x-title title="Data Anak" />
+<div class="w-full flex flex-col py-6 gap-6">
+    <div class="w-full max-w-6xl mx-auto px-8">
         <form action="{{ route('daftar') }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
             @csrf
-            {{-- FORM ANAK --}}
             <input type="hidden" name="id" value="{{ $registrant->unique_id }}">
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="nama_lengkap" class="font-['Poppins'] text-right px-2">Nama Lengkap</label>
+            <!-- Nama Lengkap Anak -->
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="nama_lengkap" class="font-['Poppins'] text-left md:text-right px-2">Nama Lengkap</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2">
-                    <input type="text" id="nama_lengkap" name="nama_lengkap"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan nama lengkap"
-                        value=" {{ $registrant->child->nama }}" readonly required>
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
+                    <input type="text" id="nama_lengkap" name="nama_lengkap" class="w-full py-3 px-4 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan nama lengkap" value="{{ $registrant->child->nama }}" readonly required>
                 </div>
             </div>
             <!-- Jenis Kelamin -->
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label class="font-['Poppins'] text-right px-2">Jenis Kelamin</label>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label class="font-['Poppins'] text-left md:text-right px-2">Jenis Kelamin</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2 flex items-center space-x-6">
-                    <label class="inline-flex items-center font-['Poppins']">
-                        <input type="radio" name="jenis_kelamin" value="L" class="mr-2" required> Laki-laki
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2 gap-4">
+                    <label class="font-['Poppins'] flex items-center gap-2">
+                        <input type="radio" name="jenis_kelamin" value="L" required> Laki-laki
                     </label>
-                    <label class="inline-flex items-center font-['Poppins']">
-                        <input type="radio" name="jenis_kelamin" value="P" class="mr-2" required> Perempuan
+                    <label class="font-['Poppins'] flex items-center gap-2">
+                        <input type="radio" name="jenis_kelamin" value="P" required> Perempuan
                     </label>
                 </div>
             </div>
             <!-- Tempat Lahir -->
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="tempat_lahir" class="font-['Poppins'] text-right px-2">Tempat Lahir</label>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="tempat_lahir" class="font-['Poppins'] text-left md:text-right px-2">Tempat Lahir</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2">
-                    <input type="text" id="tempat_lahir" name="tempat_lahir"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan tempat lahir" required>
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
+                    <input type="text" id="tempat_lahir" name="tempat_lahir" class="w-full py-3 px-4 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan tempat lahir" required>
                 </div>
             </div>
             <!-- Tanggal Lahir -->
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="tanggal_lahir" class="font-['Poppins'] text-right px-2">Tanggal Lahir</label>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="tanggal_lahir" class="font-['Poppins'] text-left md:text-right px-2">Tanggal Lahir</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2">
-                    <input type="date" id="tanggal_lahir" name="tanggal_lahir"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" required>
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
+                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="w-full py-3 px-4 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" required>
                 </div>
             </div>
-            <!--FORM LAINNYA -->
+            <!-- FORM LAINNYA -->
             @php
             $fields = [
                 'nik' => 'NIK',
@@ -75,26 +68,23 @@
             ];
             @endphp
             @foreach ($fields as $name => $label)
-                <div class="flex flex-row items-center mt-4">
-                    <div class="w-1/6 flex justify-end items-center">
-                        <label for="{{ $name }}" class="font-['Poppins'] text-right px-2">{{ $label }}</label>
-                    </div>
-                    <span class="px-1 font-['Poppins']">:</span>
-                    <div class="flex-grow px-2">
-                        <input type="text" id="{{ $name }}" name="{{ $name }}"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left"
-                        placeholder="Masukkan {{ strtolower($label) }}" required>
-                    </div>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="{{ $name }}" class="font-['Poppins'] text-left md:text-right px-2">{{ $label }}</label>
                 </div>
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
+                    <input type="text" id="{{ $name }}" name="{{ $name }}" class="w-full py-3 px-4 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" placeholder="Masukkan {{ strtolower($label) }}" required>
+                </div>
+            </div>
             @endforeach
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="jenis_tinggal_anak" class="font-['Poppins'] text-right px-2">Jenis Tinggal</label>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="jenis_tinggal_anak" class="font-['Poppins'] text-left md:text-right px-2">Jenis Tinggal</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2">
-                    <select id="jenis_tinggal_anak" name="jenis_tinggal_anak"
-                        class="w-full h-16 px-6 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" required>
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
+                    <select id="jenis_tinggal_anak" name="jenis_tinggal_anak" class="w-full py-3 px-4 bg-zinc-200 border-none rounded-full font-['Poppins'] text-left" required>
                         <option value="">Pilih jenis tinggal</option>
                         <option value="dengan_ibu_dan_ayah">Dengan ibu dan ayah</option>
                         <option value="dengan_ibu">Dengan ibu</option>
@@ -103,46 +93,37 @@
                     </select>
                 </div>
             </div>
-            <!-- Setelah form anak, sebelum FORM ORTU -->
             <!-- Upload Foto Kartu Keluarga -->
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="kartu_keluarga" class="font-['Poppins'] text-right px-2">Foto Kartu Keluarga</label>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="kartu_keluarga" class="font-['Poppins'] text-left md:text-right px-2">Foto Kartu Keluarga</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2">
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
                     <input type="file" id="kartu_keluarga" name="kartu_keluarga" class="hidden" accept="image/*,application/pdf" required>
-                    <label id="label-foto-kk-btn" for="kartu_keluarga"
-                        class="cursor-pointer inline-block w-full h-16 px-6 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
+                    <label id="label-foto-kk-btn" for="kartu_keluarga" class="cursor-pointer w-full py-3 px-4 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
                         <span id="label-foto-kk">Pilih file...</span>
                         <svg class="w-6 h-6 text-purple-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"></path></svg>
                     </label>
                 </div>
             </div>
             <!-- Upload Foto Akta Kelahiran -->
-            <div class="flex flex-row items-center mt-4">
-                <div class="w-1/6 flex justify-end items-center">
-                    <label for="akta_kelahiran" class="font-['Poppins'] text-right px-2">Foto Akta Kelahiran</label>
+            <div class="flex flex-col md:flex-row items-start md:items-center py-2">
+                <div class="w-full md:w-1/4 flex justify-start md:justify-end items-center mb-1 md:mb-0">
+                    <label for="akta_kelahiran" class="font-['Poppins'] text-left md:text-right px-2">Foto Akta Kelahiran</label>
                 </div>
-                <span class="px-1 font-['Poppins']">:</span>
-                <div class="flex-grow px-2">
+                <span class="hidden md:flex px-1 font-['Poppins'] items-center">:</span>
+                <div class="w-full md:flex-1 flex items-center px-2">
                     <input type="file" id="akta_kelahiran" name="akta_kelahiran" class="hidden" accept="image/*,application/pdf" required>
-                    <label id="label-foto-akta-btn" for="akta_kelahiran"
-                        class="cursor-pointer inline-block w-full h-16 px-6 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
+                    <label id="label-foto-akta-btn" for="akta_kelahiran" class="cursor-pointer w-full py-3 px-4 bg-zinc-300 text-black font-bold rounded-full flex items-center justify-between shadow-[0px_2px_4px_0px_rgba(33,0,58,0.2)] transition">
                         <span id="label-foto-akta">Pilih file...</span>
                         <svg class="w-6 h-6 text-purple-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"></path></svg>
                     </label>
                 </div>
             </div>
-    </div> {{-- tutup section anak, section form lanjut --}}
+            <!-- ...existing code for parent, guardian, and additional data sections... -->
             {{-- FORM ORTU --}}
-            <div class="w-full flex pt-4">
-                <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-                    <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" >
-                        Data Ibu
-                    </span>
-                </div>
-            </div>
+            <x-title title="Data Ibu"></x-title>
             <div class="w-4/5 mx-auto flex flex-col gap-4">
                 <!-- Nama Lengkap -->
                 <div class="flex flex-row items-center">
@@ -234,13 +215,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex pt-4">
-                <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-                    <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" >
-                        Data Ayah
-                    </span>
-                </div>
-            </div>
+            <x-title title="Data Ayah"></x-title>
             <div class="w-4/5 mx-auto flex flex-col gap-4">
                 <div class="flex flex-row items-center">
                     <div class="w-1/6 flex justify-end items-center">
@@ -335,13 +310,7 @@
             {{-- FORM WALI --}}
             @if ($registrant->child->guardian)
                 <div id="form_wali" class="flex-col gap-4 mt-4">
-                    <div class="w-full flex pt-4">
-                        <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-                            <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" >
-                                Data Wali
-                            </span>
-                        </div>
-                    </div>
+                <x-title title="Data Wali"/>
                     <div class="w-4/5 mx-auto flex flex-col gap-4">
                         <!-- Nama Wali -->
                         <div class="flex flex-row items-center">
@@ -436,13 +405,7 @@
                 </div>
             @endif
             {{-- FORM DATA TAMBAHAN --}}
-            <div class="w-full flex pt-4">
-                <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-                    <span class="ml-48 font-['Fredoka'] font-semibold text-purple-950 text-3xl" >
-                        Data Tambahan
-                    </span>
-                </div>
-            </div>
+            <x-title title="Data Tambahan" />
             <div class="w-4/5 mx-auto flex flex-col gap-4">
                 <!-- Lintang -->
                 <div class="flex flex-row items-center mt-4">

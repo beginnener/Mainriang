@@ -107,6 +107,7 @@
       <a href="{{ route('home') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Beranda</a>
       <a href="{{ route('profil-mainriang') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Tentang</a>
       <a href="{{ route('trilogi') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Trilogi</a>
+      <a href="{{ route('mengapa') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Mengapa Main Riang?</a>
       <div class="space-y-2">
         <button id="lgProgramToggle" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400 w-full text-left">Program</button>
         <div id="lgProgramMenu" class="hidden pl-4 space-y-2">
