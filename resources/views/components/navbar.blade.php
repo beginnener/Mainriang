@@ -63,11 +63,6 @@
         Galeri
       </span>
     </a>
-    <a href="{{ route('kemitraan') }}">
-      <span class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">
-        Kemitraan
-      </span>
-    </a>
     <a href="{{ route('petunjuk-pendaftaran') }}">
       <div class="w-36 h-10 flex items-center justify-center rounded-full bg-gradient-to-l from-orange-400 to-amber-300 transition duration-500 hover:bg-purple-900 hover:bg-none hover:outline hover:outline-orange-400 hover:outline-1 active:bg-purple-950 focus:text-yellow-400 group ">
         <span class="text-purple-950 font-medium font-['Poppins'] group-hover:text-orange-400">Pendaftaran</span>
@@ -81,13 +76,18 @@
       </span>
     </a>
     @else
-      <a href="{{ route('login') }}">
-        <div class="w-28 h-10 flex items-center justify-center rounded-full bg-purple-900 text-orange-400 font-medium font-['Poppins'] border border-orange-400 transition duration-500 hover:text-purple-900 hover:border-none hover:bg-gradient-to-l hover:from-orange-400 hover:to-amber-300 group active:bg-amber-400 active:text-white">
-          Log in
-        </div>
-      </a>
-      @endauth
+    <a href="{{ route('login') }}">
+      <div class="w-28 h-10 flex items-center justify-center rounded-full bg-purple-900 text-orange-400 font-medium font-['Poppins'] border border-orange-400 transition duration-500 hover:text-purple-900 hover:border-none hover:bg-gradient-to-l hover:from-orange-400 hover:to-amber-300 group active:bg-amber-400 active:text-white">
+        Log in
+      </div>
+    </a>
+    @endauth
     @endif
+    <a href="{{ route('kemitraan') }}">
+      <div class="w-28 h-10 flex items-center justify-center rounded-full bg-purple-900 text-orange-400 font-medium font-['Poppins'] border border-orange-400 transition duration-500 hover:text-purple-900 hover:border-none hover:bg-gradient-to-l hover:from-orange-400 hover:to-amber-300 group active:bg-amber-400 active:text-white">
+          Kemitraan
+      </div>
+    </a>
   </div>
 
   {{-- < lg breakpoint menu --}}
@@ -118,12 +118,12 @@
       </div>
       <a href="{{ route('fasilitas') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Fasilitas</a>
       <a href="{{ route('galeri-kegiatan') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Galeri</a>
-      <a href="{{ route('kemitraan') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Kemitraan</a>
       <a href="{{ route('petunjuk-pendaftaran') }}" class="block">
         <div class="w-full h-10 flex items-center justify-center rounded-full bg-gradient-to-l from-orange-400 to-amber-300 transition duration-500">
           <span class="text-purple-950 font-medium font-['Poppins']">Pendaftaran</span>
         </div>
       </a>
+      <a href="{{ route('kemitraan') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Kemitraan</a>
       @if(Route::has('login'))
         @auth
           <div class="border-t border-purple-700 pt-4 space-y-2">
