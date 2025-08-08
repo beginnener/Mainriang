@@ -10,7 +10,7 @@
         <!-- Section Putih -->
         <div class="relative z-10 flex flex-col xl:flex-row px-8 md:px-24 lg:px-40 py-10 md:py-32 gap-8 md:gap-12 bg-white rounded-br-[2rem] md:rounded-br-[3rem] rounded-bl-[2rem] md:rounded-bl-[3rem] items-center">
             <div class="aspect-square w-40 md:w-72 lg:w-96 flex-shrink-0 bg-slate-300 rounded-tr-full rounded-tl-full rounded-bl-full shadow-[-8px_3px_0px_0px_rgba(255,152,78,1.00)] md:shadow-[-15px_5px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden">
-                <img src="{{ asset('images/WhatsApp Image 2025-03-11 at 09.42.05_0948c5ad.jpg') }}" alt="" class="w-full h-full object-cover" />
+                <img src="{{ asset('images/WhatsApp Image 2025-03-11 at 09.42.04_376a1b4f.jpg') }}" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="flex flex-col flex-grow mx-0 md:mx-8 gap-4 md:gap-5">
                 <div class="px-8 md:px-16 py-4 mx-auto flex justify-center items-center bg-gradient-to-l from-orange-400 to-amber-300 rounded-full">
@@ -91,30 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        @php
-        $images = [
-            '/images/belajar montessori 2.jpg',
-            '/images/belajar montessori 2.jpg',
-            '/images/belajar montessori 2.jpg',
-            '/images/belajar montessori 2.jpg',
-            '/images/belajar montessori 2.jpg',
-        ];
-        @endphp
-
-        <!-- Section Putih -->
-        <div class="relative z-10 -mt-6 md:-mt-10 bg-white rounded-t-[2rem] md:rounded-t-[3rem]">
-                @if ($images && count($images) > 0)
-                    <x-galeri-program :title="'Galeri Kegiatan'" :images="$images" />
-                @endif
-            </div>
-        <!-- Tombol -->
-        <div class="mb-10 md:mb-20 relative z-10 flex justify-center">
-            <a href="/data-anak" class="inline-flex items-center justify-center w-60 md:w-80 h-12 md:h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-lg md:text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
-                Daftar Sekarang
-            </a>
-        </div>
+        </div>  
     </div>
     
 

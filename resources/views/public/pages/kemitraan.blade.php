@@ -162,9 +162,6 @@
             <p class="text-sm text-gray-600">Masih ada pertanyaan? Jangan ragu untuk menghubungi kami. Tim kami siap membantu Anda!</p>
 
             <div class="mt-4 flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#" class="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transform transition-all duration-300">
-                    Daftar Sekarang
-                </a>
                 <a href="https://wa.me/6281234567890" target="_blank" class="inline-block px-6 py-3 bg-purple-900 text-white font-semibold rounded-full shadow-lg hover:bg-purple-800 transition duration-300">
                     Hubungi Admin
                 </a>

@@ -332,7 +332,7 @@
         <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="" class="">
     </div>
     <div class="absolute z-10 top-[2600px] left-[68%] w-[220px] h-[220px] rounded-t-full rounded-br-full shadow-[10px_8px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden scale-90">
-        <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="" class="">
+        <img src="{{ asset('images/IMG_2422.jpg') }}" alt="" class="w-full h-full object-cover">
     </div>
     <div class="absolute top-[2900px] left-[80%] ml-auto flex justify-end">
         <svg width="513" height="1021" viewBox="0 0 513 1021" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -360,10 +360,10 @@
     </div>
     {{-- gembira beraksi --}}
     <div class="absolute z-10 top-[4090px] left-[10%] w-[220px] h-[320px] rounded-bl-[3rem] shadow-[10px_8px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden scale-75">
-        <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="" class="">
+        <img src="{{ asset('images/IMG_2407.jpg') }}" alt="" class="w-full h-full object-cover">
     </div>
     <div class="absolute z-10 w-[220px] h-[220px] top-[4800px] left-[20%] rounded-t-full rounded-br-full shadow-[10px_8px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden scale-90">
-        <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="" class="">
+        <img src="{{ asset('images/WhatsApp Image 2025-03-11 at 09.42.05_053b8ce4 - crop.jpg') }}" alt="" class="">
     </div>
     <div class="absolute ml-auto top-[4370px] -left-[13%] flex justify-end">
         <svg width="513" height="1021" viewBox="0 0 513 1021" fill="none" xmlns="http://www.w3.org/2000/svg">
