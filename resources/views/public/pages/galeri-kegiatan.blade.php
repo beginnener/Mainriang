@@ -21,7 +21,7 @@
     <div class="w-full bg-purple-950 py-12 px-4">
         <div class="max-w-6xl mx-auto bg-white rounded-3xl p-10">
 
-            <h2 class="text-purple-950 text-3xl font-bold font-['Poppins'] text-center mb-12">Kegiatan Reguler</h2>
+            <h2 class="text-purple-950 text-2xl font-bold font-['Poppins'] text-center mb-12">Kegiatan Reguler</h2>
 
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-white font-['Poppins']">
                 @php
@@ -40,16 +40,16 @@
 
                 @foreach ($kegiatanReguler as $kegiatan)
                 <div class="flex items-start space-x-4">
-                    <div class="min-w-[32px] min-h-[32px] bg-yellow-400 text-purple-950 font-bold flex items-center justify-center rounded-full">
+                    <div class="min-w-[32px] min-h-[32px] bg-yellow-400 text-purple-950 font-semibold flex items-center justify-center rounded-full">
                         {{ $kegiatan['no'] }}
                     </div>
                     <div>
-                        <h3 class="text-purple-950 text-lg font-semibold">{{ $kegiatan['title'] }}</h3>
+                        <h3 class="text-purple-950 text-lg font-medium">{{ $kegiatan['title'] }}</h3>
                     </div>
                 </div>
                 @endforeach
             </div>
-            <h2 class="text-purple-950 text-3xl font-bold font-['Poppins'] text-center mt-12 mb-12">Kegiatan Anual</h2>
+            <h2 class="text-purple-950 text-2xl font-bold font-['Poppins'] text-center mt-12 mb-12">Kegiatan Anual</h2>
             <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-4">
                 @php
                     $kegiatanAnual = [
@@ -98,61 +98,7 @@
     @endphp
 
     <div class="relative z-10 bg-white">
-        <div class="py-10 flex flex-row">
-            <div class="mb-8 flex justify-center items-center w-[800px]">
-                <span class="font-['Poppins'] text-3xl font-bold text-purple-950 block text-right">Galeri Video</span>
-            </div>
-            <div x-data="multiItemCarousel({{ Js::from($videos) }})" x-init="init()" class="relative w-full py-8 bg-white rounded-t-[3rem] overflow-hidden">
-                <!-- Carousel Container -->
-                <div class="relative overflow-hidden">
-                    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out"
-                        :style="`transform: translateX(-${currentIndex * itemWidth}px)`">
-                        <template x-for="(vid, i) in images" :key="i">
-                            <template x-if="vid.id === 'video'">
-                                <iframe
-                                    :src="vid.src"
-                                    class="w-[320px] h-[400px] mx-2 rounded-[2rem] flex-shrink-0"
-                                    frameborder="0"
-                                    allowfullscreen
-                                ></iframe>
-                            </template>
-                            <template x-if="vid.id === 'placeholder'">
-                                <div class="w-[320px] h-[400px] mx-2 flex-shrink-0 rounded-[2rem] bg-gray-200 opacity-50 flex items-center justify-center"></div>
-                            </template>
-                        </template>
-                    </div>
-    
-                    <!-- Buttons -->
-                    <button @click="prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-purple-800 text-white px-4 py-2 rounded-full z-10">&#10094;</button>
-                    <!-- Tombol Next (Panah) -->
-                    <button 
-                        x-show="currentIndex < images.length - visibleItems" 
-                        @click="next"
-                        x-transition:enter="transition ease-out duration-300"
-                        x-transition:enter-start="opacity-0 translate-x-2"
-                        x-transition:enter-end="opacity-100 translate-x-0"
-                        x-transition:leave="transition ease-in duration-300"
-                        x-transition:leave-start="opacity-100 translate-x-0"
-                        x-transition:leave-end="opacity-0 translate-x-2"
-                        class="absolute right-0 top-1/2 -translate-y-1/2 bg-purple-800 text-white px-4 py-2 rounded-full z-10">
-                        &#10095;
-                    </button>
-    
-                    <!-- Tombol Lihat Selengkapnya -->
-                    <a href="https://www.youtube.com/@dibagiilmu606"
-                        x-show="currentIndex >= images.length - visibleItems" 
-                        x-transition:enter="transition ease-out duration-300"
-                        x-transition:enter-start="opacity-0 translate-x-2"
-                        x-transition:enter-end="opacity-100 translate-x-0"
-                        x-transition:leave="transition ease-in duration-300"
-                        x-transition:leave-start="opacity-100 translate-x-0"
-                        x-transition:leave-end="opacity-0 translate-x-2"
-                        class="absolute right-0 top-1/2 -translate-y-1/2 bg-zinc-200 text-black px-4 py-2 rounded-full z-10">
-                        Lihat selengkapnya &#8594;
-                    </a>
-                </div>
-            </div>
-        </div>
+        <x-galeri-program :title="'Galeri Video'" :videos="$videos" />
     </div>
 </div>
 @endsection
