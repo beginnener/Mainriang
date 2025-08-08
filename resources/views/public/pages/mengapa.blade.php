@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
-<div class="w-full h-48 lg:h-72 relative bg-gray-700">
+<div class="w-full h-48 lg:h-72 relative bg-gray-700 mb-8">
     <img src="{{ asset('images/Banner.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-80"/>
     <h1 class="absolute inset-0 flex items-center justify-center text-white text-2xl lg:text-3xl font-bold">Mengapa Main Riang</h1>
 </div>
-<div class="w-full py-16">
-    <x-title title="Tentang Main Riang" />
-    <div class="w-full lg:w-fit h-auto bg-white mt-6 lg:mt-8 mx-4 lg:mx-48">
-        <p class="text-slate-900 text-base lg:text-xl font-medium font-['Poppins'] p-4 lg:p-0">
+<x-title title="Tentang Main Riang" />
+<div class="w-full pb-16 px-8 md:px-8 lg:px-48">
+    <div class="w-full bg-white mt-6 lg:mt-8 mx-auto max-w-7xl">
+        <p class="text-slate-900 text-base lg:text-xl font-medium font-['Poppins']">
             Main Riang adalah lembaga pendidikan Islam di bawah naungan Yayasan Teman Ilmu Indonesia
             berdasarkan Akta Notaris Mohamad Juania, SH., M.Kn. Nomor 19 Tanggal 18 Februari 2021
             dengan Nomor Induk Berusaha (NIB) 1215000240293 yang berfokus pada pengelolaan Day Care,
@@ -17,7 +17,7 @@
             Kota Bandung</strong> pada Tahun 2023 dengan lingkungan pendidikan yang aman, nyaman, dan menyenangkan,
             dimana kami tidak hanya berkomitmen terhadap pendidikan anak, tetapi kami sangat peduli
             terhadap optimal tumbuh kembang anak serta pembentukan karakter seorang muslim sejak usia dini.
-            Dengan Tagline <strong class="text-purple-950">“Bermain Penuh Makna”</strong> Kami berkomitmen menjadi mitra terpercaya bagi orang tua
+            Dengan Tagline <strong class="text-purple-950">"Bermain Penuh Makna"</strong> Kami berkomitmen menjadi mitra terpercaya bagi orang tua
             untuk mengoptimalkan masa golden age anak dengan pendekatan Islamic Montessori Khas Main Riang.
         </p>
     </div>
@@ -128,10 +128,10 @@
         </div>
         
         <!-- Image and Ornaments -->
-        <div class="w-full lg:w-1/2 relative min-h-[300px] md:min-h-[400px] lg:min-h-[600px]">
-            <!-- Orange flower ornament - repositioned for mobile -->
-            <div class="absolute -top-10 right-0 md:right-auto md:top-16 md:left-1/2 lg:left-24 w-32 h-32 md:w-40 md:h-40 lg:w-auto lg:h-auto z-0 opacity-50 md:opacity-80 lg:opacity-100">
-                <svg width="200" height="200" viewBox="0 0 513 1021" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-50 md:scale-75 lg:scale-100">
+        <div class="w-full lg:w-1/2 relative min-h-[300px] md:min-h-[400px] lg:min-h-[600px] overflow-hidden">
+            <!-- Orange flower ornament - repositioned to avoid overlap -->
+            <div class="absolute -top-10 right-0 md:right-18 md:top-0 lg:right-2 w-32 h-32 md:w-40 md:h-40 lg:w-auto lg:h-auto z-0 opacity-50 md:opacity-80 lg:opacity-100">
+                <svg width="250" height="250" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-50 md:scale-75 lg:scale-100">
                     <path d="M642.677 177.971C648.353 264.259 511.509 450.123 511.509 450.123C511.509 450.123 351.499 283.785 345.823 197.497C340.147 111.209 401.999 36.8868 483.973 31.4948C565.947 26.1027 637.001 91.6822 642.677 177.971Z" fill="#FF984E"/>
                     <path d="M247.536 300.582C332.065 318.553 473.639 500.745 473.639 500.745C473.639 500.745 270.192 609.586 185.663 591.615C101.134 573.645 46.4602 493.926 63.546 413.56C80.6318 333.193 163.007 282.611 247.536 300.582Z" fill="#FF984E"/>
                     <path d="M748.448 267.54C667.002 296.428 550.513 495.595 550.513 495.595C550.513 495.595 766.464 576.849 847.911 547.961C929.357 519.073 973.117 432.88 945.652 355.444C918.186 278.007 829.895 238.651 748.448 267.54Z" fill="#FF984E"/>
@@ -140,22 +140,22 @@
                 </svg>
             </div>
             
-            <!-- Purple circle ornament - repositioned for mobile -->
-            <div class="absolute bottom-10 right-5 md:right-auto md:bottom-20 md:left-10 lg:left-32 lg:bottom-0 z-0">
-                <svg width="100" height="100" viewBox="0 0 246 232" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-50 md:scale-75 lg:scale-100">
-                    <ellipse cx="123" cy="116" rx="123" ry="116" fill="url(#paint0_linear_366_169)"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_366_169" x1="246" y1="116" x2="0" y2="116" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#73329C"/>
-                    <stop offset="1" stop-color="#9A6088"/>
-                    </linearGradient>
-                    </defs>
-                </svg>                          
+            <!-- Purple circle ornament - moved to different position -->
+            <div class="absolute bottom-5 left-5 md:bottom-10 md:left-0 lg:left-auto lg:right-20 lg:bottom-16 z-0">
+            <svg width="100" height="100" viewBox="0 0 246 232" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-50 md:scale-75 lg:scale-100">
+                <ellipse cx="123" cy="116" rx="123" ry="116" fill="url(#paint0_linear_366_169)"/>
+                <defs>
+                <linearGradient id="paint0_linear_366_169" x1="246" y1="116" x2="0" y2="116" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#73329C"/>
+                <stop offset="1" stop-color="#9A6088"/>
+                </linearGradient>
+                </defs>
+            </svg>                          
             </div>
             
             <!-- Image - centered on mobile -->
             <div class="absolute top-12 left-1/2 transform -translate-x-1/2 md:left-auto md:-translate-x-0 md:top-20 md:right-10 lg:top-32 lg:left-24 w-[180px] h-[260px] md:w-[200px] md:h-[300px] lg:w-[220px] lg:h-[320px] rounded-bl-[3rem] shadow-[10px_8px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden z-10">
-                <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="Anak-anak Main Riang" class="w-full h-full object-cover">
+            <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="Anak-anak Main Riang" class="w-full h-full object-cover">
             </div>
         </div>
     </div>
