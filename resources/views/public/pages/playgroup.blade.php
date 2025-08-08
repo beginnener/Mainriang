@@ -103,11 +103,11 @@
         @endphp
 
         <!-- Section Putih -->
-        @if ($images && count($images) > 0)
-            <div class="relative z-10 -mt-6 md:-mt-10 bg-white rounded-t-[2rem] md:rounded-t-[3rem]">
-                <x-galeri-program :images="$images" />
+        <div class="relative z-10 -mt-6 md:-mt-10 bg-white rounded-t-[2rem] md:rounded-t-[3rem]">
+                @if ($images && count($images) > 0)
+                    <x-galeri-program :title="'Galeri Kegiatan'" :images="$images" />
+                @endif
             </div>
-        @endif
         <!-- Tombol -->
         <div class="mb-10 md:mb-20 relative z-10 flex justify-center">
             <a href="/data-anak" class="inline-flex items-center justify-center w-60 md:w-80 h-12 md:h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-lg md:text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
