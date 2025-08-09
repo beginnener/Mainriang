@@ -10,7 +10,7 @@
         <div class="h-auto bg-white mt-4 md:mt-6 lg:mt-8 px-8 lg:px-48">
             <p class="text-slate-900 text-base md:text-lg lg:text-xl font-medium font-['Poppins']">
                 Sebelum mendaftar, pastikan Anda telah memiliki akun Main Riang. Jika Anda belum memiliki akun, silakan daftar terlebih dahulu dengan memencet tombol login di kanan atas.<br/>
-                <br/>Selain itu, penting untuk membaca informasi lengkap mengenai program dan kegiatan yang tersedia di Main Riang. Anda dapat mengakses dokumen tersebut melalui tautan <strong>Daftar Program</strong> yang tersedia di bawah.
+                <br/>Selain itu, penting untuk membaca informasi lengkap mengenai program dan kegiatan yang tersedia di Main Riang. Anda dapat mengakses dokumen tersebut melalui tautan <strong>Detail Harga</strong> yang tersedia di bawah.
                 <a class="text-slate-900 text-base md:text-lg lg:text-xl font-medium font-['Poppins']">
                 Informasi mengenai program, kegiatan, serta ketentuan yang berlaku dapat membantu Anda dalam memilih 
                 dan mengikuti aktivitas yang sesuai dengan minat dan kebutuhan Anda. Dengan memahami program yang tersedia, 
