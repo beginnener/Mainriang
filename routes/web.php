@@ -12,6 +12,8 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\RegistrantController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\OtpVerificationController;
 
 // Public Pages Routes
 Route::get('/', function () { 
@@ -92,5 +94,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+
+Route::get('/verify-code', [OtpVerificationController::class, 'show'])->name('verification.notice');
+Route::post('/verify-code', [OtpVerificationController::class, 'verify'])->name('verification.verify');
 
 require __DIR__.'/auth.php';

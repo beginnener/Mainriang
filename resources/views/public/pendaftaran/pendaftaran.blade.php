@@ -12,7 +12,7 @@
         <div class="w-4/5 h-auto bg-white mt-8 pl-48">
             <p class="text-slate-900 text-xl font-medium font-['Poppins']">
                 Sebelum mendaftar, pastikan Anda telah memiliki akun Main Riang. Jika Anda belum memiliki akun, silakan daftar terlebih dahulu dengan memencet tombol login di kanan atas.<br/>
-                <br/>Selain itu, penting untuk membaca informasi lengkap mengenai program dan kegiatan yang tersedia di Main Riang. Anda dapat mengakses dokumen tersebut melalui tautan <strong>Daftar Program</strong> yang tersedia di bawah.
+                <br/>Selain itu, penting untuk membaca informasi lengkap mengenai program dan kegiatan yang tersedia di Main Riang. Anda dapat mengakses dokumen tersebut melalui tautan <strong>Detail Harga</strong> yang tersedia di bawah.
                 <a class="text-slate-900 text-xl font-medium font-['Poppins']">
                 Informasi mengenai program, kegiatan, serta ketentuan yang berlaku dapat membantu Anda dalam memilih 
                 dan mengikuti aktivitas yang sesuai dengan minat dan kebutuhan Anda. Dengan memahami program yang tersedia, 
@@ -22,18 +22,16 @@
             <ul class="mt-1 font-['Poppins'] text-xl list-disc list-inside">
                 <li>Pengisian data anak</li>
                 <li>Pengisian data orang tua</li>
-                <li>Pembayaran uang pendaftaran</li>
                 <li>Pemilihan cabang dan program</li>
-                <li>Pengisian form lanjutan</li>
+                <li>Pembayaran uang pendaftaran</li>
                 <li>Asesmen dan wawancara oleh psikolog</li>
-                <li>Konfirmasi data</li>
                 <li>Pembayaran pendidikan</li>
             </ul>
         </div>
         <div class="mt-8 mx-auto flex justify-center items-center">
             <div class="mt-8 mx-auto flex justify-center items-center gap-6">
                 {{-- Tombol Daftar Program --}}
-                <a href="https://drive.google.com" target="_blank"
+                <a href="https://drive.google.com/drive/folders/1Z611Z5xvH6AaxAv7U4jn9MnBJsya44eU" target="_blank"
                     class="inline-flex items-center justify-center w-80 h-16 rounded-full bg-gradient-to-l from-orange-400 to-amber-300 shadow-[0px_7px_4px_0px_rgba(33,0,58,0.5)] text-black text-xl font-bold text-center transition hover:shadow-none hover:translate-y-1">
                     Detail Harga
                 </a>

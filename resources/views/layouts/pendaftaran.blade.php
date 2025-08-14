@@ -19,7 +19,7 @@
             @yield('content')
         </div>
         <!-- Floating Button -->
-        <a href="https://wa.me" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/6285710905799" target="_blank" rel="noopener noreferrer"
             class="fixed bottom-8 right-8 z-50 flex items-center gap-2 bg-white text-purple-950 rounded-full px-5 py-3 shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300"
             title="Butuh bantuan? Hubungi Admin">
             <img src="{{ asset('icon/whatsapp.svg') }}" alt="WhatsApp" class="w-8 h-8"/>
