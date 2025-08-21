@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Location;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        try {
+            if (Schema::hasTable('locations')) {
+                $locations = Location::all();
+                view()->share('locations', $locations);
+            }
+        } catch (\Exception $e) {
+            // Kalau database belum connect, biar gak crash
+            view()->share('locations', collect());
+        }
     }
 }
