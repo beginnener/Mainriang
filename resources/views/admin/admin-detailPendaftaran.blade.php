@@ -12,6 +12,10 @@
                             <td class="px-4 py-2 font-semibold border border-gray-600">Tanggal Daftar</td>
                             <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->created_at ? \Carbon\Carbon::parse($pendaftar->created_at)->format('d/m/Y') : '-' }}</td>
                         </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold border border-gray-600">Nomor Telepon</td>
+                            <td class="px-4 py-2 border border-gray-600">{{ $pendaftar->phone_number }}</td>
+                        </tr>
                         <tr class="items-center">
                             <td class="px-4 py-2 font-semibold border border-gray-600">Status Pendaftaran</td>
                             <td class="w-full px-4 py-2 border border-gray-600"> 
