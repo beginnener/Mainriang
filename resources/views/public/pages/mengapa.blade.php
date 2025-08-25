@@ -5,7 +5,7 @@
     <h1 class="absolute inset-0 flex items-center justify-center text-white text-2xl lg:text-3xl font-bold">Mengapa Main Riang</h1>
 </div>
 <x-title title="Tentang Main Riang" />
-<div class="w-full pb-16 px-8 md:px-8 lg:px-48">
+<div class="w-full pb-16 px-8 lg:px-48">
     <div class="w-full bg-white mt-6 lg:mt-8 mx-auto max-w-7xl">
         <p class="text-slate-900 text-base lg:text-xl font-medium font-['Poppins']">
             Main Riang adalah lembaga pendidikan Islam di bawah naungan Yayasan Teman Ilmu Indonesia
@@ -85,117 +85,105 @@
         </div>
     </div>
 </div>
-<div class="w-full bg-slate-100 flex flex-row">
-    <div class="relative w-[1280px] ml-48 py-32 flex flex-col gap-4">
-        <h2 class="relative z-0 text-7xl font-['Fredoka'] font-bold bg-gradient-to-l from-orange-500 to-amber-200 bg-clip-text text-transparent" style="text-shadow: 3px 4px 5px rgba(120, 53, 15, 0.5)">
-            7 JEJAK<br>
-            Main Riang
-        </h2>
-        <h2 class="absolute h-40 z-20 text-7xl font-['Fredoka'] font-bold bg-gradient-to-l from-orange-500 to-amber-200 bg-clip-text text-transparent">
-            7 JEJAK<br>
-            Main Riang
-        </h2>
-        <div class="flex flex-col gap-10">
-            <div class="w-[600px] h-fit">
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        7 Jejak Main Riang adalah 7 kebiasaan baik yang menjadi kompetensi lulusan di 
-                        Main Riang untuk menumbuhkan iman, mengembangkan ilmu, dan membiasakan kebaikan.
-                    </span>
-                </div>
+<div class="w-full bg-slate-100 flex flex-col lg:flex-row">
+    <div class="relative w-full xl:w-[1280px] lg:ml-48 py-16 lg:py-32 flex flex-col gap-4 px-8 md:px-12">
+        <div class="relative">
+            <h2 class="z-0 text-3xl md:text-5xl lg:text-7xl font-['Fredoka'] font-bold bg-gradient-to-l from-orange-500 to-amber-200 bg-clip-text text-transparent"
+                style="text-shadow: 1px 2px 2px rgba(120,53,15,0.5)"
+                md:style="text-shadow: 3px 4px 5px rgba(120,53,15,0.5)">
+                7 JEJAK<br>
+                Main Riang
+            </h2>
+            <h2 class="absolute top-0 left-0 h-20 md:h-32 lg:h-40 z-20 text-3xl md:text-5xl lg:text-7xl font-['Fredoka'] font-bold bg-gradient-to-l from-orange-500 to-amber-200 bg-clip-text text-transparent pointer-events-none">
+                7 JEJAK<br>
+                Main Riang
+            </h2>
+        </div>
+        <div class="flex flex-col gap-8">
+            <div class="w-full xl:max-w-xl">
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    7 Jejak Main Riang adalah 7 kebiasaan baik yang menjadi kompetensi lulusan di 
+                    Main Riang untuk menumbuhkan iman, mengembangkan ilmu, dan membiasakan kebaikan.
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Taat dan Dekat pada Allah
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Menumbuhkan kebiasaan berdoa, berdzikir,
-                        mengenal nama-nama Allah, serta merasa bahwa Allah Maha Melihat dan Maha Penyayang
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Menumbuhkan kebiasaan berdoa, berdzikir,
+                    mengenal nama-nama Allah, serta merasa bahwa Allah Maha Melihat dan Maha Penyayang
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Anak Hebat yang Suka Belajar
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Menumbuhkan rasa ingin tahu, eksploratif, fokus belajar,
-                        dan menyukai tantangan baru sesuai fitrah anak
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Menumbuhkan rasa ingin tahu, eksploratif, fokus belajar,
+                    dan menyukai tantangan baru sesuai fitrah anak
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Berani Mencoba, Tak Takut Gagal
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Mengembangkan growth mindset Islami,
-                        bahwa kesalahan bukan aib, melainkan proses menuju kemajuan dengan doa dan usaha
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Mengembangkan growth mindset Islami,
+                    bahwa kesalahan bukan aib, melainkan proses menuju kemajuan dengan doa dan usaha
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Suka Berbuat Baik dan Menolong Teman
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Membiasakan berempati, ringan tangan, berkata sopan, dan bersikap ramah kepada siapa pun
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Membiasakan berempati, ringan tangan, berkata sopan, dan bersikap ramah kepada siapa pun
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Menjaga Amanah dan Aturan
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Melatih tanggung jawab dan ketaatan pada aturan sebagai bagian dari iman
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Melatih tanggung jawab dan ketaatan pada aturan sebagai bagian dari iman
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Bersyukur dan Sabar
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Mengajarkan syukur atas nikmat, dan sabar dalam menghadapi kesulitan kecil 
-                        (kehilangan mainan, harus bergantian, dll)
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Mengajarkan syukur atas nikmat, dan sabar dalam menghadapi kesulitan kecil 
+                    (kehilangan mainan, harus bergantian, dll)
+                </span>
             </div>
-            <div class="w-[600px] h-fit">
-                <div class="mb-2">
-                    <span class="font-['Poppins'] font-bold text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <div class="w-full xl:max-w-xl">
+                <div class="mb-1">
+                    <span class="font-['Poppins'] font-bold text-lg md:text-2xl bg-gradient-to-l from-orange-400 to-amber-400 bg-clip-text text-transparent">
                         Aku Cinta Lingkunganku dan Menjaga Kebersihan
                     </span>
                 </div>
-                <div>
-                    <span class="font-['Poppins'] text-lg">
-                        Menumbuhkan rasa cinta terhadap lingkungan, tubuh sendiri, dan kebersihan sebagai bagian dari iman
-                    </span>
-                </div>
+                <span class="font-['Poppins'] text-base md:text-lg">
+                    Menumbuhkan rasa cinta terhadap lingkungan, tubuh sendiri, dan kebersihan sebagai bagian dari iman
+                </span>
             </div>
         </div>
     </div>
-    <div class="relative w-[1280px] pb-12 flex flex-col overflow-clip">
-        <div class="absolute top-96 left-64 ml-auto flex justify-end">
+    <div class="relative w-full lg:w-[1280px] pb-12 flex flex-col overflow-clip">
+        <div class="absolute hidden lg:block top-96 left-64 ml-auto flex justify-end">
             <svg width="513" height="1021" viewBox="0 0 513 1021" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g transform="scale(0.5)">
                   <path d="M642.677 177.971C648.353 264.259 511.509 450.123 511.509 450.123C511.509 450.123 351.499 283.785 345.823 197.497C340.147 111.209 401.999 36.8868 483.973 31.4948C565.947 26.1027 637.001 91.6822 642.677 177.971Z" fill="#FF984E"/>
@@ -206,7 +194,7 @@
                 </g>
             </svg>
         </div>
-        <div class="absolute top-[50rem] left-32">
+        <div class="absolute hidden lg:block top-[50rem] left-32">
             <svg width="246" height="232" viewBox="0 0 246 232" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g transform="scale(0.6)">
                     <ellipse cx="123" cy="116" rx="123" ry="116" fill="url(#paint0_linear_366_169)"/>
@@ -218,12 +206,10 @@
                     </defs>
                 </g>
             </svg>                          
-            </div>
-            
-            <!-- Image - centered on mobile -->
-            <div class="absolute top-12 left-1/2 transform -translate-x-1/2 md:left-auto md:-translate-x-0 md:top-20 md:right-10 lg:top-32 lg:left-24 w-[180px] h-[260px] md:w-[200px] md:h-[300px] lg:w-[220px] lg:h-[320px] rounded-bl-[3rem] shadow-[10px_8px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden z-10">
+        </div>
+        <!-- Image - centered on mobile, left on desktop -->
+        <div class="absolute top-12 left-1/2 transform -translate-x-1/2 md:left-auto md:-translate-x-0 md:top-20 md:right-10 lg:top-32 lg:left-24 w-[140px] h-[180px] md:w-[180px] md:h-[260px] lg:w-[220px] lg:h-[320px] rounded-bl-[2rem] md:rounded-bl-[3rem] shadow-[10px_8px_0px_0px_rgba(255,152,78,1.00)] overflow-hidden z-10">
             <img src="{{ asset('images/foto anak berdua 2.jpg') }}" alt="Anak-anak Main Riang" class="w-full h-full object-cover">
-            </div>
         </div>
     </div>
 </div>
