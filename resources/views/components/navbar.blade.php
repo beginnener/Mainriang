@@ -222,27 +222,28 @@
 
   // Klik di luar semua dropdown
   document.addEventListener('click', (e) => {
-      dropdowns.forEach((d) => {
-          if (!d.button.contains(e.target) && !d.menu.contains(e.target)) {
-              d.isPinned = false;
-              d.menu.classList.add('hidden');
-          }
-      });
+    // Setup dropdown untuk Tentang
+    const toggleAbout = document.getElementById('toggleAbout');
+    const aboutMenu = document.getElementById('aboutMenu');
+    setupDropdown(toggleAbout, aboutMenu);
+  
+    // Setupp Dropdown untuk Program
+    const toggleProgram = document.getElementById('toggleProgram');
+    const programMenu = document.getElementById('programMenu');
+    setupDropdown(toggleProgram, programMenu);
+  
+    // Setup Dropdown untuk All Menu
+    const toggleAllMenu = document.getElementById('toggleAllMenu');
+    const allMenu = document.getElementById('allMenu');
+    setupDropdown(toggleAllMenu, allMenu);
+      
+    dropdowns.forEach((d) => {
+        if (!d.button.contains(e.target) && !d.menu.contains(e.target)) {
+            d.isPinned = false;
+            d.menu.classList.add('hidden');
+        }
+    });
   });
 
-  // Setup dropdown untuk Tentang
-  const toggleAbout = document.getElementById('toggleAbout');
-  const aboutMenu = document.getElementById('aboutMenu');
-  setupDropdown(toggleAbout, aboutMenu);
-
-  // Setupp Dropdown untuk Program
-  const toggleProgram = document.getElementById('toggleProgram');
-  const programMenu = document.getElementById('programMenu');
-  setupDropdown(toggleProgram, programMenu);
-
-  // Setup Dropdown untuk All Menu
-  const toggleAllMenu = document.getElementById('toggleAllMenu');
-  const allMenu = document.getElementById('allMenu');
-  setupDropdown(toggleAllMenu, allMenu);
 
 </script>
