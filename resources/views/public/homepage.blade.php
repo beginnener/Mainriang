@@ -112,6 +112,12 @@
         </div>
     </div>
 </section>
+<section class="flex justify-center w-full ratio-video bg-slate-100">
+    <video controls class="max-w-[1080px]">
+        <source src="{{ asset('videos/Profil Sekolah Main Riang.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
 <section class="w-full h-auto py-8 sm:py-11 bg-white flex flex-col">
     <div class="flex flex-col px-4 sm:px-6 lg:px-8">
         <h2 class="text-center font-['Poppins'] font-extrabold text-lg sm:text-xl text-slate-800">Testimoni</h2>
