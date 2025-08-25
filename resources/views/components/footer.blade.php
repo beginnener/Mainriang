@@ -24,15 +24,17 @@
                             <span class="font-['Poppins'] text-xl lg:text-2xl font-semibold text-white">Alamat Kami<br></span>
                         </div>
                         <div>
-                            <span class="font-['Poppins'] text-xs lg:text-sm font-light text-slate-50">
-                                Jl. Babakan Radio No. 25 Kota Bandung<br />
-                            </span>
+                            @foreach ($locations as $location)
+                                <span class="font-['Poppins'] text-xs lg:text-sm font-light text-slate-50">
+                                    {{ $location->name }}<br />
+                                </span>
+                            @endforeach
                         </div>
                         <div class="mt-4 flex flex-row gap-3">
-                            <a href="#">
+                            <a href="https://www.instagram.com/mainriang.preschool?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                                 <img src="{{ asset('icon/Link - instagram.svg') }}" alt="Instagram" class="w-6 h-6 lg:w-8 lg:h-8">
                             </a>
-                            <a href="#">
+                            <a href="https://wa.me/6285710905799">
                                 <img src="{{ asset('icon/Link - whatsapp.svg') }}" alt="WhatsApp" class="w-6 h-6 lg:w-8 lg:h-8">
                             </a>
                         </div>

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailVerificationCodeMail;
 
 class RegisteredUserController extends Controller
 {
@@ -30,21 +32,25 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        $verificationCode = rand(100000, 999999);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'email_verification_code' => $verificationCode,
         ]);
 
-        event(new Registered($user));
+        \Log::info("OTP untuk {$user->email} = {$verificationCode}");
 
-        Auth::login($user);
+        Mail::to($user->email)->send(new EmailVerificationCodeMail($verificationCode));
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect()->route('verification.notice')->with('email', $user->email);
     }
+
 }
