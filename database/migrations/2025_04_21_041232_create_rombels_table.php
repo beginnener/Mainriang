@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('location_id');
             $table->unsignedBigInteger('program_id');
+            
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('program_id')->references('id')->on('programs');

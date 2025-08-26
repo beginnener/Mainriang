@@ -68,7 +68,8 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::post('/admin/dashboard/program/storeProgram', [ProgramController::class, 'storeProgram'])->name('admin-program-storeProgram');
     Route::delete('/admin/dashboard/program/{id}', [ProgramController::class, 'destroyProgram'])->name('admin-program.destroy');
     Route::delete('/admin/dashboard/location/{id}', [ProgramController::class, 'destroyLocation'])->name('admin-location.destroy');
-    
+    Route::put('/admin/dashboard/location/{id}', [ProgramController::class, 'updateLocation'])->name('admin-location.update');
+
     Route::get('/admin/dashboard/fasilitas', [FacilityController::class, 'preview'])->name('admin-fasilitas');
     Route::post('/admin/dashboard/fasilitas/store', [FacilityController::class, 'store'])->name('admin-fasilitas.store');
     Route::get('/admin/dashboard/fasilitas/{id}/edit', [FacilityController::class, 'edit'])->name('admin-fasilitas.edit');
