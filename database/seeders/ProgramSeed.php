@@ -72,12 +72,12 @@ class ProgramSeed extends Seeder
         }
         $locations = [
             [
-                'name' => 'Gunung Batu, Jl. Babakan Radio No. 25 Kota Bandung',
-                'desc' => 'a'
+                'name' => 'Gunung Batu',
+                'address' => 'Jl. Babakan Radio No. 25 Kota Bandung'
             ],
             [
-                'name' => 'Arcamanik, Jl. Cicukang 37A',
-                'desc' => 'a'
+                'name' => 'Arcamanik',
+                'address' => 'Jl. Cicukang 37A'
             ]
         ];
         foreach ($locations as $location){
