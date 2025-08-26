@@ -5,15 +5,6 @@
     @include('components.navbar')
     <div class="mt-[5.5rem] min-h-screen flex flex-col">
         @include('components.walkthrough')
-        
-        <!-- Judul -->
-        <div class="w-full flex pt-4">
-            <div class="w-1/2 h-16 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex items-center">
-                <span class="ml-48 font-['Poppins'] font-bold text-purple-950 text-3xl">
-                    @yield('title')
-                </span>
-            </div>
-        </div>
     
         <div class="content flex-grow">
             @yield('content')

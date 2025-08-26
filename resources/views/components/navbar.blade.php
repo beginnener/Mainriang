@@ -9,7 +9,28 @@
 
   {{-- lg breakpoint menu --}}
   <div class="hidden lg:flex gap-5 items-center">
-    <a href="{{ route('profil-mainriang') }}" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">Tentang</a>
+    <div class="relative">  
+      <button id="toggleAbout" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">Tentang</button>
+      <div id="aboutMenu" class="hidden absolute top-full left-0 z-10 mt-2 w-[180px] bg-white rounded-3xl shadow-xl ring-1 ring-gray-900/5">
+        <div class="p-4">
+          <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
+            <a href="{{ route('profil-mainriang') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+              Profil Main Riang
+            </a>
+          </div>
+          <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
+            <a href="{{ route('trilogi') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+              Trilogi
+            </a>
+          </div>
+          <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-slate-100">
+            <a href="{{ route('mengapa') }}" class="block font-semibold text-gray-900 group-hover:text-orange-400">
+              Mengapa Main Riang?
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="relative">  
       <button id="toggleProgram" class="px-2 text-white text-base font-medium font-['Poppins'] transition hover:text-yellow-400 active:text-orange-500 focus:text-yellow-400">Program</button>
       <div id="programMenu" class="hidden absolute top-full left-0 z-10 mt-2 w-[180px] bg-white rounded-3xl shadow-xl ring-1 ring-gray-900/5">
@@ -85,6 +106,8 @@
     <div class="px-6 py-4 space-y-4">
       <a href="{{ route('home') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Beranda</a>
       <a href="{{ route('profil-mainriang') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Tentang</a>
+      <a href="{{ route('trilogi') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Trilogi</a>
+      <a href="{{ route('mengapa') }}" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400">Mengapa Main Riang?</a>
       <div class="space-y-2">
         <button id="lgProgramToggle" class="block text-white text-base font-medium font-['Poppins'] py-2 hover:text-yellow-400 w-full text-left">Program</button>
         <div id="lgProgramMenu" class="hidden pl-4 space-y-2">
@@ -199,22 +222,28 @@
 
   // Klik di luar semua dropdown
   document.addEventListener('click', (e) => {
-      dropdowns.forEach((d) => {
-          if (!d.button.contains(e.target) && !d.menu.contains(e.target)) {
-              d.isPinned = false;
-              d.menu.classList.add('hidden');
-          }
-      });
+    // Setup dropdown untuk Tentang
+    const toggleAbout = document.getElementById('toggleAbout');
+    const aboutMenu = document.getElementById('aboutMenu');
+    setupDropdown(toggleAbout, aboutMenu);
+  
+    // Setupp Dropdown untuk Program
+    const toggleProgram = document.getElementById('toggleProgram');
+    const programMenu = document.getElementById('programMenu');
+    setupDropdown(toggleProgram, programMenu);
+  
+    // Setup Dropdown untuk All Menu
+    const toggleAllMenu = document.getElementById('toggleAllMenu');
+    const allMenu = document.getElementById('allMenu');
+    setupDropdown(toggleAllMenu, allMenu);
+      
+    dropdowns.forEach((d) => {
+        if (!d.button.contains(e.target) && !d.menu.contains(e.target)) {
+            d.isPinned = false;
+            d.menu.classList.add('hidden');
+        }
+    });
   });
 
-  // Setup dropdown untuk Tentang
-  const toggleProgram = document.getElementById('toggleProgram');
-  const programMenu = document.getElementById('programMenu');
-  setupDropdown(toggleProgram, programMenu);
-
-  // Setup Dropdown untuk All Menu
-  const toggleAllMenu = document.getElementById('toggleAllMenu');
-  const allMenu = document.getElementById('allMenu');
-  setupDropdown(toggleAllMenu, allMenu);
 
 </script>

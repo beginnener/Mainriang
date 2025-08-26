@@ -18,7 +18,7 @@
         <div class="w-full h-12 sm:h-16 bg-gradient-to-l from-orange-400 to-amber-300 rounded-full flex justify-center items-center">
             <h2 class="font-['Fredoka'] font-bold text-purple-950 text-2xl sm:text-3xl lg:text-4xl text-center">PROGRAM</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-8 place-items-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-8 items-center">
             <a href="{{ route('daycare') }}" class="w-56 lg:w-64 aspect-square bg-slate-50 rounded-[24px] sm:rounded-[48px] flex flex-col items-center justify-center p-4 sm:p-5 shadow-lg transition hover:scale-105 hover:shadow-xl duration-300">
                 <span class="text-purple-950 font-['Fredoka'] font-semibold text-2xl sm:text-3xl lg:text-4xl mt-2">Day Care</span>
                 <img src="/icon/daycare - icon.svg" alt="Day Care" class="w-auto h-auto max-h-32 sm:max-h-40" />
@@ -37,7 +37,7 @@
 <section class="pb-6 bg-white flex justify-start">
     <div class="flex flex-col gap-0">
         <div class="w-fit pl-8 sm:pl-24 lg:pl-48 pr-16 py-4 rounded-tr-full rounded-br-full bg-gradient-to-l from-orange-400 to-amber-300 flex justify-left items-center">
-            <span class="font-['Fredoka'] font-semibold text-purple-950 text-lg sm:text-2xl lg:text-3xl text-left">Mengapa Main Riang?</span>
+            <span class="font-['Fredoka'] font-semibold text-purple-950 text-xl sm:text-2xl lg:text-3xl text-left">Mengapa Main Riang?</span>
         </div>
         <div class="relative bg-white flex flex-col">
             <div class="flex flex-col items-center sm:w-4/5 lg:w-3/5 ml-4 sm:ml-12 lg:ml-20 mr-4 sm:mr-8 lg:mr-0 rounded-3xl bg-purple-900">
@@ -111,6 +111,12 @@
             </div>
         </div>
     </div>
+</section>
+<section class="flex justify-center w-full ratio-video bg-slate-100">
+    <video controls class="w-full lg:max-w-[1080px]">
+        <source src="{{ asset('videos/Profil Sekolah Main Riang.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </section>
 <section class="w-full h-auto py-8 sm:py-11 bg-white flex flex-col">
     <div class="flex flex-col px-4 sm:px-6 lg:px-8">
