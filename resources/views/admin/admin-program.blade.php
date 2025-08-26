@@ -31,6 +31,10 @@
                             <input type="text" name="nama_lokasi" id="nama_lokasi" required
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
                                 placeholder="Masukkan nama lokasi sekolah...">
+                            <label for="alamat_lokasi" class="block text-sm font-medium text-gray-700 mb-2">Alamat Lokasi</label>
+                            <input type="text" name="alamat_lokasi" id="alamat_lokasi" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                                placeholder="Masukkan alamat lokasi sekolah...">
                         </div>
                         <div class="flex items-end">
                             <button type="submit"
@@ -54,6 +58,7 @@
                                 <tr>
                                     <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">ID</th>
                                     <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Nama Lokasi</th>
+                                    <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Alamat</th>
                                     <th class="px-6 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Aksi</th>
                                 </tr>
                             </thead>
@@ -62,7 +67,15 @@
                                     <tr class="hover:bg-gray-50 transition-colors duration-200">
                                         <td class="px-6 py-3 text-gray-600">{{ $lokasi->id }}</td>
                                         <td class="px-6 py-3 text-gray-800 font-medium">{{ $lokasi->name }}</td>
+                                        <td class="px-6 py-3 text-gray-800 font-medium">{{ $lokasi->address }}</td>
                                         <td class="px-6 py-3">
+                                            {{-- Tombol Edit --}}
+                                            <button type="button"
+                                                onclick="showEditModal({{ $lokasi->id }}, '{{ $lokasi->name }}', '{{ $lokasi->address}}')"
+                                                class="inline-flex items-center px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-700 text-sm font-medium rounded-lg transition duration-200 mr-2">
+                                                Edit
+                                            </button>
+                                            {{-- Tombol Hapus --}}
                                             <form action="{{ route('admin-location.destroy', $lokasi->id) }}" method="POST" onsubmit="return confirm('Hapus lokasi ini?');" class="inline">
                                                 @csrf
                                                 @method('DELETE')
@@ -213,5 +226,46 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal Edit Lokasi -->
+<div id="editModal" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <h3 class="text-lg font-semibold mb-4">Edit Lokasi</h3>
+        <form id="editForm" method="POST">
+            @csrf
+            @method('PUT')
+            <input type="hidden" name="id" id="edit_id">
+            <div class="mb-4">
+                <label for="edit_nama_lokasi" class="block text-sm font-medium text-gray-700 mb-2">Nama Lokasi</label>
+                <input type="text" name="nama_lokasi" id="edit_nama_lokasi" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+            </div>
+            <div class="mb-4">
+                <label for="edit_alamat_lokasi" class="block text-sm font-medium text-gray-700 mb-2">Alamat Lokasi</label>
+                <input type="text" name="alamat_lokasi" id="edit_alamat_lokasi" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+            </div>
+            <div class="flex justify-end gap-2">
+                <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-gray-200 rounded">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@push('scripts')
+<script>
+function showEditModal(id, name, address) {
+    document.getElementById('edit_id').value = id;
+    document.getElementById('edit_nama_lokasi').value = name;
+    document.getElementById('edit_alamat_lokasi').value = address;
+    document.getElementById('editForm').action = '/admin/dashboard/location/' + id;
+    document.getElementById('editModal').classList.remove('hidden');
+}
+function closeEditModal() {
+    document.getElementById('editModal').classList.add('hidden');
+}
+</script>
+@endpush
 </div>
 @endsection

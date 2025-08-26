@@ -26,7 +26,7 @@
                         <div>
                             @foreach ($locations as $location)
                                 <span class="font-['Poppins'] text-xs lg:text-sm font-light text-slate-50">
-                                    {{ $location->name }}<br />
+                                    {{ $location->address }}<br />
                                 </span>
                             @endforeach
                         </div>
